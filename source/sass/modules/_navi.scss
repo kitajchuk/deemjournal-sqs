@@ -1,0 +1,14 @@
+.navi {
+    padding-top: $header-height;
+
+    &.is-active {
+        pointer-events: none;
+
+        .navi__ul {
+            pointer-events: auto;
+            }
+    }
+}
+.navi__a {
+    color: $white;
+    }

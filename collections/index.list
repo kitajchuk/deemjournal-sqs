@@ -1,0 +1,3 @@
+{.if collection.homepage}
+{.or}
+{.end}

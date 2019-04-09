@@ -1,0 +1,142 @@
+/******************************************************************************
+ * Fonts
+*******************************************************************************/
+// Roobert ( Medium, Regular )
+$font-sans: "Roobert";
+$font-sans-regular: "#{$font-sans}-Regular";
+$font-sans-medium: "#{$font-sans}-Medium";
+
+// CheltenhamPro ( Book, Light )
+$font-serif: "CheltenhamPro";
+$font-serif-light: "#{$font-sans}-Light";
+$font-serif-book: "#{$font-sans}-Book";
+
+
+
+/******************************************************************************
+ * Colors
+*******************************************************************************/
+$black: #000;
+$charcoal: #333;
+$medium: #555;
+$white: #fff;
+$grey: #b8b8b8;
+$grey-lit: #dbdbdb;
+
+
+
+/******************************************************************************
+ * Grid
+*******************************************************************************/
+$grid-length: 12;
+$grid-columns: 12 11 10 9 8 7 6 5 4 3 2 1;
+
+
+
+/******************************************************************************
+ * Spacing
+*******************************************************************************/
+$expander-1: 6vw;
+$padding-1: 6vw;
+$padding-2: 9vw;
+$anim-1: 32px;
+
+
+
+/******************************************************************************
+ * Sizes
+*******************************************************************************/
+$header-height: 16vw;
+$header-height-small: 90px;
+$header-height-static: 256px;
+$header-height-mobile: 128px;
+
+
+
+
+/******************************************************************************
+ * Typography
+*******************************************************************************/
+$p-size-mobile: 17px;
+$p-size-fluid: #{"~\"calc( #{$p-size-mobile} + 0.25vw )\""};
+$p-size-max: 34px;
+$p-line: 50 / 34;
+
+$m-size-mobile: 10px;
+$m-size-fluid: #{"~\"calc( #{$m-size-mobile} + 0.25vw )\""};
+$m-size-max: 20px;
+$m-line: 30 / 20;
+
+$h1-size-mobile: 62px;
+$h1-size-fluid: #{"~\"calc( #{$h1-size-mobile} + 1vw )\""};
+$h1-size-max: 124px;
+$h1-line: 134 / 124;
+
+$h2-size-mobile: 52px;
+$h2-size-fluid: #{"~\"calc( #{$h2-size-mobile} + 1vw )\""};
+$h2-size-max: 104px;
+$h2-line: 114 / 104;
+
+$h3-size-mobile: 42px;
+$h3-size-fluid: #{"~\"calc( #{$h3-size-mobile} + 0.75vw )\""};
+$h3-size-max: 84px;
+$h3-line: 94 / 84;
+
+$h4-size-mobile: 32px;
+$h4-size-fluid: #{"~\"calc( #{$h4-size-mobile} + 0.75vw )\""};
+$h4-size-max: 64px;
+$h4-line: 74 / 64;
+
+$h5-size-mobile: 22px;
+$h5-size-fluid: #{"~\"calc( #{$h5-size-mobile} + 0.5vw )\""};
+$h5-size-max: 44px;
+$h5-line: 54 / 44;
+
+$h6-size-mobile: 12px;
+$h6-size-fluid: #{"~\"calc( #{$h6-size-mobile} + 0.5vw )\""};
+$h6-size-max: 24px;
+$h6-line: 34 / 24;
+
+
+
+/******************************************************************************
+ * Breakpoints
+*******************************************************************************/
+$break-desktop-full: 2560px;
+$break-laptop-full: 1680px;
+$break-laptop-medium: 1440px;
+$break-ipad-pro-width: 1366px;
+$break-tablet-full: 1280px;
+$break-tablet-medium: 1024px;
+$break-tablet-small: 768px;
+$break-mobile-full: 640px;
+$break-mobile-medium: 480px;
+$break-mobile-small: 320px;
+
+// App usage
+$mobile-breakpoint: $break-mobile-full;
+$desktop-breakpoint: $break-desktop-full;
+$header-break-mobile: 800px;
+$header-break-static: 1600px;
+
+
+
+/******************************************************************************
+ * Animations
+*******************************************************************************/
+$ease: cubic-bezier( 0.25, 0.1, 0.25, 1 );
+$slow-duration: 800ms;
+$long-duration: 600ms;
+$base-duration: 400ms;
+$fast-duration: 200ms;
+
+
+
+/******************************************************************************
+ * Layering
+*******************************************************************************/
+$z_layer_behind: -1;
+$z_layer_menu: 1000;
+$z_layer_screen: 1001;
+$z_layer_header: 1002;
+$z_layer_intro: 1003;
