@@ -1,10 +1,12 @@
-<nav class="navi js-navi screen screen--dark -exp -wrap" data-content-field="navigation-navi">
-    <ul class="navi__ul screen__wrap">
+<nav class="navi js-navi" data-content-field="navigation-navi">
+    <ul class="navi__ul">
         {.repeated section items}
             {.section collection}
-                <li class="navi__li navi__li--{title|slugify}">
-                    <a class="navi__a navi__a--{title|slugify} js-navi-a js-navi--{title|slugify} h3 a" href="{fullUrl}">{title}</a>
-                </li>
+                {.if collection.homepage}{.or}
+                    <li class="navi__li navi__li--{title|slugify}">
+                        <a class="navi__a navi__a--{title|slugify} js-navi-a js-navi--{title|slugify} p" href="{fullUrl}">{title}</a>
+                    </li>
+                {.end}
             {.end}
         {.end}
     </ul>

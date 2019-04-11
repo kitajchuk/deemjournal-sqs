@@ -1,6 +1,9 @@
 .intro {
     pointer-events: auto;
     z-index: $z_layer_intro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &.is-active {
         z-index: $z_layer_intro;

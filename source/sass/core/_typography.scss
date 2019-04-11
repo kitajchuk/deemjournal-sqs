@@ -16,15 +16,15 @@ em, .m {
 }
 
 .cms {
-    p {
+    p,
+    em {
         width: 100%;
         max-width: 900px;
     }
+}
 
-    em {
-        width: 100%;
-        max-width: 400px;
-    }
+.label {
+    padding-bottom: 2.75vw;
 }
 
 

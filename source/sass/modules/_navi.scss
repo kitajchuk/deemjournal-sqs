@@ -1,14 +1,9 @@
-.navi {
-    padding-top: $header-height;
+.navi {}
+.navi__li {
+    display: inline-block;
+    vertical-align: middle;
 
-    &.is-active {
-        pointer-events: none;
-
-        .navi__ul {
-            pointer-events: auto;
-            }
+    & + .navi__li {
+        padding-left: 20px;
     }
 }
-.navi__a {
-    color: $white;
-    }

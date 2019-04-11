@@ -8,13 +8,11 @@
 }
 ._svg--logo {
     fill: $black;
-    width: 320px;
+    width: 7.8125vw;
+    max-width: 200px;
+    min-width: 128px;
 
     .intro & {
         fill: $white;
-    }
-
-    .header & {
-        width: 128px;
     }
 }

@@ -23,20 +23,30 @@
         {squarespace-headers}
     </head>
     <body class="-fzero">
-        <header class="header js-header ghost -wrap">
-            <div class="ghost__child">
-                {@|apply svg-logo.block}
+        <header class="header js-header -wrap">
+            <div class="header__logo">
+                <a href="/">
+                    {@|apply svg-logo.block}
+                </a>
+            </div>
+            <div class="header__navi">
+                <squarespace:navigation navigationId="navi" template="navi" />
             </div>
         </header>
-        <squarespace:navigation navigationId="navi" template="navi" />
         <main class="main js-main" data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}" {.if item.customContent.darkTheme}data-darkside="true"{.end}{.end}>
-            {@|apply type.block}
+            {.equal? collection.id "5caf91cf9b747a24508cf1ec"}
+                {@|apply page-about.block}
+            {.or equal? collection.id "5caf951ff9619aaf383bd7c7"}
+                {@|apply page-stockists.block}
+            {.or equal? collection.id "5caf91f653450a71df5772b6"}
+                {@|apply page-contact.block}
+            {.or}
+                {squarespace.main-content}
+            {.end}
         </main>
         <footer class="footer js-footer"></footer>
-        <div class="intro js-intro screen screen--dark ghost -wrap -text--center is-active">
-            <div class="ghost__child">
-                {@|apply svg-logo.block}
-            </div>
+        <div class="intro js-intro screen screen--dark -wrap is-active">
+            {@|apply svg-logo.block}
         </div>
         <script type="text/javascript" src="/scripts/app.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
