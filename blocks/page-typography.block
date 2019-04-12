@@ -1,0 +1,85 @@
+<div class="typography">
+    {# Sans Serif #}
+    <div class="-exp -wrap">
+        <em class="label">H1 Roobert</em>
+        <h1>The Limits of the Material,</h1>
+        <h1>Saskia Sassen</h1>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H2 Roobert</em>
+        <h2>The Limits of the Material,</h2>
+        <h2>Saskia Sassen</h2>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H3 Roobert</em>
+        <h3>The Limits of the Material,</h3>
+        <h3>Saskia Sassen</h3>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H4 Roobert</em>
+        <h4>The Limits of the Material,</h4>
+        <h4>Saskia Sassen</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H5 Roobert</em>
+        <h5>The Limits of the Material,</h5>
+        <h5>Saskia Sassen</h5>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H6 Roobert</em>
+        <h6>The Limits of the Material,</h6>
+        <h6>Saskia Sassen</h6>
+    </div>
+    <div class="cms -exp -wrap">
+        <em class="label">Body, Roobert</em>
+        <p>Lima, the capital city of Peru, is beset with many of the problems faced by other large metropolises in the developing world: unconstrained growth, lack of investment in public spaces and transit, violence, poverty, informality, and pollution. While the colonial center of the city is built on flat land, the poor and largely informally built periphery must contend with the dangerous of constructing on steep slopes free of any vegetation. If and when a large earthquake hits the city, millions of people will lose their homes and possibly their lives.</p>
+    </div>
+    <div class="cms -exp -wrap">
+        <em class="label">Annotation, Roobert</em>
+        <em>A new administration in 2014 put a stop to Barrio Mio, but the research continues in the form of academic conferences, partnerships with the Ministry of Housing, and political activism.</em>
+    </div>
+
+    {# Serif #}
+    <div class="-exp -wrap">
+        <em class="label">H1 Cheltenham</em>
+        <div class="-fserif">
+            <h1>Limits of Material,</h1>
+            <h1>Saskia Sassen</h1>
+        </div>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H2 Cheltenham</em>
+        <div class="-fserif">
+            <h2>Limits of Material,</h2>
+            <h2>Saskia Sassen</h2>
+        </div>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H3 Cheltenham</em>
+        <div class="-fserif">
+            <h3>Limits of Material,</h3>
+            <h3>Saskia Sassen</h3>
+        </div>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H4 Cheltenham</em>
+        <div class="-fserif">
+            <h4>Limits of Material,</h4>
+            <h4>Saskia Sassen</h4>
+        </div>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H5 Cheltenham</em>
+        <div class="-fserif">
+            <h5>Limits of Material,</h5>
+            <h5>Saskia Sassen</h5>
+        </div>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">H6 Cheltenham</em>
+        <div class="-fserif">
+            <h6>Limits of Material,</h6>
+            <h6>Saskia Sassen</h6>
+        </div>
+    </div>
+</div>

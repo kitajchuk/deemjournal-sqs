@@ -40,6 +40,8 @@
                 {@|apply page-stockists.block}
             {.or equal? collection.id "5caf91f653450a71df5772b6"}
                 {@|apply page-contact.block}
+            {.or equal? collection.id "5cafc6392f08790001c60146"}
+                {@|apply page-opentype-features.block}
             {.or}
                 {squarespace.main-content}
             {.end}

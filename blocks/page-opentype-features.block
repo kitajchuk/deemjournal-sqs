@@ -1,0 +1,76 @@
+<div class="opentype-features">
+    <div class="-exp -wrap">
+        <em class="label">Common/standard ligatures (liga).</em>
+        <h4 class="-otf-liga0">Offline</h4>
+        <h4>Offline</h4>
+        <h4 class="-otf-liga0">Official</h4>
+        <h4>Official</h4>
+        <h4 class="-otf-liga0">Airflow</h4>
+        <h4>Airflow</h4>
+        <h4 class="-otf-liga0">Heart</h4>
+        <h4>Heart</h4>
+        <h4 class="-otf-liga0">Battle</h4>
+        <h4>Battle</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Discretionary ligatures (dlig).</em>
+        <h4 class="-otf-liga0">KOONS</h4>
+        <h4 class="-otf-dlig">KOONS</h4>
+        <h4 class="-otf-liga0">Book</h4>
+        <h4 class="-otf-dlig">Book</h4>
+        <h4 class="-otf-liga0">ETT</h4>
+        <h4 class="-otf-dlig">ETT</h4>
+        <h4 class="-otf-liga0">The Times</h4>
+        <h4 class="-otf-dlig">The Times</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Tabular figures (tnum)</em>
+        <h4 class="-otf-liga0">0 1 2 3 4 5 6 7 8 9</h4>
+        <h4 class="-otf-tnum">0 1 2 3 4 5 6 7 8 9</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Fractions (frac)</em>
+        <h4 class="-otf-liga0">Add 1 3/4 C of flour, 1/2 cup at a time.</h4>
+        <h4 class="-otf-frac">Add 1 3/4 C of flour, 1/2 cup at a time.</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Stylistic alternates (salt).</em>
+        <h4 class="-otf-liga0">Aa Bb Cc.</h4>
+        <h4 class="-otf-salt">Aa Bb Cc.</h4>
+    </div>
+    {#<div class="-exp -wrap">
+        <em class="label">Tilting alternates (?).</em>
+        <h4 class="-otf-liga0">Empty. Full. Low.</h4>
+        <h4 class="-otf-talt">Empty. Full. Low.</h4>
+    </div>#}
+    <div class="-exp -wrap">
+        <em class="label">Stylistic sets (ss01).</em>
+        <h4 class="-otf-liga0">Salt</h4>
+        <h4 class="-otf-ss01">Salt</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Stylistic sets (ss02).</em>
+        <h4 class="-otf-liga0">Egg</h4>
+        <h4 class="-otf-ss02">Egg</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Stylistic sets (ss03).</em>
+        <h4 class="-otf-liga0">Sync</h4>
+        <h4 class="-otf-ss03">Sync</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Stylistic sets (ss04).</em>
+        <h4 class="-otf-liga0">Right</h4>
+        <h4 class="-otf-ss04">Right</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Stylistic sets (ss05).</em>
+        <h4 class="-otf-liga0">„Cz“ “En”</h4>
+        <h4 class="-otf-ss05">„Cz“ “En”</h4>
+    </div>
+    <div class="-exp -wrap">
+        <em class="label">Stylistic sets (ss06).</em>
+        <h4 class="-otf-liga0">8 Eight</h4>
+        <h4 class="-otf-ss06">8 Eight</h4>
+    </div>
+</div>

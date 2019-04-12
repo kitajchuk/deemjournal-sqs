@@ -1,3 +1,3 @@
 {.if collection.homepage}
-    {@|apply page-type.block}
+    {@|apply page-typography.block}
 {.end}
