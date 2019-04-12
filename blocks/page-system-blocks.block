@@ -1,0 +1,28 @@
+<div class="system-blocks">
+    <div class="cms -exp -wrap">
+        <h1>Deem System Blocks</h1>
+        <p>Important system blocks for internal API features of the Squarespace platform. These blocks serve as containers for our custom application code to integrate with core Squarespace APIs.</p>
+    </div>
+    <div class="system-blocks__newsletter -exp -wrap">
+        <em class="label">Newsletter (Squarespace default). Never delete this block.</em>
+        <div class="-out">
+            <squarespace:block-field id="deem--newsletter" columns="12" />
+        </div>
+    </div>
+    <div class="system-blocks__newsletter -exp -wrap">
+        <em class="label">Newsletter (Custom)</em>
+        <div class="-out">
+            <div class="newsletter js-newsletter"></div>
+        </div>
+    </div>
+    <div class="system-blocks__search -exp -wrap">
+        <em class="label">Search (Squarespace default). Never delete this block.</em>
+        <div class="-out">
+            <squarespace:block-field id="deem--search" columns="12" />
+        </div>
+    </div>
+    <div class="system-blocks__search -exp -wrap">
+        <em class="label">Search (Custom)</em>
+        <div class="-out"></div>
+    </div>
+</div>

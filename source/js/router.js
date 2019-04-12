@@ -37,7 +37,7 @@ const router = {
         });
 
         core.emitter.on( "app--intro-teardown", () => {
-            this.controllers.animate();
+            // Nothing?``
         });
 
         // Transition page state stuff
@@ -272,7 +272,6 @@ const router = {
     changePageIn ( data ) {
         setTimeout(() => {
             core.dom.html.removeClass( "is-tranny" );
-            this.controllers.animate();
             this.transitionIn();
             this.setState( "now", data );
             this.unsetPath();

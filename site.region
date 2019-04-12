@@ -42,6 +42,10 @@
                 {@|apply page-contact.block}
             {.or equal? collection.id "5cafc6392f08790001c60146"}
                 {@|apply page-opentype-features.block}
+            {.or equal? collection.id "5cafe527652deaad3c6230dd"}
+                {@|apply page-typography.block}
+            {.or equal? collection.id "5cafe53bb208fcfd8dc661dd"}
+                {@|apply page-system-blocks.block}
             {.or}
                 {squarespace.main-content}
             {.end}

@@ -1,7 +1,7 @@
 import * as core from "../core";
 import ImageController from "./controllers/ImageController";
-import AnimateController from "./controllers/AnimateController";
-import VideoController from "./controllers/VideoController";
+import SignupController from "./controllers/SignupController";
+import ViewController from "./controllers/ViewController";
 
 
 /**
@@ -55,12 +55,11 @@ class Controllers {
     exec () {
         this.controllers = [];
 
-        this.push( "video", core.dom.body.find( ".sqs-block-video" ), VideoController, true );
+        this.push( "view", core.dom.body.find( ".js-view" ), ViewController, true );
+        this.push( "signup", core.dom.body.find( ".js-newsletter" ), SignupController, true );
 
-        this.anims = this.element.find( core.config.lazyAnimSelector );
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
-        this.animController = new AnimateController( this.anims );
         this.imageController.on( "preloaded", () => {
             this.init();
 
@@ -71,18 +70,9 @@ class Controllers {
     }
 
 
-    animate () {
-        this.animController.start();
-    }
-
-
     destroy () {
         if ( this.imageController ) {
             this.imageController.destroy();
-        }
-
-        if ( this.animController ) {
-            this.animController.destroy();
         }
 
         this.kill();

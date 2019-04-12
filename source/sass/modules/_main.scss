@@ -12,4 +12,25 @@
 
 
 
-.page {}
+.signup__form {
+    &.is-success {
+        .signup__success {
+            display: block;
+        }
+        .signup__entry {
+            display: none;
+        }
+    }
+}
+.signup__success {
+    display: none;
+
+    .is-success & {
+        display: block;
+    }
+}
+.signup__entry {
+    .is-success & {
+        display: none;
+    }
+}
