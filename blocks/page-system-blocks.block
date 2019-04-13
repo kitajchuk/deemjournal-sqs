@@ -23,6 +23,8 @@
     </div>
     <div class="system-blocks__search -exp -wrap">
         <em class="label">Search (Custom)</em>
-        <div class="-out"></div>
+        <div class="-out">
+            <div class="search js-search" data-id="{collection.id}"></div>
+        </div>
     </div>
 </div>

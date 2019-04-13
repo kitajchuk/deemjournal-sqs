@@ -58,9 +58,9 @@ class Signup {
     }
 
 
-    saveForm ( key ) {
+    sendForm ( key ) {
         return $.ajax({
-            url: "/api/form/SaveFormSubmission",
+            url: "/api/form/sendFormSubmission",
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=UTF-8"
@@ -106,7 +106,7 @@ class Signup {
     send () {
         this.fields.removeClass( "is-error" );
         this.getKey().then(( json ) => {
-            this.saveForm( json.key ).then(( response ) => {
+            this.sendForm( json.key ).then(( response ) => {
                 this.handle( response );
 
             }).catch(( response ) => {

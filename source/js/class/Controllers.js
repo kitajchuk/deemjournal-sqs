@@ -1,7 +1,9 @@
 import * as core from "../core";
+import BaseController from "./controllers/BaseController";
 import ImageController from "./controllers/ImageController";
-import SignupController from "./controllers/SignupController";
-import ViewController from "./controllers/ViewController";
+import Signup from "./components/Signup";
+import View from "./components/View";
+import Search from "./components/Search";
 
 
 /**
@@ -21,21 +23,24 @@ class Controllers {
     }
 
 
-    push ( id, elements, controller, conditions ) {
+    push ( id, elements, controller, component ) {
         this.controllers.push({
-            id: id,
-            elements: elements,
+            id,
+            elements,
             instance: null,
             Controller: controller,
-            conditions: conditions
+            component
         });
     }
 
 
     init () {
         this.controllers.forEach(( controller ) => {
-            if ( controller.elements.length && controller.conditions ) {
-                controller.instance = new controller.Controller( controller.elements );
+            if ( controller.elements.length ) {
+                controller.instance = new controller.Controller(
+                    controller.elements,
+                    controller.component
+                );
             }
         });
     }
@@ -55,8 +60,9 @@ class Controllers {
     exec () {
         this.controllers = [];
 
-        this.push( "view", core.dom.body.find( ".js-view" ), ViewController, true );
-        this.push( "signup", core.dom.body.find( ".js-newsletter" ), SignupController, true );
+        this.push( "view", core.dom.body.find( ".js-view" ), BaseController, View );
+        this.push( "signup", core.dom.body.find( ".js-newsletter" ), BaseController, Signup );
+        this.push( "search", core.dom.body.find( ".js-search" ), BaseController, Search );
 
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
