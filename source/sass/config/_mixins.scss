@@ -35,6 +35,7 @@
     font-size: $p-size-mobile;
     line-height: $p-line;
     @include font-family-sans();
+    @include otf-03();
 
     .-fserif & {
         @include font-family-serif();
@@ -69,7 +70,9 @@
     font-size: $h1-size-mobile;
     line-height: $h1-line;
     @include font-family-sans-bold();
+    @include otf-02();
 
+    &.-fserif,
     .-fserif & {
         @include font-family-serif-bold();
     }
@@ -86,7 +89,9 @@
     font-size: $h2-size-mobile;
     line-height: $h2-line;
     @include font-family-sans-bold();
+    @include otf-02();
 
+    &.-fserif,
     .-fserif & {
         @include font-family-serif-bold();
     }
@@ -103,7 +108,9 @@
     font-size: $h3-size-mobile;
     line-height: $h3-line;
     @include font-family-sans-bold();
+    @include otf-02();
 
+    &.-fserif,
     .-fserif & {
         @include font-family-serif-bold();
     }
@@ -120,7 +127,9 @@
     font-size: $h4-size-mobile;
     line-height: $h4-line;
     @include font-family-sans-bold();
+    @include otf-02();
 
+    &.-fserif,
     .-fserif & {
         @include font-family-serif-bold();
     }
@@ -137,7 +146,9 @@
     font-size: $h5-size-mobile;
     line-height: $h5-line;
     @include font-family-sans-bold();
+    @include otf-02();
 
+    &.-fserif,
     .-fserif & {
         @include font-family-serif-bold();
     }
@@ -155,6 +166,7 @@
     line-height: $h6-line;
     @include font-family-sans-bold();
 
+    &.-fserif,
     .-fserif & {
         @include font-family-serif-bold();
     }
@@ -176,6 +188,29 @@
     display: inline;
     text-decoration: none;
     @include font-family-sans();
+}
+
+// OpenType features
+// Universal
+@mixin otf-01 {
+    font-variant-ligatures: common-ligatures;
+    -moz-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss03";
+    -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss03";
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss03";
+}
+// Headlines
+@mixin otf-02 {
+    font-variant-ligatures: common-ligatures;
+    -moz-font-feature-settings: "liga", "clig", "dlig", "ss01", "ss03", "ss04";
+    -webkit-font-feature-settings: "liga", "clig", "dlig", "ss01", "ss03", "ss04";
+    font-feature-settings: "liga", "clig", "dlig", "ss01", "ss03", "ss04";
+}
+// Body bopy
+@mixin otf-03 {
+    font-variant-ligatures: common-ligatures;
+    -moz-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
+    -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
 }
 
 

@@ -1,12 +1,19 @@
 .media {
     position: relative;
 }
+.media--stretch {
+    width: 100%;
+}
+.media--wrap {
+    @include wrap();
+}
 .media__node {
     max-width: 100%;
     width: 100%;
 }
 .media__cap {
-    padding-top: 20px;
+    padding-top: 2.75vw;
+    @include wrap();
 }
 .media--card {
     align-items: center;

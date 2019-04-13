@@ -9,18 +9,10 @@ p, .p {
 b, strong, .s {
     @include s();
 }
-em, .m {
+.m {
     @include m();
     color: $grey;
     display: block;
-}
-
-.cms {
-    p,
-    em {
-        width: 100%;
-        max-width: 900px;
-    }
 }
 
 .label {

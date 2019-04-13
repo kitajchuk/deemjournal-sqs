@@ -64,12 +64,6 @@
 .-fzero {
     font-size: 0;
     }
-.-otf-liga0 {
-    font-variant-ligatures: no-common-ligatures;
-    -moz-font-feature-settings: "liga" 0, "clig" 0;
-    -webkit-font-feature-settings: "liga" 0, "clig" 0;
-    font-feature-settings: "liga" 0, "clig" 0;
-}
 .-otf-dlig {
     font-variant-ligatures: discretionary-ligatures;
     -moz-font-feature-settings: "dlig";
