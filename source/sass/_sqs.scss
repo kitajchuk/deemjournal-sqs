@@ -27,7 +27,7 @@
 
 .sqs-block-horizontalrule {
     hr {
-        background-color: $grey-lit;
+        background-color: $grey;
     }
 }
 .sqs-block-spacer {
@@ -49,7 +49,8 @@
         }
 
         a {
-            border-bottom: 1px solid $black;
+            color: $grey;
+            border-bottom: 1px solid $grey;
             transition: color $fast-duration $ease,
                         border-bottom-color $fast-duration $ease;
         }
