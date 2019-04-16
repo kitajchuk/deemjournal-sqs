@@ -6,8 +6,19 @@ p, .p {
 
     a {}
 }
-b, strong, .s {
-    @include s();
+p {
+    strong {
+        //@include s();
+
+        // em {
+        //     @include bi();
+        // }
+
+        background-color: yellow;
+    }
+}
+em {
+    @include i();
 }
 .m {
     @include m();

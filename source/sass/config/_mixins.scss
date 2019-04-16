@@ -14,8 +14,16 @@
     font-family: $font-sans-regular;
     @include font-normal();
 }
+@mixin font-family-sans-italic() {
+    font-family: $font-sans-regular-italic;
+    @include font-normal();
+}
 @mixin font-family-sans-bold() {
     font-family: $font-sans-medium;
+    @include font-normal();
+}
+@mixin font-family-sans-bold-italic() {
+    font-family: $font-sans-medium-italic;
     @include font-normal();
 }
 @mixin font-family-serif() {
@@ -183,6 +191,12 @@
 // Child type variations
 @mixin s() {
     @include font-family-sans-bold();
+}
+@mixin i() {
+    @include font-family-sans-italic();
+}
+@mixin bi() {
+    @include font-family-sans-bold-italic();
 }
 @mixin a() {
     display: inline;
