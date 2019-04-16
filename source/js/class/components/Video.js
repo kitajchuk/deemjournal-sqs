@@ -1,13 +1,12 @@
-import * as core from "../core";
-import videoView from "../views/video";
-import ResizeController from "properjs-resizecontroller";
+import * as core from "../../core";
+import videoView from "../../views/video";
 
 
 
 // Local public instances hash ( resets )
 let _instances = {};
 const _onMessageInstance = ( message, instance ) => {
-    const title = instance.data.blockJson.html.match( /title\=\"(.*?)\"/ );
+    // const title = instance.data.blockJson.html.match( /title\=\"(.*?)\"/ );
     const isSelf = (message.player_id && message.player_id === instance.id);
 
     if ( message.event === "ready" && isSelf ) {
@@ -54,12 +53,11 @@ window.addEventListener( "message", ( e ) => {
  *
  */
 class Video {
-    constructor ( element ) {
+    constructor ( element, data ) {
         this.element = element;
+        this.data = data;
         this.parent = this.element.parent();
-        this.data = this.element.data();
         this.isPlaying = false;
-        this.resizer = new ResizeController();
 
         this.bind();
         this.load();
@@ -79,12 +77,10 @@ class Video {
         this.data.imageJson = this.image.data();
         this.element[ 0 ].innerHTML = videoView( this.data.blockJson, this.data.imageJson );
         this.iframe = this.element.find( ".js-embed-iframe" );
-        this.filter = this.element.find( ".js-embed-filter" );
         this.id = this.iframe[ 0 ].id;
 
         core.util.loadImages( this.element.find( core.config.lazyImageSelector ), core.util.noop );
         core.emitter.fire( "app--anim-request" );
-        this.onResize();
     }
 
 
@@ -101,18 +97,6 @@ class Video {
         }).on( "mouseleave", ".js-embed-playbtn", () => {
             this.element.removeClass( "is-play-button" );
         });
-
-        this.resizer.on( "resize", this.onResize.bind( this ) );
-    }
-
-
-    onResize () {
-        if ( this.filter ) {
-            const frameBox = this.iframe[ 0 ].getBoundingClientRect();
-
-            this.filter[ 0 ].style.width = `${frameBox.width}px`;
-            this.filter[ 0 ].style.height = `${frameBox.height}px`;
-        }
     }
 
 
@@ -140,46 +124,6 @@ class Video {
 
 
     destroy () {
-        if ( this.resizer ) {
-            this.resizer.off( "resize" );
-            this.resizer.destroy();
-            this.resizer = null;
-        }
-    }
-}
-
-
-
-/**
- *
- * @public
- * @class VideoController
- * @param {Hobo} elements The video modules
- * @classdesc Handles videos
- *
- */
-class VideoController {
-    constructor ( elements ) {
-        this.elements = elements;
-        this.instances = [];
-
-        this.init();
-    }
-
-
-    init () {
-        this.elements.forEach(( element, i ) => {
-            this.instances.push( new Video( this.elements.eq( i ) ) );
-        });
-    }
-
-
-    destroy () {
-        this.instances.forEach(( instance ) => {
-            instance.destroy();
-        });
-
-        // Reset local public instances
         _instances = {};
     }
 }
@@ -189,4 +133,4 @@ class VideoController {
 /******************************************************************************
  * Export
 *******************************************************************************/
-export default VideoController;
+export default Video;

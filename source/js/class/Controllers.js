@@ -4,6 +4,7 @@ import ImageController from "./controllers/ImageController";
 import Signup from "./components/Signup";
 import View from "./components/View";
 import Search from "./components/Search";
+import Video from "./components/Video";
 
 
 /**
@@ -63,6 +64,7 @@ class Controllers {
         this.push( "view", core.dom.body.find( ".js-view" ), BaseController, View );
         this.push( "signup", core.dom.body.find( ".js-newsletter" ), BaseController, Signup );
         this.push( "search", core.dom.body.find( ".js-search" ), BaseController, Search );
+        this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );
 
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
