@@ -1,18 +1,43 @@
 ._svg {
     transition: fill $fast-duration $ease;
-    }
-._svg--play {
-    fill: $white;
-    height: 48px;
-    width: 48px;
+    cursor: pointer;
+    fill: $black;
 }
 ._svg--logo {
-    fill: $black;
-    width: 7.8125vw;
-    max-width: 200px;
+    width: 5.46875vw;
+    max-width: 140px;
     min-width: 128px;
 
     .intro & {
         fill: $white;
     }
+}
+._svg--play {
+    fill: $white;
+    width: 48px;
+    height: 48px;
+}
+._svg--left {
+    width: 28px;
+    height: 23px;
+}
+._svg--list {
+    width: 36px;
+    height: 27px;
+}
+._svg--search {
+    width: 35px;
+    height: 35px;
+}
+._svg--x {
+    width: 24px;
+    height: 25px;
+}
+._svg--right {
+    width: 28px;
+    height: 23px;
+}
+._svg--down {
+    width: 23px;
+    height: 13px;
 }

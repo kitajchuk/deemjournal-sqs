@@ -1,12 +1,8 @@
 .main {
     padding-top: $header-height;
 
-    @include respond( $header-break-mobile ) {
+    @include respond( $mobile-breakpoint ) {
         padding-top:  $header-height-mobile;
-    }
-
-    @include respond-min( $header-break-static ) {
-        padding-top: $header-height-static;
     }
 }
 
@@ -32,6 +28,18 @@
 .signup__entry {
     .is-success & {
         display: none;
+    }
+}
+
+
+
+.iconography {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ._svg {
+        margin: 0 30px;
     }
 }
 

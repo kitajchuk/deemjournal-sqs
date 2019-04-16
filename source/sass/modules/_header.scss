@@ -8,4 +8,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    pointer-events: none;
+}
+.header__logo,
+.header__navi {
+    pointer-events: auto;
 }

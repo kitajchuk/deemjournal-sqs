@@ -46,6 +46,8 @@
                 {@|apply page-typography.block}
             {.or equal? collection.id "5cafe53bb208fcfd8dc661dd"}
                 {@|apply page-system-blocks.block}
+            {.or equal? collection.id "5cb63e938165f5675d20dcb6"}
+                {@|apply page-iconography.block}
             {.or}
                 {squarespace.main-content}
             {.end}

@@ -1,0 +1,8 @@
+<div class="iconography -exp -wrap">
+    {@|apply svg-left.block}
+    {@|apply svg-list.block}
+    {@|apply svg-search.block}
+    {@|apply svg-x.block}
+    {@|apply svg-right.block}
+    {@|apply svg-down.block}
+</div>

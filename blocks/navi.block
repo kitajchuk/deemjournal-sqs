@@ -9,5 +9,8 @@
                 {.end}
             {.end}
         {.end}
+        <li class="navi__li navi__li--menu js-navi-menu">
+            {@|apply svg-list.block}
+        </li>
     </ul>
 </nav>

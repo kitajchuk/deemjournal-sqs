@@ -4,6 +4,10 @@
     vertical-align: middle;
 
     & + .navi__li {
-        padding-left: 20px;
+        padding-left: 54px;
+    }
+
+    &.navi__li--menu {
+        padding-left: $padding-2;
     }
 }

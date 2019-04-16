@@ -28,30 +28,20 @@ $grey-lit: #dbdbdb;
 
 
 /******************************************************************************
- * Grid
-*******************************************************************************/
-$grid-length: 12;
-$grid-columns: 12 11 10 9 8 7 6 5 4 3 2 1;
-
-
-
-/******************************************************************************
  * Spacing
 *******************************************************************************/
-$expander-1: 6vw;
-$padding-1: 6vw;
-$padding-2: 9vw;
-$anim-1: 32px;
+$padding-1: 3.90625vw;
+$padding-2: 6.25vw;
+$expander-1: $padding-2;
 
 
 
 /******************************************************************************
  * Sizes
 *******************************************************************************/
-$header-height: 16vw;
+$header-height: 180px;
 $header-height-small: 90px;
-$header-height-static: 256px;
-$header-height-mobile: 128px;
+$header-height-mobile: 90px;
 
 
 
@@ -118,8 +108,6 @@ $break-mobile-small: 320px;
 // App usage
 $mobile-breakpoint: $break-mobile-full;
 $desktop-breakpoint: $break-desktop-full;
-$header-break-mobile: 800px;
-$header-break-static: 1600px;
 
 
 
