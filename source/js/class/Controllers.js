@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import View from "./components/View";
 import Search from "./components/Search";
 import Video from "./components/Video";
+import Annotation from "./components/Annotation";
 
 
 /**
@@ -65,6 +66,7 @@ class Controllers {
         this.push( "signup", core.dom.body.find( ".js-newsletter" ), BaseController, Signup );
         this.push( "search", core.dom.body.find( ".js-search" ), BaseController, Search );
         this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );
+        this.push( "annotation", core.dom.body.find( ".sqs-layout > .sqs-row > .col > .sqs-row blockquote" ), BaseController, Annotation );
 
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );

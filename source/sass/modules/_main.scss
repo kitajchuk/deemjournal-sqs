@@ -8,6 +8,9 @@
 
 
 
+/******************************************************************************
+ * Newsletter
+*******************************************************************************/
 .signup__form {
     &.is-success {
         .signup__success {
@@ -28,18 +31,6 @@
 .signup__entry {
     .is-success & {
         display: none;
-    }
-}
-
-
-
-.iconography {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    ._svg {
-        margin: 0 30px;
     }
 }
 
@@ -83,4 +74,64 @@
     vertical-align: middle;
 
     @include placeholder( $black );
+}
+
+
+
+/******************************************************************************
+ * Pages
+*******************************************************************************/
+.iconography {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ._svg {
+        margin: 0 30px;
+    }
+}
+.annotation {
+    @include wrap();
+    padding-top: 2.75vw;
+    padding-bottom: 2.75vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    blockquote {
+        p {
+            @include m();
+            color: $grey;
+        }
+    }
+}
+.annotation__note {
+    width: 100%;
+    max-width: 300px;
+
+    @include respond( 1305px ) {
+        order: 2;
+        max-width: 100%;
+        padding-top: 2.75vw;
+
+        blockquote {
+            width: 100%;
+            max-width: 900px;
+        }
+    }
+}
+.annotation__text {
+    width: 100%;
+    max-width: 900px;
+
+    @include respond( 1305px ) {
+        order: 1;
+        max-width: 100%;
+
+        p {
+            width: 100%;
+            max-width: 900px;
+        }
+    }
 }
