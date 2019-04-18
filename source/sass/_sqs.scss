@@ -71,10 +71,7 @@
         }
 
         a {
-            color: $grey;
-            border-bottom: 1px solid $grey;
-            transition: color $fast-duration $ease,
-                        border-bottom-color $fast-duration $ease;
+            @include a( $grey );
         }
 
         h1 {

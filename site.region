@@ -52,7 +52,7 @@
                 {squarespace.main-content}
             {.end}
         </main>
-        <footer class="footer js-footer"></footer>
+        <squarespace:navigation navigationId="menu" template="menu" />
         <div class="intro js-intro screen screen--dark -wrap is-active">
             {@|apply svg-logo.block}
         </div>

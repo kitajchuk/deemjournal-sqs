@@ -1,65 +1,168 @@
 import * as core from "../core";
+import $ from "properjs-hobo";
+import * as gsap from "gsap/all";
 
 
 /**
  *
  * @public
  * @namespace navi
- * @description Performs the branded load-in screen sequence.
+ * @description Open tray, activate links.
  * @memberof menus
  *
  */
 const navi = {
-    /**
-     *
-     * @public
-     * @method init
-     * @memberof menus.navi
-     * @description Method initializes navi node in DOM.
-     *
-     */
     init () {
+        this.time = 500;
         this.isOpen = false;
-        this.element = core.dom.body.find( ".js-navi" );
-        this.items = this.element.find( ".js-navi-a" );
-        this.trigger = core.dom.body.find( ".js-controller--navi" );
+        this.isSearch = false;
+        this.nav = core.dom.body.find( ".js-navi" );
+        this.navItems = this.nav.find( ".js-navi-a" );
+        this.navTrigger = core.dom.body.find( ".js-navi-meni" );
+        this.menu = core.dom.body.find( ".js-meni" );
+        this.menuItems = this.menu.find( ".js-meni-a" );
+        this.menuAnims = this.menu.find( ".js-meni-search, .js-meni-a, .js-meni-footer" );
+        this.menuSearch = this.menu.find( ".js-meni-search" );
+        this.menuClose = this.menu.find( ".js-meni-close" );
+        this.search = core.dom.body.find( ".js-search" );
         this.bind();
+        this.animMenuItems( 0 );
+        this.animMenuSearch( 0 );
+        this.animMenuClose( 0 );
     },
 
 
     bind () {
-        this.trigger.on( "click", () => {
-            this.toggle();
+        this.navTrigger.on( "click", () => {
+            this.toggleMenu();
+        });
+
+        this.menuSearch.on( "click", () => {
+            this.toggleSearch();
+        });
+
+        this.menuClose.on( "click", () => {
+            this.closeSearch();
+        });
+
+        core.dom.doc.on( "click", ( e ) => {
+            const target = $( e.target );
+
+            if ( this.isOpen && !this.isSearch ) {
+                if ( !target.is( ".js-navi-meni" ) && !target.is( ".js-meni-a" ) && !target.is( ".js-meni-search" ) && !target.is( ".js-meni-ext" ) && !target.is( ".js-meni-close" ) ) {
+                    this.closeMenu();
+                }
+
+            } else {
+                console.log( "do nothing" );
+            }
         });
     },
 
 
-    open () {
+    animMenuItems ( binary ) {
+        this.timeline = new gsap.TimelineLite();
+        this.timeline.staggerTo( this.menuAnims, (this.time / 1000), {
+            opacity: binary,
+            y: binary ? 0 : 16,
+            ease: gsap.Power3.easeOut
+
+        }, (50 / 1000));
+    },
+
+
+    animMenuSearch ( binary ) {
+        this.tweenSearch = new gsap.TweenLite.to( this.search[ 0 ], (this.time / 1000), {
+            opacity: binary,
+            y: binary ? 0 : 16,
+            delay: binary ? (this.time / 1000) : 0,
+            ease: gsap.Power3.easeOut
+        });
+    },
+
+
+    animMenuClose ( binary ) {
+        this.tweenClose = new gsap.TweenLite.to( this.menuClose[ 0 ], (this.time / 1000), {
+            opacity: binary,
+            y: binary ? 0 : 16,
+            delay: binary ? (this.time / 1000) : 0,
+            ease: gsap.Power3.easeOut
+        });
+    },
+
+
+    openMenu () {
         this.isOpen = true;
-        this.element.addClass( "is-active" );
-        core.dom.html.addClass( "is-navi-open" );
+        this.menu.addClass( "is-active" );
+        core.dom.html.addClass( "is-menu-open" );
+        setTimeout(() => {
+            this.menu.addClass( "is-static" );
+            this.animMenuItems( 1 );
+
+        }, this.time );
     },
 
 
-    close () {
+    closeMenu () {
         this.isOpen = false;
-        this.element.removeClass( "is-active" );
-        core.dom.html.removeClass( "is-navi-open" );
+        this.menu.removeClass( "is-static" );
+        this.menu.removeClass( "is-active" );
+        core.dom.html.removeClass( "is-menu-open" );
+        this.animMenuItems( 0 );
     },
 
 
-    active ( view ) {
-        this.items.removeClass( "is-active" );
-        this.items.filter( `.js-navi--${view}` ).addClass( "is-active" );
+    openSearch () {
+        const searchField = this.search.find( ".js-search-field" )[ 0 ];
+
+        this.isSearch = true;
+        this.menu.addClass( "is-search" );
+        core.dom.html.addClass( "is-menu-search" );
+        searchField.focus();
+        this.animMenuSearch( 1 );
+        this.animMenuItems( 0 );
+        this.animMenuClose( 1 );
     },
 
 
-    toggle () {
+    closeSearch () {
+        const searchField = this.search.find( ".js-search-field" )[ 0 ];
+
+        this.isSearch = false;
+        this.menu.removeClass( "is-search" );
+        core.dom.html.removeClass( "is-menu-search" );
+        searchField.blur();
+        searchField.value = "";
+        this.animMenuSearch( 0 );
+        this.animMenuItems( 1 );
+        this.animMenuClose( 0 );
+    },
+
+
+    setActive ( view ) {
+        this.navItems.removeClass( "is-active" );
+        this.navItems.filter( `.js-navi--${view}` ).addClass( "is-active" );
+        this.menuItems.removeClass( "is-active" );
+        this.menuItems.filter( `.js-meni--${view}` ).addClass( "is-active" );
+    },
+
+
+    toggleMenu () {
         if ( this.isOpen ) {
-            this.close();
+            this.closeMenu();
 
         } else {
-            this.open();
+            this.openMenu();
+        }
+    },
+
+
+    toggleSearch () {
+        if ( this.isSearch ) {
+            this.closeSearch();
+
+        } else {
+            this.openSearch();
         }
     }
 };

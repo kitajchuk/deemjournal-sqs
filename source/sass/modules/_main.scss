@@ -1,5 +1,14 @@
 .main {
     padding-top: $header-height;
+    transition: opacity $ease $base-duration;
+
+    .is-menu-open & {
+        pointer-events: none;
+    }
+
+    .is-menu-search & {
+        opacity: 0;
+    }
 
     @include respond( $mobile-breakpoint ) {
         padding-top:  $header-height-mobile;

@@ -9,8 +9,23 @@
     align-items: center;
     justify-content: space-between;
     pointer-events: none;
+    transition: transform $long-duration $ease-lift,
+                opacity $long-duration $ease-lift;
+
+    .is-menu-open & {
+        opacity: 0;
+        transform: translate3d( 0, -100%, 0 );
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        height:  $header-height-mobile;
+    }
 }
 .header__logo,
 .header__navi {
     pointer-events: auto;
+
+    .is-menu-open & {
+        pointer-events: none;
+    }
 }

@@ -1,0 +1,43 @@
+<menu class="meni js-meni">
+    <div class="meni__fill js-meni-fill"></div>
+    <div class="meni__query js-meni-query">
+        <div class="search js-search meni__search" data-id="5cafe53bb208fcfd8dc661dd"></div>
+    </div>
+    <div class="meni__main">
+        <div class="meni__icons">
+            <div class="meni__search__icon js-meni-search">
+                {@|apply svg-search.block}
+            </div>
+            <div class="meni__close__icon js-meni-close">
+                {@|apply svg-x.block}
+            </div>
+        </div>
+        <nav class="meni__menu" data-content-field="menigation-menu">
+            <ul class="meni__navi">
+                {.repeated section items}
+                    {.if collection}
+                        {.var @title collection.title}
+                        {.var @url collection.fullUrl}
+                    {.end}
+                    {.if externalLink}
+                        {.var @title externalLink.title}
+                        {.var @url externalLink.url}
+                    {.end}
+                    <li class="meni__li meni__li--{@title|slugify}">
+                        <a class="meni__a meni__a--{@title|slugify} js-meni-a js-meni--{@title|slugify} p" href="{@url}">{@title}</a>
+                    </li>
+                {.end}
+                {# Iterate website.socialAccounts #}
+                <li class="meni__li meni__li--instagram">
+                    <a class="meni__a meni__a--instagram js-meni-a js-meni-ext js-meni--instagram m" href="#">Instagram</a>
+                </li>
+                <li class="meni__li meni__li--soundcloud">
+                    <a class="meni__a meni__a--soundcloud js-meni-a js-meni-ext js-meni--soundcloud m" href="#">Soundcloud</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="meni__footer js-meni-footer">
+            <div class="m">Made by <a class="js-meni-ext" href="http://roomformagic.com" target="_blank">Room For Magic</a></div>
+        </div>
+    </div>
+</menu>

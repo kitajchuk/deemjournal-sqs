@@ -1,16 +1,20 @@
 <nav class="navi js-navi" data-content-field="navigation-navi">
     <ul class="navi__ul">
         {.repeated section items}
-            {.section collection}
-                {.if collection.homepage}{.or}
-                    <li class="navi__li navi__li--{title|slugify}">
-                        <a class="navi__a navi__a--{title|slugify} js-navi-a js-navi--{title|slugify} p" href="{fullUrl}">{title}</a>
-                    </li>
-                {.end}
+            {.if collection}
+                {.var @title collection.title}
+                {.var @url collection.fullUrl}
+            {.end}
+            {.if collection.homepage}{.or}
+                <li class="navi__li navi__li--{@title|slugify}">
+                    <a class="navi__a navi__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} p" href="{@url}">{@title}</a>
+                </li>
             {.end}
         {.end}
-        <li class="navi__li navi__li--menu js-navi-menu">
-            {@|apply svg-list.block}
+        <li class="navi__li navi__li--menu">
+            <div class="js-navi-meni">
+                {@|apply svg-list.block}
+            </div>
         </li>
     </ul>
 </nav>

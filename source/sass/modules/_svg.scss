@@ -28,10 +28,18 @@
 ._svg--search {
     width: 35px;
     height: 35px;
+
+    .meni & {
+        fill: $white;
+    }
 }
 ._svg--x {
     width: 24px;
     height: 25px;
+
+    .meni & {
+        fill: $white;
+    }
 }
 ._svg--right {
     width: 28px;

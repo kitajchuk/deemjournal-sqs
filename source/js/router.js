@@ -45,7 +45,6 @@ const router = {
             now: null,
             future: null
         };
-        this.church = null;
 
         this.bindEmpty();
         this.initPages();
@@ -130,6 +129,7 @@ const router = {
         this.setState( "now", data );
         this.setState( "future", data );
         this.setClass();
+        navi.setActive( this.state.now.view );
     },
 
 
@@ -173,46 +173,6 @@ const router = {
             view: data.request.params.view || core.config.homepage,
             cat: data.request.query.category || null
         };
-
-        if ( time === "future" ) {
-            this.church = {
-                isFeedFeed: (this.state.now.view === this.state.future.view && !this.state.now.uid && !this.state.future.uid),
-                isFeedDetail: (this.state.now.view === this.state.future.view && !this.state.now.uid && this.state.future.uid),
-                isDetailDetail: (this.state.now.view === this.state.future.view && this.state.now.uid && this.state.future.uid),
-                isDetailFeed: (this.state.now.view === this.state.future.view && this.state.now.uid && !this.state.future.uid)
-            };
-        }
-    },
-
-
-    setTheme () {
-        if ( this.doc.data.darkside ) {
-            core.dom.html.addClass( "is-darkside" );
-
-        } else {
-            core.dom.html.removeClass( "is-darkside" );
-        }
-    },
-
-
-    setPath () {
-        if ( this.church.isFeedDetail ) {
-            core.dom.html.addClass( "is-feed-detail" );
-
-        } else if ( this.church.isFeedFeed ) {
-            core.dom.html.addClass( "is-feed-feed" );
-
-        } else if ( this.church.isDetailDetail ) {
-            core.dom.html.addClass( "is-detail-detail" );
-
-        } else if ( this.church.isDetailFeed ) {
-            core.dom.html.addClass( "is-detail-feed" );
-        }
-    },
-
-
-    unsetPath () {
-        core.dom.html.removeClass( "is-feed-detail is-feed-feed is-detail-detail is-detail-feed" );
     },
 
 
@@ -249,19 +209,18 @@ const router = {
     changePageOut ( data ) {
         core.dom.html.addClass( "is-tranny" );
         this.setState( "future", data );
-        this.setPath();
         this.unsetClass();
         this.setClass();
         this.transitionOut();
-        navi.close();
-        navi.active( this.state.future.view );
+        navi.closeMenu();
+        navi.setActive( this.state.future.view );
+        navi.closeMenu();
         this.controllers.destroy();
     },
 
 
     changeContent ( data ) {
         this.setDoc( data );
-        this.setTheme();
         core.dom.main[ 0 ].innerHTML = this.doc.html;
         this.topper();
         this.controllers.exec();
@@ -274,7 +233,6 @@ const router = {
             core.dom.html.removeClass( "is-tranny" );
             this.transitionIn();
             this.setState( "now", data );
-            this.unsetPath();
             this.execSquarespace();
 
         }, this.animDuration );

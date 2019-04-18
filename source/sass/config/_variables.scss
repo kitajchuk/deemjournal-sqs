@@ -27,6 +27,7 @@ $yellow: #fce28e;
 /******************************************************************************
  * Spacing
 *******************************************************************************/
+$padding-0: 2.9296875vw;
 $padding-1: 3.90625vw;
 $padding-2: 6.25vw;
 $expander-1: $padding-2;
@@ -39,7 +40,9 @@ $expander-1: $padding-2;
 $header-height: 180px;
 $header-height-small: 90px;
 $header-height-mobile: 90px;
-
+$menu-width-0: 900px;
+$menu-width-1: 720px;
+$menu-width-2: 480px;
 
 
 
@@ -104,6 +107,7 @@ $break-mobile-small: 320px;
 
 // App usage
 $mobile-breakpoint: $break-mobile-full;
+$laptop-breakpoint: $break-laptop-medium;
 $desktop-breakpoint: $break-desktop-full;
 
 
@@ -111,11 +115,13 @@ $desktop-breakpoint: $break-desktop-full;
 /******************************************************************************
  * Animations
 *******************************************************************************/
-$ease: cubic-bezier( 0.25, 0.1, 0.25, 1 );
-$slow-duration: 800ms;
-$long-duration: 600ms;
-$base-duration: 400ms;
-$fast-duration: 200ms;
+$ease: ease;
+$ease-menu: cubic-bezier( 0.4, 0.7, 0.2, 1 );
+$ease-lift: cubic-bezier( 0.23, 1, 0.32, 1 );
+$slow-duration: 1000ms;
+$long-duration: 750ms;
+$base-duration: 500ms;
+$fast-duration: 250ms;
 
 
 
