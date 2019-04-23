@@ -1,5 +1,5 @@
 .header {
-    height: $header-height;
+    @include exp();
     left: 0;
     position: fixed;
     top: 0;
@@ -9,16 +9,12 @@
     align-items: center;
     justify-content: space-between;
     pointer-events: none;
-    transition: transform $long-duration $ease-lift,
-                opacity $long-duration $ease-lift;
+    transition: transform $ease-menu-1 $base-duration,
+                opacity $ease-menu-1 $base-duration;
 
     .is-menu-open & {
         opacity: 0;
         transform: translate3d( 0, -100%, 0 );
-    }
-
-    @include respond( $mobile-breakpoint ) {
-        height:  $header-height-mobile;
     }
 }
 .header__logo,

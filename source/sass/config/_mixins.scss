@@ -169,24 +169,6 @@
         font-size: $h5-size-max;
     }
 }
-@mixin h6() {
-    font-size: $h6-size-mobile;
-    line-height: $h6-line;
-    @include font-family-sans-bold();
-
-    &.-fserif,
-    .-fserif & {
-        @include font-family-serif-bold();
-    }
-
-    @include respond-min( $mobile-breakpoint ) {
-        font-size: $h6-size-fluid;
-    }
-
-    @include respond-min( $desktop-breakpoint ) {
-        font-size: $h6-size-max;
-    }
-}
 
 // Child type variations
 @mixin s() {
@@ -275,14 +257,20 @@
 @mixin wrap() {
     padding-left: $padding-1;
     padding-right: $padding-1;
-}
-@mixin wrap2() {
-    padding-left: $padding-2;
-    padding-right: $padding-2;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m;
+        padding-right: $padding-m;
+    }
 }
 @mixin exp() {
     padding-top: $expander-1;
     padding-bottom: $expander-1;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-m;
+        padding-bottom: $expander-m;
+    }
 }
 @function sqs-calc( $expression ) {
     @return #{"~\"calc( #{$expression} )\""};

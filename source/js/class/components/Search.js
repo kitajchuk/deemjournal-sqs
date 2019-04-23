@@ -1,17 +1,26 @@
+import * as core from "../../core";
 import $ from "properjs-hobo";
-// import * as core from "../../core";
 import viewSearch from "../../views/search";
+import viewSearchResults from "../../views/search-results";
 import Store from "../../core/Store";
+import debounce from "properjs-debounce";
 
 
 
 class Search {
-    constructor ( element ) {
+    constructor ( element, data ) {
         this.element = element;
+        this.elemData = data;
+        this.element.data( "instance", this );
         this.data = {};
+        this.ajax = null;
 
         this.load().then(() => {
             this.bind();
+
+            if ( this.elemData.results ) {
+                this.bindResults();
+            }
         });
     }
 
@@ -28,17 +37,79 @@ class Search {
 
     bind () {
         this.button.on( "click", () => {
-            this.fetch();
+            this.clear();
         });
+
+        this.search.on( "keyup", () => {
+            if ( this.search[ 0 ].value ) {
+                this.button.addClass( "is-active" );
+
+            } else {
+                this.button.removeClass( "is-active" );
+            }
+        });
+    }
+
+
+    bindResults () {
+        this.results = $( this.elemData.results );
+        this.loader = $( this.elemData.loader );
+        this.waiting = 300;
+        this.isFetch = false;
+
+        this.button.on( "click", () => {
+            this.emptyResults();
+        });
+
+        this.search.on( "keyup", debounce(() => {
+            // Abort existing request to start anew
+            if ( this.isFetch ) {
+                this.ajax.abort();
+                this.isFetch = false;
+                this.fetch();
+
+            // Make a clean request starting from scratch
+            } else if ( !this.isFetch && this.search[ 0 ].value ) {
+                this.fetch();
+            }
+
+        }, this.waiting ));
+    }
+
+
+    emptyResults () {
+        this.results.find( ".js-search-grid" ).removeClass( "is-active" );
+        setTimeout(() => {
+            this.results[ 0 ].innerHTML = "";
+
+        }, 500 );
+    }
+
+
+    displayResults ( json ) {
+        this.results[ 0 ].innerHTML = viewSearchResults( (json || { totalCount: 0, items: [] }) );
+        core.util.loadImages( this.results.find( core.config.lazyImageSelector ) );
+        setTimeout(() => {
+            this.results.find( ".js-search-grid" ).addClass( "is-active" );
+
+        }, 0 );
+    }
+
+
+    reset () {
+        this.search[ 0 ].blur();
+        this.search[ 0 ].value = "";
+        this.emptyResults();
+        this.button.removeClass( "is-active" );
+        this.loader.removeClass( "is-active" );
     }
 
 
     clear () {
         this.search[ 0 ].value = "";
+        this.search[ 0 ].focus();
+        this.button.removeClass( "is-active" );
     }
-
-
-    reset () {}
 
 
     fetchQuery ( query ) {
@@ -61,12 +132,24 @@ class Search {
 
 
     handle ( response ) {
-        console.log( response );
+        this.isFetch = false;
+        this.loader.removeClass( "is-active" );
+
+        if ( response.serviceError ) {
+            this.displayResults( null );
+
+        } else {
+            this.displayResults( response );
+        }
     }
 
 
     fetch () {
-        this.fetchQuery( this.search[ 0 ].value ).then(( response ) => {
+        this.isFetch = true;
+        this.loader.addClass( "is-active" );
+        this.emptyResults();
+        this.ajax = this.fetchQuery( this.search[ 0 ].value );
+        this.ajax.then(( response ) => {
             this.handle( response );
 
         }).catch(( response ) => {

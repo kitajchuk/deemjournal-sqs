@@ -1,8 +1,6 @@
 import $ from "properjs-hobo";
 import Controller from "properjs-controller";
 import PageController from "properjs-pagecontroller";
-// import paramalama from "paramalama";
-import * as gsap from "gsap/all";
 import Controllers from "./class/Controllers";
 import * as core from "./core";
 import navi from "./modules/navi";
@@ -211,10 +209,8 @@ const router = {
         this.setState( "future", data );
         this.unsetClass();
         this.setClass();
-        this.transitionOut();
-        navi.closeMenu();
         navi.setActive( this.state.future.view );
-        navi.closeMenu();
+        navi.closeAll();
         this.controllers.destroy();
     },
 
@@ -231,40 +227,10 @@ const router = {
     changePageIn ( data ) {
         setTimeout(() => {
             core.dom.html.removeClass( "is-tranny" );
-            this.transitionIn();
             this.setState( "now", data );
             this.execSquarespace();
 
         }, this.animDuration );
-    },
-
-
-    tweenContent ( opacity ) {
-        const isOne = (opacity === 1);
-
-        this.tween = gsap.TweenLite.to( core.dom.main[ 0 ], 0.5, {
-            css: {
-                opacity
-            },
-            ease: isOne ? gsap.Power4.easeOut : gsap.Power4.easeIn,
-            onComplete: () => {}
-        });
-    },
-
-
-    transitionOut () {
-        this.tweenContent( 0 );
-    },
-
-
-    transitionIn () {
-        this.blit.go(() => {
-            if ( this.tween && !this.tween.isActive() ) {
-                this.blit.stop();
-
-                this.tweenContent( 1 );
-            }
-        });
     },
 
 

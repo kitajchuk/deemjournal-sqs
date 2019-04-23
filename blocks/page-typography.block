@@ -25,18 +25,13 @@
         <h5>The Limits of the Material,</h5>
         <h5>Saskia Sassen</h5>
     </div>
-    <div class="-exp -wrap">
-        <div class="m label">H6 Roobert</div>
-        <h6>The Limits of the Material,</h6>
-        <h6>Saskia Sassen</h6>
-    </div>
     <div class="cms -exp -wrap">
         <div class="m label">Body, Roobert</div>
         <p>Lima, the capital city of Peru, is beset with many of the problems faced by other large metropolises in the developing world: unconstrained growth, lack of investment in public spaces and transit, violence, poverty, informality, and pollution. While the colonial center of the city is built on flat land, the poor and largely informally built periphery must contend with the dangerous of constructing on steep slopes free of any vegetation. If and when a large earthquake hits the city, millions of people will lose their homes and possibly their lives.</p>
     </div>
     <div class="cms -exp -wrap">
         <div class="m label">Annotation, Roobert</div>
-        <em>A new administration in 2014 put a stop to Barrio Mio, but the research continues in the form of academic conferences, partnerships with the Ministry of Housing, and political activism.</div>
+        <div class="m">A new administration in 2014 put a stop to Barrio Mio, but the research continues in the form of academic conferences, partnerships with the Ministry of Housing, and political activism.</div>
     </div>
 
     {# Serif #}
@@ -73,13 +68,6 @@
         <div class="-fserif">
             <h5>Limits of Material,</h5>
             <h5>Saskia Sassen</h5>
-        </div>
-    </div>
-    <div class="-exp -wrap">
-        <div class="m label">H6 Cheltenham</div>
-        <div class="-fserif">
-            <h6>Limits of Material,</h6>
-            <h6>Saskia Sassen</h6>
         </div>
     </div>
 </div>

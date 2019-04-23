@@ -1,6 +1,7 @@
 import * as core from "../core";
 import $ from "properjs-hobo";
 import * as gsap from "gsap/all";
+import ResizeController from "properjs-resizecontroller";
 
 
 /**
@@ -24,8 +25,12 @@ const navi = {
         this.menuAnims = this.menu.find( ".js-meni-search, .js-meni-a, .js-meni-footer" );
         this.menuSearch = this.menu.find( ".js-meni-search" );
         this.menuClose = this.menu.find( ".js-meni-close" );
-        this.search = core.dom.body.find( ".js-search" );
+        this.search = this.menu.find( ".js-search" );
+        this.main = core.dom.main;
+        this.header = core.dom.body.find( ".js-header" );
+        this.resizer = new ResizeController();
         this.bind();
+        this.onResize();
         this.animMenuItems( 0 );
         this.animMenuSearch( 0 );
         this.animMenuClose( 0 );
@@ -54,20 +59,27 @@ const navi = {
                 }
 
             } else {
-                console.log( "do nothing" );
+                // console.log( "do nothing" );
             }
         });
+
+        this.resizer.on( "resize", this.onResize.bind( this ) );
+    },
+
+
+    onResize () {
+        const rect = this.header[ 0 ].getBoundingClientRect();
+
+        this.main[ 0 ].style.paddingTop = `${rect.height}px`;
     },
 
 
     animMenuItems ( binary ) {
-        this.timeline = new gsap.TimelineLite();
-        this.timeline.staggerTo( this.menuAnims, (this.time / 1000), {
+        this.tweenMenu = new gsap.TweenLite.to( this.menuAnims, (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
             ease: gsap.Power3.easeOut
-
-        }, (50 / 1000));
+        });
     },
 
 
@@ -92,50 +104,83 @@ const navi = {
 
 
     openMenu () {
-        this.isOpen = true;
-        this.menu.addClass( "is-active" );
-        core.dom.html.addClass( "is-menu-open" );
-        setTimeout(() => {
-            this.menu.addClass( "is-static" );
-            this.animMenuItems( 1 );
+        return new Promise(( resolve ) => {
+            this.isOpen = true;
+            this.menu.addClass( "is-active" );
+            core.dom.html.addClass( "is-menu-open" );
+            setTimeout(() => {
+                this.menu.addClass( "is-static" );
+                this.animMenuItems( 1 );
+                resolve();
 
-        }, this.time );
+            }, this.time );
+        });
     },
 
 
     closeMenu () {
-        this.isOpen = false;
-        this.menu.removeClass( "is-static" );
-        this.menu.removeClass( "is-active" );
-        core.dom.html.removeClass( "is-menu-open" );
-        this.animMenuItems( 0 );
+        return new Promise(( resolve ) => {
+            this.isOpen = false;
+            this.menu.removeClass( "is-static" );
+            this.menu.addClass( "is-closing" );
+            core.dom.html.removeClass( "is-menu-open" );
+            this.animMenuItems( 0 );
+            setTimeout(() => {
+                this.menu.removeClass( "is-static is-active is-closing" );
+                resolve();
+
+            }, this.time );
+        });
     },
 
 
     openSearch () {
-        const searchField = this.search.find( ".js-search-field" )[ 0 ];
+        return new Promise(( resolve ) => {
+            const searchInstance = this.search.data( "instance" );
 
-        this.isSearch = true;
-        this.menu.addClass( "is-search" );
-        core.dom.html.addClass( "is-menu-search" );
-        searchField.focus();
-        this.animMenuSearch( 1 );
-        this.animMenuItems( 0 );
-        this.animMenuClose( 1 );
+            this.isSearch = true;
+            this.menu.addClass( "is-search" );
+            core.dom.html.addClass( "is-menu-search" );
+            searchInstance.clear();
+            this.animMenuSearch( 1 );
+            this.animMenuItems( 0 );
+            this.animMenuClose( 1 );
+            setTimeout(() => {
+                resolve();
+
+            }, this.time );
+        });
     },
 
 
     closeSearch () {
-        const searchField = this.search.find( ".js-search-field" )[ 0 ];
+        return new Promise(( resolve ) => {
+            const searchInstance = this.search.data( "instance" );
 
-        this.isSearch = false;
-        this.menu.removeClass( "is-search" );
-        core.dom.html.removeClass( "is-menu-search" );
-        searchField.blur();
-        searchField.value = "";
-        this.animMenuSearch( 0 );
-        this.animMenuItems( 1 );
-        this.animMenuClose( 0 );
+            this.isSearch = false;
+            this.menu.removeClass( "is-search" );
+            core.dom.html.removeClass( "is-menu-search" );
+            searchInstance.reset();
+            this.animMenuSearch( 0 );
+            this.animMenuItems( 1 );
+            this.animMenuClose( 0 );
+            setTimeout(() => {
+                resolve();
+
+            }, this.time );
+        });
+    },
+
+
+    closeAll () {
+        if ( this.isSearch ) {
+            this.closeSearch().then(() => {
+                this.closeMenu();
+            });
+
+        } else {
+            this.closeMenu();
+        }
     },
 
 
