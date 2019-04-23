@@ -1,19 +1,21 @@
 <div class="story -exp">
-    <div class="story__masthead -wrap">
-        {.if item.customContent.h1RoobertMedium}
-            <h1>{item.title}</h1>
-        {.end}
-        {.if item.customContent.h1CheltenhamBook}
-            <h1 class="-fserif">{item.title}</h1>
-        {.end}
-        {.if item.customContent.h2RoobertMedium}
-            <h2>{item.title}</h2>
-        {.end}
-        {.if item.customContent.h2CheltenhamBook}
-            <h2 class="-fserif">{item.title}</h2>
-        {.end}
+    <div class="story__cover">
+        <div class="story__masthead -wrap">
+            {.if item.customContent.h1RoobertMedium}
+                <h1>{item.title}</h1>
+            {.end}
+            {.if item.customContent.h1CheltenhamBook}
+                <h1 class="-fserif">{item.title}</h1>
+            {.end}
+            {.if item.customContent.h2RoobertMedium}
+                <h2>{item.title}</h2>
+            {.end}
+            {.if item.customContent.h2CheltenhamBook}
+                <h2 class="-fserif">{item.title}</h2>
+            {.end}
+        </div>
     </div>
-    <div class="story__blocks -exp">
+    <div class="story__blocks">
         {item.body}
     </div>
 </div>

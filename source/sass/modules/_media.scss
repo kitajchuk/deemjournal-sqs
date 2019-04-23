@@ -24,6 +24,100 @@
 
 
 
+._video {}
+._audio {
+    max-width: 900px;
+    width: 100%;
+}
+._audio__node {
+    display: none;
+}
+._audio__controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+._audio__pp {
+    ._svg--play {
+        display: block;
+
+        .is-audio-playing & {
+            display: none;
+        }
+    }
+
+    ._svg--pause {
+        display: none;
+
+        .is-audio-playing & {
+            display: block;
+        }
+    }
+}
+._audio__state {
+    @include otf-none();
+    padding-left: $padding-m;
+
+    span:nth-child( 1 ) {
+        display: inline-block;
+
+        .is-audio-playing & {
+            display: none;
+        }
+    }
+
+    span:nth-child( 2 ) {
+        display: none;
+
+        .is-audio-playing & {
+            display: inline-block;
+        }
+    }
+}
+._audio__global {
+    display: inline-block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-left: $padding-1;
+    padding-bottom: $padding-1;
+    z-index: $z_layer_intro;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d( 0, 100%, 0 );
+    transition: transform $ease-menu-1 $base-duration,
+                opacity $ease-menu-1 $base-duration;
+
+    .is-audio-offscreen & {
+        opacity: 1;
+        transform: translate3d( 0, 0, 0 );
+        pointer-events: auto;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m;
+        padding-bottom: $padding-m;
+    }
+
+    ._audio__controls {
+        background-color: $black;
+        border-radius: 44px;
+        height: 88px;
+        width: 220px;
+        justify-content: center;
+    }
+
+    ._audio__pp {
+        padding: 0 $padding-m;
+    }
+
+    ._svg {
+        fill: $white;
+    }
+}
+
+
+
 .embed {
     overflow: hidden;
     position: relative;
@@ -44,7 +138,7 @@
 .embed__poster {
     transition: opacity $base-duration $ease;
 
-    @include state( "embed", "playing" ) {
+    .is-embed-playing & {
         opacity: 0;
         pointer-events: none;
     }
@@ -59,7 +153,7 @@
     transition: opacity $base-duration $ease;
     width: 48px;
 
-    @include state( "embed", "playing" ) {
+    .is-embed-playing & {
         opacity: 0;
         pointer-events: none;
     }
@@ -74,7 +168,7 @@
     padding-bottom: $padding-1;
     transition: opacity $base-duration $ease;
 
-    @include state( "embed", "playing" ) {
+    .is-embed-playing & {
         opacity: 0;
         pointer-events: none;
     }

@@ -30,16 +30,6 @@ const _onMessageInstance = ( message, instance ) => {
         instance.element.removeClass( "is-embed-playing" );
     }
 };
-const _formatTime = ( time ) => {
-    const minutes = parseInt( time / (1000 * 60), 10 );
-    let seconds = parseInt( time / 1000, 10) % 60;
-
-    if ( seconds < 10 ) {
-        seconds = `0${seconds}`;
-    }
-
-    return `${minutes}:${seconds}`;
-};
 
 // Local public window.onmessage binding ( once )
 window.addEventListener( "message", ( e ) => {
@@ -111,7 +101,7 @@ class Video {
 
 
     setMetadata ( data ) {
-        const duration = _formatTime( data.duration * 1000 );
+        const duration = core.util.formatTime( data.duration * 1000 );
 
         this.metadata[ 0 ].innerHTML = duration;
     }
