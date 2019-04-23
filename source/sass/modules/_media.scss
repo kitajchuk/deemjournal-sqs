@@ -27,12 +27,12 @@
 .embed {
     overflow: hidden;
     position: relative;
-    }
+}
 .embed__aspect {
     background-color: $black;
     position: relative;
     width: 100%;
-    }
+}
 .embed__poster,
 .embed__element {
     height: 100%;
@@ -40,7 +40,7 @@
     position: absolute;
     top: 0;
     width: 100%;
-    }
+}
 .embed__poster {
     transition: opacity $base-duration $ease;
 
@@ -62,5 +62,25 @@
     @include state( "embed", "playing" ) {
         opacity: 0;
         pointer-events: none;
+    }
+}
+.embed__metadata {
+    @include otf-none();
+    color: $white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: $padding-1;
+    padding-bottom: $padding-1;
+    transition: opacity $base-duration $ease;
+
+    @include state( "embed", "playing" ) {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-right: $padding-m;
+        padding-bottom: $padding-m;
     }
 }

@@ -13,7 +13,6 @@ const _onMessageInstance = ( message, instance ) => {
         instance.postEmbed( "addEventListener", "play" );
         instance.postEmbed( "addEventListener", "pause" );
         instance.postEmbed( "addEventListener", "finish" );
-        instance.postEmbed( "addEventListener", "playProgress" );
 
     } else if ( message.event === "play" && isSelf ) {
         instance.isPlaying = true;
@@ -22,13 +21,24 @@ const _onMessageInstance = ( message, instance ) => {
     } else if ( message.event === "pause" && isSelf ) {
         instance.isPlaying = false;
 
+        if ( message.data ) {
+            instance.setMetadata( message.data );
+        }
+
     } else if ( message.event === "finish" && isSelf ) {
         instance.isPlaying = false;
         instance.element.removeClass( "is-embed-playing" );
-
-    } else if ( message.event === "playProgress" && isSelf ) {
-        // Nothing?
     }
+};
+const _formatTime = ( time ) => {
+    const minutes = parseInt( time / (1000 * 60), 10 );
+    let seconds = parseInt( time / 1000, 10) % 60;
+
+    if ( seconds < 10 ) {
+        seconds = `0${seconds}`;
+    }
+
+    return `${minutes}:${seconds}`;
 };
 
 // Local public window.onmessage binding ( once )
@@ -77,10 +87,10 @@ class Video {
         this.data.imageJson = this.image.data();
         this.element[ 0 ].innerHTML = videoView( this.data.blockJson, this.data.imageJson );
         this.iframe = this.element.find( ".js-embed-iframe" );
+        this.metadata = this.element.find( ".js-embed-metadata" );
         this.id = this.iframe[ 0 ].id;
-
+        this.iframe[ 0 ].src = this.iframe.data().src;
         core.util.loadImages( this.element.find( core.config.lazyImageSelector ), core.util.noop );
-        core.emitter.fire( "app--anim-request" );
     }
 
 
@@ -97,6 +107,13 @@ class Video {
         }).on( "mouseleave", ".js-embed-playbtn", () => {
             this.element.removeClass( "is-play-button" );
         });
+    }
+
+
+    setMetadata ( data ) {
+        const duration = _formatTime( data.duration * 1000 );
+
+        this.metadata[ 0 ].innerHTML = duration;
     }
 
 
@@ -119,7 +136,6 @@ class Video {
         this.postEmbed( "play", "true" );
         this.isPlaying = true;
         this.element.addClass( "is-embed-playing" );
-        this.iframe[ 0 ].src = this.iframe.data().src;
     }
 
 

@@ -209,6 +209,13 @@
     -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
     font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
 }
+// Disable the OpenType features
+@mixin otf-none {
+    font-variant-ligatures: no-common-ligatures;
+    -moz-font-feature-settings: unset;
+    -webkit-font-feature-settings: unset;
+    font-feature-settings: unset;
+}
 
 
 

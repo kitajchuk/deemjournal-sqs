@@ -18,6 +18,7 @@ export default ( blockJson, imageJson ) => {
                 <div class="embed__playbtn js-embed-playbtn">
                     ${svgIcon}
                 </div>
+                <div class="embed__metadata js-embed-metadata p"></div>
             </div>
             ${blockJson.description ? `
                 <div class="media__cap m">${blockJson.description.html}</div>
