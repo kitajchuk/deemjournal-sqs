@@ -1,3 +1,6 @@
+/******************************************************************************
+ * SQS Layout
+*******************************************************************************/
 [class*=sqs-col] {
     float: none;
     display: inline-block;
@@ -42,6 +45,10 @@
 }
 
 
+
+/******************************************************************************
+ * SQS Blocks
+*******************************************************************************/
 .sqs-block-horizontalrule {
     hr {
         background-color: $grey;
@@ -63,11 +70,11 @@
         }
 
         > p, > h1, > h2, > h3, > ol, > ul {
-            padding: 2.75vw 0;
+            @include exp();
         }
 
         > blockquote {
-            padding: 0 0 2.75vw;
+            @include expb();
         }
 
         a {
@@ -101,21 +108,36 @@
 }
 .sqs-block-image,
 .sqs-block-video {
+    .sqs-block-content {
+        @include exp();
+        @include wrap();
+    }
+
     .m {
         width: 100%;
         max-width: 900px;
     }
 }
-
-
-
-.sqs-layout:not(.sqs-editing) > .sqs-row:first-child > [class*="sqs-col"]:first-child > .sqs-block:last-child, .sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):last-child {
-    padding: 0 !important;
-    margin: 0 !important;
+.sqs-block-audio,
+.sqs-block-newsletter {
+    .sqs-block-content {
+        .cms & {
+            @include wrap();
+            @include exp();
+        }
+    }
 }
 
 
 
+/******************************************************************************
+ * SQS Overrides
+*******************************************************************************/
+.sqs-layout:not(.sqs-editing) > .sqs-row:first-child > [class*="sqs-col"]:first-child > .sqs-block:last-child,
+.sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):last-child {
+    padding: 0 !important;
+    margin: 0 !important;
+}
 .newsletter-block:not(.rendered) {
     opacity: 1 !important;
 }

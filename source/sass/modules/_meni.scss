@@ -148,6 +148,12 @@
     .meni__search__icon,
     .meni__close__icon {
         cursor: pointer;
+
+        .is-hoverable &:hover {
+            ._svg {
+                fill: $grey;
+            }
+        }
     }
     .meni__search__icon {
         .is-menu-search & {
@@ -173,13 +179,14 @@
     .meni__li {}
 
     .meni__li--instagram {
-        padding-top: $padding-1;
+        padding-top: $padding-m;
     }
 }
 .meni__footer {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    visibility: hidden;
 
     a {
         transition: color $base-duration $ease,

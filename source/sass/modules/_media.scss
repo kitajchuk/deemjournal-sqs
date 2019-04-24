@@ -1,30 +1,27 @@
-.image {
-    width: 100%;
-    max-width: 100%;
-}
 .media {
     position: relative;
 }
-.media--stretch {
-    width: 100%;
-}
-.media--wrap {
-    @include wrap();
-}
-.media__node {
-    max-width: 100%;
-    width: 100%;
-}
 .media__cap {
     padding-top: 2.75vw;
-    @include wrap();
 }
-.media--card {}
-.media--overlap {}
+
+
+
+.image {
+    width: 100%;
+    max-width: 1600px;
+
+    .media--stretch & {
+        max-width: 2300px;
+    }
+}
 
 
 
 ._video {}
+
+
+
 ._audio {
     max-width: 900px;
     width: 100%;
@@ -121,6 +118,8 @@
 .embed {
     overflow: hidden;
     position: relative;
+    width: 100%;
+    max-width: 1600px;
 }
 .embed__aspect {
     background-color: $black;

@@ -15,7 +15,7 @@
             {.end}
         </div>
     </div>
-    <div class="story__blocks">
+    <div class="story__blocks cms">
         {item.body}
     </div>
 </div>

@@ -55,8 +55,8 @@ window.addEventListener( "message", ( e ) => {
 class Video {
     constructor ( element, data ) {
         this.element = element;
+        this.content = this.element.find( ".sqs-block-content" );
         this.data = data;
-        this.parent = this.element.parent();
         this.isPlaying = false;
 
         this.bind();
@@ -75,7 +75,7 @@ class Video {
     load () {
         this.image = this.element.find( "img" );
         this.data.imageJson = this.image.data();
-        this.element[ 0 ].innerHTML = videoView( this.data.blockJson, this.data.imageJson );
+        this.content[ 0 ].innerHTML = videoView( this.data.blockJson, this.data.imageJson );
         this.iframe = this.element.find( ".js-embed-iframe" );
         this.metadata = this.element.find( ".js-embed-metadata" );
         this.id = this.iframe[ 0 ].id;

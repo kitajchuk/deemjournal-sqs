@@ -6,24 +6,12 @@
 
 {.if info}
     {.var @caption info.description|safe}
-    {.var @card info.designLayout}
-    {.var @overlap info.designLayout}
-    {.var @imagePos info.imagePosition}
 {.or}
     {.var @caption false}
-    {.var @card false}
-    {.var @overlap false}
-    {.var @imagePos false}
-    {.var @wrap false}
 {.end}
-
-{.equal? @card "card"}
-{.or equal? @overlap "overlap"}
-{.or}
-    <div class="media js-media {.if info}{.if info.stretch}media--stretch{.or}media--wrap{.end}{.end}">
-        <img class="media__node js-media-node image js-lazy-image" data-img-src="{@media.assetUrl}" data-variants="{@media.systemDataVariants}" data-original-size="{@media.originalSize}" {.if @mobile}data-mobile="{@mobile|json|htmlattr}"{.end} />
-        {.if @caption}
-            <div class="media__cap m">{@caption}</div>
-        {.end}
-    </div>
-{.end}
+<div class="media js-media {.if info}{.if info.stretch}media--stretch{.or}{.end}{.end}">
+    <img class="media__node js-media-node image js-lazy-image" data-img-src="{@media.assetUrl}" data-variants="{@media.systemDataVariants}" data-original-size="{@media.originalSize}" />
+    {.if @caption}
+        <div class="media__cap m">{@caption}</div>
+    {.end}
+</div>

@@ -4,12 +4,13 @@
     fill: $black;
 }
 ._svg--logo {
-    width: 5.46875vw;
-    max-width: 140px;
-    min-width: 128px;
+    width: 160px;
+    max-width: 160px;
 
     .intro & {
         fill: $white;
+        width: 31.4453125vw;
+        max-width: 805px;
     }
 }
 ._svg--play {
