@@ -1,7 +1,7 @@
 import * as core from "../core";
 import BaseController from "./controllers/BaseController";
 import ImageController from "./controllers/ImageController";
-import Signup from "./components/Signup";
+import Newsletter from "./components/Newsletter";
 import View from "./components/View";
 import Search from "./components/Search";
 import Video from "./components/Video";
@@ -64,7 +64,7 @@ class Controllers {
         this.controllers = [];
 
         this.push( "view", core.dom.body.find( ".js-view" ), BaseController, View );
-        this.push( "signup", core.dom.body.find( ".js-newsletter" ), BaseController, Signup );
+        this.push( "newsletter", core.dom.body.find( ".js-newsletter" ), BaseController, Newsletter );
         this.push( "search", core.dom.body.find( ".js-search" ), BaseController, Search );
         this.push( "audio", core.dom.body.find( ".js-audio" ), BaseController, Audio );
 

@@ -10,7 +10,8 @@ import debounce from "properjs-debounce";
 class Search {
     constructor ( element, data ) {
         this.element = element;
-        this.elemData = data;
+        this.parent = this.element.parent();
+        this.blockJson = data;
         this.element.data( "instance", this );
         this.data = {};
         this.ajax = null;
@@ -18,7 +19,7 @@ class Search {
         this.load().then(() => {
             this.bind();
 
-            if ( this.elemData.results ) {
+            if ( this.blockJson.results ) {
                 this.bindResults();
             }
         });
@@ -27,7 +28,7 @@ class Search {
 
     load () {
         return new Promise(( resolve ) => {
-            this.element[ 0 ].innerHTML = viewSearch();
+            this.element[ 0 ].innerHTML = viewSearch( this );
             this.search = this.element.find( ".js-search-field" );
             this.button = this.element.find( ".js-search-btn" );
             resolve();
@@ -52,8 +53,9 @@ class Search {
 
 
     bindResults () {
-        this.results = $( this.elemData.results );
-        this.loader = $( this.elemData.loader );
+        this.results = this.parent.find( this.blockJson.results );
+        this.loader = this.results.find( ".js-search-loader" );
+        this.display = this.results.find( ".js-search-display" );
         this.waiting = 300;
         this.isFetch = false;
 
@@ -78,19 +80,19 @@ class Search {
 
 
     emptyResults () {
-        this.results.find( ".js-search-grid" ).removeClass( "is-active" );
+        this.display.find( ".js-search-grid" ).removeClass( "is-active" );
         setTimeout(() => {
-            this.results[ 0 ].innerHTML = "";
+            this.display[ 0 ].innerHTML = "";
 
         }, 500 );
     }
 
 
     displayResults ( json ) {
-        this.results[ 0 ].innerHTML = viewSearchResults( (json || { totalCount: 0, items: [] }) );
-        core.util.loadImages( this.results.find( core.config.lazyImageSelector ) );
+        this.display[ 0 ].innerHTML = viewSearchResults( (json || { totalCount: 0, items: [] }) );
+        core.util.loadImages( this.display.find( core.config.lazyImageSelector ) );
         setTimeout(() => {
-            this.results.find( ".js-search-grid" ).addClass( "is-active" );
+            this.display.find( ".js-search-grid" ).addClass( "is-active" );
 
         }, 0 );
     }

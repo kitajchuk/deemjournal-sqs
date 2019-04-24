@@ -46,26 +46,93 @@
 /******************************************************************************
  * Newsletter
 *******************************************************************************/
-.signup__form {
+.newsletter {
+    max-width: 900px;
+    width: 100%;
+}
+.newsletter__form {
     &.is-success {
-        .signup__success {
+        .newsletter__success {
             display: block;
         }
-        .signup__entry {
+        .newsletter__entry {
             display: none;
         }
     }
 }
-.signup__success {
+.newsletter__success {
     display: none;
 
     .is-success & {
         display: block;
     }
 }
-.signup__entry {
+.newsletter__entry {
+    position: relative;
+    max-width: 660px;
+    width: 100%;
+
     .is-success & {
         display: none;
+    }
+}
+.newsletter__btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate3d( 0, -50%, 0 );
+}
+.newsletter__input {
+    transition: color $base-duration $ease;
+
+    &.is-invalid {
+        color: $red;
+    }
+}
+
+
+
+/******************************************************************************
+ * Search
+*******************************************************************************/
+.search {}
+.search__btn {
+    opacity: 0;
+    transition: opacity $base-duration $ease;
+    margin-left: $padding-m;
+
+    &.is-active {
+        opacity: 1;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        display: none;
+    }
+}
+.results {
+    .results__loading {
+        opacity: 0;
+        transition: opacity $base-duration $ease;
+
+        &.is-active {
+            opacity: 1;
+        }
+    }
+
+    .lds-ellipsis {
+        transform: translateX( -6px );
+    }
+
+    .grid {
+        opacity: 0;
+        transform: translate3d( 0, 16px, 0 );
+        transition: transform $ease-menu-1 $base-duration,
+                    opacity $ease-menu-1 $base-duration;
+
+        &.is-active {
+            opacity: 1;
+            transform: translate3d( 0, 0, 0 );
+        }
     }
 }
 
@@ -75,19 +142,19 @@
  * Buttons
 *******************************************************************************/
 .btn {
-    @include p();
+    @include m();
+    background-color: transparent;
     line-height: 1;
-    background-color: $black;
-    color: $white;
+    color: $grey;
     cursor: pointer;
     -webkit-appearance: none;
     outline: 0;
     border: 0;
-    padding: 20px 30px;
+    padding: 0;
     display: inline-block;
     cursor: pointer;
     text-align: center;
-    height: 75px;
+    height: auto;
     display: inline-block;
     vertical-align: middle;
     box-sizing: border-box;
@@ -97,14 +164,15 @@
     line-height: 1;
     -webkit-appearance: none;
     outline: 0;
-    border: 1px solid $black;
+    border: 0;
+    border-bottom: 1px solid $grey;
     background-color: transparent;
     color: $black;
-    padding: 20px;
+    padding: 0;
     width: 100%;
-    max-width: 400px;
-    border-radius: 0;
+    max-width: 660px;
     height: 75px;
+    border-radius: 0;
     display: inline-block;
     vertical-align: middle;
     @include placeholder( $grey );

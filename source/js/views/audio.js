@@ -6,7 +6,7 @@ export default ( instance ) => {
 
     return `
         <div class="_audio__title">
-            <h4>${instance.data.blockJson.title}</h4>
+            <h2>${instance.data.blockJson.title}</h2>
         </div>
         <div class="_audio__controls -exp">
             <div class="_audio__pp js-audio-pp">

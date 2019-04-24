@@ -103,29 +103,8 @@
         pointer-events: auto;
     }
 
-    .search__btn {
-        @include m();
-        background-color: transparent;
-        line-height: 1;
-        color: $grey;
-        opacity: 0;
-        transform: opacity $base-duration $ease;
-        height: auto;
-        padding: 0;
-
-        &.is-active {
-            opacity: 1;
-        }
-
-        @include respond( $mobile-breakpoint ) {
-            display: none;
-        }
-    }
     .search__input {
         color: $white;
-        height: auto;
-        padding: 0 0 5px 0;
-        border: 0;
         @include placeholder( $grey );
     }
 }
@@ -214,29 +193,4 @@
 }
 .meni__results {
     @include exp();
-
-    .results__loading {
-        opacity: 0;
-        transition: opacity $base-duration $ease;
-
-        &.is-active {
-            opacity: 1;
-        }
-    }
-
-    .lds-ellipsis {
-        transform: translateX( -6px );
-    }
-
-    .grid {
-        opacity: 0;
-        transform: translate3d( 0, 16px, 0 );
-        transition: transform $ease-menu-1 $base-duration,
-                    opacity $ease-menu-1 $base-duration;
-
-        &.is-active {
-            opacity: 1;
-            transform: translate3d( 0, 0, 0 );
-        }
-    }
 }

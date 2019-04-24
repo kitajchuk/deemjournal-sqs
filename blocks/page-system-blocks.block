@@ -4,27 +4,15 @@
         <p>Important system blocks for internal API features of the Squarespace platform. These blocks serve as containers for our custom application code to integrate with core Squarespace APIs.</p>
     </div>
     <div class="system-blocks__newsletter -exp -wrap">
-        <div class="m label">Newsletter (Squarespace default). Never delete this block.</div>
-        <div class="-out">
+        <div class="m label">Newsletter</div>
+        <div class="-out -exp -wrap">
             <squarespace:block-field id="deem--newsletter" columns="12" />
         </div>
     </div>
-    <div class="system-blocks__newsletter -exp -wrap">
-        <div class="m label">Newsletter (Custom)</div>
-        <div class="-out">
-            <div class="newsletter js-newsletter"></div>
-        </div>
-    </div>
     <div class="system-blocks__search -exp -wrap">
-        <div class="m label">Search (Squarespace default). Never delete this block.</div>
-        <div class="-out">
+        <div class="m label">Search</div>
+        <div class="-out -exp -wrap">
             <squarespace:block-field id="deem--search" columns="12" />
-        </div>
-    </div>
-    <div class="system-blocks__search -exp -wrap">
-        <div class="m label">Search (Custom)</div>
-        <div class="-out">
-            <div class="search js-search" data-id="{collection.id}"></div>
         </div>
     </div>
 </div>
