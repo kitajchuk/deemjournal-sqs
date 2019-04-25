@@ -126,7 +126,7 @@ class Search {
                 crumb: Store.crumb,
                 q: query,
                 p: 0,
-                size: 10,
+                size: 12,
                 f_collectionId:	"5caf91b7a4222f77241028dc"
             }
         });

@@ -33,19 +33,19 @@ class Audio {
         this.audioNode = this.element.find( ".js-audio-node" );
         this.audioNode[ 0 ].src = this.data.blockJson.audioAssetUrl;
         this.audioStatus[ 0 ].innerHTML = core.util.formatTime( this.data.blockJson.audioAssetDuration );
-
-        console.log( this );
     }
 
 
     bind () {
         this.scroller = new ScrollController();
         this.scroller.on( "scroll", () => {
-            if ( core.util.isElementVisible( this.element[ 0 ] ) ) {
-                this.element.removeClass( "is-audio-offscreen" );
+            const bounds = this.element[ 0 ].getBoundingClientRect();
+
+            if ( bounds.bottom < 0 ) {
+                this.element.addClass( "is-audio-offscreen" );
 
             } else {
-                this.element.addClass( "is-audio-offscreen" );
+                this.element.removeClass( "is-audio-offscreen" );
             }
         });
 

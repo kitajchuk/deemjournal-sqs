@@ -47,7 +47,7 @@
  * Newsletter
 *******************************************************************************/
 .newsletter {
-    max-width: 900px;
+    max-width: $text-width;
     width: 100%;
 }
 .newsletter__form {
@@ -82,13 +82,7 @@
     top: 50%;
     transform: translate3d( 0, -50%, 0 );
 }
-.newsletter__input {
-    transition: color $base-duration $ease;
-
-    &.is-invalid {
-        color: $red;
-    }
-}
+.newsletter__input {}
 
 
 
@@ -161,6 +155,7 @@
 }
 .inp {
     @include p();
+    @include placeholder( $grey );
     line-height: 1;
     -webkit-appearance: none;
     outline: 0;
@@ -175,7 +170,15 @@
     border-radius: 0;
     display: inline-block;
     vertical-align: middle;
-    @include placeholder( $grey );
+    transition: color $base-duration $ease;
+
+    .is-inverse-text & {
+        color: $white;
+    }
+
+    &.is-invalid {
+        color: $red;
+    }
 }
 
 
@@ -219,13 +222,13 @@
 
         blockquote {
             width: 100%;
-            max-width: 900px;
+            max-width: $text-width;
         }
     }
 }
 .annotation__text {
     width: 100%;
-    max-width: 900px;
+    max-width: $text-width;
 
     @include respond( 1305px ) {
         order: 1;
@@ -233,7 +236,7 @@
 
         p {
             width: 100%;
-            max-width: 900px;
+            max-width: $text-width;
         }
     }
 }

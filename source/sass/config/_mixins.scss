@@ -270,6 +270,29 @@
         padding-right: $padding-m;
     }
 }
+@mixin wrapr() {
+    padding-right: $padding-2;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-right: 0;
+    }
+}
+@mixin wrapl() {
+    padding-left: $padding-2;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: 0;
+    }
+}
+@mixin wrap-imp() {
+    padding-left: $padding-1 !important;
+    padding-right: $padding-1 !important;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m !important;
+        padding-right: $padding-m !important;
+    }
+}
 @mixin exp() {
     padding-top: $expander-1;
     padding-bottom: $expander-1;

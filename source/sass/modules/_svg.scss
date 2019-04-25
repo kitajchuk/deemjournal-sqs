@@ -2,6 +2,10 @@
     transition: fill $fast-duration $ease;
     cursor: pointer;
     fill: $black;
+
+    .is-inverse-text & {
+        fill: $white;
+    }
 }
 ._svg--logo {
     width: 160px;

@@ -7,15 +7,14 @@ html {
     transition: color $base-duration $ease,
                 background-color $base-duration $ease;
 
-    &.is-darkside {
-        background-color: $black;
-        color: $white;
-    }
-
     &.is-intro,
     &.is-tranny,
     &.is-menu-open {
         overflow: hidden;
+    }
+
+    &.is-inverse-text {
+        color: $white;
     }
 }
 body {

@@ -60,13 +60,14 @@
     }
 }
 .sqs-block-html {
-    .sqs-block-content {
-        @include wrap();
+    @include wrap-imp();
 
+    .sqs-block-content {
         > p,
         > blockquote > p {
             width: 100%;
-            max-width: 900px;
+            max-width: $text-width;
+            margin: 0 auto;
         }
 
         > p, > h1, > h2, > h3, > ol, > ul {
@@ -111,11 +112,13 @@
     .sqs-block-content {
         @include exp();
         @include wrap();
+        display: flex;
+        justify-content: center;
     }
 
     .m {
         width: 100%;
-        max-width: 900px;
+        max-width: $text-width;
     }
 }
 .sqs-block-audio,
@@ -124,6 +127,8 @@
         .cms & {
             @include wrap();
             @include exp();
+            display: flex;
+            justify-content: center;
         }
     }
 }

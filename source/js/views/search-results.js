@@ -1,13 +1,13 @@
 export default ( json ) => {
     let items = json.items;
 
-    if ( json.totalCount < 3 ) {
-        items = [
-            json.items[ 0 ],
-            json.items[ 0 ],
-            json.items[ 0 ]
-        ];
-    }
+    // if ( json.totalCount < 3 ) {
+    //     items = [
+    //         json.items[ 0 ],
+    //         json.items[ 0 ],
+    //         json.items[ 0 ]
+    //     ];
+    // }
 
     return json.totalCount ? `<div class="grid js-search-grid">${items.map(( item ) => {
         return `

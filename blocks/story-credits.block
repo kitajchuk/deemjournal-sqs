@@ -1,0 +1,3 @@
+<div class="story__credits">
+    {item.customContent.creditsText.html}
+</div>

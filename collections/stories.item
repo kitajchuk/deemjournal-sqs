@@ -1,21 +1,25 @@
-<div class="story -exp">
-    <div class="story__cover">
-        <div class="story__masthead -wrap">
-            {.if item.customContent.h1RoobertMedium}
-                <h1>{item.title}</h1>
-            {.end}
-            {.if item.customContent.h1CheltenhamBook}
-                <h1 class="-fserif">{item.title}</h1>
-            {.end}
-            {.if item.customContent.h2RoobertMedium}
-                <h2>{item.title}</h2>
-            {.end}
-            {.if item.customContent.h2CheltenhamBook}
-                <h2 class="-fserif">{item.title}</h2>
-            {.end}
-        </div>
+<div class="story js-story" {.if item.customContent.colorBackground}data-hex="{item.customContent.colorBackground}"{.end} {.if item.customContent.lightText}data-lit="{item.customContent.lightText}"{.end}>
+    <div class="story__cover {.if item.customContent.coverHorizontalBottom}story__cover--hb{.end}{.if item.customContent.coverHorizontalTop}story__cover--ht{.end}">
+        {.if item.customContent.coverHorizontalBottom}
+            {@|apply story-masthead.block}
+            <div class="story__flex">
+                {@|apply story-credits.block}
+                {@|apply story-image.block}
+            </div>
+            <div class="story__flex-sh">
+                {@|apply story-excerpt.block}
+            </div>
+        {.end}
+        {.if item.customContent.coverHorizontalTop}
+            {@|apply story-image.block}
+            {@|apply story-masthead.block}
+            <div class="story__flex">
+                {@|apply story-credits.block}
+                {@|apply story-excerpt.block}
+            </div>
+        {.end}
     </div>
-    <div class="story__blocks cms">
+    <div class="story__blocks js-story-blocks cms">
         {item.body}
     </div>
 </div>

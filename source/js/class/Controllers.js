@@ -7,6 +7,7 @@ import Search from "./components/Search";
 import Video from "./components/Video";
 import Annotation from "./components/Annotation";
 import Audio from "./components/Audio";
+import Story from "./components/Story";
 
 
 /**
@@ -67,6 +68,7 @@ class Controllers {
         this.push( "newsletter", core.dom.body.find( ".js-newsletter" ), BaseController, Newsletter );
         this.push( "search", core.dom.body.find( ".js-search" ), BaseController, Search );
         this.push( "audio", core.dom.body.find( ".js-audio" ), BaseController, Audio );
+        this.push( "story", core.dom.body.find( ".js-story" ), BaseController, Story );
 
         // Hinge on Squarespace selectors...
         this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );

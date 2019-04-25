@@ -8,7 +8,7 @@ export default ( instance ) => {
         <div class="_audio__title">
             <h2>${instance.data.blockJson.title}</h2>
         </div>
-        <div class="_audio__controls -exp">
+        <div class="_audio__controls">
             <div class="_audio__pp js-audio-pp">
                 ${svgPlayIcon}
                 ${svgPauseIcon}

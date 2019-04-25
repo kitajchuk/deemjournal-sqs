@@ -1,0 +1,56 @@
+.story__cover {
+    @include exp();
+}
+.story__cover--ht {
+    .story__image {
+        max-width: $media-width-0;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+.story__cover--hb {
+    .story__image {
+        width: 62.5vw;
+
+        @include respond( $tablet-breakpoing ) {
+            width: 100%;
+        }
+    }
+}
+.story__masthead {
+    @include wrap();
+    @include exp();
+
+    ._audio__title {
+        display: none;
+    }
+}
+.story__flex {
+    @include expt();
+    @include wrap();
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.story__flex-sh {
+    @include wrap();
+    display: flex;
+    justify-content: flex-end;
+}
+.story__excerpt {
+    width: $text-width;
+    box-sizing: content-box;
+    @include wrapr();
+
+    @include respond( $tablet-breakpoing ) {
+        width: 100%;
+    }
+}
+.story__credits {
+    @include expb();
+
+    p {
+        @include m();
+        color: $grey;
+    }
+}

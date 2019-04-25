@@ -12,6 +12,8 @@
 <div class="media js-media {.if info}{.if info.stretch}media--stretch{.or}{.end}{.end}">
     <img class="media__node js-media-node image js-lazy-image" data-img-src="{@media.assetUrl}" data-variants="{@media.systemDataVariants}" data-original-size="{@media.originalSize}" />
     {.if @caption}
-        <div class="media__cap m">{@caption}</div>
+        <div class="media__cap">
+            <div class="m">{@caption}</div>
+        </div>
     {.end}
 </div>
