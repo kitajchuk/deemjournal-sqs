@@ -19,26 +19,24 @@
     margin-right: 0;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
-.sqs-layout > .sqs-row > .col {
-    > .sqs-row {
-        .sqs-block-html .sqs-block-content {
-            > p, > h1, > h2, > h3, > ol, > ul {
-                padding: 0;
-            }
-
-            > blockquote {
-                padding: 0;
-            }
-        }
-
-        > .col {
-            width: auto !important;
-        }
-    }
-}
+// .sqs-layout > .sqs-row > .col > .sqs-row:not( :nth-child( 1 ) ) {
+//     .sqs-block-html .sqs-block-content {
+//         > p, > h1, > h2, > h3, > ol, > ul {
+//             padding: 0;
+//         }
+//
+//         > blockquote {
+//             padding: 0;
+//         }
+//     }
+//
+//     > .col {
+//         width: 100% !important;
+//     }
+// }
 .sqs-row:before,
 .sqs-row:after {
     display: none;
@@ -59,15 +57,67 @@
         height: $expander-1 !important;
     }
 }
-.sqs-block-html {
-    @include wrap-imp();
-
+.sqs-block-newsletter {
     .sqs-block-content {
-        > p,
-        > blockquote > p {
-            width: 100%;
-            max-width: $text-width;
-            margin: 0 auto;
+        @include exp();
+        @include wrap();
+    }
+}
+.sqs-block-gallery {
+    .sqs-block-content {
+        @include exp();
+        @include wrap();
+    }
+}
+.sqs-block-image {
+    .sqs-block-content {
+        @include exp();
+    }
+
+    .media:not( .media--tall ) {
+        @include wrap();
+        text-align: right;
+
+        .media__wrap {
+            @include media();
+        }
+    }
+    .media--tall {
+        .media__wrap {
+            @include text();
+        }
+    }
+
+    .media--stretch {
+        .media__wrap {
+            max-width: $media-width-1;
+        }
+    }
+}
+.sqs-block-video {
+    .sqs-block-content {
+        @include exp();
+    }
+
+    .media__node {
+        @include wrap();
+        text-align: right;
+    }
+
+    .embed {
+        @include media();
+    }
+
+    .m {
+        @include text();
+    }
+}
+.sqs-block-html {
+    .sqs-block-content {
+        @include wrap();
+
+        > p {
+            @include text();
         }
 
         > p, > h1, > h2, > h3, > ol, > ul {
@@ -75,7 +125,7 @@
         }
 
         > blockquote {
-            @include expb();
+            @include exp();
         }
 
         a {
@@ -107,28 +157,64 @@
         }
     }
 }
-.sqs-block-image,
-.sqs-block-video {
-    .sqs-block-content {
-        @include exp();
-        @include wrap();
-        display: flex;
-        justify-content: center;
-    }
 
-    .m {
-        width: 100%;
-        max-width: $text-width;
+
+
+// Cover specific !!!
+.sqs-block-audio {
+    .sqs-block-content {
+        @include wrap();
     }
 }
-.sqs-block-audio,
-.sqs-block-newsletter {
-    .sqs-block-content {
-        .cms & {
-            @include wrap();
-            @include exp();
-            display: flex;
-            justify-content: center;
+.sqs-block-image {
+    &:nth-child( 1 ) {
+        .sqs-block-content {
+            padding-bottom: 0;
+        }
+    }
+}
+.sqs-block-html:nth-child( 1 ),
+.sqs-block-image:nth-child( 1 ) + .sqs-block-html,
+.sqs-block-video:nth-child( 1 ) + .sqs-block-html {
+    h1, h2, h3 {
+        .h1RoobertMedium & {
+            @include h1();
+        }
+
+        .h1CheltenhamBook & {
+            @include h1();
+            @include font-family-serif();
+        }
+
+        .h2RoobertMedium & {
+            @include h2();
+        }
+
+        .h2CheltenhamBook & {
+            @include h2();
+            @include font-family-serif();
+        }
+    }
+}
+.sqs-layout > .sqs-row > .col > .sqs-row:nth-child( 1 ) {
+    .sqs-block-image {
+        .sqs-block-content {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .sqs-block-html {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .sqs-block-audio {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 }

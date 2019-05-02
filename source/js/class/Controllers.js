@@ -8,6 +8,7 @@ import Video from "./components/Video";
 import Annotation from "./components/Annotation";
 import Audio from "./components/Audio";
 import Story from "./components/Story";
+import Cover from "./components/Cover";
 
 
 /**
@@ -72,7 +73,8 @@ class Controllers {
 
         // Hinge on Squarespace selectors...
         this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );
-        this.push( "annotation", core.dom.body.find( ".sqs-layout > .sqs-row > .col > .sqs-row blockquote" ), BaseController, Annotation );
+        this.push( "cover", core.dom.body.find( ".sqs-layout > .sqs-row:nth-child(1) > .col > .sqs-row:nth-child(1)" ), BaseController, Cover );
+        this.push( "annotation", core.dom.body.find( ".sqs-layout > .sqs-row > .col > .sqs-row:not(:nth-child(1)) blockquote" ), BaseController, Annotation );
 
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );

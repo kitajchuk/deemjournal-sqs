@@ -39,12 +39,15 @@ $expander-m: 80px;
 /******************************************************************************
  * Sizes
 *******************************************************************************/
-$text-width: 900px;
+$text-width: 1000px;
 $menu-width-0: $text-width;
 $menu-width-1: 720px;
 $menu-width-2: 480px;
 $media-width-0: 1600px;
 $media-width-1: 2300px;
+$tall-width-0: 39.0625vw;
+$tall-width-1: 1000px;
+$cover-text-width: 960px;
 
 
 
@@ -100,6 +103,7 @@ $m-line: 30 / 20;
  * Breakpoints
 *******************************************************************************/
 $break-desktop-full: 2560px;
+$break-desktop-medium: 1920px;
 $break-laptop-full: 1680px;
 $break-laptop-medium: 1440px;
 $break-ipad-pro-width: 1366px;
@@ -115,6 +119,7 @@ $mobile-breakpoint: $break-mobile-full;
 $tablet-breakpoing: $break-tablet-small;
 $laptop-breakpoint: $break-laptop-medium;
 $desktop-breakpoint: $break-desktop-full;
+$text-breakpoint: 2170px;
 
 
 

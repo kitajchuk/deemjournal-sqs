@@ -14,9 +14,6 @@ import * as core from "../../core";
 class Story {
     constructor ( element, data ) {
         this.element = element;
-        this.blocks = this.element.find( ".js-story-blocks" );
-        this.audio = this.element.find( ".js-story-audio" );
-        this.audioBlock = this.blocks.find( ".sqs-block-audio" );
         this.data = data;
 
         this.init();
@@ -30,11 +27,6 @@ class Story {
 
         if ( this.data.lit ) {
             core.dom.html.addClass( "is-inverse-text" );
-        }
-
-        if ( this.audioBlock ) {
-            this.audioBlock.detach();
-            this.audio.append( this.audioBlock );
         }
     }
 

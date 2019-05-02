@@ -1,25 +1,11 @@
-<div class="story js-story" {.if item.customContent.colorBackground}data-hex="{item.customContent.colorBackground}"{.end} {.if item.customContent.lightText}data-lit="{item.customContent.lightText}"{.end}>
-    <div class="story__cover {.if item.customContent.coverHorizontalBottom}story__cover--hb{.end}{.if item.customContent.coverHorizontalTop}story__cover--ht{.end}">
-        {.if item.customContent.coverHorizontalBottom}
-            {@|apply story-masthead.block}
-            <div class="story__flex">
-                {@|apply story-credits.block}
-                {@|apply story-image.block}
-            </div>
-            <div class="story__flex-sh">
-                {@|apply story-excerpt.block}
-            </div>
-        {.end}
-        {.if item.customContent.coverHorizontalTop}
-            {@|apply story-image.block}
-            {@|apply story-masthead.block}
-            <div class="story__flex">
-                {@|apply story-credits.block}
-                {@|apply story-excerpt.block}
-            </div>
-        {.end}
-    </div>
-    <div class="story__blocks js-story-blocks cms">
+{.var @h1RoobertMedium item.customContent.h1RoobertMedium}
+{.var @h1CheltenhamBook item.customContent.h1CheltenhamBook}
+{.var @h2RoobertMedium item.customContent.h2RoobertMedium}
+{.var @h2CheltenhamBook item.customContent.h2CheltenhamBook}
+{.var @bgColor item.customContent.colorBackground}
+{.var @litText item.customContent.lightText}
+<div class="story js-story {.if @h1RoobertMedium}h1RoobertMedium{.end} {.if @h1CheltenhamBook}h1CheltenhamBook{.end} {.if @h2RoobertMedium}h2RoobertMedium{.end} {.if @h2CheltenhamBook}h2CheltenhamBook{.end}" {.if @bgColor}data-hex="{@bgColor}"{.end} {.if @litText}data-lit="{@litText}"{.end}>
+    <div class="story__blocks cms">
         {item.body}
     </div>
 </div>

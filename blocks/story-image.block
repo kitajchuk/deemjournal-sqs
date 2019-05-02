@@ -1,3 +1,0 @@
-<div class="story__image">
-    <img class="image js-lazy-image" data-img-src="{item.customContent.coverImage.assetUrl}" data-variants="{item.customContent.coverImage.systemDataVariants}" data-original-size="{item.customContent.coverImage.originalSize}" />
-</div>

@@ -1,55 +1,44 @@
+/******************************************************************************
+ * Media: ALL
+ * .media--audio {}
+ * .media--stretch {}
+ * .media--embed {}
+ * .media--tall {}
+*******************************************************************************/
 .media {
     position: relative;
-
-    .cms & {
-        display: inline-block;
-        max-width: $media-width-0;
-        width: 100%;
-
-        &.media--stretch {
-            max-width: $media-width-1;
-        }
-    }
+    width: 100%;
 }
-.media--audio {
-    .cms & {
-        display: flex;
-        justify-content: center;
-    }
+.media__wrap {
+    display: inline-block;
+    width: 100%;
 }
 .media__cap {
-    text-align: center;
-    padding-top: 2.75vw;
-
-    .m {
-        display: inline-block;
-        text-align: left;
-    }
+    text-align: left;
+    padding-top: $padding-m;
+    max-width: $text-width;
 }
 
 
 
+/******************************************************************************
+ * Image nodes
+*******************************************************************************/
 .image {
     width: 100%;
 }
 
 
 
-._video {}
-
-
-
+/******************************************************************************
+ * Audio block
+*******************************************************************************/
 ._audio {
     max-width: $text-width;
     width: 100%;
 }
 ._audio__node {
     display: none;
-}
-._audio__title {
-    & + ._audio__controls {
-        @include expt();
-    }
 }
 ._audio__controls {
     display: flex;
@@ -137,6 +126,9 @@
 
 
 
+/******************************************************************************
+ * Video embed block
+*******************************************************************************/
 .embed {
     overflow: hidden;
     position: relative;
@@ -198,4 +190,19 @@
         padding-right: $padding-m;
         padding-bottom: $padding-m;
     }
+}
+
+
+
+/******************************************************************************
+ * Gallery block
+*******************************************************************************/
+.diptych {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.diptych__item {
+    width: $tall-width-0;
+    max-width: $tall-width-1;
 }

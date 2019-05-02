@@ -17,6 +17,7 @@ class Annotation {
         this.annotation = annotation;
         this.parent = this.annotation.closest( ".sqs-row" );
         this.text = this.parent.find( ".sqs-block-content > p" );
+        this.media = this.parent.find( ".js-media" );
 
         this.init();
     }

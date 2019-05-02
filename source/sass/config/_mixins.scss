@@ -271,17 +271,17 @@
     }
 }
 @mixin wrapr() {
-    padding-right: $padding-2;
+    padding-right: $padding-1;
 
     @include respond( $mobile-breakpoint ) {
-        padding-right: 0;
+        padding-right: $padding-m;
     }
 }
 @mixin wrapl() {
-    padding-left: $padding-2;
+    padding-left: $padding-1;
 
     @include respond( $mobile-breakpoint ) {
-        padding-left: 0;
+        padding-left: $padding-m;
     }
 }
 @mixin wrap-imp() {
@@ -315,6 +315,33 @@
     @include respond( $mobile-breakpoint ) {
         padding-bottom: $expander-m;
     }
+}
+@mixin text() {
+    width: 100%;
+    max-width: $text-width;
+    position: relative;
+    left: 50%;
+
+    @include respond( $text-breakpoint ) {
+        left: auto;
+        margin-left: auto;
+        display: block;
+    }
+}
+@mixin text-reset() {
+    width: 100%;
+    max-width: $text-width;
+    position: relative;
+    left: auto;
+
+    @include respond( $text-breakpoint ) {
+        margin-left: 0;
+    }
+}
+@mixin media() {
+    display: inline-block;
+    max-width: $media-width-0;
+    width: 100%;
 }
 @function sqs-calc( $expression ) {
     @return #{"~\"calc( #{$expression} )\""};

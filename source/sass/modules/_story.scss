@@ -1,56 +1,158 @@
-.story__cover {
+.cover {
+    @include wrap();
     @include exp();
-}
-.story__cover--ht {
-    .story__image {
-        max-width: $media-width-0;
-        margin: 0 auto;
-        width: 100%;
-    }
-}
-.story__cover--hb {
-    .story__image {
-        width: 62.5vw;
+    width: 100%;
 
-        @include respond( $tablet-breakpoing ) {
-            width: 100%;
+    .sqs-block-image {
+        .sqs-block-content {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .sqs-block-html {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .sqs-block-audio {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 }
-.story__masthead {
-    @include wrap();
-    @include exp();
+.cover--right {
+    .cover__texts {
+        width: 100%;
+        max-width: $cover-text-width;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-top: $expander-m;
 
-    ._audio__title {
-        display: none;
+        @include respond( $text-breakpoint ) {
+            max-width: sqs-calc( "100% - #{$text-width}" );
+            @include wrapr();
+        }
+
+        @include respond( $break-laptop-full ) {
+            position: relative;
+            left: auto;
+            top: auto;
+            max-width: 100%;
+            padding-right: 0;
+            padding-top: 0;
+        }
     }
-}
-.story__flex {
-    @include expt();
-    @include wrap();
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.story__flex-sh {
-    @include wrap();
-    display: flex;
-    justify-content: flex-end;
-}
-.story__excerpt {
-    width: $text-width;
-    box-sizing: content-box;
-    @include wrapr();
 
-    @include respond( $tablet-breakpoing ) {
+    .cover__image {
         width: 100%;
     }
 }
-.story__credits {
-    @include expb();
+.cover--left {
+    // Image on the left
+    .sqs-block-image .media--tall .media__wrap {
+        @include text-reset();
 
-    p {
-        @include m();
-        color: $grey;
+        @include respond( 2350px ) {
+            @include text();
+        }
+    }
+
+    .cover__wrap {
+        @include respond( 2350px ) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    .cover__image {
+        @include respond( 2350px ) {
+            width: 100%;
+            order: 2;
+        }
+    }
+
+    .cover__texts {
+        width: 100%;
+        max-width: $cover-text-width;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        padding-top: $expander-m;
+
+        @include respond( 2350px ) {
+            position: relative;
+            left: auto;
+            top: auto;
+            max-width: 100%;
+            padding-top: 0;
+            order: 1;
+        }
+    }
+}
+.cover__wrap {
+    position: relative;
+    width: 100%;
+}
+
+
+.annotation {
+    @include wrap();
+    @include exp();
+    width: 100%;
+
+    blockquote {
+        p {
+            @include m();
+            color: $grey;
+        }
+    }
+}
+.annotation__wrap {
+    position: relative;
+    width: 100%;
+}
+.annotation__note {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    blockquote {
+        max-width: 300px;
+    }
+
+    .annotation--text & {
+        @include respond( $break-ipad-pro-width ) {
+            position: relative;
+            left: auto;
+            top: auto;
+            @include text();
+            @include expb();
+        }
+    }
+
+    .annotation--media & {
+        @include respond( 2100px ) {
+            position: relative;
+            left: auto;
+            top: auto;
+            @include expb();
+        }
+    }
+}
+.annotation__text {
+    @include text();
+}
+.annotation__media {
+    width: 100%;
+    text-align: right;
+
+    .media {
+        @include media();
     }
 }
