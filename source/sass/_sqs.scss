@@ -82,13 +82,23 @@
             @include media();
         }
     }
+
     .media--tall {
+        @include wrap();
+
         .media__wrap {
             @include text();
         }
     }
 
-    .media--stretch {
+    .cover__image & {
+        .media--tall {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .media--stretch:not( .media--tall ) {
         .media__wrap {
             max-width: $media-width-1;
         }
@@ -97,19 +107,12 @@
 .sqs-block-video {
     .sqs-block-content {
         @include exp();
-    }
-
-    .media__node {
         @include wrap();
         text-align: right;
     }
 
-    .embed {
+    .media__wrap {
         @include media();
-    }
-
-    .m {
-        @include text();
     }
 }
 .sqs-block-html {
