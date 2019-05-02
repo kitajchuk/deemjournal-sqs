@@ -41,7 +41,7 @@ class Audio {
         this.scroller.on( "scroll", () => {
             const bounds = this.element[ 0 ].getBoundingClientRect();
 
-            if ( bounds.bottom < 0 ) {
+            if ( bounds.bottom < 0 && this.isPlaying ) {
                 this.element.addClass( "is-audio-offscreen" );
 
             } else {

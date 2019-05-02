@@ -5,18 +5,18 @@ export default ( instance ) => {
     const svgSkipForwardIcon = require( `../../../blocks/svg-skipforward.block` );
 
     return `
-        <div class="_audio__title">
-            <h2>${instance.data.blockJson.title}</h2>
-        </div>
-        <div class="_audio__controls">
-            <div class="_audio__pp js-audio-pp">
-                ${svgPlayIcon}
-                ${svgPauseIcon}
+        <div class="_audio__station">
+            <div class="_audio__controls">
+                <div class="_audio__pp js-audio-pp">
+                    ${svgPlayIcon}
+                    ${svgPauseIcon}
+                </div>
+                <div class="_audio__state m">
+                    <span>Listen</span>
+                    <span>Playing</span>
+                </div>
             </div>
-            <div class="_audio__state p">
-                <span>Listen</span>
-                <span>Playing</span>
-                <span>&mdash;</span>
+            <div class="_audio__ellapsed m">
                 <span class="js-audio-status">0:00</span>
             </div>
         </div>

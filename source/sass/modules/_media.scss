@@ -36,14 +36,44 @@
 ._audio {
     max-width: $text-width;
     width: 100%;
+
+    .m {
+        color: $black;
+
+        .is-inverse-text & {
+            color: $white;
+        }
+    }
 }
 ._audio__node {
     display: none;
 }
-._audio__controls {
+._audio__station {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    ._audio__pp {
+        padding: 0 $padding-m 0 0;
+        box-sizing: content-box;
+        width: 25px;
+    }
+}
+._audio__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 44px;
+    height: 88px;
+    width: 220px;
+    border: 1px solid $black;
+
+    .is-inverse-text & {
+        border: 1px solid $white;
+    }
+}
+._audio__ellapsed {
+    padding-left: $padding-m;
 }
 ._audio__pp {
     ._svg--play {
@@ -64,7 +94,7 @@
 }
 ._audio__state {
     @include otf-none();
-    padding-left: $padding-m;
+    width: 65px;
 
     span:nth-child( 1 ) {
         display: inline-block;
@@ -109,18 +139,25 @@
 
     ._audio__controls {
         background-color: $black;
-        border-radius: 44px;
-        height: 88px;
-        width: 220px;
-        justify-content: center;
+        border: 0;
+
+        .is-inverse-text & {
+            background-color: $white;
+        }
     }
 
     ._audio__pp {
         padding: 0 $padding-m;
+        box-sizing: content-box;
+        width: 25px;
     }
 
     ._svg {
         fill: $white;
+
+        .is-inverse-text & {
+            fill: $black;
+        }
     }
 }
 
