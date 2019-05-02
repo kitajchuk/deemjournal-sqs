@@ -31,6 +31,11 @@ const intro = {
                 this.blit.stop();
                 this.element.removeClass( "is-active" );
                 core.emitter.fire( "app--intro-teardown" );
+
+                setTimeout(() => {
+                    this.element.remove();
+
+                }, 500 );
             }
         });
     }
