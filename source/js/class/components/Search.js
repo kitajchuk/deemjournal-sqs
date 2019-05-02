@@ -11,7 +11,9 @@ class Search {
     constructor ( element, data ) {
         this.element = element;
         this.parent = this.element.parent();
-        this.blockJson = data;
+        this.elemData = data;
+        this.searchBlock = core.dom.body.find( ".js-search-block" ).detach();
+        this.blockJson = this.searchBlock.find( ".js-search" ).data().blockJson;
         this.element.data( "instance", this );
         this.data = {};
         this.ajax = null;
@@ -19,7 +21,7 @@ class Search {
         this.load().then(() => {
             this.bind();
 
-            if ( this.blockJson.results ) {
+            if ( this.elemData.results ) {
                 this.bindResults();
             }
         });
@@ -53,7 +55,7 @@ class Search {
 
 
     bindResults () {
-        this.results = this.parent.find( this.blockJson.results );
+        this.results = this.parent.find( this.elemData.results );
         this.loader = this.results.find( ".js-search-loader" );
         this.display = this.results.find( ".js-search-display" );
         this.waiting = 300;
@@ -127,7 +129,7 @@ class Search {
                 q: query,
                 p: 0,
                 size: 12,
-                f_collectionId:	"5caf91b7a4222f77241028dc"
+                f_collectionId:	this.blockJson.collectionId
             }
         });
     }

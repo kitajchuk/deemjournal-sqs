@@ -89,6 +89,9 @@
  * Search
 *******************************************************************************/
 .search {}
+.search-block {
+    display: none;
+}
 .search__btn {
     opacity: 0;
     transition: opacity $base-duration $ease;
