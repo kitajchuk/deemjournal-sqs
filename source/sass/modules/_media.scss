@@ -52,31 +52,34 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+._audio__pp {
+    padding: 0 $padding-m 0 0;
+    box-sizing: content-box;
+    @include icon-play-size();
 
-    ._audio__controls {
-        cursor: pointer;
+    @include respond( $laptop-breakpoint ) {
+        padding: 0 ($padding-m / 2) 0 0;
     }
 }
 ._audio__controls {
     @include button();
-
-    ._audio__pp {
-        padding: 0 $padding-m 0 0;
-        box-sizing: content-box;
-        @include icon-play-size();
-
-        @include respond( $laptop-breakpoint ) {
-            padding: 0 ($padding-m / 2) 0 0;
-        }
-    }
 }
 ._audio__controls--onboard {
-    .has-audio-played & {
-        display: none;
-    }
+    cursor: pointer;
 }
 ._audio__controls--utility {
     display: none;
+
+    ._audio__pp {
+        .has-audio-played & {
+            padding: 0 $padding-m;
+
+            @include respond( $laptop-breakpoint ) {
+                padding: 0 ($padding-m / 2);
+            }
+        }
+    }
 
     .has-audio-played & {
         display: flex;
@@ -147,24 +150,18 @@
         padding-bottom: $padding-m;
     }
 
+    ._audio__controls--onboard {
+        .has-audio-played & {
+            display: none;
+        }
+    }
+
     ._audio__controls {
         background-color: $black;
         border: 0;
 
         .is-inverse-text & {
             background-color: $white;
-        }
-    }
-
-    ._audio__pp {
-        padding: 0 $padding-m 0 0;
-
-        .has-audio-played & {
-            padding: 0 $padding-m;
-
-            @include respond( $laptop-breakpoint ) {
-                padding: 0 ($padding-m / 2);
-            }
         }
     }
 

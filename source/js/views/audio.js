@@ -6,7 +6,7 @@ export default ( /*instance*/ ) => {
 
     return `
         <div class="_audio__station">
-            <div class="_audio__controls js-audio-pp">
+            <div class="_audio__controls _audio__controls--onboard js-audio-pp">
                 <div class="_audio__pp">
                     ${svgPlayIcon}
                     ${svgPauseIcon}
@@ -33,8 +33,8 @@ export default ( /*instance*/ ) => {
                     ${svgSkipForwardIcon}
                 </div>
             </div>
-            <div class="_audio__controls _audio__controls--onboard">
-                <div class="_audio__pp js-audio-pp">
+            <div class="_audio__controls _audio__controls--onboard js-audio-pp">
+                <div class="_audio__pp">
                     ${svgPlayIcon}
                     ${svgPauseIcon}
                 </div>
