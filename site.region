@@ -51,7 +51,7 @@
             {.end}
         </main>
         <squarespace:navigation navigationId="menu" template="menu" />
-        <div class="search-block js-search-block">
+        <div class="search search--block js-search-block">
             <squarespace:block-field id="deem--search" columns="12" />
         </div>
         <div class="intro js-intro screen screen--dark -wrap is-active">

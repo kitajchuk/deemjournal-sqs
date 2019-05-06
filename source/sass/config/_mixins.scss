@@ -205,9 +205,9 @@
 // Body bopy
 @mixin otf-03 {
     font-variant-ligatures: common-ligatures;
-    -moz-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
-    -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
-    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "frac", "ss02", "ss03";
+    -moz-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss02", "ss03";
+    -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss02", "ss03";
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss02", "ss03";
 }
 // Disable the OpenType features
 @mixin otf-none {
@@ -222,16 +222,6 @@
 /******************************************************************************
  * Document states
 *******************************************************************************/
-@mixin state( $module, $state ) {
-    .is-#{$module}-#{$state} & {
-        @content;
-    }
-}
-@mixin hover() {
-    .is-hoverable &:hover {
-        @content;
-    }
-}
 @mixin placeholder( $color ) {
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: $color;
@@ -248,18 +238,6 @@
     &::placeholder { /* Future standard */
         color: $color;
     }
-}
-@mixin noop() {
-    opacity: 0;
-    pointer-events: none;
-}
-@mixin poon() {
-    opacity: 1;
-    pointer-events: auto;
-}
-@mixin hide() {
-    pointer-events: none;
-    visibility: hidden;
 }
 @mixin wrap() {
     padding-left: $padding-1;
@@ -328,20 +306,47 @@
         display: block;
     }
 }
-@mixin text-reset() {
-    width: 100%;
-    max-width: $text-width;
-    position: relative;
-    left: auto;
-
-    @include respond( $text-breakpoint ) {
-        margin-left: 0;
-    }
-}
 @mixin media() {
     display: inline-block;
     max-width: $media-width-0;
     width: 100%;
+}
+@mixin media-tall() {
+    display: inline-block;
+    max-width: $text-width;
+    width: 100%;
+}
+@mixin diptych() {
+    width: $tall-width-0;
+    max-width: $tall-width-1;
+}
+@mixin button() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $button-radius;
+    height: $button-height;
+    width: $button-width;
+    border: 1px solid $black;
+
+    .is-inverse-text & {
+        border: 1px solid $white;
+    }
+
+    @include respond( $laptop-breakpoint ) {
+        height: $button-height / 1.25;
+        width: $button-width / 1.25;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        height: $button-height / 1.5;
+        width: $button-width / 1.5;
+    }
+}
+@mixin icon-play-size() {
+    max-width: 25px;
+    width: 0.9765625vw;
+    min-width: 18px;
 }
 @function sqs-calc( $expression ) {
     @return #{"~\"calc( #{$expression} )\""};

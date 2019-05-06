@@ -53,23 +53,33 @@
     align-items: center;
     justify-content: flex-start;
 
-    ._audio__pp {
-        padding: 0 $padding-m 0 0;
-        box-sizing: content-box;
-        width: 25px;
+    ._audio__controls {
+        cursor: pointer;
     }
 }
 ._audio__controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 44px;
-    height: 88px;
-    width: 220px;
-    border: 1px solid $black;
+    @include button();
 
-    .is-inverse-text & {
-        border: 1px solid $white;
+    ._audio__pp {
+        padding: 0 $padding-m 0 0;
+        box-sizing: content-box;
+        @include icon-play-size();
+
+        @include respond( $laptop-breakpoint ) {
+            padding: 0 ($padding-m / 2) 0 0;
+        }
+    }
+}
+._audio__controls--onboard {
+    .has-audio-played & {
+        display: none;
+    }
+}
+._audio__controls--utility {
+    display: none;
+
+    .has-audio-played & {
+        display: flex;
     }
 }
 ._audio__ellapsed {
@@ -93,9 +103,6 @@
     }
 }
 ._audio__state {
-    @include otf-none();
-    width: 65px;
-
     span:nth-child( 1 ) {
         display: inline-block;
 
@@ -113,11 +120,13 @@
     }
 }
 ._audio__global {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     position: fixed;
     left: 0;
     bottom: 0;
-    padding-left: $padding-1;
+    padding-left: $padding-1 / 2;
     padding-bottom: $padding-1;
     z-index: $z_layer_intro;
     pointer-events: none;
@@ -125,6 +134,7 @@
     transform: translate3d( 0, 100%, 0 );
     transition: transform $ease-menu-1 $base-duration,
                 opacity $ease-menu-1 $base-duration;
+    z-index: $z_layer_menu;
 
     .is-audio-offscreen & {
         opacity: 1;
@@ -147,9 +157,23 @@
     }
 
     ._audio__pp {
-        padding: 0 $padding-m;
-        box-sizing: content-box;
-        width: 25px;
+        padding: 0 $padding-m 0 0;
+
+        .has-audio-played & {
+            padding: 0 $padding-m;
+
+            @include respond( $laptop-breakpoint ) {
+                padding: 0 ($padding-m / 2);
+            }
+        }
+    }
+
+    ._audio__state {
+        color: $white;
+
+        .is-inverse-text & {
+            color: $black;
+        }
     }
 
     ._svg {
@@ -227,19 +251,4 @@
         padding-right: $padding-m;
         padding-bottom: $padding-m;
     }
-}
-
-
-
-/******************************************************************************
- * Gallery block
-*******************************************************************************/
-.diptych {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.diptych__item {
-    width: $tall-width-0;
-    max-width: $tall-width-1;
 }

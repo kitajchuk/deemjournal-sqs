@@ -1,6 +1,4 @@
 export default ( instance ) => {
-    console.log( instance );
-
     return `
         <div class="cover cover--${instance.isImageLeft ? `left` : `right`}">
             <div class="cover__wrap">

@@ -1,5 +1,6 @@
 .header {
-    @include exp();
+    padding-top: $expander-1;
+    padding-bottom: $expander-1;
     left: 0;
     position: fixed;
     top: 0;

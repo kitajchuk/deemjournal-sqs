@@ -1,14 +1,18 @@
-<div class="media js-media {.if info.stretch}media--stretch{.end}">
-    {.equal? info.designLayout "card"}
-        <div class="media__card media__card--{info.imagePosition}">
-            <div class="media__title">
-                <div class="h2">{info.subtitle|safe}</div>
-            </div>
-            <div class="media__image">
-                <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+{.equal? info.designLayout "card"}
+    <div class="_card _card--{info.imagePosition} js-card_">
+        <div class="_card__title">
+            <h3>{info.subtitle|safe}</h3>
+        </div>
+        <div class="_card__media">
+            <div class="media media--card js-media">
+                <div class="media__wrap">
+                    <img class="media__node image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+                </div>
             </div>
         </div>
-    {.or}
+    </div>
+{.or}
+    <div class="media js-media {.if info.stretch}media--stretch{.end}">
         <div class="media__wrap">
             <img class="media__node image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
             {.equal? info.layout "caption-hidden"}{.or}
@@ -19,5 +23,5 @@
                 {.end}
             {.end}
         </div>
-    {.end}
-</div>
+    </div>
+{.end}

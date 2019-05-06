@@ -23,18 +23,29 @@
     }
 }
 .navi__a {
-    transition: color $base-duration $ease;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color $base-duration $ease;
     line-height: 1;
 
     .is-hoverable &:hover {
-        color: $grey;
+        border-bottom: 2px solid $black;
+    }
+    .is-hoverable.is-inverse-text &:hover {
+        border-bottom: 2px solid $white;
     }
 
     .is-hoverable &.is-active:hover {
-        color: $grey;
+        border-bottom: 2px solid $black;
+    }
+    .is-hoverable.is-inverse-text &.is-active:hover {
+        border-bottom: 2px solid $white;
     }
 
     &.is-active {
-        color: $grey;
+        border-bottom: 2px solid $black;
+
+        .is-inverse-text & {
+            border-bottom: 2px solid $white;
+        }
     }
 }

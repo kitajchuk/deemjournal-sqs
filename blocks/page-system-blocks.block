@@ -5,7 +5,7 @@
     </div>
     <div class="system-blocks__newsletter -exp -wrap">
         <div class="m label">Newsletter</div>
-        <div class="-out -exp -wrap">
+        <div class="-out">
             <squarespace:block-field id="deem--newsletter" columns="12" />
         </div>
     </div>

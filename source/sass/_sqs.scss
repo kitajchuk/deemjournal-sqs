@@ -22,21 +22,10 @@
     justify-content: flex-start;
     flex-wrap: wrap;
 }
-// .sqs-layout > .sqs-row > .col > .sqs-row:not( :nth-child( 1 ) ) {
-//     .sqs-block-html .sqs-block-content {
-//         > p, > h1, > h2, > h3, > ol, > ul {
-//             padding: 0;
-//         }
-//
-//         > blockquote {
-//             padding: 0;
-//         }
-//     }
-//
-//     > .col {
-//         width: 100% !important;
-//     }
-// }
+.sqs-layout > .sqs-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
 .sqs-row:before,
 .sqs-row:after {
     display: none;
@@ -54,27 +43,27 @@
 }
 .sqs-block-spacer {
     .sqs-block-content {
-        height: $expander-1 !important;
+        height: 0 !important;
+        display: none !important;
     }
 }
 .sqs-block-newsletter {
     .sqs-block-content {
-        @include exp();
         @include wrap();
     }
 }
 .sqs-block-gallery {
     .sqs-block-content {
-        @include exp();
+        @include wrap();
+    }
+}
+.sqs-block-audio {
+    .sqs-block-content {
         @include wrap();
     }
 }
 .sqs-block-image {
-    .sqs-block-content {
-        @include exp();
-    }
-
-    .media:not( .media--tall ) {
+    .media {
         @include wrap();
         text-align: right;
 
@@ -84,29 +73,39 @@
     }
 
     .media--tall {
-        @include wrap();
-
         .media__wrap {
-            @include text();
+            @include media-tall();
         }
     }
 
-    .cover__image & {
-        .media--tall {
-            padding-left: 0;
-            padding-right: 0;
+    .media--card {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .media--stretch {
+        .media__wrap {
+            max-width: 100%;
+            width: 100%;
         }
     }
 
-    .media--stretch:not( .media--tall ) {
-        .media__wrap {
-            max-width: $media-width-1;
+    .sqs-block-content {
+        h1 {
+            @include h3();
+        }
+
+        h2 {
+            @include h4();
+        }
+
+        h3 {
+            @include h5();
         }
     }
 }
 .sqs-block-video {
     .sqs-block-content {
-        @include exp();
         @include wrap();
         text-align: right;
     }
@@ -119,16 +118,10 @@
     .sqs-block-content {
         @include wrap();
 
-        > p {
+        > p,
+        > ol,
+        > ul {
             @include text();
-        }
-
-        > p, > h1, > h2, > h3, > ol, > ul {
-            @include exp();
-        }
-
-        > blockquote {
-            @include exp();
         }
 
         a {
@@ -147,11 +140,6 @@
             @include h5();
         }
 
-        ol, ul {
-            padding-left: 1.75vw;
-            padding-right: 1.75vw;
-        }
-
         blockquote {
             p {
                 @include m();
@@ -163,22 +151,31 @@
 
 
 
-// Cover specific !!!
-.sqs-block-audio {
+/******************************************************************************
+ * Vertical spacing
+*******************************************************************************/
+.sqs-block-html {
     .sqs-block-content {
-        @include wrap();
+        @include exp();
     }
 }
 .sqs-block-image {
-    &:nth-child( 1 ) {
-        .sqs-block-content {
-            padding-bottom: 0;
-        }
+    .sqs-block-content {
+        @include exp();
     }
 }
-.sqs-block-html:nth-child( 1 ),
-.sqs-block-image:nth-child( 1 ) + .sqs-block-html,
-.sqs-block-video:nth-child( 1 ) + .sqs-block-html {
+.sqs-block-video {
+    .sqs-block-content {
+        @include exp();
+    }
+}
+
+
+
+/******************************************************************************
+ * Cover specific
+*******************************************************************************/
+.cover-block {
     h1, h2, h3 {
         .h1RoobertMedium & {
             @include h1();
@@ -198,12 +195,24 @@
             @include font-family-serif();
         }
     }
+
+    .sqs-block-html .sqs-block-content {
+        blockquote {
+            p {
+                color: $black;
+
+                .is-inverse-text & {
+                    color: $white;
+                }
+            }
+        }
+    }
 }
-.sqs-layout > .sqs-row > .col > .sqs-row:nth-child( 1 ) {
+.sqs-row.cover-block {
     .sqs-block-image {
-        .sqs-block-content {
-            padding-top: 0;
-            padding-bottom: 0;
+        .media {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
@@ -220,6 +229,47 @@
             padding-right: 0;
         }
     }
+
+    .sqs-block-html {
+        .sqs-block-content {
+            > h1, > h2, > h3 {
+                @include exp();
+
+                @include respond( $mobile-breakpoint ) {
+                    padding-top: 0;
+                }
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                padding-top: 0;
+            }
+        }
+    }
+
+    .sqs-block-image {
+        .sqs-block-content {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+.cover-start + .sqs-row.cover-block {
+    justify-content: space-between;
+    @include wrap();
+
+    .image-col {
+        @include diptych();
+
+        @include respond( $mobile-breakpoint ) {
+            width: 100%;
+        }
+    }
+
+    .text-col {
+        @include respond( $mobile-breakpoint ) {
+            width: 100%;
+        }
+    }
 }
 
 
@@ -234,4 +284,32 @@
 }
 .newsletter-block:not(.rendered) {
     opacity: 1 !important;
+}
+ul[data-rte-list] li > *:first-child::before,
+ol[data-rte-list] li > *:first-child::before {
+    margin-left: 0;
+    text-align: left;
+}
+ul[data-rte-list] li > *:first-child::before,
+ol[data-rte-list] li > *:first-child::before {
+    display: none;
+}
+.sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):first-child {
+    padding-top: 0;
+}
+.sqs-block-gallery {
+    .sqs-intrinsic {
+        padding-bottom: 0 !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .sqs-intrinsic .sqs-intrinsic-content {
+        position: relative !important;
+        top: auto;
+        left: auto;
+        height: auto;
+        max-width: none;
+        width: 100%;
+    }
 }

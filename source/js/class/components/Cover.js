@@ -1,6 +1,6 @@
 // import * as core from "../../core";
 // import $ from "properjs-hobo";
-import coverView from "../../views/cover";
+// import coverView from "../../views/cover";
 
 
 /**
@@ -14,19 +14,31 @@ import coverView from "../../views/cover";
  */
 class Cover {
     constructor ( element ) {
-        this.element = element;
-        this.columns = this.element.find( ".col" );
-        this.isImageLeft = this.columns.first().find( ".sqs-block-image" ).length;
-        this.image = this.element.find( ".sqs-block-image" );
-        this.imageCol = this.image.parent();
-        this.textsCol = this.element.find( ".col" ).not( this.imageCol );
+        this.spacerStart = element.addClass( "cover-start" );
+        this.spacerEnd = null;
 
         this.init();
     }
 
 
     init () {
-        this.element[ 0 ].innerHTML = coverView( this );
+        this.isSeeking = true;
+        this.currElem = this.spacerStart;
+
+        while ( this.isSeeking ) {
+            this.currElem = this.currElem.next();
+
+            // Stop
+            if ( this.currElem.is( ".sqs-block-spacer" ) ) {
+                this.spacerEnd = this.currElem.addClass( "cover-end" );
+                this.isSeeking = false;
+                break;
+            }
+
+            this.currElem.addClass( "cover-block" );
+            this.currElem.find( ".col > .sqs-block-html" ).parent().addClass( "text-col" );
+            this.currElem.find( ".col > .sqs-block-image" ).parent().addClass( "image-col" );
+        }
     }
 
 

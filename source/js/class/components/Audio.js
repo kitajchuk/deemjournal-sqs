@@ -27,12 +27,15 @@ class Audio {
     init () {
         this.element[ 0 ].innerHTML = audioView( this );
         this.audioStatus = this.element.find( ".js-audio-status" );
+        this.audioState = this.element.find( ".js-audio-state" );
         this.audioPlayback = this.element.find( ".js-audio-pp" );
         this.audioSkipBackward = this.element.find( ".js-audio-skipbackward" );
         this.audioSkipForward = this.element.find( ".js-audio-skipforward" );
         this.audioNode = this.element.find( ".js-audio-node" );
         this.audioNode[ 0 ].src = this.data.blockJson.audioAssetUrl;
-        this.audioStatus[ 0 ].innerHTML = core.util.formatTime( this.data.blockJson.audioAssetDuration );
+        this.audioStatus.forEach(( el, i ) => {
+            this.audioStatus[ i ].innerHTML = core.util.formatTime( this.data.blockJson.audioAssetDuration );
+        });
     }
 
 
@@ -41,7 +44,7 @@ class Audio {
         this.scroller.on( "scroll", () => {
             const bounds = this.element[ 0 ].getBoundingClientRect();
 
-            if ( bounds.bottom < 0 && this.isPlaying ) {
+            if ( bounds.bottom < 0 ) {
                 this.element.addClass( "is-audio-offscreen" );
 
             } else {
@@ -56,11 +59,15 @@ class Audio {
         this.audioNode.on( "ended", () => {
             this.pause();
             this.audioNode[ 0 ].currentTime = 0;
-            this.audioStatus[ 0 ].innerHTML = core.util.formatTime( this.data.blockJson.audioAssetDuration );
+            this.audioStatus.forEach(( el, i ) => {
+                this.audioStatus[ i ].innerHTML = core.util.formatTime( this.data.blockJson.audioAssetDuration );
+            });
         });
 
         this.audioNode.on( "timeupdate", () => {
-            this.audioStatus[ 0 ].innerHTML = core.util.formatTime( this.audioNode[ 0 ].currentTime * 1000 );
+            this.audioStatus.forEach(( el, i ) => {
+                this.audioStatus[ i ].innerHTML = core.util.formatTime( this.audioNode[ 0 ].currentTime * 1000 );
+            });
         });
 
         this.audioSkipForward.on( "click", () => {
@@ -79,8 +86,11 @@ class Audio {
 
     play () {
         this.isPlaying = true;
-        this.element.addClass( "is-audio-playing" );
+        this.element.addClass( "is-audio-playing has-audio-played" );
         this.audioNode[ 0 ].play();
+        this.audioState.forEach(( el, i ) => {
+            this.audioState[ i ].style.width = `${el.getBoundingClientRect().width}px`;
+        });
     }
 
 
@@ -88,6 +98,9 @@ class Audio {
         this.isPlaying = false;
         this.element.removeClass( "is-audio-playing" );
         this.audioNode[ 0 ].pause();
+        this.audioState.forEach(( el, i ) => {
+            this.audioState[ i ].style.width = `${el.getBoundingClientRect().width}px`;
+        });
     }
 
 

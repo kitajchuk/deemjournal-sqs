@@ -9,6 +9,7 @@ import Annotation from "./components/Annotation";
 import Audio from "./components/Audio";
 import Story from "./components/Story";
 import Cover from "./components/Cover";
+import CTA from "./components/CTA";
 
 
 /**
@@ -70,11 +71,12 @@ class Controllers {
         this.push( "search", core.dom.body.find( ".js-search" ), BaseController, Search );
         this.push( "audio", core.dom.body.find( ".js-audio" ), BaseController, Audio );
         this.push( "story", core.dom.body.find( ".js-story" ), BaseController, Story );
+        this.push( "cta", core.dom.body.find( ".js-button_" ), BaseController, CTA );
 
         // Hinge on Squarespace selectors...
+        this.push( "cover", core.dom.body.find( ".sqs-block-spacer:nth-child(1)" ), BaseController, Cover );
         this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );
-        this.push( "cover", core.dom.body.find( ".sqs-layout > .sqs-row:nth-child(1) > .col > .sqs-row:nth-child(1)" ), BaseController, Cover );
-        this.push( "annotation", core.dom.body.find( ".sqs-layout > .sqs-row > .col > .sqs-row:not(:nth-child(1)) blockquote" ), BaseController, Annotation );
+        this.push( "annotation", core.dom.body.find( ".sqs-layout > .sqs-row > .col > .sqs-row > .col:nth-child(1) > .sqs-block-html:nth-child(1) > .sqs-block-content > blockquote:nth-child(1)" ), BaseController, Annotation );
 
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );

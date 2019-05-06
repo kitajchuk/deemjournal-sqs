@@ -3,8 +3,6 @@ import $ from "properjs-hobo";
 
 
 export default ( instance ) => {
-    // console.log( instance );
-
     const blockJson = instance.blockJson;
     const svgRight = require( `../../../blocks/svg-right.block` );
     const placeHolder = $( blockJson.description.html );

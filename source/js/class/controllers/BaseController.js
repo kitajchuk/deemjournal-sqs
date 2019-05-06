@@ -21,7 +21,7 @@ class BaseController {
             const elem = this.elements.eq( i );
             const data = elem.data();
 
-            this.instances.push( new this.component( elem, data ) );
+            this.instances.push( new this.component( elem, data, i ) );
         });
     }
 

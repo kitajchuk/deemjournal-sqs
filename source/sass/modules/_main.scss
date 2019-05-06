@@ -15,39 +15,16 @@
 
 
 /******************************************************************************
- * Grid
-*******************************************************************************/
-.grid {
-    align-items: flex-start;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin: 0 (-$padding-1);
-
-    @include respond( $mobile-breakpoint ) {
-        margin: 0;
-    }
-}
-.grid__item {
-    width: 33.333333%;
-    @include wrap();
-
-    @include respond( $mobile-breakpoint ) {
-        width: 100%;
-        padding: 0 0 $padding-m 0;
-    }
-}
-.grid__title {
-    padding-top: $padding-m;
-}
-
-
-
-/******************************************************************************
  * Newsletter
 *******************************************************************************/
 .newsletter {
     @include text();
+
+    .system-blocks__newsletter & {
+        left: auto;
+        margin-left: 0;
+        display: block;
+    }
 }
 .newsletter__form {
     &.is-success {
@@ -89,7 +66,7 @@
  * Search
 *******************************************************************************/
 .search {}
-.search-block {
+.search--block {
     display: none;
 }
 .search__btn {
@@ -192,8 +169,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 
     ._svg {
-        margin: 0 30px;
+        margin: $padding-m;
     }
 }

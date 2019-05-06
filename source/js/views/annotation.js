@@ -1,6 +1,6 @@
 export default ( instance ) => {
     return `
-        <div class="annotation annotation--${instance.media.length ? `media` : `text`}">
+        <div class="annotation annotation--${instance.media.length ? `media` : `text`} annotation--${instance.i}">
             <div class="annotation__wrap">
                 <div class="annotation__note">
                     ${instance.annotation[ 0 ].outerHTML}

@@ -1,0 +1,1 @@
+<a class="_button js-button_" href="{buttonLink}" {.if newWindow}target="_blank"{.end} data-block-json="{@|json|htmlattr}">{buttonText}</a>

@@ -8,12 +8,12 @@ p, .p {
 }
 p {
     strong {
-        //@include s();
+        @include font-family-sans-bold();
+    }
 
-        // em {
-        //     @include bi();
-        // }
-
+    strong em,
+    em strong {
+        @include font-family-sans();
         background-color: $yellow;
     }
 }
@@ -52,4 +52,20 @@ h4, .h4 {
 }
 h5, .h5 {
     @include h5();
+}
+
+
+
+/******************************************************************************
+ * Button — ( CTA )
+*******************************************************************************/
+._button {
+    @include button();
+    @include m();
+    color: $black;
+    line-height: 1;
+
+    .is-inverse-text & {
+        color: $white;
+    }
 }

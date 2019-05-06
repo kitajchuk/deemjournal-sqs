@@ -8,63 +8,96 @@
     }
 }
 ._svg--logo {
-    width: 160px;
-    max-width: 160px;
+    max-width: 140px;
+    width: 5.46875vw;
+    min-width: 120px;
 
     .intro & {
         fill: $white;
-        width: 31.4453125vw;
-        max-width: 805px;
+        max-width: 600px;
+        width: 23.4375vw;
+        min-width: 140px;
     }
 }
 ._svg--play {
-    width: 25px;
-    height: 29px;
+    @include icon-play-size();
+    max-height: 29px;
+    height: 1.1328125vw;
+    min-height: 21px;
 
     .embed & {
         fill: $white;
-        width: 57px;
-        height: 68px;
+        max-width: 57px;
+        width: 2.2265625vw;
+        min-width: 25px;
+        max-height: 68px;
+        height: 2.65625vw;
+        min-height: 29px;
     }
 }
 ._svg--pause {
-    width: 22px;
-    height: 30px;
+    max-width: 22px;
+    width: 0.859375vw;
+    min-width: 16px;
+    max-height: 30px;
+    height: 1.171875vw;
+    min-height: 22px;
 }
 ._svg--skipbackward,
 ._svg--skipforward {
-    width: 28px;
-    height: 33px;
+    max-width: 28px;
+    width: 1.09375vw;
+    min-width: 25px;
+    max-height: 33px;
+    height: 1.2890625vw;
+    min-height: 30px;
 }
-._svg--left {
-    width: 28px;
-    height: 23px;
+._svg--left,
+._svg--right {
+    max-width: 28px;
+    width: 1.09375vw;
+    min-width: 24px;
+    max-height: 23px;
+    height: 0.8984375vw;
+    min-height: 20px;
 }
 ._svg--list {
-    width: 36px;
-    height: 27px;
+    max-width: 36px;
+    width: 1.40625vw;
+    min-width: 30px;
+    max-height: 27px;
+    height: 1.0546875vw;
+    min-height: 23px;
 }
 ._svg--search {
-    width: 35px;
-    height: 35px;
+    max-width: 35px;
+    width: 1.3671875vw;
+    min-width: 30px;
+    max-height: 35px;
+    height: 1.3671875vw;
+    min-height: 30px;
 
     .meni & {
         fill: $white;
     }
 }
 ._svg--x {
-    width: 24px;
-    height: 25px;
+    max-width: 24px;
+    width: 0.9375vw;
+    min-width: 22px;
+    max-height: 25px;
+    height: 0.9765625vw;
+    min-height: 23px;
 
     .meni & {
         fill: $white;
     }
 }
-._svg--right {
-    width: 28px;
-    height: 23px;
-}
 ._svg--down {
-    width: 23px;
-    height: 13px;
+    max-width: 23px;
+    width: 0.8984375vw;
+    min-width: 21px;
+    max-height: 13px;
+    height: 0.5078125vw;
+    min-height: 12px;
 }
