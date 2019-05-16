@@ -69,6 +69,10 @@
 }
 .annotation__text {
     @include text();
+
+    > p {
+        @include nbsp();
+    }
 }
 .annotation__media {
     width: 100%;
@@ -229,6 +233,10 @@
 }
 ._card__title {
     @include diptych();
+
+    h1, h3, h3 {
+        @include nbsp();
+    }
 
     @include respond( $mobile-breakpoint ) {
         width: 100%;

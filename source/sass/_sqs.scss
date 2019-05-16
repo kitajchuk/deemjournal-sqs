@@ -58,7 +58,11 @@
         @include wrap();
 
         a {
-            @include a( $black );
+            @include nbsp();
+
+            span {
+                @include a( $black );
+            }
         }
     }
 }
@@ -141,6 +145,7 @@
         > ol,
         > ul {
             @include text();
+            @include nbsp();
         }
 
         a {
@@ -149,14 +154,17 @@
 
         h1 {
             @include h3();
+            @include nbsp();
         }
 
         h2 {
             @include h4();
+            @include nbsp();
         }
 
         h3 {
             @include h5();
+            @include nbsp();
         }
 
         blockquote {
@@ -197,6 +205,10 @@
 .sqs-layout > .sqs-row > .col > .sqs-block-html:first-child {
     h1, h2, h3 {
         @include sqs-h123();
+
+        &:before {
+            display: none;
+        }
     }
 }
 .sqs-layout > .sqs-row > .col > .sqs-row:first-child {
