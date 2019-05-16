@@ -20,7 +20,7 @@ export default ( /*instance*/ ) => {
                 <span class="js-audio-status">0:00</span>
             </div>
         </div>
-        <div class="_audio__global">
+        <div class="_audio__global js-audio-global">
             <div class="_audio__controls _audio__controls--utility">
                 <div class="_audio__skip js-audio-skipbackward">
                     ${svgSkipBackwardIcon}

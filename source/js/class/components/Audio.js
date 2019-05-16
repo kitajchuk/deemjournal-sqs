@@ -16,6 +16,7 @@ import ScrollController from "properjs-scrollcontroller";
 class Audio {
     constructor ( element, data ) {
         this.element = element;
+        this.dropout = core.dom.body.find( ".js-summary-v2" );
         this.data = data;
         this.isPlaying = false;
 
@@ -26,6 +27,7 @@ class Audio {
 
     init () {
         this.element[ 0 ].innerHTML = audioView( this );
+        this.global = this.element.find( ".js-audio-global" );
         this.audioStatus = this.element.find( ".js-audio-status" );
         this.audioState = this.element.find( ".js-audio-state" );
         this.audioPlayback = this.element.find( ".js-audio-pp" );
@@ -49,6 +51,18 @@ class Audio {
 
             } else {
                 this.element.removeClass( "is-audio-offscreen" );
+            }
+
+            if ( this.dropout.length ) {
+                const collider = this.dropout[ 0 ].getBoundingClientRect();
+                const globalBounds = this.global[ 0 ].getBoundingClientRect();
+
+                if ( collider.y < globalBounds.y ) {
+                    this.element.addClass( "is-audio-collider" );
+
+                } else {
+                    this.element.removeClass( "is-audio-collider" );
+                }
             }
         });
 

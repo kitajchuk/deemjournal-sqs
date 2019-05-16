@@ -73,6 +73,14 @@
         @include wrap();
     }
 }
+.sqs-block-gallery {
+    .sqs-block-content {
+        .grid {
+            @include exp();
+            @include wrap();
+        }
+    }
+}
 .sqs-block-image {
     .media {
         @include wrap();

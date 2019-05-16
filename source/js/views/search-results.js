@@ -6,9 +6,7 @@ export default ( json ) => {
             <div class="grid__item">
                 <a class="grid__link" href="${item.itemUrl}">
                     <img class="grid__image image js-lazy-image" data-img-src="${item.imageUrl}" />
-                    <div class="grid__title">
-                        <p>${item.title}</p>
-                    </div>
+                    <div class="grid__title">${item.title}</div>
                 </a>
             </div>
         `;

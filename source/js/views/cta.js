@@ -13,7 +13,7 @@ export default ( instance ) => {
         </div>
         <div class="cta cta--global">
             <div class="cta__wrap">
-                <div class="cta__button">
+                <div class="cta__button js-cta">
                     ${instance.cta[ 0 ].outerHTML}
                 </div>
                 <div class="cta__text">

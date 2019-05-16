@@ -99,7 +99,6 @@
     }
 
     .grid {
-        padding: 0;
         opacity: 0;
         transform: translate3d( 0, 16px, 0 );
         transition: transform $ease-menu-1 $base-duration,

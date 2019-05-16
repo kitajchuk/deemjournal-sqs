@@ -137,7 +137,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    padding-left: $padding-1 / 2;
+    padding-left: $padding-1;
     padding-bottom: $padding-1;
     z-index: $z_layer_intro;
     pointer-events: none;
@@ -151,6 +151,12 @@
         opacity: 1;
         transform: translate3d( 0, 0, 0 );
         pointer-events: auto;
+    }
+
+    .is-audio-offscreen.is-audio-collider & {
+        opacity: 0;
+        transform: translate3d( 0, 100%, 0 );
+        pointer-events: none;
     }
 
     .is-menu-open & {
