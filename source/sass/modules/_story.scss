@@ -15,6 +15,10 @@
             @include m();
             color: $black;
 
+            .cover-block & {
+                @include h6();
+            }
+
             .is-inverse-text & {
                 color: $white;
             }
@@ -119,7 +123,7 @@
     padding-left: $padding-m;
 
     p {
-        @include m();
+        @include h6();
         color: $black;
 
         .is-inverse-text & {
@@ -249,10 +253,26 @@
 .diptych {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     @include exp();
     @include wrap();
 }
 .diptych__item {
     @include diptych();
+}
+
+
+
+.tagcloud {
+    @include text();
+}
+
+
+
+.summary-v2 {
+    border-top: 1px solid $black;
+
+    .is-inverse-text & {
+        border-top: 1px solid $white;
+    }
 }

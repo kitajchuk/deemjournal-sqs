@@ -52,11 +52,22 @@
         @include wrap();
     }
 }
-// .sqs-block-gallery {
-//     .sqs-block-content {
-//         @include wrap();
-//     }
-// }
+.sqs-block-tagcloud {
+    .sqs-block-content {
+        @include exp();
+        @include wrap();
+
+        a {
+            @include a( $black );
+        }
+    }
+}
+.sqs-block-summary-v2 {
+    .sqs-block-content {
+        @include exp();
+        @include wrap();
+    }
+}
 .sqs-block-audio {
     .sqs-block-content {
         @include wrap();
@@ -200,6 +211,7 @@
         blockquote {
             p {
                 color: $black;
+                @include h6();
 
                 .is-inverse-text & {
                     color: $white;

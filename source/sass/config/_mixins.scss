@@ -169,6 +169,25 @@
         font-size: $h5-size-max;
     }
 }
+@mixin h6() {
+    font-size: $h6-size-mobile;
+    line-height: $h6-line;
+    @include font-family-sans();
+    @include otf-02();
+
+    &.-fserif,
+    .-fserif & {
+        @include font-family-serif-bold();
+    }
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $h6-size-fluid;
+    }
+
+    @include respond-min( $desktop-breakpoint ) {
+        font-size: $h6-size-max;
+    }
+}
 
 // Child type variations
 @mixin s() {

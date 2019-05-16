@@ -11,12 +11,12 @@ export default ( /*instance*/ ) => {
                     ${svgPlayIcon}
                     ${svgPauseIcon}
                 </div>
-                <div class="_audio__state js-audio-state m">
+                <div class="_audio__state js-audio-state h6">
                     <span>Listen</span>
                     <span>Playing</span>
                 </div>
             </div>
-            <div class="_audio__ellapsed m">
+            <div class="_audio__ellapsed h6">
                 <span class="js-audio-status">0:00</span>
             </div>
         </div>
@@ -38,12 +38,12 @@ export default ( /*instance*/ ) => {
                     ${svgPlayIcon}
                     ${svgPauseIcon}
                 </div>
-                <div class="_audio__state js-audio-state m">
+                <div class="_audio__state js-audio-state h6">
                     <span>Listen</span>
                     <span>Playing</span>
                 </div>
             </div>
-            <div class="_audio__ellapsed m">
+            <div class="_audio__ellapsed h6">
                 <span class="js-audio-status">0:00</span>
             </div>
         </div>

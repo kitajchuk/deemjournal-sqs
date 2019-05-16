@@ -1,0 +1,2 @@
+<div class="summary-v2 js-summary-v2" data-block-json="{@|json|htmlattr}"></div>
+<script>console.log( {@|json-pretty} );</script>

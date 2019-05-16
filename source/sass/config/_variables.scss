@@ -88,6 +88,12 @@ $h5-size-fluid: #{"~\"calc( #{$h5-size-mobile} + #{$h5-size-variable} )\""};
 $h5-size-max: 44px;
 $h5-line: 54 / 44;
 
+$h6-size-mobile: 16px;
+$h6-size-variable: 0.3215vw;
+$h6-size-fluid: #{"~\"calc( #{$h6-size-mobile} + #{$h6-size-variable} )\""};
+$h6-size-max: 24px;
+$h6-line: 34 / 24;
+
 $p-size-mobile: 22px;
 $p-size-variable: 0.47025vw;
 $p-size-fluid: #{"~\"calc( #{$p-size-mobile} + #{$p-size-variable} )\""};

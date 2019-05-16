@@ -37,7 +37,7 @@
     max-width: $text-width;
     width: 100%;
 
-    .m {
+    .h6 {
         color: $black;
 
         .is-inverse-text & {
@@ -68,7 +68,7 @@
 ._audio__controls--onboard {
     cursor: pointer;
 
-    .is-hoverable &:hover .m {
+    .is-hoverable &:hover .h6 {
         color: $white;
     }
 

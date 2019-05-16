@@ -53,6 +53,9 @@ h4, .h4 {
 h5, .h5 {
     @include h5();
 }
+h6, .h6 {
+    @include h6();
+}
 
 
 
@@ -61,7 +64,7 @@ h5, .h5 {
 *******************************************************************************/
 ._button {
     @include button();
-    @include m();
+    @include h6();
     color: $black;
     line-height: 1;
 
