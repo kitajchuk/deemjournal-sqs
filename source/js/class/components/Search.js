@@ -7,24 +7,34 @@ import debounce from "properjs-debounce";
 
 
 
+let _instance = null;
+
+
+
 class Search {
     constructor ( element, data ) {
-        this.element = element;
-        this.parent = this.element.parent();
-        this.elemData = data;
-        this.searchBlock = core.dom.body.find( ".js-search-block" ).detach();
-        this.blockJson = this.searchBlock.find( ".js-search" ).data().blockJson;
-        this.element.data( "instance", this );
-        this.data = {};
-        this.ajax = null;
+        if ( !_instance ) {
+            this.element = element;
+            this.parent = this.element.parent();
+            this.elemData = data;
+            this.searchBlock = core.dom.body.find( ".js-search-block" ).detach();
+            this.blockJson = this.searchBlock.find( ".js-search" ).data().blockJson;
+            this.element.data( "instance", this );
+            this.data = {};
+            this.ajax = null;
 
-        this.load().then(() => {
-            this.bind();
+            this.load().then(() => {
+                this.bind();
 
-            if ( this.elemData.results ) {
-                this.bindResults();
-            }
-        });
+                if ( this.elemData.results ) {
+                    this.bindResults();
+                }
+            });
+
+            _instance = this;
+        }
+
+        return _instance;
     }
 
 
