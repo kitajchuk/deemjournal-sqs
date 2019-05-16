@@ -1,1 +1,14 @@
 <a class="_button js-button_" href="{buttonLink}" {.if newWindow}target="_blank"{.end} data-block-json="{@|json|htmlattr}">{buttonText}</a>
+<style class="js-sqs-config-style">
+    .squarespace-config .body-block ._button {
+        height: 60px;
+        width: 200px;
+        background: black;
+        color: white;
+        border-bottom: 0;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

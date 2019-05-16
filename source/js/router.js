@@ -24,6 +24,7 @@ const router = {
      *
      */
     init () {
+        this.element = core.dom.body.find( ".js-router" ).detach();
         this.blit = new Controller();
         this.animDuration = 500;
         this.controllers = new Controllers({
@@ -45,15 +46,15 @@ const router = {
         };
 
         this.bindEmpty();
-        this.initPages();
-        this.prepPages();
 
         core.log( "[Router initialized]", this );
     },
 
 
     load () {
-        return new Promise(( resolve ) => {
+        return new Promise(( resolve, reject ) => {
+            this._resolve = resolve;
+            this._reject = reject;
             this.controller = new PageController({
                 transitionTime: this.animDuration,
                 routerOptions: {
@@ -75,7 +76,6 @@ const router = {
             this.controller.on( "page-controller-router-transition-in", this.changePageIn.bind( this ) );
             this.controller.on( "page-controller-initialized-page", ( data ) => {
                 this.initPage( data );
-                resolve();
             });
             this.controller.initPage();
         });
@@ -98,24 +98,6 @@ const router = {
     /**
      *
      * @public
-     * @method initPages
-     * @memberof router
-     * @description Create the PageController instance.
-     *
-     */
-    initPages () {
-
-    },
-
-
-    prepPages () {
-        this.controllers.exec();
-    },
-
-
-    /**
-     *
-     * @public
      * @method initPage
      * @param {object} data The PageController data object
      * @memberof router
@@ -128,6 +110,13 @@ const router = {
         this.setState( "future", data );
         this.setClass();
         navi.setActive( this.state.now.view );
+        core.dom.main[ 0 ].innerHTML = this.doc.html;
+        this.topper();
+        this.controllers.exec();
+        setTimeout(() => {
+            this._resolve();
+
+        }, 1000 );
     },
 
 
@@ -143,18 +132,22 @@ const router = {
      */
     parseDoc ( html ) {
         let doc = document.createElement( "html" );
-        let main = null;
+        let virtual = null;
 
         doc.innerHTML = html;
 
         doc = $( doc );
-        main = doc.find( core.config.mainSelector );
+        virtual = doc.find( ".js-router" );
+
+        // Parse outside of DOM ( SQS config stuff for block overrides )
+        virtual.find( ".js-sqs-config-style" ).remove();
+        virtual.find( ".js-sqs-config-image" ).remove();
 
         return {
             doc: doc,
-            main: main,
-            html: main[ 0 ].innerHTML,
-            data: main.data()
+            virtual: virtual,
+            html: virtual[ 0 ].innerHTML,
+            data: virtual.data()
         };
     },
 
@@ -220,7 +213,7 @@ const router = {
         core.dom.main[ 0 ].innerHTML = this.doc.html;
         this.topper();
         this.controllers.exec();
-        core.emitter.fire( "app--analytics-pageview", this.doc );
+        core.emitter.fire( "app--metrics-pageview", this.doc );
     },
 
 

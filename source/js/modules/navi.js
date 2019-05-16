@@ -104,17 +104,38 @@ const navi = {
     },
 
 
+    show () {
+        return new Promise(( resolve ) => {
+            this.menu[ 0 ].style.display = "block";
+            setTimeout(() => {
+                resolve();
+
+            }, 1 );
+        });
+    },
+
+
+    hide () {
+        setTimeout(() => {
+            this.menu[ 0 ].style.display = "none";
+
+        }, 1 );
+    },
+
+
     openMenu () {
         return new Promise(( resolve ) => {
             this.isOpen = true;
-            this.menu.addClass( "is-active" );
-            core.dom.html.addClass( "is-menu-open" );
-            setTimeout(() => {
-                this.menu.addClass( "is-static" );
-                this.animMenuItems( 1 );
-                resolve();
+            this.show().then(() => {
+                this.menu.addClass( "is-active" );
+                core.dom.html.addClass( "is-menu-open" );
+                setTimeout(() => {
+                    this.menu.addClass( "is-static" );
+                    this.animMenuItems( 1 );
+                    resolve();
 
-            }, this.time );
+                }, this.time );
+            });
         });
     },
 
@@ -128,6 +149,7 @@ const navi = {
             this.animMenuItems( 0 );
             setTimeout(() => {
                 this.menu.removeClass( "is-static is-active is-closing" );
+                this.hide();
                 resolve();
 
             }, this.time );

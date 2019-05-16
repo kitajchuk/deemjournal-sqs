@@ -1,3 +1,5 @@
 <div class="media media--audio">
-    <div class="_audio js-audio" data-block-json="{@|json|htmlattr}"></div>
+    <div class="_audio js-audio" data-block-json="{@|json|htmlattr}">
+        <audio class="_audio__node" controls="" src="{audioAssetUrl}"></audio>
+    </div>
 </div>

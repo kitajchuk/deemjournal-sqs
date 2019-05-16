@@ -52,11 +52,11 @@
         @include wrap();
     }
 }
-.sqs-block-gallery {
-    .sqs-block-content {
-        @include wrap();
-    }
-}
+// .sqs-block-gallery {
+//     .sqs-block-content {
+//         @include wrap();
+//     }
+// }
 .sqs-block-audio {
     .sqs-block-content {
         @include wrap();

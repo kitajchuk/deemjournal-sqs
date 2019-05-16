@@ -7,11 +7,11 @@
     z-index: $z_layer_intro;
     height: 100%;
     pointer-events: none;
-    visibility: hidden;
+    display: none;
 
-    &.is-active {
-        visibility: visible;
-    }
+    // &.is-active {
+    //     display: block;
+    // }
 
     .m {
         color: $white;

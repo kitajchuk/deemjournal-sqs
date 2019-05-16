@@ -4,8 +4,8 @@
 {.var @h2CheltenhamBook item.customContent.h2CheltenhamBook}
 {.var @bgColor item.customContent.colorBackground}
 {.var @litText item.customContent.lightText}
-<div class="story js-story {.if @h1RoobertMedium}h1RoobertMedium{.end} {.if @h1CheltenhamBook}h1CheltenhamBook{.end} {.if @h2RoobertMedium}h2RoobertMedium{.end} {.if @h2CheltenhamBook}h2CheltenhamBook{.end}" {.if @bgColor}data-hex="{@bgColor}"{.end} {.if @litText}data-lit="{@litText}"{.end}>
+<article data-item-id="{item.id}" {.if @bgColor}data-hex="{@bgColor}"{.end} {.if @litText}data-lit="{@litText}"{.end} class="story js-story {.if @h1RoobertMedium}h1RoobertMedium{.end} {.if @h1CheltenhamBook}h1CheltenhamBook{.end} {.if @h2RoobertMedium}h2RoobertMedium{.end} {.if @h2CheltenhamBook}h2CheltenhamBook{.end}">
     <div class="story__blocks cms">
         {item.body}
     </div>
-</div>
+</article>

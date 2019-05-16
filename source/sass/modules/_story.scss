@@ -215,6 +215,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     @include exp();
+    @include wrap();
 
     @include respond( $mobile-breakpoint ) {
         margin: 0;
@@ -240,6 +241,7 @@
     justify-content: space-between;
     align-items: center;
     @include exp();
+    @include wrap();
 }
 .diptych__item {
     @include diptych();
