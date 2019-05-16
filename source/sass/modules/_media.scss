@@ -67,6 +67,14 @@
 }
 ._audio__controls--onboard {
     cursor: pointer;
+
+    .is-hoverable &:hover .m {
+        color: $white;
+    }
+
+    .is-hoverable &:hover ._svg {
+        fill: $white;
+    }
 }
 ._audio__controls--utility {
     display: none;

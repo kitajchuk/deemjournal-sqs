@@ -35,7 +35,7 @@
         </header>
         <main class="main js-main" data-content-field="main-content"></main>
         <squarespace:navigation navigationId="menu" template="menu" />
-        <div class="router js-router" data-revision="{squarespace.template-revision}" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
+        <div class="router js-router" style="display:none;" data-revision="{squarespace.template-revision}" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
             {.equal? collection.id "5caf91cf9b747a24508cf1ec"}
                 {@|apply page-about.block}
             {.or equal? collection.id "5caf951ff9619aaf383bd7c7"}

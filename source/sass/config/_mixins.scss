@@ -327,10 +327,23 @@
     border-radius: $button-radius;
     height: $button-height;
     width: $button-width;
-    border: 1px solid $black;
+    border: 2px inset $black;
+    transition: color $base-duration $ease,
+                background-color $base-duration $ease,
+                border-color $base-duration $ease;
+
+    .is-hoverable &:hover {
+        color: $white;
+        background-color: $black;
+    }
+
+    .is-hoverable.is-inverse-text &:hover {
+        color: $black;
+        background-color: $white;
+    }
 
     .is-inverse-text & {
-        border: 1px solid $white;
+        border: 2px inset $white;
     }
 
     @include respond( $laptop-breakpoint ) {
