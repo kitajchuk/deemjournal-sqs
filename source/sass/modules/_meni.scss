@@ -9,10 +9,6 @@
     pointer-events: none;
     display: none;
 
-    // &.is-active {
-    //     display: block;
-    // }
-
     .m {
         color: $white;
 
@@ -106,6 +102,7 @@
 
     .search__input {
         color: $white;
+        border-bottom-color: transparent;
         @include placeholder( $grey );
     }
 }

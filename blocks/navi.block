@@ -7,7 +7,7 @@
             {.end}
             {.if collection.homepage}{.or}
                 <li class="navi__li navi__li--{@title|slugify}">
-                    <a class="navi__a navi__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} p" href="{@url}">{@title}</a>
+                    <a class="navi__a navi__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} h6" href="{@url}">{@title}</a>
                 </li>
             {.end}
         {.end}

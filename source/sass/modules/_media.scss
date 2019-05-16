@@ -153,6 +153,12 @@
         pointer-events: auto;
     }
 
+    .is-menu-open & {
+        opacity: 0;
+        transform: translate3d( 0, 100%, 0 );
+        pointer-events: none;
+    }
+
     @include respond( $mobile-breakpoint ) {
         padding-left: $padding-m;
         padding-bottom: $padding-m;

@@ -186,7 +186,7 @@
 /******************************************************************************
  * Cover specific
 *******************************************************************************/
-.sqs-layout > .sqs-row > .col > .sqs-block-html {
+.sqs-layout > .sqs-row > .col > .sqs-block-html:first-child {
     h1, h2, h3 {
         @include sqs-h123();
     }
