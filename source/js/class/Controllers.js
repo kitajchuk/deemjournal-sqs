@@ -8,7 +8,6 @@ import Video from "./components/Video";
 import Annotation from "./components/Annotation";
 import Audio from "./components/Audio";
 import Story from "./components/Story";
-import Cover from "./components/Cover";
 import CTA from "./components/CTA";
 
 
@@ -74,7 +73,6 @@ class Controllers {
         this.push( "cta", core.dom.body.find( ".js-button_" ), BaseController, CTA );
 
         // Hinge on Squarespace selectors...
-        this.push( "cover", core.dom.body.find( ".sqs-block-spacer:nth-child(1)" ), BaseController, Cover );
         this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );
         this.push( "annotation", core.dom.body.find( ".sqs-layout > .sqs-row > .col > .sqs-row > .col:nth-child(1) > .sqs-block-html:nth-child(1) > .sqs-block-content > blockquote:nth-child(1)" ), BaseController, Annotation );
 

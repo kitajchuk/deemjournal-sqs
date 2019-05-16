@@ -14,6 +14,7 @@ import * as core from "../../core";
 class Story {
     constructor ( element, data ) {
         this.element = element;
+        this.coverRow = this.element.find( ".sqs-layout > .sqs-row > .col > .sqs-row:first-child" );
         this.data = data;
 
         this.init();
@@ -27,6 +28,11 @@ class Story {
 
         if ( this.data.lit ) {
             core.dom.html.addClass( "is-inverse-text" );
+        }
+
+        if ( this.coverRow.length ) {
+            this.coverRow.find( ".col > .sqs-block-html" ).parent().addClass( "text-col" );
+            this.coverRow.find( ".col > .sqs-block-image" ).parent().addClass( "image-col" );
         }
     }
 

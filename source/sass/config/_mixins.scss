@@ -380,6 +380,25 @@
     width: 0.9765625vw;
     min-width: 18px;
 }
+@mixin sqs-h123() {
+    .h1RoobertMedium & {
+        @include h1();
+    }
+
+    .h1CheltenhamBook & {
+        @include h1();
+        @include font-family-serif();
+    }
+
+    .h2RoobertMedium & {
+        @include h2();
+    }
+
+    .h2CheltenhamBook & {
+        @include h2();
+        @include font-family-serif();
+    }
+}
 @function sqs-calc( $expression ) {
     @return #{"~\"calc( #{$expression} )\""};
 }

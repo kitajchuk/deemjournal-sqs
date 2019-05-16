@@ -186,86 +186,12 @@
 /******************************************************************************
  * Cover specific
 *******************************************************************************/
-.cover-block {
+.sqs-layout > .sqs-row > .col > .sqs-block-html {
     h1, h2, h3 {
-        .h1RoobertMedium & {
-            @include h1();
-        }
-
-        .h1CheltenhamBook & {
-            @include h1();
-            @include font-family-serif();
-        }
-
-        .h2RoobertMedium & {
-            @include h2();
-        }
-
-        .h2CheltenhamBook & {
-            @include h2();
-            @include font-family-serif();
-        }
-    }
-
-    .sqs-block-html .sqs-block-content {
-        blockquote {
-            p {
-                color: $black;
-                @include h6();
-
-                .is-inverse-text & {
-                    color: $white;
-                }
-            }
-        }
+        @include sqs-h123();
     }
 }
-.sqs-row.cover-block {
-    .sqs-block-image {
-        .media {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
-    .sqs-block-html {
-        .sqs-block-content {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
-    .sqs-block-audio {
-        .sqs-block-content {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
-    .sqs-block-html {
-        .sqs-block-content {
-            > h1, > h2, > h3 {
-                @include exp();
-
-                @include respond( $mobile-breakpoint ) {
-                    padding-top: 0;
-                }
-            }
-
-            @include respond( $mobile-breakpoint ) {
-                padding-top: 0;
-            }
-        }
-    }
-
-    .sqs-block-image {
-        .sqs-block-content {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-    }
-}
-.cover-start + .sqs-row.cover-block {
+.sqs-layout > .sqs-row > .col > .sqs-row:first-child {
     justify-content: space-between;
     @include wrap();
 
@@ -280,6 +206,56 @@
     .text-col {
         @include respond( $mobile-breakpoint ) {
             width: 100%;
+        }
+    }
+
+    .sqs-block-image {
+        .sqs-block-content {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .media {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .sqs-block-html {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
+
+            > h1, > h2, > h3 {
+                @include exp();
+                @include sqs-h123();
+
+                @include respond( $mobile-breakpoint ) {
+                    padding-top: 0;
+                }
+            }
+
+            blockquote {
+                p {
+                    color: $black;
+                    @include h6();
+
+                    .is-inverse-text & {
+                        color: $white;
+                    }
+                }
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                padding-top: 0;
+            }
+        }
+    }
+
+    .sqs-block-audio {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 }
