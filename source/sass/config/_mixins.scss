@@ -260,9 +260,9 @@
 // Headlines
 @mixin otf-02 {
     font-variant-ligatures: common-ligatures;
-    -moz-font-feature-settings: "liga", "clig", "dlig", "ss01", "ss03", "ss04";
-    -webkit-font-feature-settings: "liga", "clig", "dlig", "ss01", "ss03", "ss04";
-    font-feature-settings: "liga", "clig", "dlig", "ss01", "ss03", "ss04";
+    -moz-font-feature-settings: "liga", "clig", "dlig" 0, "ss01", "ss03", "ss04";
+    -webkit-font-feature-settings: "liga", "clig", "dlig" 0, "ss01", "ss03", "ss04";
+    font-feature-settings: "liga", "clig", "dlig" 0, "ss01", "ss03", "ss04";
 }
 // Body bopy
 @mixin otf-03 {
