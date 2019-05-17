@@ -19,6 +19,10 @@ p {
 }
 em {
     @include i();
+
+    &.ss {
+        @include otf-ss();
+    }
 }
 .m {
     @include m();

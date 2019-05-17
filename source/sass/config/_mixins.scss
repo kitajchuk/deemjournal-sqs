@@ -281,6 +281,13 @@
     -webkit-font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss02", "ss03";
     font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss02", "ss03";
 }
+// Fractions, superscripts
+@mixin otf-ss {
+    font-variant-ligatures: common-ligatures;
+    -moz-font-feature-settings: "frac";
+    -webkit-font-feature-settings:  "frac";
+    font-feature-settings:  "frac";
+}
 // Disable the OpenType features
 @mixin otf-none {
     font-variant-ligatures: no-common-ligatures;

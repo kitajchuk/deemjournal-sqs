@@ -161,30 +161,40 @@
             }
         }
 
-        a {
-            @include a( $grey );
-        }
-
-        h1 {
+        > h1 {
             @include h3();
             @include nbsp();
         }
 
-        h2 {
+        > h2 {
             @include h4();
             @include nbsp();
         }
 
-        h3 {
+        > h3 {
             @include h5();
             @include nbsp();
         }
 
-        blockquote {
+        > blockquote {
             p {
                 @include m();
                 color: $grey;
             }
+        }
+
+        > h1 + p,
+        > h2 + p,
+        > h3 + p,
+        > p + h1,
+        > p + h2,
+        > p + h3,
+        > p:not( .p--boldline ) + p {
+            @include expt();
+        }
+
+        a {
+            @include a( $grey );
         }
     }
 }
