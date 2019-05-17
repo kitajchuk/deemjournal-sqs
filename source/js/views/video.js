@@ -23,7 +23,7 @@ export default ( blockJson, imageJson ) => {
                     <div class="embed__playbtn js-embed-playbtn">
                         ${svgIcon}
                     </div>
-                    <div class="embed__metadata js-embed-metadata p"></div>
+                    <div class="embed__metadata js-embed-metadata h6"></div>
                 </div>
                 ${blockJson.description && (blockJson.layout !== "caption-hidden") ? `
                     <div class="media__cap">

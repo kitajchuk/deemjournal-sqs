@@ -244,6 +244,16 @@
     transition: opacity $base-duration $ease;
     width: 48px;
 
+    ._svg {
+        transition: transform $base-duration $ease;
+    }
+
+    .is-hoverable &:hover {
+        ._svg {
+            transform: scale( 1.10 );
+        }
+    }
+
     .is-embed-playing & {
         opacity: 0;
         pointer-events: none;

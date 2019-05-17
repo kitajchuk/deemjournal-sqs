@@ -11,5 +11,5 @@ export default ( json ) => {
             </div>
         `;
 
-    }).join( "" )}</div>` : `<div class="grid js-search-grid"><div class="grid__item"><p class="-grey">No results</p></div></div>`;
+    }).join( "" )}</div>` : `<div class="grid js-search-grid"><div class="grid__item"><p class="-grey">no results</p></div></div>`;
 };
