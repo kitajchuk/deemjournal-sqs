@@ -1,12 +1,12 @@
 <div class="iconography -exp -wrap">
+    {@|apply svg-skipbackward.block}
+    {@|apply svg-skipforward.block}
+    {@|apply svg-down.block}
+    {@|apply svg-pause.block}
+    {@|apply svg-play.block}
     {@|apply svg-left.block}
     {@|apply svg-list.block}
     {@|apply svg-search.block}
     {@|apply svg-x.block}
     {@|apply svg-right.block}
-    {@|apply svg-down.block}
-    {@|apply svg-play.block}
-    {@|apply svg-pause.block}
-    {@|apply svg-skipbackward.block}
-    {@|apply svg-skipforward.block}
 </div>

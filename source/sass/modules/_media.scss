@@ -236,13 +236,11 @@
 }
 .embed__playbtn {
     cursor: pointer;
-    height: 48px;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate3d( -50%, -50%, 0 );
     transition: opacity $base-duration $ease;
-    width: 48px;
 
     ._svg {
         transition: transform $base-duration $ease;
