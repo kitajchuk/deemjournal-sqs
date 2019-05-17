@@ -6,8 +6,8 @@
     display: inline-block;
 }
 [class*=sqs-col] .sqs-block {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     padding-top: 0;
     padding-bottom: 0;
     box-shadow: none;
