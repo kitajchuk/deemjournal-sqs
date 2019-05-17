@@ -14,7 +14,6 @@ p {
     strong em,
     em strong {
         @include font-family-sans();
-        background-color: $yellow;
     }
 }
 em {

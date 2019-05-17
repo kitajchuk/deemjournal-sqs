@@ -298,7 +298,7 @@
     border-radius: $button-radius;
     height: $button-height;
     width: $button-width;
-    border: 2px inset $black;
+    border: 2px solid $black;
     transition: color $base-duration $ease,
                 background-color $base-duration $ease,
                 border-color $base-duration $ease;

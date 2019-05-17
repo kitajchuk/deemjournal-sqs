@@ -1,4 +1,4 @@
-import * as core from "../../core";
+// import * as core from "../../core";
 // import $ from "properjs-hobo";
 
 
@@ -25,14 +25,6 @@ class Story {
 
 
     init () {
-        if ( this.data.hex ) {
-            core.dom.html[ 0 ].style.backgroundColor = this.data.hex;
-        }
-
-        if ( this.data.lit ) {
-            core.dom.html.addClass( "is-inverse-text" );
-        }
-
         if ( this.coverRow.length ) {
             this.coverRow.find( ".col > .sqs-block-html" ).parent().addClass( "text-col" );
             this.coverRow.find( ".col > .sqs-block-image" ).parent().addClass( "image-col" );
@@ -74,15 +66,7 @@ class Story {
     }
 
 
-    destroy () {
-        if ( this.data.hex ) {
-            core.dom.html[ 0 ].style.backgroundColor = "transparent";
-        }
-
-        if ( this.data.lit ) {
-            core.dom.html.removeClass( "is-inverse-text" );
-        }
-    }
+    destroy () {}
 }
 
 
