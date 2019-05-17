@@ -17,9 +17,6 @@
 }
 ._svg--play {
     @include icon-play-size();
-    max-height: 29px;
-    height: 1.1328125vw;
-    min-height: 21px;
 
     .embed & {
         fill: $white;
