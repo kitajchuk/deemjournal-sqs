@@ -348,6 +348,10 @@
                         color: $white;
                     }
                 }
+
+                p + p {
+                    padding-top: $padding-m;
+                }
             }
 
             @include respond( $mobile-breakpoint ) {
