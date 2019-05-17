@@ -26,12 +26,20 @@
     font-family: $font-sans-regular-italic;
     @include font-normal();
 }
-@mixin font-family-sans-bold() {
+@mixin font-family-sans-medium() {
     font-family: $font-sans-medium;
     @include font-normal();
 }
-@mixin font-family-sans-bold-italic() {
+@mixin font-family-sans-medium-italic() {
     font-family: $font-sans-medium-italic;
+    @include font-normal();
+}
+@mixin font-family-sans-semibold() {
+    font-family: $font-sans-semibold;
+    @include font-normal();
+}
+@mixin font-family-sans-semibold-italic() {
+    font-family: $font-sans-semibold-italic;
     @include font-normal();
 }
 @mixin font-family-serif() {
@@ -85,7 +93,7 @@
 @mixin h1() {
     font-size: $h1-size-mobile;
     line-height: $h1-line;
-    @include font-family-sans-bold();
+    @include font-family-sans-medium();
     @include otf-02();
 
     &.-fserif,
@@ -104,7 +112,7 @@
 @mixin h2() {
     font-size: $h2-size-mobile;
     line-height: $h2-line;
-    @include font-family-sans-bold();
+    @include font-family-sans-medium();
     @include otf-02();
 
     &.-fserif,
@@ -123,7 +131,7 @@
 @mixin h3() {
     font-size: $h3-size-mobile;
     line-height: $h3-line;
-    @include font-family-sans-bold();
+    @include font-family-sans-medium();
     @include otf-02();
 
     &.-fserif,
@@ -142,7 +150,7 @@
 @mixin h4() {
     font-size: $h4-size-mobile;
     line-height: $h4-line;
-    @include font-family-sans-bold();
+    @include font-family-sans-medium();
     @include otf-02();
 
     &.-fserif,
@@ -161,7 +169,7 @@
 @mixin h5() {
     font-size: $h5-size-mobile;
     line-height: $h5-line;
-    @include font-family-sans-bold();
+    @include font-family-sans-medium();
     @include otf-02();
 
     &.-fserif,
@@ -182,11 +190,6 @@
     line-height: $h6-line;
     @include font-family-sans();
     @include otf-02();
-
-    &.-fserif,
-    .-fserif & {
-        @include font-family-serif-bold();
-    }
 
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h6-size-fluid;
@@ -221,13 +224,13 @@
  * Typography: Children
 *******************************************************************************/
 @mixin s() {
-    @include font-family-sans-bold();
+    @include font-family-sans-medium();
 }
 @mixin i() {
     @include font-family-sans-italic();
 }
 @mixin bi() {
-    @include font-family-sans-bold-italic();
+    @include font-family-sans-medium-italic();
 }
 @mixin a( $color ) {
     color: $color;

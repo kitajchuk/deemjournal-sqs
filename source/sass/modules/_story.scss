@@ -275,6 +275,7 @@
 .grid__title {
     padding-top: $padding-m;
     @include h6();
+    @include font-family-sans-medium();
 }
 
 

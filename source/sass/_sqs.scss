@@ -145,7 +145,20 @@
         > ol,
         > ul {
             @include text();
+        }
+
+        > p  {
             @include nbsp();
+        }
+
+        > ul > li,
+        > ol > li {
+            @include p();
+            @include nbsp();
+
+            > p {
+                display: inline-block;;
+            }
         }
 
         a {
@@ -250,6 +263,10 @@
                 @include exp();
                 @include sqs-h123();
 
+                &:before {
+                    display: none;
+                }
+
                 @include respond( $mobile-breakpoint ) {
                     padding-top: 0;
                 }
@@ -296,14 +313,18 @@
 ul[data-rte-list] li > *:first-child::before,
 ol[data-rte-list] li > *:first-child::before {
     margin-left: 0;
+    min-width: 0;
+    width: 0;
+    content: "";
+    padding-right: 0;
     text-align: left;
-}
-ul[data-rte-list] li > *:first-child::before,
-ol[data-rte-list] li > *:first-child::before {
     display: none;
 }
+ul[data-rte-list] li > *, ol[data-rte-list] li > * {
+    margin: 0!important;
+}
 .sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):first-child {
-    padding-top: 0;
+    padding-top: 0!important;
 }
 .sqs-block-gallery {
     .sqs-intrinsic {
