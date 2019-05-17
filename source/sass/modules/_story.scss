@@ -179,7 +179,8 @@
 .slider {
     white-space: nowrap;
     width: 100%;
-    overflow-x: auto;
+    overflow: hidden;
+    user-select: none;
     @include exp();
 }
 .slider__wrap {
@@ -190,6 +191,11 @@
     vertical-align: top;
     margin-left: $padding-1;
     white-space: normal;
+    cursor: pointer;
+
+    .media {
+        pointer-events: none;
+    }
 
     .image {
         width: $slider-width;

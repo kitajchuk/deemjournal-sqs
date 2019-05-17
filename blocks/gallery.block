@@ -102,9 +102,9 @@
     {.end}
 {.or equal? options.design "slider"}
     <div class="slider js-slider">
-        <div class="slider__wrap">
+        <div class="slider__wrap js-slider-belt">
             {.repeated section items}
-                <div class="slider__item">
+                <div class="slider__item js-slider-item">
                     <div class="media js-media">
                         <div class="media__wrap">
                             <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />

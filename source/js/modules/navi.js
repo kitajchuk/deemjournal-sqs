@@ -1,7 +1,7 @@
 import * as core from "../core";
 import $ from "properjs-hobo";
 // import { TweenLite, Power3 } from "gsap/TweenLite";
-import * as gasp from "gsap/all";
+import * as gsap from "gsap/all";
 import ResizeController from "properjs-resizecontroller";
 
 
@@ -76,30 +76,30 @@ const navi = {
 
 
     animMenuItems ( binary ) {
-        this.tweenMenu = new gasp.TweenLite.to( this.menuAnims, (this.time / 1000), {
+        this.tweenMenu = new gsap.TweenLite.to( this.menuAnims, (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
-            ease: gasp.Power3.easeOut
+            ease: gsap.Power3.easeOut
         });
     },
 
 
     animMenuSearch ( binary ) {
-        this.tweenSearch = new gasp.TweenLite.to( this.search[ 0 ], (this.time / 1000), {
+        this.tweenSearch = new gsap.TweenLite.to( this.search[ 0 ], (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
             delay: binary ? (this.time / 1000) : 0,
-            ease: gasp.Power3.easeOut
+            ease: gsap.Power3.easeOut
         });
     },
 
 
     animMenuClose ( binary ) {
-        this.tweenClose = new gasp.TweenLite.to( this.menuClose[ 0 ], (this.time / 1000), {
+        this.tweenClose = new gsap.TweenLite.to( this.menuClose[ 0 ], (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
             delay: binary ? (this.time / 1000) : 0,
-            ease: gasp.Power3.easeOut
+            ease: gsap.Power3.easeOut
         });
     },
 

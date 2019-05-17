@@ -9,6 +9,7 @@ import Annotation from "./components/Annotation";
 import Audio from "./components/Audio";
 import Story from "./components/Story";
 import CTA from "./components/CTA";
+import Slider from "./components/Slider";
 
 
 /**
@@ -71,6 +72,7 @@ class Controllers {
         this.push( "audio", core.dom.body.find( ".js-audio" ), BaseController, Audio );
         this.push( "story", core.dom.body.find( ".js-story" ), BaseController, Story );
         this.push( "cta", core.dom.body.find( ".js-button_" ), BaseController, CTA );
+        this.push( "slider", core.dom.body.find( ".js-slider" ), BaseController, Slider );
 
         // Hinge on Squarespace selectors...
         this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );
