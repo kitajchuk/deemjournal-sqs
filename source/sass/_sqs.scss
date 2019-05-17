@@ -116,14 +116,53 @@
     .sqs-block-content {
         h1 {
             @include h3();
+
+            @include respond( $break-tablet-medium ) {
+                @include h4();
+            }
+
+            @include respond( $break-tablet-small ) {
+                @include h5();
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                @include h3();
+            }
         }
 
         h2 {
             @include h4();
+
+            @include respond( $break-tablet-medium ) {
+                @include h5();
+            }
+
+            @include respond( $break-tablet-small ) {
+                @include p();
+                @include font-family-sans-medium();
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                @include h4();
+            }
         }
 
         h3 {
             @include h5();
+
+            @include respond( $break-tablet-medium ) {
+                @include p();
+                @include font-family-sans-medium();
+            }
+
+            @include respond( $break-tablet-small ) {
+                @include h6();
+                @include font-family-sans-semibold();
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                @include h5();
+            }
         }
     }
 }
@@ -247,6 +286,24 @@
     }
 
     .text-col {
+        width: sqs-calc( "100% - #{$tall-width-0}" );
+
+        &:first-child {
+            @include wrapr();
+
+            @include respond( $mobile-breakpoint ) {
+                padding-right: 0;
+            }
+        }
+
+        &:last-child {
+            @include wrapl();
+
+            @include respond( $mobile-breakpoint ) {
+                padding-left: 0;
+            }
+        }
+
         @include respond( $mobile-breakpoint ) {
             width: 100%;
         }

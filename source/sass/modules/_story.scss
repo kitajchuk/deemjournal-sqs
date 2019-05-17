@@ -38,7 +38,7 @@
     position: relative;
     width: 100%;
 
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $break-tablet-full ) {
         display: flex;
         flex-wrap: wrap;
     }
@@ -58,7 +58,7 @@
     }
 
     .annotation--text & {
-        @include respond( $break-ipad-pro-width ) {
+        @include respond( $break-tablet-full ) {
             position: relative;
             left: auto;
             top: auto;
@@ -76,7 +76,7 @@
         }
     }
 
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $break-tablet-full ) {
         order: 2;
         padding-top: $padding-m;
     }
@@ -88,7 +88,7 @@
         @include nbsp();
     }
 
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $break-tablet-full ) {
         order: 1;
     }
 }
@@ -251,9 +251,26 @@
 }
 ._card__title {
     @include diptych();
+    width: sqs-calc( "100% - #{$tall-width-0}" );
 
     h1, h3, h3 {
         @include nbsp();
+    }
+
+    &:first-child {
+        @include wrapr();
+
+        @include respond( $mobile-breakpoint ) {
+            padding-right: 0;
+        }
+    }
+
+    &:last-child {
+        @include wrapl();
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+        }
     }
 
     @include respond( $mobile-breakpoint ) {

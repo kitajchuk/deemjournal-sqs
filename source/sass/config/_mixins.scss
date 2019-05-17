@@ -153,11 +153,6 @@
     @include font-family-sans-medium();
     @include otf-02();
 
-    &.-fserif,
-    .-fserif & {
-        @include font-family-serif-bold();
-    }
-
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h4-size-fluid;
     }
@@ -171,11 +166,6 @@
     line-height: $h5-line;
     @include font-family-sans-medium();
     @include otf-02();
-
-    &.-fserif,
-    .-fserif & {
-        @include font-family-serif-bold();
-    }
 
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h5-size-fluid;
@@ -423,6 +413,10 @@
         left: auto;
         margin-left: auto;
         display: block;
+    }
+
+    @include respond( $laptop-breakpoint ) {
+        max-width: $text-width - 200px;
     }
 }
 @mixin media() {
