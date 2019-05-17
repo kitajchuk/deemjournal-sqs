@@ -154,10 +154,6 @@
     vertical-align: middle;
     transition: color $base-duration $ease;
 
-    .is-inverse-text & {
-        color: $white;
-    }
-
     &.is-invalid {
         color: $red;
     }

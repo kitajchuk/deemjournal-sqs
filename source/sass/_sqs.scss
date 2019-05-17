@@ -359,10 +359,6 @@
                 p {
                     color: $black;
                     @include h6();
-
-                    .is-inverse-text & {
-                        color: $white;
-                    }
                 }
 
                 p + p {

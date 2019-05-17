@@ -308,15 +308,6 @@
         background-color: $black;
     }
 
-    .is-hoverable.is-inverse-text &:hover {
-        color: $black;
-        background-color: $white;
-    }
-
-    .is-inverse-text & {
-        border: 2px inset $white;
-    }
-
     @include respond( $laptop-breakpoint ) {
         height: $button-height / 1.25;
         width: $button-width / 1.25;

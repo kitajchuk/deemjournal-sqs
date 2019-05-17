@@ -20,10 +20,6 @@
         p {
             @include m();
             color: $black;
-
-            .is-inverse-text & {
-                color: $white;
-            }
         }
     }
 }
@@ -148,11 +144,6 @@
     ._button {
         background-color: $black;
         color: $white;
-
-        .is-inverse-text & {
-            background-color: $white;
-            color: $black;
-        }
     }
 }
 .cta__wrap {
@@ -168,10 +159,6 @@
     p {
         @include h6();
         color: $black;
-
-        .is-inverse-text & {
-            color: $white;
-        }
     }
 }
 
@@ -352,8 +339,4 @@
 .summary-v2 {
     border-top: 1px solid $black;
     @include exp();
-
-    .is-inverse-text & {
-        border-top: 1px solid $white;
-    }
 }

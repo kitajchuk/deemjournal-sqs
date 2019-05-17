@@ -70,8 +70,4 @@ h6, .h6 {
     @include h6();
     color: $black;
     line-height: 1;
-
-    .is-inverse-text & {
-        color: $white;
-    }
 }

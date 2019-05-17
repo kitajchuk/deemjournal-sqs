@@ -39,10 +39,6 @@
 
     .h6 {
         color: $black;
-
-        .is-inverse-text & {
-            color: $white;
-        }
     }
 }
 ._audio__node {
@@ -179,26 +175,14 @@
     ._audio__controls {
         background-color: $black;
         border: 0;
-
-        .is-inverse-text & {
-            background-color: $white;
-        }
     }
 
     ._audio__state {
         color: $white;
-
-        .is-inverse-text & {
-            color: $black;
-        }
     }
 
     ._svg {
         fill: $white;
-
-        .is-inverse-text & {
-            fill: $black;
-        }
     }
 }
 

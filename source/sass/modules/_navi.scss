@@ -30,22 +30,12 @@
     .is-hoverable &:hover {
         border-bottom: 2px solid $black;
     }
-    .is-hoverable.is-inverse-text &:hover {
-        border-bottom: 2px solid $white;
-    }
 
     .is-hoverable &.is-active:hover {
         border-bottom: 2px solid $black;
     }
-    .is-hoverable.is-inverse-text &.is-active:hover {
-        border-bottom: 2px solid $white;
-    }
 
     &.is-active {
         border-bottom: 2px solid $black;
-
-        .is-inverse-text & {
-            border-bottom: 2px solid $white;
-        }
     }
 }

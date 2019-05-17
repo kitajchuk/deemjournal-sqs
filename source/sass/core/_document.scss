@@ -12,10 +12,6 @@ html {
     &.is-menu-open {
         overflow: hidden;
     }
-
-    &.is-inverse-text {
-        color: $white;
-    }
 }
 body {
     // OpenType features
