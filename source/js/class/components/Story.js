@@ -17,6 +17,7 @@ class Story {
         this.coverRow = this.element.find( ".sqs-layout > .sqs-row > .col > .sqs-row:first-child" );
         this.bolders = this.element.find( ".sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > p" );
         this.numerics = this.element.find( ".sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > p > em" );
+        this.listings = this.element.find( ".sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > ul, .sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > ol" );
         this.data = data;
 
         this.init();
@@ -56,6 +57,17 @@ class Story {
 
                 if ( Number.isInteger( number ) ) {
                     elem.addClass( "ss" );
+                }
+            });
+        }
+
+        if ( this.listings.length ) {
+            this.listings.forEach(( el, i ) => {
+                const elem = this.listings.eq( i );
+                const prev = elem.prev( "p" );
+
+                if ( prev.length ) {
+                    prev.addClass( "p--listings" );
                 }
             });
         }

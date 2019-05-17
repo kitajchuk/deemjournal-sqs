@@ -228,8 +228,24 @@
         > p + h1,
         > p + h2,
         > p + h3,
+        > p + ul,
+        > p + ol,
+        > ul + p,
+        > ol + p,
         > p:not( .p--boldline ) + p {
             @include expt();
+        }
+
+        > p.p--listings,
+        > p.p--boldline + p {
+            &:before {
+                display: none;
+            }
+        }
+
+        > ul li > p,
+        > ol li > p {
+            border-bottom: 1px solid $black;
         }
 
         a {
