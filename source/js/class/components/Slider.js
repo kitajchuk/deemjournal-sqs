@@ -1,6 +1,6 @@
 // import * as core from "../../core";
 import $ from "properjs-hobo";
-import * as gsap from "gsap/all";
+import { TweenLite, Power3 } from "gsap/TweenMax";
 import ResizeController from "properjs-resizecontroller";
 
 
@@ -77,9 +77,9 @@ class Slider {
 
 
     move ( position ) {
-        this.tween = new gsap.TweenLite.to( this.belt[ 0 ], (this.time / 1000), {
+        this.tween = new TweenLite.to( this.belt[ 0 ], (this.time / 1000), {
             x: position,
-            ease: gsap.Power3.easeOut
+            ease: Power3.easeOut
         });
     }
 

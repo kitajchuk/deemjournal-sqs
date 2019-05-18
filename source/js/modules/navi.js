@@ -1,7 +1,6 @@
 import * as core from "../core";
 import $ from "properjs-hobo";
-// import { TweenLite, Power3 } from "gsap/TweenLite";
-import * as gsap from "gsap/all";
+import { TweenLite, Power3 } from "gsap/TweenMax";
 import ResizeController from "properjs-resizecontroller";
 
 
@@ -76,30 +75,30 @@ const navi = {
 
 
     animMenuItems ( binary ) {
-        this.tweenMenu = new gsap.TweenLite.to( this.menuAnims, (this.time / 1000), {
+        this.tweenMenu = new TweenLite.to( this.menuAnims, (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
-            ease: gsap.Power3.easeOut
+            ease: Power3.ease
         });
     },
 
 
     animMenuSearch ( binary ) {
-        this.tweenSearch = new gsap.TweenLite.to( this.search[ 0 ], (this.time / 1000), {
+        this.tweenSearch = new TweenLite.to( this.search[ 0 ], (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
             delay: binary ? (this.time / 1000) : 0,
-            ease: gsap.Power3.easeOut
+            ease: Power3.ease
         });
     },
 
 
     animMenuClose ( binary ) {
-        this.tweenClose = new gsap.TweenLite.to( this.menuClose[ 0 ], (this.time / 1000), {
+        this.tweenClose = new TweenLite.to( this.menuClose[ 0 ], (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
             delay: binary ? (this.time / 1000) : 0,
-            ease: gsap.Power3.easeOut
+            ease: Power3.ease
         });
     },
 
@@ -129,9 +128,9 @@ const navi = {
             this.show().then(() => {
                 this.menu.addClass( "is-active" );
                 core.dom.html.addClass( "is-menu-open" );
+                this.animMenuItems( 1 );
                 setTimeout(() => {
                     this.menu.addClass( "is-static" );
-                    this.animMenuItems( 1 );
                     resolve();
 
                 }, this.time );
@@ -197,9 +196,8 @@ const navi = {
 
     closeAll () {
         if ( this.isSearch ) {
-            this.closeSearch().then(() => {
-                this.closeMenu();
-            });
+            this.closeSearch();
+            this.closeMenu();
 
         } else {
             this.closeMenu();
