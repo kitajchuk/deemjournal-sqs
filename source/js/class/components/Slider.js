@@ -44,31 +44,42 @@ class Slider {
 
     evaluate ( target ) {
         const index = target.index();
-        const bounds = target[ 0 ].getBoundingClientRect();
-        const margin = parseFloat( window.getComputedStyle( target[ 0 ] )[ "margin-left" ] );
+        const targetBounds = target[ 0 ].getBoundingClientRect();
+        const targetMargin = parseFloat( window.getComputedStyle( target[ 0 ] )[ "margin-left" ] );
         const isFirst = (index === 0);
         const isLast = (index === (this.length - 1));
         let position = 0;
+        let offset = 0;
+
+        this.items.forEach(( item, i ) => {
+            if ( i <= index ) {
+                const bounds = item.getBoundingClientRect();
+                const margin = parseFloat( window.getComputedStyle( item )[ "margin-left" ] );
+
+                offset += bounds.width + margin;
+            }
+        });
 
         if ( isFirst ) {
             // Position is zero
 
         } else if ( isLast ) {
-            // First baseline to left edge ( without margin from edge )
-            position = ((-bounds.width - margin) * index) - (margin * (index - 1));
+            // First baseline right edge to left edge
+            // position = ((-bounds.width - margin) * index) - (margin * (index - 1));
+            position += -offset;
 
-            // Next baseline to right edge ( with margin from edge )
-            position += (window.innerWidth - bounds.width) - margin;
+            // Next baseline to right edge
+            position += window.innerWidth - targetMargin;
 
         } else {
-            // First baseline to left edge ( with margin from edge )
-            position = ((-bounds.width - margin) * index);
+            // First baseline to left edge
+            position += -offset;
 
             // Next baseline left edge to center viewport axis
-            position += ((window.innerWidth / 2) - margin);
+            position += (window.innerWidth / 2);
 
             // Finally pull the element left of central axis by half its width
-            position += -(bounds.width / 2);
+            position += (targetBounds.width / 2);
         }
 
         this.index = index;
