@@ -49,28 +49,11 @@
     align-items: center;
     justify-content: flex-start;
 }
-._audio__pp {
-    padding: 0 $padding-m 0 0;
-    box-sizing: content-box;
-    @include icon-play-size();
-
-    @include respond( $laptop-breakpoint ) {
-        padding: 0 ($padding-m / 2) 0 0;
-    }
-}
 ._audio__controls {
-    @include button();
+    @include button-pseudo();
 }
 ._audio__controls--onboard {
     cursor: pointer;
-
-    .is-hoverable &:hover .h6 {
-        color: $white;
-    }
-
-    .is-hoverable &:hover ._svg {
-        fill: $white;
-    }
 }
 ._audio__controls--utility {
     display: none;
@@ -92,7 +75,20 @@
 ._audio__ellapsed {
     padding-left: $padding-m;
 }
+._audio__skip {
+    z-index: 1;
+}
 ._audio__pp {
+    z-index: 1;
+    padding: 0 $padding-m 0 0;
+    box-sizing: content-box;
+    @include icon-play-size();
+    z-index: 1;
+
+    @include respond( $laptop-breakpoint ) {
+        padding: 0 ($padding-m / 2) 0 0;
+    }
+
     ._svg--play {
         display: block;
 
@@ -110,6 +106,8 @@
     }
 }
 ._audio__state {
+    z-index: 1;
+
     span:nth-child( 1 ) {
         display: inline-block;
 
@@ -170,11 +168,6 @@
         .has-audio-played & {
             display: none;
         }
-    }
-
-    ._audio__controls {
-        background-color: $black;
-        border: 0;
     }
 
     ._audio__state {

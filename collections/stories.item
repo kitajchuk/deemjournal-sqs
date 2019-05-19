@@ -16,12 +16,10 @@
             }
             .cta--global ._button,
             .is-hoverable ._button:hover,
-            .is-hoverable ._audio__controls--onboard:hover .h6,
             ._audio__global ._audio__state {
                 color: {@bgColor};
             }
-            ._audio__global ._svg,
-            .is-hoverable ._audio__controls--onboard:hover ._svg {
+            ._audio__global ._svg {
                 fill: {@bgColor};
             }
         {.end}
@@ -51,13 +49,12 @@
                 border-top-color: {@uiColor};
             }
             ._button,
-            ._audio__controls--onboard {
+            ._audio__controls:before {
                 border-color: {@uiColor};
             }
             .cta--global ._button,
             .is-hoverable ._button:hover,
-            .is-hoverable ._audio__controls:hover,
-            ._audio__global ._audio__controls {
+            ._audio__global ._audio__controls:before {
                 background-color: {@uiColor};
             }
         {.end}

@@ -308,15 +308,40 @@
         background-color: $black;
     }
 
-    // @include respond( $laptop-breakpoint ) {
-    //     height: $button-height / 1.25;
-    //     width: $button-width / 1.25;
-    // }
-
     @include respond( $mobile-breakpoint ) {
         height: $button-height-m;
         width: $button-width-m;
         border-radius: $button-height-m / 2;
+    }
+}
+@mixin button-pseudo() {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $button-height;
+    width: $button-width;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate3d( -50%, -50%, 0 );
+        height: 100%;
+        width: 100%;
+        border: 2px solid $black;
+        border-radius: $button-height / 2;
+        transition: transform $base-duration $ease;
+    }
+
+    .is-hoverable &:hover:before {
+        transform: translate3d( -50%, -50%, 0 ) scale( 1.05 );
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        height: $button-height-m;
+        width: $button-width-m;
     }
 }
 @mixin nbsp() {
