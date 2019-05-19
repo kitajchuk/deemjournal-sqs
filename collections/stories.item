@@ -11,7 +11,8 @@
     </div>
     <style class="js-colorway-style">
         {.if @bgColor}
-            html {
+            html,
+            .header {
                 background-color: {@bgColor};
             }
             .cta--global ._button,

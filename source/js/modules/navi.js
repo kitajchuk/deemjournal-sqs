@@ -2,6 +2,7 @@ import * as core from "../core";
 import $ from "properjs-hobo";
 import { TweenLite, Power3 } from "gsap/TweenMax";
 import ResizeController from "properjs-resizecontroller";
+import ScrollController from "properjs-scrollcontroller";
 
 
 /**
@@ -30,6 +31,7 @@ const navi = {
         this.main = core.dom.main;
         this.header = core.dom.body.find( ".js-header" );
         this.resizer = new ResizeController();
+        this.scroller = new ScrollController();
         this.bind();
         this.onResize();
         this.animMenuItems( 0 );
@@ -65,6 +67,8 @@ const navi = {
         });
 
         this.resizer.on( "resize", this.onResize.bind( this ) );
+        this.scroller.on( "scrollup", this.onScrollUp.bind( this ) );
+        this.scroller.on( "scrolldown", this.onScrollDown.bind( this ) );
     },
 
 
@@ -72,6 +76,30 @@ const navi = {
         const rect = this.header[ 0 ].getBoundingClientRect();
 
         this.main[ 0 ].style.paddingTop = `${rect.height}px`;
+    },
+
+
+    onScrollUp () {
+        core.dom.html.removeClass( "is-scroll-down" ).addClass( "is-scroll-up" );
+        this.handleScroll();
+    },
+
+
+    onScrollDown () {
+        core.dom.html.removeClass( "is-scroll-up" ).addClass( "is-scroll-down" );
+        this.handleScroll();
+    },
+
+
+    handleScroll () {
+        const scrollY = this.scroller.getScrollY();
+
+        if ( scrollY > 0 ) {
+            core.dom.html.addClass( "is-header-small" );
+
+        } else {
+            core.dom.html.removeClass( "is-header-small" );
+        }
     },
 
 
