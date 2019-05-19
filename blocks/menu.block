@@ -2,6 +2,7 @@
     <div class="meni__fill js-meni-fill"></div>
     <div class="meni__query js-meni-query">
         <div class="search js-search meni__search" data-results=".js-search-results"></div>
+        <div class="filters js-search-filters"></div>
         <div class="results js-search-results meni__results">
             <div class="results__loading js-search-loader">
                 {@|apply loading.block}

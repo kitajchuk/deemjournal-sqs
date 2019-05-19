@@ -26,6 +26,7 @@ const navi = {
         this.menuSearch = this.menu.find( ".js-meni-search" );
         this.menuClose = this.menu.find( ".js-meni-close" );
         this.search = this.menu.find( ".js-search" );
+        this.filters = this.menu.find( ".js-search-filters" );
         this.main = core.dom.main;
         this.header = core.dom.body.find( ".js-header" );
         this.resizer = new ResizeController();
@@ -84,7 +85,7 @@ const navi = {
 
 
     animMenuSearch ( binary ) {
-        this.tweenSearch = new TweenLite.to( this.search[ 0 ], (this.time / 1000), {
+        this.tweenSearch = new TweenLite.to( [this.search[ 0 ], this.filters[ 0 ]], (this.time / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
             delay: binary ? (this.time / 1000) : 0,

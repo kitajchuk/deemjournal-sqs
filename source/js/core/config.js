@@ -40,7 +40,7 @@ const config = {
      * @description The default duration for javascript Tweens.
      *
      */
-    defaultDuration: 400,
+    defaultDuration: 500,
 
 
     /**
@@ -109,17 +109,6 @@ const config = {
     lazyImageSelector: ".js-lazy-image",
     mobileImageSelector: ".js-lazy-image[data-mobile]",
     mobileMediaHack: 640,
-
-
-    /**
-     *
-     * @public
-     * @member lazyAnimSelector
-     * @memberof core.config
-     * @description The string selector used for animatable things.
-     *
-     */
-    lazyAnimSelector: ".js-lazy-anim, .sqs-layout .sqs-block",
 
 
     /**

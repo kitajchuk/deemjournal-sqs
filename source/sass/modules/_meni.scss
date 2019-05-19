@@ -104,6 +104,25 @@
         color: $white;
         border-bottom-color: transparent;
         @include placeholder( $grey );
+
+        @include respond( $mobile-breakpoint ) {
+            min-width: 0;
+            width: auto;
+        }
+    }
+
+    .search__entry {
+        @include respond( $mobile-breakpoint ) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .search {
+        @include respond( $mobile-breakpoint ) {
+            @include expt();
+        }
     }
 }
 .meni__a {
