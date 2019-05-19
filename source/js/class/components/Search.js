@@ -105,7 +105,7 @@ class Search {
 
 
     bindTags () {
-        this.tagsEl.on( "click", ".js-tag" , ( e ) => {
+        this.tagsEl.on( "click", ".js-tag", ( e ) => {
             const tag = $( e.target );
             const data = tag.data();
 
@@ -210,9 +210,11 @@ class Search {
                 }
 
             }).then(( response ) => {
+                resolve();
                 this.handle( response );
 
             }).catch(( response ) => {
+                reject();
                 this.handle( response );
             });
         });
