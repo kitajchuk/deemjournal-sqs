@@ -13,7 +13,8 @@
     pointer-events: none;
     transition: transform $base-duration $ease-menu-1,
                 opacity $base-duration $ease-menu-1,
-                padding $base-duration $ease,
+                padding-top $base-duration $ease,
+                padding-bottom $base-duration $ease,
                 background-color $base-duration $ease;
 
     .is-menu-open & {

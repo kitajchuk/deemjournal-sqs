@@ -28,14 +28,14 @@
     line-height: 1;
 
     .is-hoverable &:hover {
-        border-bottom: 2px solid $black;
+        border-bottom-color: $black;
     }
 
     .is-hoverable &.is-active:hover {
-        border-bottom: 2px solid $black;
+        border-bottom-color: $black;
     }
 
     &.is-active {
-        border-bottom: 2px solid $black;
+        border-bottom-color: $black;
     }
 }

@@ -36,6 +36,7 @@
             }
             .navi__a.is-active,
             .is-hoverable .navi__a:hover,
+            .is-hoverable .navi__a.is-active:hover,
             .sqs-block-tagcloud .sqs-block-content a span,
             .sqs-block-html .sqs-block-content > ul li > p,
             .sqs-block-html .sqs-block-content > ol li > p {
