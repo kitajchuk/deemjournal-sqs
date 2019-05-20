@@ -308,6 +308,12 @@
         background-color: $black;
     }
 
+    @include respond( $laptop-breakpoint ) {
+        height: $button-height-l;
+        width: $button-width-l;
+        border-radius: $button-height-l / 2;
+    }
+
     @include respond( $mobile-breakpoint ) {
         height: $button-height-m;
         width: $button-width-m;
@@ -333,10 +339,24 @@
         border: 2px solid $black;
         border-radius: $button-height / 2;
         transition: transform $base-duration $ease;
+        z-index: -1;
+
+        @include respond( $laptop-breakpoint ) {
+            border-radius: $button-height-l / 2;
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            border-radius: $button-height-m / 2;
+        }
     }
 
     .is-hoverable &:hover:before {
         transform: translate3d( -50%, -50%, 0 ) scale( 1.05 );
+    }
+
+    @include respond( $laptop-breakpoint ) {
+        height: $button-height-l;
+        width: $button-width-l;
     }
 
     @include respond( $mobile-breakpoint ) {

@@ -16,7 +16,7 @@
                 background-color: {@bgColor};
             }
             .cta--global ._button,
-            .is-hoverable ._button:hover,
+            .cta--global ._button:hover,
             ._audio__global ._audio__state {
                 color: {@bgColor};
             }
@@ -27,6 +27,7 @@
         {.if @uiColor}
             html,
             ._button,
+            ._button:hover,
             ._audio__station .h6,
             ._audio__ellapsed.h6,
             .cta__text p,
@@ -50,12 +51,11 @@
             .summary-v2 {
                 border-top-color: {@uiColor};
             }
-            ._button,
+            ._button:before,
             ._audio__controls:before {
                 border-color: {@uiColor};
             }
-            .cta--global ._button,
-            .is-hoverable ._button:hover,
+            .cta--global ._button:before,
             ._audio__global ._audio__controls:before {
                 background-color: {@uiColor};
             }
