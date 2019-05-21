@@ -1,0 +1,1 @@
+<div class="product js-product" data-shopping-cart="{shoppingCart|json|htmlattr}" data-item="{item|json|htmlattr}"></div>

@@ -3,8 +3,6 @@
 *******************************************************************************/
 p, .p {
     @include p();
-
-    a {}
 }
 p {
     strong {
@@ -50,7 +48,7 @@ h2, .h2 {
 h3, .h3 {
     @include h3();
 }
-h4, .h4 {
+h4, .h4, h4 > p {
     @include h4();
 }
 h5, .h5 {
@@ -58,6 +56,10 @@ h5, .h5 {
 }
 h6, .h6 {
     @include h6();
+
+    > a {
+        border-bottom: 1px solid $black;
+    }
 }
 
 
@@ -68,6 +70,7 @@ h6, .h6 {
 ._button {
     @include button-pseudo();
     @include h6();
+    cursor: pointer;
     color: $black;
     line-height: 1;
 }

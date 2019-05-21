@@ -2,7 +2,6 @@ import * as core from "../core";
 import BaseController from "./controllers/BaseController";
 import ImageController from "./controllers/ImageController";
 import Newsletter from "./components/Newsletter";
-import View from "./components/View";
 import Search from "./components/Search";
 import Video from "./components/Video";
 import Annotation from "./components/Annotation";
@@ -10,6 +9,7 @@ import Audio from "./components/Audio";
 import Story from "./components/Story";
 import CTA from "./components/CTA";
 import Slider from "./components/Slider";
+import Commerce from "./components/Commerce";
 
 
 /**
@@ -66,17 +66,17 @@ class Controllers {
     exec () {
         this.controllers = [];
 
-        this.push( "view", core.dom.body.find( ".js-view" ), BaseController, View );
-        this.push( "newsletter", core.dom.body.find( ".js-newsletter" ), BaseController, Newsletter );
-        this.push( "search", core.dom.body.find( ".js-search" ), BaseController, Search );
-        this.push( "audio", core.dom.body.find( ".js-audio" ), BaseController, Audio );
-        this.push( "story", core.dom.body.find( ".js-story" ), BaseController, Story );
-        this.push( "cta", core.dom.body.find( ".js-button_" ), BaseController, CTA );
-        this.push( "slider", core.dom.body.find( ".js-slider" ), BaseController, Slider );
+        this.push( "newsletter", this.element.find( ".js-newsletter" ), BaseController, Newsletter );
+        this.push( "search", this.element.find( ".js-search" ), BaseController, Search );
+        this.push( "audio", this.element.find( ".js-audio" ), BaseController, Audio );
+        this.push( "story", this.element.find( ".js-story" ), BaseController, Story );
+        this.push( "cta", this.element.find( ".js-button_" ), BaseController, CTA );
+        this.push( "slider", this.element.find( ".js-slider" ), BaseController, Slider );
+        this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );
 
         // Hinge on Squarespace selectors...
-        this.push( "video", core.dom.body.find( ".sqs-block-video" ), BaseController, Video );
-        this.push( "annotation", core.dom.body.find( ".sqs-layout > .sqs-row > .col > .sqs-row > .col:nth-child(1) > .sqs-block-html:nth-child(1) > .sqs-block-content > blockquote:nth-child(1)" ), BaseController, Annotation );
+        this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );
+        this.push( "annotation", this.element.find( ".sqs-layout > .sqs-row > .col > .sqs-row > .col:nth-child(1) > .sqs-block-html:nth-child(1) > .sqs-block-content > blockquote:nth-child(1)" ), BaseController, Annotation );
 
         this.init();
 

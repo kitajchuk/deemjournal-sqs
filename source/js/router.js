@@ -221,7 +221,6 @@ const router = {
         setTimeout(() => {
             core.dom.html.removeClass( "is-tranny" );
             this.setState( "now", data );
-            this.execSquarespace();
 
         }, this.animDuration );
     },
@@ -239,19 +238,6 @@ const router = {
 
     topper () {
         window.scrollTo( 0, 0 );
-    },
-
-
-    // Initialize core sqs blocks after ajax routing
-    execSquarespace () {
-        // setTimeout(() => {
-        //     window.Squarespace.initializeVideo( window.Y );
-        //     window.Squarespace.initializeCommerce( window.Y );
-        //     window.Squarespace.initializeFormBlocks( window.Y, window.Y );
-        //     window.Squarespace.initializeLayoutBlocks( window.Y );
-        //     window.Squarespace.initializeSummaryV2Block( window.Y );
-        //
-        // }, 0 );
     }
 };
 

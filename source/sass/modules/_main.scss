@@ -17,6 +17,51 @@
 
 
 /******************************************************************************
+ * Commerce
+*******************************************************************************/
+.shop {
+    .grid {
+        @include exp();
+        @include wrap();
+    }
+}
+.product {
+    @include p1-cols();
+
+    .p1 {
+        @include exp();
+        @include wrap();
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .p1__shipping {
+        padding-bottom: $padding-m;
+    }
+
+    .story {
+        padding-top: 0;
+        padding-bottom: $story-padding;
+    }
+
+    .cta--static {
+        padding-left: 0;
+        padding-right: 0;
+        @include exp();
+    }
+
+    .image-col {
+        @include respond( $mobile-breakpoint ) {
+            padding-top: $padding-m;
+        }
+    }
+}
+
+
+
+/******************************************************************************
  * Newsletter
 *******************************************************************************/
 .newsletter {

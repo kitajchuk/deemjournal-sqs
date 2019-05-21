@@ -52,7 +52,7 @@
                 {squarespace.main-content}
             {.end}
         </div>
-        <div class="search search--block js-search-block">
+        <div class="search search--block js-search-block" style="display:none;">
             <squarespace:block-field id="deem--search" columns="12" />
         </div>
         <div class="intro js-intro screen screen--dark -wrap is-active">

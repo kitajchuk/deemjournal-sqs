@@ -34,6 +34,16 @@
 
 
 /******************************************************************************
+ * SQS Commerce
+*******************************************************************************/
+#sqs-cart-root {
+    @include exp();
+    @include wrap();
+}
+
+
+
+/******************************************************************************
  * SQS Blocks
 *******************************************************************************/
 .sqs-block-horizontalrule {
@@ -292,38 +302,7 @@
 .sqs-layout > .sqs-row > .col > .sqs-row:first-child {
     justify-content: space-between;
     @include wrap();
-
-    .image-col {
-        @include diptych();
-
-        @include respond( $mobile-breakpoint ) {
-            width: 100%;
-        }
-    }
-
-    .text-col {
-        width: sqs-calc( "100% - #{$tall-width-0}" );
-
-        &:first-child {
-            @include wrapr();
-
-            @include respond( $mobile-breakpoint ) {
-                padding-right: 0;
-            }
-        }
-
-        &:last-child {
-            @include wrapl();
-
-            @include respond( $mobile-breakpoint ) {
-                padding-left: 0;
-            }
-        }
-
-        @include respond( $mobile-breakpoint ) {
-            width: 100%;
-        }
-    }
+    @include p1-cols();
 
     .sqs-block-image {
         .sqs-block-content {

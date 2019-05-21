@@ -1,3 +1,1 @@
-<div class="shop -exp -wrap">
-    <h1>{collection.title}</h1>
-</div>
+<div class="shop js-shop" data-shopping-cart="{shoppingCart|json|htmlattr}" data-items="{items|json|htmlattr}"></div>

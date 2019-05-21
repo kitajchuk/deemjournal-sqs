@@ -6,7 +6,7 @@
 {.var @uiColor item.customContent.colorElements}
 {.var @hiColor item.customContent.highlightColor}
 <article data-item-id="{item.id}" {.if @bgColor}data-hex="{@bgColor}"{.end} class="story js-story {.if @h1RoobertMedium}h1RoobertMedium{.end} {.if @h1CheltenhamBook}h1CheltenhamBook{.end} {.if @h2RoobertMedium}h2RoobertMedium{.end} {.if @h2CheltenhamBook}h2CheltenhamBook{.end}">
-    <div class="story__blocks cms">
+    <div class="story__blocks">
         {item.body}
     </div>
     <style class="js-colorway-style">
