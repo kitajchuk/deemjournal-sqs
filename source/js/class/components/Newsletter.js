@@ -47,6 +47,12 @@ class Newsletter {
             if ( this.validators.email.test( this.field[ 0 ].value ) ) {
                 this.gather();
                 this.send();
+
+            } else {
+                this.alert = new window.Y.Squarespace.Widgets.Alert({
+                    "strings.title": "Deem Journal",
+                    "strings.message": "Please fill out a valid and complete Email Address."
+                });
             }
         });
 

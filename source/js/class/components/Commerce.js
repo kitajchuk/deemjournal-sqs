@@ -144,7 +144,10 @@ class Commerce {
             }
 
             if ( (typeof response === "object") && response.message ) {
-                alert( response.message );
+                this.alert = new window.Y.Squarespace.Widgets.Alert({
+                    "strings.title": "Deem Journal",
+                    "strings.message": response.message
+                });
             }
         });
     }

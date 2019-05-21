@@ -208,6 +208,19 @@
         @include font-family-serif();
     }
 }
+@mixin sqs-alert-button() {
+    font-family: $font-sans-semibold !important;
+    font-size: $m-size-mobile !important;
+    line-height: $m-line !important;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $m-size-fluid !important;
+    }
+
+    @include respond-min( $desktop-breakpoint ) {
+        font-size: $m-size-max !important;
+    }
+}
 
 
 /******************************************************************************
