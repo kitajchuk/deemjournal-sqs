@@ -30,7 +30,6 @@ const router = {
         this.controllers = new Controllers({
             el: core.dom.main,
             cb: () => {
-                // core.emitter.fire( "app--page-teardown" );
                 this.topper();
             }
         });

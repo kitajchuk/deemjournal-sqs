@@ -1,1 +1,3 @@
-<div class="shop js-shop" data-shopping-cart="{shoppingCart|json|htmlattr}" data-items="{items|json|htmlattr}"></div>
+<div class="shop js-shop">
+    <script type="application/json">{items|json}</script>
+</div>
