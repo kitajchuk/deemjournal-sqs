@@ -9,10 +9,10 @@
             <squarespace:block-field id="deem--newsletter" columns="12" />
         </div>
     </div>
-    {#<div class="system-blocks__search -exp -wrap">
+    <div class="system-blocks__search -exp -wrap">
         <div class="m label">Search</div>
         <div class="-out -exp -wrap">
             <squarespace:block-field id="deem--search" columns="12" />
         </div>
-    </div>#}
+    </div>
 </div>

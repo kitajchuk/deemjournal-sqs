@@ -3,6 +3,7 @@ import $ from "properjs-hobo";
 import { TweenLite, Power3 } from "gsap/TweenMax";
 import ResizeController from "properjs-resizecontroller";
 import ScrollController from "properjs-scrollcontroller";
+import Search from "../class/components/Search";
 
 
 /**
@@ -32,6 +33,7 @@ const navi = {
         this.header = core.dom.body.find( ".js-header" );
         this.resizer = new ResizeController();
         this.scroller = new ScrollController();
+        this.searchComponent = new Search( this.search, this.search.data() );
         this.bind();
         this.onResize();
         this.animMenuItems( 0 );

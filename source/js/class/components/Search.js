@@ -9,40 +9,35 @@ import ResizeController from "properjs-resizecontroller";
 
 
 
-let _instance = null;
+const _searchBlock = core.dom.body.find( ".js-search-block" ).detach();
+const _searchScript = _searchBlock.find( "script" );
+const _blockJson = JSON.parse( _searchScript[ 0 ].textContent );
 
 
 
 class Search {
     constructor ( element, data ) {
-        if ( !_instance ) {
-            this.element = element;
-            this.parent = this.element.parent();
-            this.elemData = data;
-            this.searchBlock = core.dom.body.find( ".js-search-block" ).detach();
-            this.blockJson = this.searchBlock.find( ".js-search" ).data().blockJson;
-            this.element.data( "instance", this );
-            this.placeholders = {
-                default: "Start typing to search",
-                mobile: "Search"
-            };
-            this.data = {};
-            this.ajax = null;
-            this.waiting = 300;
-            this.isFetch = false;
+        this.element = element;
+        this.parent = this.element.parent();
+        this.elemData = data;
+        this.blockJson = _blockJson;
+        this.element.data( "instance", this );
+        this.placeholders = {
+            default: "Start typing to search",
+            mobile: "Search"
+        };
+        this.data = {};
+        this.ajax = null;
+        this.waiting = 300;
+        this.isFetch = false;
 
-            this.load().then(() => {
-                this.bind();
+        this.load().then(() => {
+            this.bind();
 
-                if ( this.elemData.results ) {
-                    this.bindResults();
-                }
-            });
-
-            _instance = this;
-        }
-
-        return _instance;
+            if ( this.elemData.results ) {
+                this.bindResults();
+            }
+        });
     }
 
 
@@ -268,7 +263,11 @@ class Search {
     }
 
 
-    destroy () {}
+    destroy () {
+        if ( this.resizer ) {
+            this.resizer.destroy();
+        }
+    }
 }
 
 

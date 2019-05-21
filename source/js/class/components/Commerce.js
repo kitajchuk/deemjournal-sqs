@@ -52,20 +52,19 @@ Y.Squarespace.Commerce:
  *
  */
 class Commerce {
-    constructor ( element, data ) {
+    constructor ( element ) {
         this.element = element;
-        this.data = data;
+        this.script = this.element.find( "script" ).detach();
+        this.parsed = JSON.parse( this.script[ 0 ].textContent );
         this.shop = this.element.is( ".js-shop" ) ? this.element : [];
         this.product = this.element.is( ".js-product" ) ? this.element : [];
         this.cart = this.element.is( "#sqs-cart-root" ) ? this.element : [];
         this.view = this.shop.length ? shopView : productView;
+        this.data = this.shop.length ? { items: this.parsed } : { item: this.parsed };
 
         this.init();
         this.exec();
         this.bind();
-        this.fetchCart().then(( response ) => {
-            console.log( "Commerce:fetchCart", response );
-        });
     }
 
 
@@ -96,6 +95,9 @@ class Commerce {
     init () {
         if ( this.cart.length ) {
             window.Squarespace.initializeCartPage( window.Y );
+            this.fetchCart().then(( response ) => {
+                console.log( "Commerce:fetchCart", response );
+            });
 
         } else {
             window.Squarespace.initializeCommerce( window.Y );
@@ -123,9 +125,9 @@ class Commerce {
             },
             dataType: "json"
         })
-        .then(( json ) => {
-            if ( json.crumbFail ) {
-                Store.crumb = json.crumb;
+        .then(( response ) => {
+            if ( response.crumbFail ) {
+                Store.crumb = response.crumb;
                 core.log( "warn", "Crumb fail. Trying again." );
                 this.addCart( payload, callback );
 
@@ -133,8 +135,17 @@ class Commerce {
                 callback();
             }
         })
-        .catch(( error ) => {
-            core.log( "warn", error );
+        .catch(( response ) => {
+            try {
+                response = JSON.parse( response );
+
+            } catch ( parseError ) {
+                core.log( "warn", parseError );
+            }
+
+            if ( (typeof response === "object") && response.message ) {
+                alert( response.message );
+            }
         });
     }
 
