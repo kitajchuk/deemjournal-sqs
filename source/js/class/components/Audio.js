@@ -14,10 +14,12 @@ import ScrollController from "properjs-scrollcontroller";
  *
  */
 class Audio {
-    constructor ( element, data ) {
+    constructor ( element ) {
         this.element = element;
+        this.script = this.element.find( "script" ).detach();
+        this.parsed = JSON.parse( this.script[ 0 ].textContent );
         this.dropout = core.dom.body.find( ".js-summary-v2" );
-        this.data = data;
+        this.data = { blockJson: this.parsed };
         this.isPlaying = false;
 
         this.init();

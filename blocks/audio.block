@@ -1,5 +1,6 @@
 <div class="media media--audio">
-    <div class="_audio js-audio" data-block-json="{@|json|htmlattr}">
+    <div class="_audio js-audio">
+        <script type="application/json">{@|json}</script>
         <audio class="_audio__node" controls="" src="{audioAssetUrl}"></audio>
     </div>
 </div>
