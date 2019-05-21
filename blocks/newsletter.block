@@ -1,1 +1,3 @@
-<div class="newsletter js-newsletter" data-block-json="{@|json|htmlattr}"></div>
+<div class="newsletter js-newsletter">
+    <script type="application/json">{@|json}</script>
+</div>

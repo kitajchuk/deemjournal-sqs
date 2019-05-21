@@ -1,14 +1,21 @@
 import $ from "properjs-hobo";
-// import * as core from "../../core";
+import * as core from "../../core";
 import viewNewsletter from "../../views/newsletter";
 import debounce from "properjs-debounce";
 
 
 
+const _newsletterBlock = core.dom.body.find( ".js-newsletter-block" ).detach();
+const _newsletterScript = _newsletterBlock.find( "script" );
+const _blockJson = JSON.parse( _newsletterScript[ 0 ].textContent );
+
+
+
 class Newsletter {
-    constructor ( element, data ) {
+    constructor ( element ) {
         this.element = element;
-        this.blockJson = data.blockJson || {
+        this.script = this.element.find( "script" ).detach();
+        this.blockJson = _blockJson || {
             formId: "5cafe8ab7817f7af88b17a43",
             objectName: "deem--newsletter"
         };
@@ -28,7 +35,7 @@ class Newsletter {
     load () {
         return new Promise(( resolve ) => {
             this.element[ 0 ].innerHTML = viewNewsletter( this );
-            this.fields = this.element.find( ".js-newsletter-field" );
+            this.field = this.element.find( ".js-newsletter-field" );
             this.button = this.element.find( ".js-newsletter-btn" );
             resolve();
         });
@@ -37,25 +44,19 @@ class Newsletter {
 
     bind () {
         this.button.on( "click", () => {
-            this.gather();
-            this.send();
+            if ( this.validators.email.test( this.field[ 0 ].value ) ) {
+                this.gather();
+                this.send();
+            }
         });
 
-        this.fields.on( "keyup", debounce(() => {
-            this.fields.forEach(( el, i ) => {
-                const field = this.fields.eq( i );
-                const type = field[ 0 ].type;
-                const value = field[ 0 ].value;
+        this.field.on( "keyup", debounce(() => {
+            if ( this.validators.email.test( this.field[ 0 ].value ) || !this.field[ 0 ].value ) {
+                this.field.removeClass( "is-invalid" );
 
-                if ( this.validators[ type ] ) {
-                    if ( this.validators[ type ].test( value ) || !value ) {
-                        field.removeClass( "is-invalid" );
-
-                    } else {
-                        field.addClass( "is-invalid" );
-                    }
-                }
-            });
+            } else {
+                this.field.addClass( "is-invalid" );
+            }
 
         }, this.waiting ));
     }
@@ -63,14 +64,13 @@ class Newsletter {
 
     clear () {
         this.data = {};
-        this.fields.removeClass( "is-error" ).forEach(( el ) => {
-            el.value = "";
-        });
+        this.field.removeClass( "is-error" );
+        this.field[ 0 ].value = "";
     }
 
 
     reset () {
-        this.element.removeClass( "is-success" );
+        this.element.removeClass( "is-success is-sending" );
     }
 
 
@@ -93,7 +93,7 @@ class Newsletter {
             headers: {
                 "Content-Type": "application/json;charset=UTF-8"
             },
-            dataType: "json",
+            dataType: "html",
             payload: {
                 collectionId: "",
                 contentSource: "c",
@@ -111,17 +111,24 @@ class Newsletter {
 
     gather () {
         this.data = {};
-        this.fields.forEach(( el ) => {
-            this.data[ el.name ] = el.value;
-        });
+        this.data[ this.field[ 0 ].name ] = this.field[ 0 ].value;
     }
 
 
     handle ( response ) {
-        if ( response && response.errors ) {
+        this.element.removeClass( "is-sending" );
+
+        try {
+            response = JSON.parse( response );
+
+        } catch ( parseError ) {
+            core.log( "warn", parseError );
+        }
+
+        if ( (typeof response === "object") && response.errors ) {
             for ( const i in response.errors ) {
                 if ( response.errors.hasOwnProperty( i ) ) {
-                    this.fields.filter( `[name='${i}']` ).addClass( "is-error" );
+                    this.field.addClass( "is-error" );
                 }
             }
 
@@ -132,7 +139,8 @@ class Newsletter {
 
 
     send () {
-        this.fields.removeClass( "is-error" );
+        this.field.removeClass( "is-error" );
+        this.element.addClass( "is-sending" );
         this.getKey().then(( json ) => {
             this.sendForm( json.key ).then(( response ) => {
                 this.handle( response );

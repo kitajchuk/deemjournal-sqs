@@ -55,6 +55,9 @@
         <div class="search search--block js-search-block" style="display:none;">
             <squarespace:block-field id="deem--search" columns="12" />
         </div>
+        <div class="newsletter newsletter--block js-newsletter-block" style="display:none;">
+            <squarespace:block-field id="deem--newsletter" columns="12" />
+        </div>
         <div class="intro js-intro screen screen--dark -wrap is-active">
             {@|apply svg-logo.block}
         </div>
