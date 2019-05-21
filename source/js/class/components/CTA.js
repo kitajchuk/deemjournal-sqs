@@ -14,12 +14,11 @@ import ScrollController from "properjs-scrollcontroller";
  *
  */
 class CTA {
-    constructor ( cta, data ) {
+    constructor ( cta ) {
         this.cta = cta;
         this.parent = this.cta.closest( ".sqs-row" );
         this.text = this.parent.find( ".sqs-block-content > p" );
         this.dropout = core.dom.body.find( ".js-summary-v2" );
-        this.data = data;
 
         this.init();
         this.bind();
