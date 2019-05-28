@@ -167,6 +167,11 @@
 }
 .filters {
     @include expt();
+
+    .is-tagged &,
+    .is-keytext & {
+        display: none;
+    }
 }
 .tags {}
 .tags__label {

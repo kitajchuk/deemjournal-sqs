@@ -189,12 +189,10 @@ const navi = {
 
     openSearch () {
         return new Promise(( resolve ) => {
-            const searchInstance = this.search.data( "instance" );
-
             this.isSearch = true;
             this.menu.addClass( "is-search" );
             core.dom.html.addClass( "is-menu-search" );
-            searchInstance.clear();
+            this.searchComponent.clear();
             this.animMenuSearch( 1 );
             this.animMenuItems( 0 );
             this.animMenuClose( 1 );
@@ -208,12 +206,10 @@ const navi = {
 
     closeSearch () {
         return new Promise(( resolve ) => {
-            const searchInstance = this.search.data( "instance" );
-
             this.isSearch = false;
             this.menu.removeClass( "is-search" );
             core.dom.html.removeClass( "is-menu-search" );
-            searchInstance.reset();
+            this.searchComponent.reset();
             this.animMenuSearch( 0 );
             this.animMenuItems( 1 );
             this.animMenuClose( 0 );

@@ -30,6 +30,7 @@ class Search {
         this.ajax = null;
         this.waiting = 300;
         this.isFetch = false;
+        this.isTag = false;
 
         this.load().then(() => {
             this.bind();
@@ -56,14 +57,20 @@ class Search {
     bind () {
         this.button.on( "click", () => {
             this.clear();
+
+            if ( this.isTag ) {
+                this.clearTagged();
+            }
         });
 
         this.search.on( "keyup", () => {
             if ( this.search[ 0 ].value ) {
                 this.button.addClass( "is-active" );
+                this.parent.addClass( "is-keytext" );
 
             } else {
                 this.button.removeClass( "is-active" );
+                this.parent.removeClass( "is-keytext" );
             }
         });
 
@@ -104,11 +111,15 @@ class Search {
             const tag = $( e.target );
             const data = tag.data();
 
-            this.tags.removeClass( "is-active" );
-            tag.addClass( "is-active" );
             this.clear();
+            this.search[ 0 ].placeholder = data.tag;
             this.search[ 0 ].blur();
+            this.search[ 0 ].disabled = true;
+            this.search.addClass( "is-tagged" );
             this.fetchTag( data.tag );
+            this.parent.addClass( "is-tagged" );
+            this.button.addClass( "is-active" );
+            this.isTag = true;
         });
     }
 
@@ -126,10 +137,6 @@ class Search {
     emptyResults () {
         this.display.find( ".js-search-grid" ).removeClass( "is-active" );
         this.display[ 0 ].innerHTML = "";
-        // setTimeout(() => {
-        //     this.display[ 0 ].innerHTML = "";
-        //
-        // }, 500 );
     }
 
 
@@ -146,6 +153,7 @@ class Search {
     reset () {
         this.search[ 0 ].blur();
         this.search[ 0 ].value = "";
+        this.clearTagged();
         this.emptyResults();
         this.button.removeClass( "is-active" );
         this.loader.removeClass( "is-active" );
@@ -157,11 +165,18 @@ class Search {
         this.search[ 0 ].value = "";
         this.search[ 0 ].focus();
         this.button.removeClass( "is-active" );
+        this.parent.removeClass( "is-keytext" );
+        this.search.removeClass( "is-tagged" );
+        this.parent.removeClass( "is-tagged" );
     }
 
 
-    clearTags () {
-        this.tags.removeClass( "is-active" );
+    clearTagged () {
+        this.isTag = false;
+        this.search[ 0 ].disabled = false;
+        this.search.removeClass( "is-tagged" );
+        this.parent.removeClass( "is-tagged" );
+        this.doResize();
     }
 
 
@@ -251,7 +266,6 @@ class Search {
     fetch () {
         this.isFetch = true;
         this.loader.addClass( "is-active" );
-        this.clearTags();
         this.emptyResults();
         this.ajax = this.fetchQuery( this.search[ 0 ].value );
         this.ajax.then(( response ) => {

@@ -105,6 +105,10 @@
         border-bottom-color: transparent;
         @include placeholder( $grey );
 
+        &.is-tagged {
+            @include placeholder( $white );
+        }
+
         @include respond( $mobile-breakpoint ) {
             min-width: 0;
             width: auto;
