@@ -25,6 +25,85 @@
         @include wrap();
     }
 }
+.stack {
+    @include wrap();
+
+    &--sub {
+        background-color: $black;
+        color: $white;
+
+        .h6 {
+            border-bottom: 1px solid $white;
+        }
+    }
+
+    & + .stack:not( .stack--sub ) {
+        .stack__wrap {
+            border-top: 2px solid $grey-rule;
+
+            @include respond( $break-tablet-small ) {
+                border-top: 0;
+            }
+        }
+    }
+
+    .stack__wrap {
+        @include exp2();
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    .stack__image {
+        width: 470px;
+
+        @include respond( $laptop-breakpoint ) {
+            width: 320px;
+        }
+
+        @include respond( $tablet-breakpoint ) {
+            width: 256px;
+        }
+
+        @include respond( $break-tablet-small ) {
+            width: 100%;
+            max-width: 470px;
+        }
+    }
+
+
+
+    .stack__info {
+        padding-left: 200px;
+
+        h4 {
+            margin-bottom: $padding-m;
+        }
+
+        .h6 {
+            border-bottom: 1px solid $black;
+            display: inline-block;
+        }
+
+        .h6 p {
+            @include h6();
+        }
+
+        @include respond( $laptop-breakpoint ) {
+            padding-left: 7.8125vw;
+        }
+
+        @include respond( $break-tablet-small ) {
+            width: 100%;
+            max-width: 470px;
+            padding-left: 0;
+            padding-top: $padding-m;
+        }
+    }
+
+}
 .product {
     @include p1-cols();
 
