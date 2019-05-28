@@ -352,6 +352,16 @@
 .tagcloud {
     @include text();
 }
+.tagcloud__link {
+    border-bottom: 0;
+
+    .h6 & {
+        border-bottom: 0;
+    }
+}
+.tagcloud__label {
+    padding-bottom: $padding-m;
+}
 
 
 
