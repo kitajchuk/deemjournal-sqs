@@ -78,7 +78,12 @@ class Commerce {
             };
 
             this.addCart( payload, () => {
-                window.Y.Squarespace.Commerce.goToCheckoutPage();
+                if ( window.Y.Squarespace.Commerce.isExpressCheckout() ) {
+                    window.Y.Squarespace.Commerce.goToCheckoutPage();
+
+                } else {
+                    this.goToCartPage();
+                }
             });
         });
     }
@@ -103,6 +108,11 @@ class Commerce {
             window.Squarespace.initializeCommerce( window.Y );
             this.element[ 0 ].innerHTML = this.view( this );
         }
+    }
+
+
+    goToCartPage () {
+        window.location.href = `${window.location.protocol}//${window.location.host}/cart/`;
     }
 
 
