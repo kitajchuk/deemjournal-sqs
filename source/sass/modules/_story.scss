@@ -295,31 +295,42 @@
 
 
 .grid {
-    align-items: flex-start;
+    align-items: flex-end;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    margin-left: -($padding-g / 2);
+    margin-right: -($padding-g / 2);
 
     @include respond( $mobile-breakpoint ) {
         margin: 0;
     }
 }
 .grid__item {
-    width: 25.5078125vw;
-    max-width: 653px;
+    padding-left: $padding-g / 2;
+    padding-right: $padding-g / 2;
+    width: 33.333333%;
+
+    @include respond( $tablet-breakpoint ) {
+        width: 50%;
+        padding-bottom: $padding-1;
+    }
 
     @include respond( $mobile-breakpoint ) {
         width: 100%;
-        padding: 0 0 ($padding-m * 2) 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 .grid__title {
     padding-top: $padding-m / 2;
+    min-height: 120px;
     @include h6();
     @include font-family-sans-medium();
 
     @include respond( $mobile-breakpoint ) {
         @include p();
+        @include font-family-sans-medium();
     }
 }
 

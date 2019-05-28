@@ -105,7 +105,14 @@
     .sqs-block-content {
         .grid {
             @include exp();
-            @include wrap();
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: $padding-1 / 2;
+            padding-right: $padding-1 / 2;
+        }
+        .grid__item {
+            padding-left: $padding-1 / 2;
+            padding-right: $padding-1 / 2;
         }
     }
 }
@@ -140,6 +147,7 @@
     .sqs-block-content {
         h1 {
             @include h3();
+            @include sqs-body-hflip();
 
             @include respond( $break-tablet-medium ) {
                 @include h4();
@@ -156,6 +164,7 @@
 
         h2 {
             @include h4();
+            @include sqs-body-hflip();
 
             @include respond( $break-tablet-medium ) {
                 @include h5();
@@ -173,6 +182,7 @@
 
         h3 {
             @include h5();
+            @include sqs-body-hflip();
 
             @include respond( $break-tablet-medium ) {
                 @include p();
@@ -227,16 +237,19 @@
         > h1 {
             @include h3();
             @include nbsp();
+            @include sqs-body-hflip();
         }
 
         > h2 {
             @include h4();
             @include nbsp();
+            @include sqs-body-hflip();
         }
 
         > h3 {
             @include h5();
             @include nbsp();
+            @include sqs-body-hflip();
         }
 
         > blockquote {

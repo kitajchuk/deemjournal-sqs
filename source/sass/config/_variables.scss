@@ -33,6 +33,7 @@ $red: #ef4b4b;
 $padding-m: 30px;
 $padding-1: 3.90625vw;
 $padding-2: 6.25vw;
+$padding-g: 20px;
 $expander-1: 60px;
 $expander-m: 40px;
 
@@ -134,7 +135,7 @@ $break-mobile-small: 320px;
 
 // App usage
 $mobile-breakpoint: $break-mobile-full;
-$tablet-breakpoing: $break-tablet-small;
+$tablet-breakpoint: $break-tablet-medium;
 $laptop-breakpoint: $break-laptop-medium;
 $desktop-breakpoint: $break-desktop-full;
 $text-breakpoint: 2170px;

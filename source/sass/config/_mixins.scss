@@ -196,7 +196,7 @@
 
     .h1CheltenhamBook & {
         @include h1();
-        @include font-family-serif();
+        @include font-family-serif-bold();
     }
 
     .h2RoobertMedium & {
@@ -205,7 +205,13 @@
 
     .h2CheltenhamBook & {
         @include h2();
-        @include font-family-serif();
+        @include font-family-serif-bold();
+    }
+}
+@mixin sqs-body-hflip() {
+    .h1CheltenhamBook &,
+    .h2CheltenhamBook & {
+        @include font-family-serif-bold();
     }
 }
 @mixin sqs-alert-button() {
