@@ -114,6 +114,15 @@
             padding-left: $padding-1 / 2;
             padding-right: $padding-1 / 2;
         }
+        .slider + blockquote {
+            @include wrap();
+
+            p {
+                @include text();
+                @include m();
+                color: $grey;
+            }
+        }
     }
 }
 .sqs-block-image {
