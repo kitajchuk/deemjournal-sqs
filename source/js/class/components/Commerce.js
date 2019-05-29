@@ -99,7 +99,7 @@ class Commerce {
 
     init () {
         if ( this.cart.length ) {
-            window.Squarespace.initializeCartPage( window.Y );
+            // window.Squarespace.initializeCartPage( window.Y );
             this.fetchCart().then(( response ) => {
                 console.log( "Commerce:fetchCart", response );
             });

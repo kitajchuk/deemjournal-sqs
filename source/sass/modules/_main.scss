@@ -28,12 +28,14 @@
 .stack {
     @include wrap();
 
-    &--sub {
+    &.stack--sub {
         background-color: $black;
         color: $white;
 
-        .h6 {
-            border-bottom: 1px solid $white;
+        .stack__info {
+            .h6 {
+                border-bottom: 1px solid $white;
+            }
         }
     }
 
