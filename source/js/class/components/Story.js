@@ -18,6 +18,7 @@ class Story {
         this.bolders = this.element.find( ".sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > p" );
         this.numerics = this.element.find( ".sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > p > em" );
         this.listings = this.element.find( ".sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > ul, .sqs-layout > .sqs-row > .col .sqs-block-html .sqs-block-content > ol" );
+        this.summary = this.element.find( ".js-summary-v2" );
         this.data = data;
 
         this.init();
@@ -62,6 +63,10 @@ class Story {
                     prev.addClass( "p--listings" );
                 }
             });
+        }
+
+        if ( this.summary.length ) {
+            this.summary.find( `.js-summary-v2-item--${this.data.itemId}` ).remove();
         }
     }
 
