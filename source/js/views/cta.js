@@ -1,5 +1,4 @@
 export default ( instance ) => {
-
     return `
         <div class="cta cta--static">
             <div class="cta__wrap">

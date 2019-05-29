@@ -1,5 +1,6 @@
 import * as core from "../../core";
 import $ from "properjs-hobo";
+import cartView from "../../views/cart";
 import shopView from "../../views/shop";
 import productView from "../../views/product";
 import Controllers from "../Controllers";
@@ -55,12 +56,13 @@ class Commerce {
     constructor ( element ) {
         this.element = element;
         this.script = this.element.find( "script" ).detach();
-        this.parsed = JSON.parse( this.script[ 0 ].textContent );
+        this.parsed = this.script.length ? JSON.parse( this.script[ 0 ].textContent ) : {};
         this.shop = this.element.is( ".js-shop" ) ? this.element : [];
         this.product = this.element.is( ".js-product" ) ? this.element : [];
         this.cart = this.element.is( "#sqs-cart-root" ) ? this.element : [];
         this.view = this.shop.length ? shopView : productView;
         this.data = this.shop.length ? { items: this.parsed } : { item: this.parsed };
+        this.cartData = {};
 
         this.init();
         this.exec();
@@ -89,6 +91,40 @@ class Commerce {
     }
 
 
+    bindCart () {
+        this.cart.on( "click", ".js-cart-qty-min, .js-cart-qty-add", ( e ) => {
+            const target = $( e.target );
+            const entry = target.closest( ".js-cart-entry" );
+            const value = target.is( ".js-cart-qty-min" ) ? target.next( ".js-cart-qty-val" ) : target.prev( ".js-cart-qty-val" );
+            const price = entry.find( ".js-cart-price" );
+            const total = this.cart.find( ".js-cart-subtotal" );
+            const entryData = entry.data();
+            const item = this.cartData.shopJSON.items.find(( itm ) => {
+                return (itm.id === entryData.itemId);
+            });
+            const qtyMath = target.is( ".js-cart-qty-min" ) ? -1 : 1;
+            let qty = parseInt( value[ 0 ].innerText, 10 );
+
+            qty += qtyMath;
+
+            value[ 0 ].innerText = qty;
+            price[ 0 ].innerText = window.Y.Squarespace.Commerce.moneyString( item.structuredContent.variants[ 0 ].price * qty );
+
+            this.qtyCart( qty, entryData.entryId ).then(( response ) => {
+                total[ 0 ].innerText = window.Y.Squarespace.Commerce.moneyString( response.grandTotal.value );
+
+                if ( qty === 0 ) {
+                    entry.remove();
+                }
+            });
+        });
+
+        this.cart.on( "click", ".js-cart-checkout", () => {
+            window.Y.Squarespace.Commerce.goToCheckoutPage();
+        });
+    }
+
+
     exec () {
         this.controllers = new Controllers({
             el: this.element
@@ -99,9 +135,16 @@ class Commerce {
 
     init () {
         if ( this.cart.length ) {
-            // window.Squarespace.initializeCartPage( window.Y );
-            this.fetchCart().then(( response ) => {
-                console.log( "Commerce:fetchCart", response );
+            window.Squarespace.initializeCartPage( window.Y );
+            this.fetchShop().then(( shopResponse ) => {
+                this.cartData.shopJSON = shopResponse;
+
+                this.fetchCart().then(( cartResponse ) => {
+                    this.cartData.cartJSON = cartResponse;
+                    this.cart[ 0 ].innerHTML = cartView( shopResponse, cartResponse );
+                    core.util.loadImages( this.cart.find( core.config.lazyImageSelector ), core.util.noop );
+                    this.bindCart();
+                });
             });
 
         } else {
@@ -113,6 +156,25 @@ class Commerce {
 
     goToCartPage () {
         window.location.href = `${window.location.protocol}//${window.location.host}/cart/`;
+    }
+
+
+    fetchShop () {
+        return new Promise(( resolve, reject ) => {
+            $.ajax({
+                url: "/shop/",
+                method: "GET",
+                dataType: "json",
+                data: {
+                    format: "json"
+                }
+            }).then(( response ) => {
+                resolve( response );
+
+            }).catch(( error ) => {
+                reject( error );
+            });
+        });
     }
 
 
@@ -159,6 +221,21 @@ class Commerce {
                     "strings.message": response.message
                 });
             }
+        });
+    }
+
+
+    qtyCart ( qty, id ) {
+        return $.ajax({
+            url: `/api/commerce/cart/items/${id}?crumb=${Store.crumb}`,
+            payload: {
+                quantity: qty
+            },
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            dataType: "json"
         });
     }
 

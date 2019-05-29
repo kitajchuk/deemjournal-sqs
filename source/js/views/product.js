@@ -22,7 +22,7 @@ export default ( instance ) => {
                 <div class="p1__button sqs-row">
                     <div class="_button js-button_" data-block-json="">${item.structuredContent.customAddButtonText}</div>
                     <div class="sqs-block-content">
-                        <p class="h6">${item.structuredContent.variants[ 0 ].priceMoney.value}</p>
+                        <p class="h6">$${item.structuredContent.variants[ 0 ].priceMoney.value}</p>
                     </div>
                 </div>
                 <div class="p1__shipping">

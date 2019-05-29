@@ -48,6 +48,8 @@
                 {@|apply page-system-blocks.block}
             {.or equal? collection.id "5cb63e938165f5675d20dcb6"}
                 {@|apply page-iconography.block}
+            {.or equal? collection.id "5cede595a4222fb991874131"}
+                {@|apply page-dev-cart.block}
             {.or}
                 {squarespace.main-content}
             {.end}
