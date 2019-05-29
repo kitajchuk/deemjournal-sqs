@@ -161,6 +161,7 @@
         align-items: center;
         width: 100%;
         border-bottom: 2px solid $grey-rule;
+        user-select: none;
 
         @include respond( $tablet-breakpoint ) {
             flex-wrap: wrap;
@@ -204,9 +205,20 @@
             cursor: pointer;
         }
 
+        .min {
+            svg {
+                transform: rotate( 90deg );
+            }
+        }
+
+        .add {
+            svg {
+                transform: rotate( -90deg );
+            }
+        }
+
         .h6 {
             padding: 0 $padding-m;
-            user-select: none;
             text-align: center;
             width: 90px;
             @include font-family-sans-medium();
@@ -219,8 +231,6 @@
     }
 
     .cart__price {
-        user-select: none;
-
         @include respond( $tablet-breakpoint ) {
             padding-left: $padding-1;
             padding-top: $padding-m;

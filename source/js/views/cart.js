@@ -1,6 +1,5 @@
 export default ( shopJSON, cartJSON ) => {
-    const svgLeft = require( `../../../blocks/svg-left.block` );
-    const svgRight = require( `../../../blocks/svg-right.block` );
+    const svgDown = require( `../../../blocks/svg-down.block` );
     const getAttributes = ( item ) => {
         const attrs = [];
 
@@ -46,9 +45,9 @@ export default ( shopJSON, cartJSON ) => {
                                 </div>
                             </div>
                             <div class="cart__qty js-cart-qty">
-                                <div class="min js-cart-qty-min">${svgLeft}</div>
+                                <div class="min js-cart-qty-min">${svgDown}</div>
                                 <div class="h6 js-cart-qty-val">${entry.quantity}</div>
-                                <div class="add js-cart-qty-add">${svgRight}</div>
+                                <div class="add js-cart-qty-add">${svgDown}</div>
                             </div>
                             <div class="cart__price">
                                 <h6 class="js-cart-price">${window.Y.Squarespace.Commerce.moneyString( entry.subTotal )}</h6>
