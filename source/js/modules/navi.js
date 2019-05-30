@@ -17,6 +17,7 @@ import Search from "../class/components/Search";
 const navi = {
     init () {
         this.time = 500;
+        this.halfTime = (this.time / 2);
         this.isOpen = false;
         this.isSearch = false;
         this.nav = core.dom.body.find( ".js-navi" );
@@ -106,30 +107,31 @@ const navi = {
 
 
     animMenuItems ( binary ) {
-        this.tweenMenu = new TweenLite.to( this.menuAnims, (this.time / 1000), {
+        this.tweenMenu = new TweenLite.to( this.menuAnims, (this.halfTime / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
-            ease: Power3.ease
+            ease: Power3.ease,
+            delay: binary ? (this.halfTime / 1000) : 0
         });
     },
 
 
     animMenuSearch ( binary ) {
-        this.tweenSearch = new TweenLite.to( [this.search[ 0 ], this.filters[ 0 ]], (this.time / 1000), {
+        this.tweenSearch = new TweenLite.to( [this.search[ 0 ], this.filters[ 0 ]], (this.halfTime / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
-            delay: binary ? (this.time / 1000) : 0,
-            ease: Power3.ease
+            ease: Power3.ease,
+            delay: binary ? (this.time / 1000) : 0
         });
     },
 
 
     animMenuClose ( binary ) {
-        this.tweenClose = new TweenLite.to( this.menuClose[ 0 ], (this.time / 1000), {
+        this.tweenClose = new TweenLite.to( this.menuClose[ 0 ], (this.halfTime / 1000), {
             opacity: binary,
             y: binary ? 0 : 16,
-            delay: binary ? (this.time / 1000) : 0,
-            ease: Power3.ease
+            ease: Power3.ease,
+            delay: binary ? (this.time / 1000) : 0
         });
     },
 

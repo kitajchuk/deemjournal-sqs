@@ -81,7 +81,7 @@
     }
 
     .is-closing & {
-        transition: transform $ease-menu-1 $base-duration $fast-duration;
+        transition: transform $ease-menu-1 $base-duration;
     }
 }
 .meni__query {
