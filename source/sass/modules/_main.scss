@@ -411,7 +411,7 @@
         cursor: pointer;
         transition: color $base-duration $ease;
 
-        &.is-active {
+        .is-hoverable &:hover {
             color: $grey;
         }
     }
