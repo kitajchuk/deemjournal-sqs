@@ -118,9 +118,9 @@
             @include wrap();
 
             p {
-                @include text();
                 @include m();
-                color: $grey;
+                width: 100%;
+                max-width: $text-width;
             }
         }
     }

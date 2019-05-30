@@ -68,10 +68,13 @@ class Story {
 
         if ( this.capillary.length ) {
             this.capillary.forEach(( el, i ) => {
-                this.capillary
+                const gallery = this.capillary
                     .eq( i )
                     .closest( ".sqs-block-html" )
-                    .prev( ".sqs-block-gallery" )
+                    .prev( ".sqs-block-gallery" );
+
+                gallery
+                    .addClass( "is-capillary" )
                     .find( ".sqs-block-content" )
                     .append( el );
             });

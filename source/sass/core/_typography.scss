@@ -23,7 +23,6 @@ em {
 }
 .m {
     @include m();
-    color: $grey;
     display: block;
 }
 

@@ -170,6 +170,10 @@
         }
     }
 
+    ._audio__controls:before {
+        background-color: $black;
+    }
+
     ._audio__state {
         color: $white;
     }

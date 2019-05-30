@@ -34,17 +34,6 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-
-    // .annotation--text & {
-    //     @include respond( $break-tablet-full ) {
-    //
-    //     }
-    // }
-    //
-    // @include respond( $mobile-breakpoint ) {
-    //     display: flex;
-    //     flex-wrap: wrap;
-    // }
 }
 .annotation__note {
     position: absolute;
@@ -53,7 +42,7 @@
     width: 100%;
 
     blockquote {
-        max-width: 300px;
+        max-width: 400px;
 
         p + p {
             padding-top: $padding-m;
@@ -183,6 +172,10 @@
     overflow: hidden;
     user-select: none;
     @include exp();
+
+    .is-capillary & {
+        padding-bottom: $padding-m;
+    }
 }
 .slider__wrap {
     position: relative;
