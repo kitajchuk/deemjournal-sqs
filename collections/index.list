@@ -1,5 +1,3 @@
 {.if collection.homepage}
-    <div class="Home -exp -wrap">
-        <h1>{collection.title}</h1>
-    </div>
+    <div class="Home -exp -wrap"></div>
 {.end}

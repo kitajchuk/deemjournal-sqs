@@ -1,3 +1,1 @@
-<div class="about -exp -wrap">
-    <h1>{collection.title}</h1>
-</div>
+<div class="about -exp -wrap"></div>
