@@ -441,6 +441,15 @@
     }
 }
 @mixin exp2() {
+    padding-top: $expander-1 * 2;
+    padding-bottom: $expander-1 * 2;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-1;
+        padding-bottom: $expander-1;
+    }
+}
+@mixin exp3() {
     padding-top: $padding-2;
     padding-bottom: $padding-2;
 
@@ -467,7 +476,7 @@
     .image-col {
         @include diptych();
 
-        @include respond( $mobile-breakpoint ) {
+        @include respond( $tablet-breakpoint ) {
             width: 100%;
         }
     }
@@ -491,7 +500,7 @@
             }
         }
 
-        @include respond( $mobile-breakpoint ) {
+        @include respond( $tablet-breakpoint ) {
             width: 100%;
         }
     }
@@ -530,11 +539,6 @@
 @mixin diptych() {
     width: $tall-width-0;
     max-width: $tall-width-1;
-}
-@mixin mobile-media-pull() {
-    width: 100vw;
-    margin-left: -$padding-m;
-    margin-right: -$padding-m;
 }
 
 

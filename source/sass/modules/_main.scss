@@ -50,7 +50,7 @@
     }
 
     .stack__wrap {
-        @include exp2();
+        @include exp3();
         display: flex;
         justify-content: center;
         flex-wrap: wrap;

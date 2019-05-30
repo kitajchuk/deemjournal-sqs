@@ -1,6 +1,9 @@
 .story {
     padding-top: $story-padding;
 }
+.story--alt {
+    padding-top: 0;
+}
 .stories {
     .grid {
         @include exp();
@@ -62,7 +65,7 @@
     }
 
     .annotation--media & {
-        @include respond( $mobile-breakpoint ) {
+        @include respond( $tablet-breakpoint ) {
             position: relative;
             left: auto;
             top: auto;
@@ -91,8 +94,14 @@
         width: $slider-width;
         display: inline-block;
 
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+        }
+
         @include respond( $mobile-breakpoint ) {
-            @include mobile-media-pull()
+            width: 100vw;
+            margin-left: -$padding-m;
+            margin-right: -$padding-m;
         }
     }
 }
@@ -371,5 +380,5 @@
 
 .summary-v2 {
     border-top: 1px solid $black;
-    @include exp();
+    @include exp2();
 }

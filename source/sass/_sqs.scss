@@ -86,6 +86,10 @@
 
             span {
                 @include a( $black );
+
+                .is-hoverable &:hover {
+                    border-bottom-color: transparent;
+                }
             }
         }
     }
@@ -290,9 +294,7 @@
         }
 
         > ul li > p,
-        > ol li > p {
-            border-bottom: 1px solid $black;
-        }
+        > ol li > p {}
 
         a {
             @include a( $grey );
