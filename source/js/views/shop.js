@@ -15,7 +15,7 @@ export default ( instance ) => {
                         <div class="grid__info">
                             <div class="grid__title">
                                 <div>${item.title}</div>
-                                <div>${item.structuredContent.variants[ 0 ].priceMoney.value}</div>
+                                <div>$${item.structuredContent.variants[ 0 ].priceMoney.value}</div>
                             </div>
                         </div>
                     </a>
