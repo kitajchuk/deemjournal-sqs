@@ -3,16 +3,18 @@
         {.repeated section items}
             {.if starred}
                 <div class="pinned grid__pinned">
-                    <div class="pinned__info">
+                    <a class="pinned__info" href="{fullUrl}" data-item-id="{id}">
                         <div class="grid__title" data-content-field="title">{title}</div>
                         {.if customContent.ctaTextValue}
-                            <a class="grid__meta" href="{fullUrl}">
+                            <div class="grid__meta">
                                 <span class="h6">{customContent.ctaTextValue}</span>
-                            </a>
+                            </div>
                         {.end}
-                    </div>
+                    </a>
                     {.section customContent.pinnedImage}
-                        <img class="pinned__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                        <a class="pinned__image" href="{fullUrl}" data-item-id="{id}">
+                            <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                        </a>
                     {.end}
                 </div>
             {.end}
