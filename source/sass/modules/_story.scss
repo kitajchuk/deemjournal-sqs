@@ -300,16 +300,17 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin-left: -($padding-g / 2);
-    margin-right: -($padding-g / 2);
+    padding-left: $padding-1 / 2;
+    padding-right: $padding-1 / 2;
 
     @include respond( $mobile-breakpoint ) {
-        margin: 0;
+        padding-left: $padding-m;
+        padding-right: $padding-m;
     }
 }
 .grid__item {
-    padding-left: $padding-g / 2;
-    padding-right: $padding-g / 2;
+    padding-left: $padding-1 / 2;
+    padding-right: $padding-1 / 2;
     width: 33.333333%;
     @include expb();
 
@@ -355,8 +356,8 @@
     flex-wrap: wrap;
 
     .pinned__info {
-        padding-left: $padding-g / 2;
-        padding-right: $padding-g / 2;
+        padding-left: $padding-1 / 2;
+        padding-right: $padding-1 / 2;
         width: 33.333333%;
 
         @include respond( $tablet-breakpoint ) {
@@ -369,8 +370,8 @@
     }
 
     .pinned__image {
-        padding-left: $padding-g / 2;
-        padding-right: $padding-g / 2;
+        padding-left: $padding-1 / 2;
+        padding-right: $padding-1 / 2;
         width: 66.666666%;
 
         @include respond( $tablet-breakpoint ) {
@@ -383,6 +384,7 @@
 
     .grid__title {
         @include h5();
+        padding-right: $padding-1;
 
         @include respond( $mobile-breakpoint ) {
             @include p();
@@ -434,6 +436,20 @@
 
 
 .summary-v2 {
-    border-top: 1px solid $black;
     @include exp2();
+    position: relative;
+
+    &:before {
+        content: "";
+        border-top: 1px solid $black;
+        position: absolute;
+        top: 0;
+        left: $padding-1;
+        right: $padding-1;
+
+        @include respond( $mobile-breakpoint ) {
+            left: $padding-m;
+            right: $padding-m;
+        }
+    }
 }

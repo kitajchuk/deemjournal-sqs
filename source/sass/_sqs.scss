@@ -97,7 +97,6 @@
 .sqs-block-summary-v2 {
     .sqs-block-content {
         @include exp();
-        @include wrap();
     }
 }
 .sqs-block-audio {
@@ -109,14 +108,6 @@
     .sqs-block-content {
         .grid {
             @include exp();
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: $padding-1 / 2;
-            padding-right: $padding-1 / 2;
-        }
-        .grid__item {
-            padding-left: $padding-1 / 2;
-            padding-right: $padding-1 / 2;
         }
         .slider + blockquote {
             @include wrap();

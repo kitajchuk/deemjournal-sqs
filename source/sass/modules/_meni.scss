@@ -94,7 +94,6 @@
     top: 0;
     overflow-y: auto;
     @include exp();
-    @include wrap();
 
     .is-menu-search & {
         pointer-events: auto;

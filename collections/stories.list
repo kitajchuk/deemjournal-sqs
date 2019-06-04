@@ -2,6 +2,8 @@
     <div class="grid">
         {.repeated section items}
             {.if starred}
+                {.var @clickUrl fullUrl}
+                {.var @clickId id}
                 <div class="pinned grid__pinned">
                     <a class="pinned__info" href="{fullUrl}" data-item-id="{id}">
                         <div class="grid__title" data-content-field="title">{title}</div>
@@ -12,7 +14,7 @@
                         {.end}
                     </a>
                     {.section customContent.pinnedImage}
-                        <a class="pinned__image" href="{fullUrl}" data-item-id="{id}">
+                        <a class="pinned__image" href="{@clickUrl}" data-item-id="{@clickId}">
                             <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                         </a>
                     {.end}
