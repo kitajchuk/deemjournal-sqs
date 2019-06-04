@@ -44,7 +44,7 @@
     padding-left: $padding-1 / 2;
     padding-right: $padding-1 / 2;
     width: 33.333333%;
-    @include expb();
+    @include exp2b();
 
     @include respond( $tablet-breakpoint ) {
         width: 50%;
@@ -80,7 +80,7 @@
 
 
 .pinned {
-    @include expb();
+    @include exp2b();
     width: 100%;
     align-items: center;
     display: flex;
@@ -124,6 +124,10 @@
         @include h5();
         padding-right: $padding-1;
 
+        @include respond( $tablet-breakpoint ) {
+            padding-right: 0;
+        }
+
         @include respond( $mobile-breakpoint ) {
             @include p();
             @include font-family-sans-medium();
@@ -165,7 +169,7 @@
     width: 100%;
 
     blockquote {
-        max-width: 400px;
+        max-width: 320px;
 
         p + p {
             padding-top: $padding-m;
@@ -185,6 +189,10 @@
     }
 
     .annotation--media & {
+        blockquote {
+            max-width: 400px;
+        }
+
         @include respond( $tablet-breakpoint ) {
             position: relative;
             left: auto;
