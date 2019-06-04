@@ -16,7 +16,7 @@ export default ( json ) => {
                     </div>
                 </a>
             </div>
-        `: ``;
+        ` : ``;
 
     }).join( "" )}</div>` : `<div class="grid js-search-grid"><div class="grid__item"><p class="-grey">no results</p></div></div>`;
 };
