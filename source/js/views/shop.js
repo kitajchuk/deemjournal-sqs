@@ -12,9 +12,11 @@ export default ( instance ) => {
                 <div class="grid__item">
                     <a class="grid__link" href="${item.fullUrl}">
                         <img class="grid__image image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
-                        <div class="grid__title">
-                            <div>${item.title}</div>
-                            <div>${item.structuredContent.variants[ 0 ].priceMoney.value}</div>
+                        <div class="grid__info">
+                            <div class="grid__title">
+                                <div>${item.title}</div>
+                                <div>${item.structuredContent.variants[ 0 ].priceMoney.value}</div>
+                            </div>
                         </div>
                     </a>
                 </div>

@@ -23,7 +23,7 @@ em {
 }
 .m {
     @include m();
-    display: block;
+    // display: block;
 }
 
 .label {

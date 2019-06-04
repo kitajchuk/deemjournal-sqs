@@ -6,7 +6,6 @@
 }
 .stories {
     .grid {
-        @include exp();
         @include wrap();
     }
 }
@@ -297,7 +296,7 @@
 
 
 .grid {
-    align-items: flex-end;
+    align-items: flex-start;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -312,10 +311,10 @@
     padding-left: $padding-g / 2;
     padding-right: $padding-g / 2;
     width: 33.333333%;
+    @include expb();
 
     @include respond( $tablet-breakpoint ) {
         width: 50%;
-        padding-bottom: $padding-1;
     }
 
     @include respond( $mobile-breakpoint ) {
@@ -324,15 +323,71 @@
         padding-right: 0;
     }
 }
-.grid__title {
+.grid__info {
     padding-top: $padding-m / 2;
-    min-height: 120px;
-    @include h6();
+}
+.grid__title {
+    @include p();
     @include font-family-sans-medium();
 
     @include respond( $mobile-breakpoint ) {
         @include p();
         @include font-family-sans-medium();
+    }
+}
+.grid__meta {
+    padding-top: $padding-m / 2;
+    display: block;
+
+    span {
+        border-bottom: 1px solid $black;
+    }
+}
+
+
+
+.pinned {
+    @include expb();
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .pinned__info {
+        padding-left: $padding-g / 2;
+        padding-right: $padding-g / 2;
+        width: 33.333333%;
+
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: $padding-m / 2;
+            order: 2;
+        }
+    }
+
+    .pinned__image {
+        padding-left: $padding-g / 2;
+        padding-right: $padding-g / 2;
+        width: 66.666666%;
+
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            order: 1;
+        }
+    }
+
+    .grid__title {
+        @include h5();
+
+        @include respond( $mobile-breakpoint ) {
+            @include p();
+            @include font-family-sans-medium();
+        }
     }
 }
 
