@@ -73,7 +73,7 @@
     display: block;
 
     span {
-        border-bottom: 1px solid $black;
+        @include a( $black );
     }
 }
 

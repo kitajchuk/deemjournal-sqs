@@ -86,10 +86,6 @@
 
             span {
                 @include a( $black );
-
-                .is-hoverable &:hover {
-                    border-bottom-color: transparent;
-                }
             }
         }
     }

@@ -23,19 +23,6 @@
     }
 }
 .navi__a {
-    border-bottom: 2px solid transparent;
-    transition: border-bottom-color $base-duration $ease;
     line-height: 1;
-
-    .is-hoverable &:hover {
-        border-bottom-color: $black;
-    }
-
-    .is-hoverable &.is-active:hover {
-        border-bottom-color: $black;
-    }
-
-    &.is-active {
-        border-bottom-color: $black;
-    }
+    @include a-flip( $black );
 }

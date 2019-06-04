@@ -244,8 +244,35 @@
 @mixin a( $color ) {
     color: $color;
     border-bottom: 1px solid $color;
-    transition: color $fast-duration $ease,
-                border-bottom-color $fast-duration $ease;
+    transition: border-bottom-color $fast-duration $ease;
+
+    .is-hoverable &:hover {
+        border-bottom-color: transparent;
+    }
+
+    .is-hoverable &.is-active:hover {
+        border-bottom-color: transparent;
+    }
+
+    &.is-active {
+        border-bottom-color: transparent;
+    }
+}
+@mixin a-flip( $color ) {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color $base-duration $ease;
+
+    .is-hoverable &:hover {
+        border-bottom-color: $color;
+    }
+
+    .is-hoverable &.is-active:hover {
+        border-bottom-color: $color;
+    }
+
+    &.is-active {
+        border-bottom-color: $color;
+    }
 }
 @mixin placeholder( $color ) {
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
