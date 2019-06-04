@@ -1,6 +1,8 @@
 import * as core from "../core";
+import debounce from "properjs-debounce";
 import BaseController from "./controllers/BaseController";
 import ImageController from "./controllers/ImageController";
+import ResizeController from "properjs-resizecontroller";
 import Newsletter from "./components/Newsletter";
 import Search from "./components/Search";
 import Video from "./components/Video";
@@ -26,6 +28,7 @@ class Controllers {
         this.element = options.el;
         this.callback = options.cb;
         this.controllers = [];
+        this.resizeBounce = 300;
     }
 
 
@@ -87,12 +90,24 @@ class Controllers {
                 this.callback();
             }
         });
+
+        this.resizeController = new ResizeController();
+        this.resizeController.on( "resize", debounce(() => {
+            this.images.removeAttr( core.config.imageLoaderAttr );
+            this.imageController.destroy();
+            this.imageController = new ImageController( this.images );
+
+        }, this.resizeBounce ));
     }
 
 
     destroy () {
         if ( this.imageController ) {
             this.imageController.destroy();
+        }
+
+        if ( this.resizeController ) {
+            this.resizeController.destroy();
         }
 
         this.kill();
