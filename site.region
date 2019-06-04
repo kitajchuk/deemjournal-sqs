@@ -36,29 +36,22 @@
         <main class="main js-main" data-content-field="main-content"></main>
         <squarespace:navigation navigationId="menu" template="menu" />
         <div class="router js-router" style="display:none;" data-revision="{squarespace.template-revision}" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
-            {.equal? collection.id "5caf91cf9b747a24508cf1ec"}
-                {@|apply page-about.block}
-            {.or equal? collection.id "5caf951ff9619aaf383bd7c7"}
-                {@|apply page-stockists.block}
-            {.or equal? collection.id "5caf91f653450a71df5772b6"}
-                {@|apply page-contact.block}
-            {.or equal? collection.id "5cafe527652deaad3c6230dd"}
+            {# Dev Menu #}
+            {.equal? collection.urlId "typography"}
                 {@|apply page-typography.block}
-            {.or equal? collection.id "5cafe53bb208fcfd8dc661dd"}
+            {.or equal? collection.urlId "system-blocks"}
                 {@|apply page-system-blocks.block}
-            {.or equal? collection.id "5cb63e938165f5675d20dcb6"}
+            {.or equal? collection.urlId "iconography"}
                 {@|apply page-iconography.block}
-            {.or equal? collection.id "5cede595a4222fb991874131"}
+            {.or equal? collection.id "dev-cart"}
                 {@|apply page-dev-cart.block}
+            {# Main Nav #}
             {.or}
-                {squarespace.main-content}
+                {@|apply page-navi.block}
             {.end}
         </div>
         <div class="search search--block js-search-block" style="display:none;">
             <squarespace:block-field id="deem--search" columns="12" />
-        </div>
-        <div class="newsletter newsletter--block js-newsletter-block" style="display:none;">
-            <squarespace:block-field id="deem--newsletter" columns="12" />
         </div>
         <div class="intro js-intro screen screen--dark -wrap is-active">
             {@|apply svg-logo.block}

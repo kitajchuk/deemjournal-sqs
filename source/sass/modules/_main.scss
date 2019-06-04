@@ -324,8 +324,23 @@
 }
 .newsletter__entry {
     position: relative;
-    max-width: 660px;
     width: 100%;
+
+    .inp {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .btn {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $base-duration $ease;
+
+        .is-valid & {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
 
     .is-sending &,
     .is-success & {
@@ -451,7 +466,7 @@
     -webkit-appearance: none;
     outline: 0;
     border: 0;
-    border-bottom: 1px solid $grey;
+    border-bottom: 1px solid $black;
     background-color: transparent;
     color: $black;
     padding: 0;

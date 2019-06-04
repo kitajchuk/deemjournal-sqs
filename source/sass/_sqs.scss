@@ -74,6 +74,7 @@
 .sqs-block-newsletter {
     .sqs-block-content {
         @include wrap();
+        @include exp();
     }
 }
 .sqs-block-tagcloud {
@@ -105,6 +106,11 @@
         .grid {
             @include exp();
         }
+        // .grid__item {
+        //     @include respond-min( $tablet-breakpoint ) {
+        //         padding-bottom: 0;
+        //     }
+        // }
         .slider + blockquote {
             @include wrap();
 
@@ -238,6 +244,10 @@
             @include h3();
             @include nbsp();
             @include sqs-body-hflip();
+
+            .story--about & {
+                @include h1();
+            }
         }
 
         > h2 {

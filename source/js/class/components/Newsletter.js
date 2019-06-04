@@ -5,20 +5,11 @@ import debounce from "properjs-debounce";
 
 
 
-const _newsletterBlock = core.dom.body.find( ".js-newsletter-block" ).detach();
-const _newsletterScript = _newsletterBlock.find( "script" );
-const _blockJson = JSON.parse( _newsletterScript[ 0 ].textContent );
-
-
-
 class Newsletter {
     constructor ( element ) {
         this.element = element;
         this.script = this.element.find( "script" ).detach();
-        this.blockJson = _blockJson || {
-            formId: "5cafe8ab7817f7af88b17a43",
-            objectName: "deem--newsletter"
-        };
+        this.blockJson = JSON.parse( this.script[ 0 ].textContent );
         this.pageId = "5cafe53bb208fcfd8dc661dd";
         this.data = {};
         this.waiting = 300;
@@ -57,11 +48,17 @@ class Newsletter {
         });
 
         this.field.on( "keyup", debounce(() => {
-            if ( this.validators.email.test( this.field[ 0 ].value ) || !this.field[ 0 ].value ) {
+            if ( !this.field[ 0 ].value ) {
                 this.field.removeClass( "is-invalid" );
+                this.element.removeClass( "is-valid" );
+
+            } else if ( this.validators.email.test( this.field[ 0 ].value ) ) {
+                this.field.removeClass( "is-invalid" );
+                this.element.addClass( "is-valid" );
 
             } else {
                 this.field.addClass( "is-invalid" );
+                this.element.removeClass( "is-valid" );
             }
 
         }, this.waiting ));

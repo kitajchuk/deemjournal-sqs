@@ -420,6 +420,10 @@
             content: "\00a0\00a0\00a0\00a0";
         }
     }
+
+    .story--about &:before {
+        display: none;
+    }
 }
 
 

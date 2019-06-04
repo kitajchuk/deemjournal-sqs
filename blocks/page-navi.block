@@ -1,0 +1,5 @@
+<article class="story story--{collection.urlId} js-story">
+    <div class="story__blocks">
+        {squarespace.main-content}
+    </div>
+</article>

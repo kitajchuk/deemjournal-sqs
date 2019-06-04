@@ -21,9 +21,13 @@ em {
         @include otf-ss();
     }
 }
-.m {
+.m,
+.m > p {
     @include m();
-    // display: block;
+
+    .story--about & {
+        @include p();
+    }
 }
 
 .label {

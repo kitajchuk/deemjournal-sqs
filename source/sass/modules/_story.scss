@@ -4,6 +4,9 @@
 .story--alt {
     padding-top: 0;
 }
+.story--about {
+    padding-bottom: $story-padding;
+}
 .stories {
     .grid {
         justify-content: space-between;
