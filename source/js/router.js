@@ -106,7 +106,7 @@ const router = {
     initPage ( data ) {
         this.setDoc( data );
         this.setState( "now", data );
-        this.setState( "future", data );
+        this.setState( "future", null );
         this.setClass();
         navi.setActive( this.state.now.view );
         core.dom.main[ 0 ].innerHTML = this.doc.html;
@@ -158,17 +158,18 @@ const router = {
 
     setState ( time, data ) {
         this.state[ time ] = {
-            raw: data,
-            uid: data.request.params.uid || null,
-            view: data.request.params.view || core.config.homepage,
-            cat: data.request.query.category || null
+            raw: data && data || null,
+            uid: data && data.request.params.uid || null,
+            view: data && data.request.params.view || core.config.homepage,
+            cat: data && data.request.query.category || null,
+            tag: data && data.request.query.tag || null
         };
     },
 
 
     setClass () {
         if ( this.state.future.view ) {
-            core.dom.html.addClass( `is-${this.state.now.view}-page` );
+            core.dom.html.addClass( `is-${this.state.future.view}-page` );
         }
 
         if ( this.state.future.uid ) {
@@ -177,6 +178,10 @@ const router = {
 
         if ( this.state.future.cat ) {
             core.dom.html.addClass( `is-cat-page` );
+        }
+
+        if ( this.state.future.tag ) {
+            core.dom.html.addClass( `is-tag-page` );
         }
     },
 
@@ -192,6 +197,10 @@ const router = {
 
         if ( this.state.now.cat && !this.state.future.cat ) {
             core.dom.html.removeClass( `is-cat-page` );
+        }
+
+        if ( this.state.now.tag && !this.state.future.tag ) {
+            core.dom.html.removeClass( `is-tag-page` );
         }
     },
 
@@ -209,6 +218,7 @@ const router = {
 
     changeContent ( data ) {
         this.setDoc( data );
+        this.setState( "now", data );
         core.dom.main[ 0 ].innerHTML = this.doc.html;
         this.topper();
         this.controllers.exec();
@@ -216,10 +226,9 @@ const router = {
     },
 
 
-    changePageIn ( data ) {
+    changePageIn ( /*data*/ ) {
         setTimeout(() => {
             core.dom.html.removeClass( "is-tranny" );
-            this.setState( "now", data );
 
         }, this.animDuration );
     },
