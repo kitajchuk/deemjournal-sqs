@@ -7,25 +7,29 @@
 .story--about {
     padding-bottom: $story-padding;
 }
+.story--shop,
+.story--homepage {
+    padding-top: 0;
+}
 .stories {
     .grid {
         justify-content: space-between;
     }
 
-    .grid__item {
-        width: $tall-width-0;
-        max-width: $text-width;
-
-        @include respond( $tablet-breakpoint ) {
-            width: 50%;
-            max-width: 50%;
-        }
-
-        @include respond( $mobile-breakpoint ) {
-            width: 100%;
-            max-width: 100%;
-        }
-    }
+    // .grid__item {
+    //     width: $tall-width-0;
+    //     max-width: $text-width;
+    //
+    //     @include respond( $tablet-breakpoint ) {
+    //         width: 50%;
+    //         max-width: 50%;
+    //     }
+    //
+    //     @include respond( $mobile-breakpoint ) {
+    //         width: 100%;
+    //         max-width: 100%;
+    //     }
+    // }
 }
 
 
@@ -41,6 +45,26 @@
     @include respond( $mobile-breakpoint ) {
         padding-left: $padding-m;
         padding-right: $padding-m;
+    }
+}
+.grid--length-2 {
+    justify-content: space-between;
+
+    .grid__item {
+        width: $tall-width-0;
+        max-width: $text-width;
+        box-sizing: content-box;
+
+        @include respond( $tablet-breakpoint ) {
+            width: 50%;
+            max-width: 50%;
+            box-sizing: border-box;
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 }
 .grid__item {
@@ -59,6 +83,17 @@
         padding-right: 0;
     }
 }
+// .grid__anim {
+//     display: block;
+//     transform: translate3d( 0, 25vh, 0 );
+//     transition: transform 800ms cubic-bezier( 0.165, 0.84, 0.44, 1 );
+//     min-height: 23.4375vw;
+//
+//     .is-animated & {
+//         transform: translate3d( 0, 0, 0 );
+//         min-height: 0;
+//     }
+// }
 .grid__info {
     padding-top: $padding-m / 2;
 }
@@ -478,6 +513,10 @@
         top: 0;
         left: $padding-1;
         right: $padding-1;
+
+        .story--homepage & {
+            display: none;
+        }
 
         @include respond( $mobile-breakpoint ) {
             left: $padding-m;

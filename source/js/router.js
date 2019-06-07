@@ -212,11 +212,11 @@ const router = {
         this.setClass();
         navi.setActive( this.state.future.view );
         navi.closeAll();
-        this.controllers.destroy();
     },
 
 
     changeContent ( data ) {
+        this.controllers.destroy();
         this.setDoc( data );
         this.setState( "now", data );
         core.dom.main[ 0 ].innerHTML = this.doc.html;

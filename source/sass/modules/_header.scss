@@ -1,5 +1,5 @@
 .header {
-    background-color: $white;
+    background-color: $bgcolor;
     padding-top: $expander-1;
     padding-bottom: $expander-1;
     left: 0;
@@ -14,8 +14,7 @@
     transition: transform $base-duration $ease-menu-1,
                 opacity $base-duration $ease-menu-1,
                 padding-top $base-duration $ease,
-                padding-bottom $base-duration $ease,
-                background-color $base-duration $ease;
+                padding-bottom $base-duration $ease;
 
     .is-menu-open & {
         opacity: 0;
@@ -29,6 +28,10 @@
     .is-header-small & {
         padding-top: $expander-m;
         padding-bottom: $expander-m;
+    }
+
+    .is-coverpage--collider & {
+        background-color: transparent;
     }
 }
 .header__logo,

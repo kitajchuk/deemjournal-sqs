@@ -2,7 +2,7 @@
  * Document
 *******************************************************************************/
 html {
-    background-color: $white;
+    background-color: $bgcolor;
     color: $black;
     transition: color $base-duration $ease,
                 background-color $base-duration $ease;
@@ -38,6 +38,6 @@ body {
 /******************************************************************************
  * User Agent
 *******************************************************************************/
-::-webkit-scrollbar {
-    display: none;
-    }
+// ::-webkit-scrollbar {
+//     display: none;
+//     }

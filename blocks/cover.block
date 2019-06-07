@@ -1,0 +1,47 @@
+{.if clickthroughUrl}
+    {.var @url clickthroughUrl}
+{.end}
+{.if sourceUrl}
+    {.var @url sourceUrl}
+{.end}
+{.var @bgColor customContent.colorBackground}
+{.var @uiColor customContent.colorUI}
+{.var @textColor customContent.colorText}
+<div class="cover cover--{id} {.if customContent.blurToCrisp}cover--blur{.end} {.if customContent.crispToBlur}cover--crisp{.end} js-cover" data-id="{id}">
+    <div class="cover__color"></div>
+    <div class="cover__image -cover js-lazy-cover-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}"></div>
+    <div class="cover__hover">
+        <a class="cover__title" href="{@url}">
+            <h2>{title} <span class="js-cover-cta">{.if customContent.ctaTextValue}{customContent.ctaTextValue}{.or}View story{.end}</span></h2>
+        </a>
+    </div>
+    <style class="js-colorway-style">
+        {.if @bgColor}
+            .cover--{id} .cover__color {
+                background-color: {@bgColor};
+            }
+        {.end}
+        {.if @textColor}
+            .cover--{id} .cover__title,
+            .cover--{id} .cover__title span {
+                color: {@textColor};
+            }
+            .cover--{id} .navi__a.is-active,
+            .cover--{id} .cover__title span {
+                border-bottom-color: {@textColor};
+            }
+        {.end}
+        {.if @uiColor}
+            .is-coverpage--{id}.is-coverpage--collider .navi__a {
+                color: {@uiColor};
+            }
+            .is-coverpage--{id}.is-coverpage--collider.is-hoverable .navi__a:hover {
+                border-bottom-color: {@uiColor};
+            }
+            .is-coverpage--{id}.is-coverpage--collider ._svg--list,
+            .is-coverpage--{id}.is-coverpage--collider ._svg--logo {
+                fill: {@uiColor};
+            }
+        {.end}
+    </style>
+</div>

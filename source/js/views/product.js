@@ -40,7 +40,7 @@ export default ( instance ) => {
                 </div>
             </div>
         </div>
-        <article data-item-id="${item.id}" class="story js-story">
+        <article data-item-id="${item.id}" class="story story--detail js-story">
             <div class="story__blocks">
                 ${item.body}
             </div>

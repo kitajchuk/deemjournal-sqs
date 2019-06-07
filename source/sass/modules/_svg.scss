@@ -14,6 +14,10 @@
         width: 23.4375vw;
         min-width: 140px;
     }
+
+    // .is-coverpage--collider & {
+    //     fill: $white;
+    // }
 }
 ._svg--play {
     @include icon-play-size();
@@ -55,22 +59,14 @@
     min-height: 20px;
 }
 ._svg--list {
-    // max-width: 36px;
-    // width: 1.40625vw;
-    // min-width: 30px;
-    // max-height: 27px;
-    // height: 1.0546875vw;
-    // min-height: 23px;
     width: 30px;
     height: 23px;
+
+    // .is-coverpage--collider & {
+    //     fill: $white;
+    // }
 }
 ._svg--search {
-    // max-width: 35px;
-    // width: 1.3671875vw;
-    // min-width: 30px;
-    // max-height: 35px;
-    // height: 1.3671875vw;
-    // min-height: 30px;
     width: 30px;
     height: 30px;
 
@@ -79,12 +75,6 @@
     }
 }
 ._svg--x {
-    // max-width: 24px;
-    // width: 0.9375vw;
-    // min-width: 22px;
-    // max-height: 25px;
-    // height: 0.9765625vw;
-    // min-height: 23px;
     width: 22px;
     height: 23px;
 

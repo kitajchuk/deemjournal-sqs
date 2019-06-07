@@ -3,6 +3,9 @@
     <input type="text" name="" value="{description.html|safe}" />
     <button type="button" name="button">{form.submitButtonText}</button>
     <style class="js-sqs-config-style">
+        .squarespace-config .body-block .newsletter {
+            font-size: 0;
+        }
         .squarespace-config .body-block .newsletter input,
         .sqs-frontend-overlay-editor-widget-host .newsletter input {
             border: 1px solid #d8d8d8;

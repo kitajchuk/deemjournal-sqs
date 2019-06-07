@@ -6,6 +6,8 @@ import viewSearchResults from "../../views/search-results";
 import Store from "../../core/Store";
 import debounce from "properjs-debounce";
 import ResizeController from "properjs-resizecontroller";
+// import AnimateController from "../controllers/AnimateController";
+import ImageController from "../controllers/ImageController";
 
 
 
@@ -142,11 +144,13 @@ class Search {
 
     displayResults ( json ) {
         this.display[ 0 ].innerHTML = viewSearchResults( (json || { items: [] }) );
-        core.util.loadImages( this.display.find( core.config.lazyImageSelector ) );
-        setTimeout(() => {
+        this.imageController = new ImageController( this.display.find( core.config.lazyImageSelector ) );
+        this.imageController.on( "preloaded", () => {
             this.display.find( ".js-search-grid" ).addClass( "is-active" );
-
-        }, 0 );
+            // this.animController.start();
+        });
+        // this.imageController.$preload.closest( core.config.lazyAnimSelector ).removeClass( "js-lazy-anim" );
+        // this.animController = new AnimateController( this.display );
     }
 
 
@@ -280,6 +284,14 @@ class Search {
     destroy () {
         if ( this.resizer ) {
             this.resizer.destroy();
+        }
+
+        // if ( this.animController ) {
+        //     this.animController.destroy();
+        // }
+
+        if ( this.imageController ) {
+            this.imageController.destroy();
         }
     }
 }

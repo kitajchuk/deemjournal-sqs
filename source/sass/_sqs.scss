@@ -94,6 +94,16 @@
 .sqs-block-summary-v2 {
     .sqs-block-content {
         @include exp();
+
+        .story--homepage & {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+.sqs-block-product {
+    .sqs-block-content {
+        @include exp2b();
     }
 }
 .sqs-block-audio {
@@ -241,25 +251,43 @@
         }
 
         > h1 {
-            @include h3();
-            @include nbsp();
+            .story--detail & {
+                @include h3();
+                @include nbsp();
+            }
+
             @include sqs-body-hflip();
 
-            .story--about & {
-                @include h1();
+            > a {
+                border-bottom-width: $header-underline;
             }
         }
 
         > h2 {
-            @include h4();
-            @include nbsp();
+            .story--detail & {
+                @include h4();
+                @include nbsp();
+            }
+
             @include sqs-body-hflip();
+
+            > a {
+                border-bottom-width: $header-underline;
+            }
         }
 
         > h3 {
-            @include h5();
-            @include nbsp();
+            .story--detail & {
+                @include h5();
+                @include nbsp();
+            }
+
+            @include text();
             @include sqs-body-hflip();
+
+            > a {
+                border-bottom-width: $header-underline;
+            }
         }
 
         > blockquote {
@@ -294,7 +322,7 @@
         > ol li > p {}
 
         a {
-            @include a( $grey );
+            @include a( $black );
         }
     }
 }

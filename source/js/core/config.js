@@ -109,6 +109,7 @@ const config = {
     lazyImageSelector: ".js-lazy-image",
     mobileImageSelector: ".js-lazy-image[data-mobile]",
     mobileMediaHack: 640,
+    lazyAnimSelector: ".js-lazy-anim",
 
 
     /**

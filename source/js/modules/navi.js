@@ -83,14 +83,32 @@ const navi = {
 
 
     onScrollUp () {
-        core.dom.html.removeClass( "is-scroll-down" ).addClass( "is-scroll-up" );
-        this.handleScroll();
+        const scrollY = this.scroller.getScrollY();
+
+        if ( scrollY < 0 ) {
+            core.log( "warn", "negative scroll margin at the top" );
+            core.dom.html.removeClass( "is-scroll-down is-scroll-up" );
+
+        } else {
+            core.dom.html.removeClass( "is-scroll-down" ).addClass( "is-scroll-up" );
+            this.handleScroll();
+        }
+
+        // console.log( "onScrollUp", this.scroller.getScrollY(), this.scroller.getScrollMax(), this.scroller.isScrollMax() );
     },
 
 
     onScrollDown () {
-        core.dom.html.removeClass( "is-scroll-up" ).addClass( "is-scroll-down" );
-        this.handleScroll();
+        if ( this.scroller.isScrollMax() ) {
+            core.log( "warn", "nuclear scroll margin at the bottom" );
+            core.dom.html.removeClass( "is-scroll-up" ).addClass( "is-scroll-down" );
+
+        } else {
+            core.dom.html.removeClass( "is-scroll-up" ).addClass( "is-scroll-down" );
+            this.handleScroll();
+        }
+
+        // console.log( "onScrollDown", this.scroller.getScrollY(), this.scroller.getScrollMax(), this.scroller.isScrollMax() );
     },
 
 

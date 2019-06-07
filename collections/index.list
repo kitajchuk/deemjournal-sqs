@@ -1,3 +1,14 @@
-{.if collection.homepage}
-    <div class="Home -exp -wrap"></div>
+{.section collection}
+    {.repeated section collections}
+        {.if items}
+            {.repeated section items}
+                {.equal? customContent.customType "customCover"}
+                    {@|apply cover.block}
+                {.end}
+            {.end}
+        {.end}
+        {.if mainContent}
+            {mainContent}
+        {.end}
+    {.end}
 {.end}

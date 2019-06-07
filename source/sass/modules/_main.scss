@@ -1,17 +1,94 @@
 .main {
-    transition: opacity $ease $base-duration;
+    transition: opacity $base-duration $ease;
 
     .is-menu-open & {
         pointer-events: none;
     }
 
-    .is-tranny &,
-    .is-menu-search & {
+    .is-tranny & {
         opacity: 0;
+    }
+
+    .is-coverpage & {
+        padding-top: 0 !important;
     }
 }
 .router {
     display: none;
+}
+
+
+
+.cover {
+    width: 100vw;
+    // height: 100vh;
+    position: relative;
+    // overflow: hidden;
+    z-index: 1;
+
+    & + .sqs-layout {
+        @include expt();
+        position: relative;
+        z-index: 2;
+    }
+}
+.cover__color {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: $black;
+}
+.cover__image {
+    left: 50%;
+    width: 115vw;
+    height: 115vh;
+    position: relative;
+    z-index: 1;
+    transform: translate3d( -50%, 0, 0 );
+    transition: filter 250ms linear, opacity 250ms ease;
+    opacity: 0;
+
+    .is-loaded & {
+        opacity: 1;
+    }
+
+    .cover--blur & {
+        filter: blur( 50px );
+    }
+
+    .cover--crisp & {
+        filter: blur( 0px );
+    }
+
+    .cover--blur.is-focus & {
+        filter: blur( 0px );
+    }
+
+    .cover--crisp.is-focus & {
+        filter: blur( 50px );
+    }
+}
+.cover__hover {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+.cover__title {
+    @include wrap();
+    @include exp2b();
+    position: absolute;
+    top: 100%;
+    transform: translate3d( 0, -100%, 0 );
+    z-index: 2;
+
+    span {
+        @include a( $black );
+        border-bottom-width: $header-underline;
+    }
 }
 
 
@@ -50,7 +127,8 @@
     }
 
     .stack__wrap {
-        @include exp3();
+        padding-top: $story-padding;
+        padding-bottom: $story-padding;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -59,14 +137,14 @@
     }
 
     .stack__image {
-        width: 470px;
+        width: 670px;
 
         @include respond( $laptop-breakpoint ) {
-            width: 320px;
+            width: 470px;
         }
 
         @include respond( $tablet-breakpoint ) {
-            width: 256px;
+            width: 320px;
         }
 
         @include respond( $break-tablet-small ) {
@@ -79,9 +157,13 @@
 
     .stack__info {
         padding-left: 200px;
+        max-width: $text-width;
+        width: sqs-calc( "100% - 670px" );
 
         h4 {
-            margin-bottom: $padding-m;
+            .shop & {
+                margin-bottom: $padding-m;
+            }
         }
 
         .h6 {
@@ -93,8 +175,16 @@
             @include a( $black );
         }
 
-        @include respond( $laptop-breakpoint ) {
+        @include respond( $break-laptop-full ) {
             padding-left: 7.8125vw;
+        }
+
+        @include respond( $laptop-breakpoint ) {
+            width: sqs-calc( "100% - 470px" );
+        }
+
+        @include respond( $tablet-breakpoint ) {
+            width: sqs-calc( "100% - 320px" );
         }
 
         @include respond( $break-tablet-small ) {
@@ -283,6 +373,14 @@
         }
     }
 }
+.issue {}
+.issue__button {
+    z-index: 1;
+}
+.issue__desc {
+    padding-top: $padding-1;
+    padding-bottom: $padding-1;
+}
 
 
 
@@ -460,8 +558,8 @@
     box-sizing: border-box;
 }
 .inp {
-    @include p();
-    @include placeholder( $grey );
+    @include m();
+    @include placeholder( $black );
     line-height: 1;
     -webkit-appearance: none;
     outline: 0;

@@ -25,4 +25,20 @@
 .navi__a {
     line-height: 1;
     @include a-flip( $black );
+
+    // .is-coverpage--collider & {
+    //     color: $white;
+    // }
+    //
+    // .is-coverpage--collider.is-hoverable &:hover {
+    //     border-bottom-color: $white;
+    // }
+    //
+    // .is-coverpage--collider.is-hoverable &.is-active:hover {
+    //     border-bottom-color: $white;
+    // }
+    //
+    // .is-coverpage--collider &.is-active {
+    //     border-bottom-color: $white;
+    // }
 }
