@@ -61,25 +61,34 @@
  * SQS Blocks
 *******************************************************************************/
 .sqs-block-horizontalrule {
+    @include exp-imp();
+
+    .sqs-block-content {
+        @include wrap();
+        @include exp();
+    }
+
     hr {
         background-color: $grey;
+        height: 1px;
     }
 }
 .sqs-block-spacer {
     .sqs-block-content {
-        height: 0 !important;
-        display: none !important;
+        @include exp();
+    }
+
+    &.spacer-text .sqs-block-content {
+        padding-bottom: 0;
     }
 }
 .sqs-block-newsletter {
     .sqs-block-content {
         @include wrap();
-        @include exp();
     }
 }
 .sqs-block-tagcloud {
     .sqs-block-content {
-        @include exp();
         @include wrap();
 
         a {
@@ -93,8 +102,6 @@
 }
 .sqs-block-summary-v2 {
     .sqs-block-content {
-        @include exp();
-
         .story--homepage & {
             padding-top: 0;
             padding-bottom: 0;
@@ -102,9 +109,7 @@
     }
 }
 .sqs-block-product {
-    .sqs-block-content {
-        @include exp2b();
-    }
+    .sqs-block-content {}
 }
 .sqs-block-audio {
     .sqs-block-content {
@@ -113,14 +118,6 @@
 }
 .sqs-block-gallery {
     .sqs-block-content {
-        .grid {
-            @include exp();
-        }
-        // .grid__item {
-        //     @include respond-min( $tablet-breakpoint ) {
-        //         padding-bottom: 0;
-        //     }
-        // }
         .slider + blockquote {
             @include wrap();
 
@@ -279,7 +276,6 @@
         > h3 {
             .story--detail & {
                 @include h5();
-                @include nbsp();
             }
 
             @include text();
@@ -307,6 +303,15 @@
         > p + ol,
         > ul + p,
         > ol + p,
+        > h1 + h1,
+        > h1 + h2,
+        > h1 + h3,
+        > h2 + h1,
+        > h2 + h2,
+        > h2 + h3,
+        > h3 + h1,
+        > h3 + h2,
+        > h3 + h3,
         > p:not( .p--boldline ) + p {
             @include expt();
         }
@@ -332,21 +337,7 @@
 /******************************************************************************
  * Vertical spacing
 *******************************************************************************/
-.sqs-block-html {
-    .sqs-block-content {
-        @include exp();
-    }
-}
-.sqs-block-image {
-    .sqs-block-content {
-        @include exp();
-    }
-}
-.sqs-block-video {
-    .sqs-block-content {
-        @include exp();
-    }
-}
+
 
 
 

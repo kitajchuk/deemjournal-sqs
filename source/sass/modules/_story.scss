@@ -4,7 +4,8 @@
 .story--alt {
     padding-top: 0;
 }
-.story--about {
+.story--about,
+.story--homepage {
     padding-bottom: $story-padding;
 }
 .story--shop,
@@ -15,21 +16,6 @@
     .grid {
         justify-content: space-between;
     }
-
-    // .grid__item {
-    //     width: $tall-width-0;
-    //     max-width: $text-width;
-    //
-    //     @include respond( $tablet-breakpoint ) {
-    //         width: 50%;
-    //         max-width: 50%;
-    //     }
-    //
-    //     @include respond( $mobile-breakpoint ) {
-    //         width: 100%;
-    //         max-width: 100%;
-    //     }
-    // }
 }
 
 
@@ -176,7 +162,6 @@
 
 
 .annotation {
-    @include exp();
     @include wrap();
     width: 100%;
 
@@ -222,7 +207,6 @@
             order: 2;
             padding-top: $padding-m;
             @include text();
-            @include expb();
         }
     }
 
@@ -346,7 +330,6 @@
     width: 100%;
     overflow: hidden;
     user-select: none;
-    @include exp();
 
     .is-capillary & {
         padding-bottom: $padding-m;
@@ -467,7 +450,6 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    @include exp();
     @include wrap();
 
     @include respond( $mobile-breakpoint ) {
@@ -499,28 +481,38 @@
 .tagcloud__label {
     padding-bottom: $padding-m;
 }
+.tagcloud-query {
+    @include exp();
+    color: $white;
+    z-index: $z_layer_intro;
+
+    &.is-active {
+        pointer-events: auto;
+    }
+}
+.tagcloud-query__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tagcloud-query__input {
+    @include placeholder( $white );
+    @include p();
+}
+.tagcloud-query__close {
+    position: relative;
+
+    ._svg {
+        fill: $white;
+    }
+
+    .is-hoverable &:hover ._svg {
+        fill: $grey;
+    }
+}
 
 
 
 .summary-v2 {
-    @include exp2();
     position: relative;
-
-    &:before {
-        content: "";
-        border-top: 1px solid $black;
-        position: absolute;
-        top: 0;
-        left: $padding-1;
-        right: $padding-1;
-
-        .story--homepage & {
-            display: none;
-        }
-
-        @include respond( $mobile-breakpoint ) {
-            left: $padding-m;
-            right: $padding-m;
-        }
-    }
 }

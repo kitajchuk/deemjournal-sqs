@@ -452,6 +452,15 @@
         padding-bottom: $expander-m;
     }
 }
+@mixin exp-imp() {
+    padding-top: $expander-1 !important;
+    padding-bottom: $expander-1 !important;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-m !important;
+        padding-bottom: $expander-m !important;
+    }
+}
 @mixin exp2() {
     padding-top: $expander-1 * 2;
     padding-bottom: $expander-1 * 2;
@@ -496,6 +505,7 @@
         @include diptych();
 
         @include respond( $tablet-breakpoint ) {
+            padding-top: $padding-m;
             width: 100%;
         }
     }

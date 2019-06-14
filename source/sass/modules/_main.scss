@@ -27,7 +27,6 @@
     z-index: 1;
 
     & + .sqs-layout {
-        @include expt();
         position: relative;
         z-index: 2;
     }
@@ -224,7 +223,7 @@
     }
 
     .image-col {
-        @include respond( $mobile-breakpoint ) {
+        @include respond( $tablet-breakpoint ) {
             padding-top: $padding-m;
         }
     }

@@ -2,7 +2,23 @@
     <div class="tagcloud__label h6">Tags:</div>
     <div class="tagcloud__list h6">
         {.repeated section items}
-            <a class="tagcloud__link" href="{url}"><span>{name}</span></a><br />
+            <a class="tagcloud__link js-tagcloud-link" href="#" data-tag="{name}"><span>{name}</span></a><br />
         {.end}
+    </div>
+</div>
+<div class="tagcloud-query js-tagcloud-query screen screen--dark">
+    <div class="tagcloud-query__label -wrap">
+        <input type="text" class="tagcloud-query__input search__input inp js-tagcloud-field" name="" placeholder="" />
+        <div class="tagcloud-query__close js-tagcloud-close">
+            <svg class="_svg _svg--x" x="0px" y="0px" viewBox="0 0 24 25" style="enable-background:new 0 0 24 25;">
+                <path d="M14.1,12.5l9.2-9.2c0.6-0.6,0.6-1.5,0-2.1c-0.6-0.6-1.5-0.6-2.1,0L12,10.4L2.8,1.2c-0.6-0.6-1.5-0.6-2.1,0c-0.6,0.6-0.6,1.5,0,2.1l9.2,9.2l-9.2,9.2c-0.6,0.6-0.6,1.5,0,2.1c0.6,0.6,1.5,0.6,2.1,0l9.2-9.2l9.2,9.2c0.6,0.6,1.5,0.6,2.1,0c0.6-0.6,0.6-1.5,0-2.1L14.1,12.5z"/>
+            </svg>
+        </div>
+    </div>
+    <div class="tagcloud-query__results results js-tagcloud-results -exp">
+        <div class="results__loading js-tagcloud-loader">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="results__content js-tagcloud-display"></div>
     </div>
 </div>
