@@ -35,6 +35,7 @@
             .is-coverpage--{id}.is-coverpage--collider .navi__a {
                 color: {@uiColor};
             }
+            .is-coverpage--{id}.is-coverpage--collider .navi__a.is-active,
             .is-coverpage--{id}.is-coverpage--collider.is-hoverable .navi__a:hover {
                 border-bottom-color: {@uiColor};
             }

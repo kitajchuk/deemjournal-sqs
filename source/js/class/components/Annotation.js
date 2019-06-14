@@ -32,11 +32,11 @@ class Annotation {
     init () {
         this.parent[ 0 ].innerHTML = annotationView( this );
 
-        if ( this.prevText.length ) {
+        if ( this.prevText.length && !this.media.length ) {
             this.prevSpace.addClass( "spacer-text" );
         }
 
-        if ( this.nextText.length ) {
+        if ( this.nextText.length && !this.media.length ) {
             this.nextSpace.addClass( "spacer-text" );
         }
     }

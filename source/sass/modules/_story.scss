@@ -1,16 +1,16 @@
 .story {
     padding-top: $story-padding;
 }
-.story--alt {
-    padding-top: 0;
-}
-.story--about,
-.story--homepage {
-    padding-bottom: $story-padding;
-}
+.story--alt,
 .story--shop,
 .story--homepage {
     padding-top: 0;
+}
+.story--about,
+.story--homepage,
+.story--contact,
+.story--stockists {
+    padding-bottom: $story-padding;
 }
 .stories {
     .grid {

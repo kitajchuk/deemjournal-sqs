@@ -229,7 +229,8 @@
 
         > p,
         > ol,
-        > ul {
+        > ul,
+        > p + blockquote {
             @include text();
         }
 
@@ -289,7 +290,6 @@
         > blockquote {
             p {
                 @include m();
-                color: $grey;
             }
         }
 
@@ -314,6 +314,9 @@
         > h3 + h3,
         > p:not( .p--boldline ) + p {
             @include expt();
+        }
+        > p.p--boldline + p[data-rte-preserve-empty] {
+            padding-top: $expander-m;
         }
 
         > p.p--listings,
