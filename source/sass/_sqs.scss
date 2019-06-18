@@ -344,7 +344,7 @@
             @include expt();
         }
         > p.p--boldline + p[data-rte-preserve-empty] {
-            padding-top: $expander-m;
+            padding-top: $expander-m / 2;
         }
 
         > p.p--listings,
@@ -435,9 +435,15 @@
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer .sqs-block-content,
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer + .sqs-row + .sqs-block-spacer .sqs-block-content,
-.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content {
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content,
+.story--about .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--contact .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--stockists .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content {
     padding-top: 0;
 }
+.story--about .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
+.story--contact .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
+.story--stockists .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child .sqs-block-content {
     padding-bottom: 0;
