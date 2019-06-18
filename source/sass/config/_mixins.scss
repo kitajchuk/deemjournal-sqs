@@ -94,7 +94,7 @@
     font-size: $h1-size-mobile;
     line-height: $h1-line;
     @include font-family-sans-medium();
-    @include otf-02();
+    @include otf-03();
 
     &.-fserif,
     .-fserif & {
@@ -113,7 +113,7 @@
     font-size: $h2-size-mobile;
     line-height: $h2-line;
     @include font-family-sans-medium();
-    @include otf-02();
+    @include otf-03();
 
     &.-fserif,
     .-fserif & {
@@ -132,7 +132,7 @@
     font-size: $h3-size-mobile;
     line-height: $h3-line;
     @include font-family-sans-medium();
-    @include otf-02();
+    @include otf-03();
 
     &.-fserif,
     .-fserif & {
@@ -151,7 +151,7 @@
     font-size: $h4-size-mobile;
     line-height: $h4-line;
     @include font-family-sans-medium();
-    @include otf-02();
+    @include otf-03();
 
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h4-size-fluid;
@@ -165,7 +165,7 @@
     font-size: $h5-size-mobile;
     line-height: $h5-line;
     @include font-family-sans-medium();
-    @include otf-02();
+    @include otf-03();
 
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h5-size-fluid;
@@ -179,7 +179,7 @@
     font-size: $h6-size-mobile;
     line-height: $h6-line;
     @include font-family-sans();
-    @include otf-02();
+    @include otf-03();
 
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h6-size-fluid;
