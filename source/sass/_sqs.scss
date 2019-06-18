@@ -75,6 +75,7 @@
 }
 .sqs-block-spacer {
     .sqs-block-content {
+        height: 0 !important;
         @include exp();
     }
 
@@ -134,12 +135,34 @@
         @include wrap();
         text-align: right;
 
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .media__cap {
+            @include respond( $mobile-breakpoint ) {
+                @include wrap();
+            }
+        }
+
         .media__wrap {
             @include media();
         }
     }
 
     .media--tall {
+        @include respond( $mobile-breakpoint ) {
+            @include wrap();
+        }
+
+        .media__cap {
+            @include respond( $mobile-breakpoint ) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
         .media__wrap {
             @include media-tall();
         }
@@ -217,6 +240,11 @@
     .sqs-block-content {
         @include wrap();
         text-align: right;
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 
     .media__wrap {
@@ -338,24 +366,10 @@
 
 
 /******************************************************************************
- * Vertical spacing
-*******************************************************************************/
-
-
-
-
-/******************************************************************************
  * Cover specific
 *******************************************************************************/
-.sqs-layout > .sqs-row > .col > .sqs-block-html:first-child {
-    h1, h2, h3 {
-        @include sqs-h123();
 
-        &:before {
-            display: none;
-        }
-    }
-}
+// 2 Column cover layouts...
 .sqs-layout > .sqs-row > .col > .sqs-row:first-child {
     justify-content: space-between;
     @include wrap();
@@ -379,7 +393,6 @@
             padding-right: 0;
 
             > h1, > h2, > h3 {
-                @include exp();
                 @include sqs-h123();
 
                 &:before {
@@ -412,6 +425,31 @@
         .sqs-block-content {
             padding-left: 0;
             padding-right: 0;
+        }
+    }
+}
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer + .sqs-row + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content {
+    padding-top: 0;
+}
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child .sqs-block-content {
+    padding-bottom: 0;
+    padding-top: $story-padding;
+}
+.sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
+.sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
+    h1, h2, h3 {
+        @include sqs-h123();
+
+        &:before {
+            display: none;
         }
     }
 }

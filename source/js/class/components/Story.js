@@ -64,7 +64,6 @@ class Story {
     initCover () {
         this.coverRow.find( ".col > .sqs-block-html" ).parent().addClass( "text-col" );
         this.coverRow.find( ".col > .sqs-block-image" ).parent().addClass( "image-col" );
-        this.element.addClass( "story--alt" );
     }
 
 

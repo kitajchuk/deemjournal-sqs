@@ -54,7 +54,8 @@
                 border-color: {@uiColor};
             }
             .cta--global ._button:before,
-            ._audio__global ._audio__controls:before {
+            ._audio__global ._audio__controls:before,
+            .sqs-block-horizontalrule hr {
                 background-color: {@uiColor};
             }
         {.end}

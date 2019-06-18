@@ -553,7 +553,7 @@
         display: block;
     }
 
-    @include respond( $laptop-breakpoint ) {
+    @include respond( $break-laptop-full ) {
         max-width: $text-width - 200px;
     }
 }
@@ -566,6 +566,10 @@
     display: inline-block;
     max-width: $text-width;
     width: 100%;
+
+    @include respond( $break-laptop-full ) {
+        max-width: $text-width - 200px;
+    }
 }
 @mixin diptych() {
     width: $tall-width-0;
