@@ -7,7 +7,7 @@ let _initialized = false;
 
 // Session Storage
 let _cache = {};
-const _access = "app-cache";
+const _access = "deem-cache";
 const _session = window.sessionStorage;
 
 
@@ -204,6 +204,24 @@ Store.crumb = (function () {
  *
  * @public
  * @static
+ * @member ss_cvr
+ * @memberof Store
+ * @description ss_cvr Identify individual visitors and track each visitor's sessions on the site
+ *
+ */
+Store.ss_cvr = (function () {
+    const ret = RegExp( `(^|; )${encodeURIComponent( "ss_cvr" )}=([^;]*)` ).exec( document.cookie );
+
+    return ret ? ret[ 2 ] : null;
+
+})();
+
+
+
+/**
+ *
+ * @public
+ * @static
  * @member isStorageSupported
  * @memberof Store
  * @description Boolean to test local/session storage support
@@ -213,8 +231,8 @@ Store.isStorageSupported = (function () {
     let ret = true;
 
     try {
-        _session.setItem( "app-test", 1 );
-        _session.removeItem( "app-test" );
+        _session.setItem( "deem-test", 1 );
+        _session.removeItem( "deem-test" );
 
     } catch ( err ) {
         ret = false;
