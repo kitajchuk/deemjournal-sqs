@@ -14,7 +14,8 @@
     transition: transform $base-duration $ease-menu-1,
                 opacity $base-duration ease $base-duration,
                 padding-top $base-duration $ease,
-                padding-bottom $base-duration $ease;
+                padding-bottom $base-duration $ease,
+                background-color $base-duration $ease;
 
     .is-site-intro & {
         opacity: 0;
@@ -34,6 +35,7 @@
         padding-bottom: $expander-m;
     }
 
+    .is-stack &,
     .is-coverpage--collider & {
         background-color: transparent;
     }

@@ -1,6 +1,7 @@
 import * as core from "../../core";
 import $ from "properjs-hobo";
 import issueView from "../../views/issue";
+import Stack from "./Stack";
 
 /**
  *
@@ -26,6 +27,7 @@ class Issue {
 
     init () {
         this.element[ 0 ].innerHTML = issueView( this );
+        this.stack = new Stack( this.element.find( ".js-stack" ) );
         core.util.loadImages( this.element.find( core.config.lazyImageSelector ), core.util.noop );
     }
 
@@ -49,7 +51,11 @@ class Issue {
     }
 
 
-    destroy () {}
+    destroy () {
+        if ( this.stack ) {
+            this.stack.destroy();
+        }
+    }
 }
 
 

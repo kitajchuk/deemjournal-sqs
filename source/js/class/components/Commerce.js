@@ -5,6 +5,7 @@ import shopView from "../../views/shop";
 import productView from "../../views/product";
 import Controllers from "../Controllers";
 import Store from "../../core/Store";
+import Stack from "./Stack";
 
 
 /*
@@ -150,6 +151,7 @@ class Commerce {
         } else {
             window.Squarespace.initializeCommerce( window.Y );
             this.element[ 0 ].innerHTML = this.view( this );
+            this.stack = new Stack( this.element.find( ".js-stack" ) );
         }
     }
 
@@ -242,6 +244,10 @@ class Commerce {
 
     destroy () {
         this.controllers.destroy();
+
+        if ( this.stack ) {
+            this.stack.destroy();
+        }
     }
 }
 

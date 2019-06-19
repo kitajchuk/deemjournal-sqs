@@ -46,9 +46,25 @@ export default ( instance ) => {
     return `
         ${isGridView ? getGridView() : getStackView()}
         ${subItem ? `
-            <div class="stack stack--sub">
+            <div class="stack stack--sub js-stack" id="${subItem.id}">
+                <style class="js-stack-style">
+                    html.is-stack--${subItem.id} {
+                        background-color: ${window.Y.Squarespace.Template.getTweakValue( "subModuleColor" )};
+                    }
+                    .is-stack--${subItem.id} .navi__a {
+                        color: #fff;
+                    }
+                    .is-stack--${subItem.id} .navi__a.is-active,
+                    .is-stack--${subItem.id}.is-hoverable .navi__a:hover {
+                        border-bottom-color: #fff;
+                    }
+                    .is-stack--${subItem.id} ._svg--list,
+                    .is-stack--${subItem.id} ._svg--logo {
+                        fill: #fff;
+                    }
+                </style>
                 <div class="stack__wrap">
-                    <img class="stack__image image js-lazy-image" data-img-src="${subItem.assetUrl}" data-variants="${subItem.systemDataVariants}" data-original-size="${subItem.originalSize}" />
+                    <img class="stack__image js-lazy-image" data-img-src="${subItem.assetUrl}" data-variants="${subItem.systemDataVariants}" data-original-size="${subItem.originalSize}" />
                     <div class="stack__info">
                         <h4>${subItem.title}</h4>
                         <a class="h6" href="${subItem.fullUrl}">${subItem.excerpt}</a>
