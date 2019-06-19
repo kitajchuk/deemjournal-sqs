@@ -90,9 +90,8 @@ const navi = {
 
     onScrollDown () {
         const scrollY = this.scroller.getScrollY();
-        const rect = this.header[ 0 ].getBoundingClientRect();
 
-        if ( scrollY >= rect.height ) {
+        if ( scrollY > 0 ) {
             core.dom.html.removeClass( "is-scroll-up" ).addClass( "is-scroll-down" );
             this.handleScroll();
         }
@@ -101,9 +100,9 @@ const navi = {
 
     handleScroll () {
         const scrollY = this.scroller.getScrollY();
-        const rect = this.header[ 0 ].getBoundingClientRect();
+        // const rect = this.header[ 0 ].getBoundingClientRect();
 
-        if ( scrollY > rect.height ) {
+        if ( scrollY > 0 ) {
             core.dom.html.addClass( "is-header-small" );
 
         } else {

@@ -591,6 +591,16 @@
 
 
 
+@mixin intro-content() {
+    transition: opacity $base-duration ease $base-duration;
+
+    .is-site-intro & {
+        opacity: 0;
+    }
+}
+
+
+
 /******************************************************************************
  * Media queries
  *

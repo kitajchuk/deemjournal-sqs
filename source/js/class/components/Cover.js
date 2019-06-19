@@ -30,6 +30,7 @@ class Cover {
         core.dom.html.addClass( "is-coverpage" );
         core.util.loadImages( this.image, core.util.noop ).on( "done", () => {
             this.element.addClass( "is-loaded" );
+            core.dom.html.removeClass( "is-site-intro" );
         });
     }
 

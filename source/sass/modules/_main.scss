@@ -21,9 +21,7 @@
 
 .cover {
     width: 100vw;
-    // height: 100vh;
     position: relative;
-    // overflow: hidden;
     z-index: 1;
 
     & + .sqs-layout {
@@ -46,7 +44,7 @@
     position: relative;
     z-index: 1;
     transform: translate3d( -50%, 0, 0 );
-    transition: filter 250ms linear, opacity 250ms ease;
+    transition: filter 250ms linear, opacity $base-duration ease;
     opacity: 0;
 
     .is-loaded & {
@@ -83,6 +81,12 @@
     top: 100%;
     transform: translate3d( 0, -100%, 0 );
     z-index: 2;
+    transition: opacity $base-duration ease $base-duration;
+    opacity: 0;
+
+    .is-loaded & {
+        opacity: 1;
+    }
 
     span {
         @include a( $black );
@@ -96,6 +100,8 @@
  * Commerce
 *******************************************************************************/
 .shop {
+    @include intro-content();
+
     .grid {
         @include exp();
         @include wrap();

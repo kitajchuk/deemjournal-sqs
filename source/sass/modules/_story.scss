@@ -1,7 +1,12 @@
 .story {
     padding-bottom: $story-padding;
 }
+.story:not( .story--homepage ) {
+    @include intro-content();
+}
 .stories {
+    @include intro-content();
+
     .grid {
         justify-content: space-between;
     }
