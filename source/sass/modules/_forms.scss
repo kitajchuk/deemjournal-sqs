@@ -1,0 +1,45 @@
+/******************************************************************************
+ * Buttons
+*******************************************************************************/
+.btn {
+    @include m();
+    background-color: transparent;
+    line-height: 1;
+    color: $grey;
+    cursor: pointer;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.inp {
+    @include m();
+    @include placeholder( $black );
+    line-height: 1;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid $black;
+    background-color: transparent;
+    color: $black;
+    padding: 0;
+    width: 25.78125vw;
+    max-width: 660px;
+    min-width: 320px;
+    height: $input-height;
+    border-radius: 0;
+    display: inline-block;
+    vertical-align: middle;
+    transition: color $base-duration $ease;
+
+    &.is-invalid {
+        color: $red;
+    }
+}

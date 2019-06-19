@@ -15,7 +15,7 @@
 }
 .media__cap {
     text-align: left;
-    padding-top: 10px;
+    padding-top: 20px;
     max-width: $text-width;
 }
 
@@ -256,5 +256,104 @@
     @include respond( $mobile-breakpoint ) {
         padding-right: $padding-m;
         padding-bottom: $padding-m;
+    }
+}
+
+
+
+/******************************************************************************
+ * Image Layout: Card
+*******************************************************************************/
+._card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include wrap();
+}
+._card--left {
+    ._card__media {
+        order: 1;
+
+        @include respond( $mobile-breakpoint ) {
+            order: 2;
+        }
+    }
+    ._card__title {
+        order: 2;
+
+        @include respond( $mobile-breakpoint ) {
+            order: 1;
+        }
+    }
+}
+._card--right {
+    ._card__media {
+        order: 2;
+    }
+    ._card__title {
+        order: 1;
+    }
+}
+._card__title {
+    @include diptych();
+    width: sqs-calc( "100% - #{$tall-width-0}" );
+
+    h1, h3, h3 {
+        @include nbsp();
+    }
+
+    &:first-child {
+        @include wrapr();
+
+        @include respond( $mobile-breakpoint ) {
+            padding-right: 0;
+        }
+    }
+
+    &:last-child {
+        @include wrapl();
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+        }
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        width: 100%;
+        padding-bottom: $padding-m;
+    }
+}
+._card__media {
+    @include diptych();
+
+    @include respond( $mobile-breakpoint ) {
+        width: 100%;
+    }
+}
+
+
+
+/******************************************************************************
+ * Gallery Grid variant: Diptych
+*******************************************************************************/
+.diptych {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    @include wrap();
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+.diptych__item {
+    @include diptych();
+
+    @include respond( $mobile-breakpoint ) {
+        width: 100%;
+        padding: 0 0 $padding-m 0;
     }
 }

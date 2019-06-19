@@ -1,0 +1,42 @@
+.tagcloud {
+    @include text();
+}
+.tagcloud__link {
+    border-bottom: 0;
+
+    .h6 & {
+        border-bottom: 0;
+    }
+}
+.tagcloud__label {
+    padding-bottom: $padding-m;
+}
+.tagcloud-query {
+    @include exp();
+    color: $white;
+    z-index: $z_layer_intro;
+
+    &.is-active {
+        pointer-events: auto;
+    }
+}
+.tagcloud-query__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tagcloud-query__input {
+    @include placeholder( $white );
+    @include p();
+}
+.tagcloud-query__close {
+    position: relative;
+
+    ._svg {
+        fill: $white;
+    }
+
+    .is-hoverable &:hover ._svg {
+        fill: $grey;
+    }
+}

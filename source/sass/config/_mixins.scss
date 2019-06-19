@@ -408,6 +408,114 @@
         display: none;
     }
 }
+@mixin text-content() {
+    > p,
+    > ol,
+    > ul,
+    > p + blockquote {
+        @include text();
+    }
+
+    > p  {
+        @include nbsp();
+    }
+
+    > ul > li,
+    > ol > li {
+        @include p();
+        @include nbsp();
+
+        > p {
+            display: inline-block;;
+        }
+    }
+
+    > h1 {
+        .story--detail & {
+            @include h3();
+            @include nbsp();
+        }
+
+        @include sqs-body-hflip();
+
+        > a {
+            border-bottom-width: $header-underline;
+        }
+    }
+
+    > h2 {
+        .story--detail & {
+            @include h4();
+            @include nbsp();
+        }
+
+        @include sqs-body-hflip();
+
+        > a {
+            border-bottom-width: $header-underline;
+        }
+    }
+
+    > h3 {
+        .story--detail & {
+            @include h5();
+        }
+
+        @include text();
+        @include sqs-body-hflip();
+
+        > a {
+            border-bottom-width: $header-underline;
+        }
+    }
+
+    > blockquote {
+        p {
+            @include m();
+        }
+    }
+
+    > h1 + p,
+    > h2 + p,
+    > h3 + p,
+    > p + h1,
+    > p + h2,
+    > p + h3,
+    > p + ul,
+    > p + ol,
+    > ul + p,
+    > ol + p,
+    > h1 + h1,
+    > h1 + h2,
+    > h1 + h3,
+    > h2 + h1,
+    > h2 + h2,
+    > h2 + h3,
+    > h3 + h1,
+    > h3 + h2,
+    > h3 + h3,
+    > p:not( .p--boldline ) + p {
+        @include expt();
+    }
+
+    > p + p[data-rte-preserve-empty] {
+        padding-top: $expander-m / 2;
+    }
+
+    > p.p--listings,
+    > p.p--boldline + p {
+        &:before {
+            display: none;
+        }
+    }
+
+    > ul li > p,
+    > ol li > p {}
+
+    a {
+        @include a( $black );
+    }
+}
 
 
 /******************************************************************************

@@ -1,0 +1,47 @@
+.slider {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+
+    .is-capillary & {
+        padding-bottom: $padding-m;
+    }
+}
+.slider__wrap {
+    position: relative;
+}
+.slider__item {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: $padding-1;
+    white-space: normal;
+    cursor: pointer;
+
+    .media {
+        pointer-events: none;
+    }
+
+    .image {
+        width: $slider-width;
+        max-width: $slider-width;
+
+        &[data-imageloader] {
+            width: auto;
+            max-width: 100%;
+            height: $slider-height;
+        }
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        margin-left: $padding-m;
+    }
+
+    &:last-child {
+        margin-right: $padding-1;
+
+        @include respond( $mobile-breakpoint ) {
+            margin-right: $padding-m;
+        }
+    }
+}

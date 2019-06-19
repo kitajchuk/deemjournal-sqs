@@ -1,0 +1,91 @@
+.annotation {
+    @include wrap();
+    width: 100%;
+
+    blockquote {
+        p {
+            @include m();
+            color: $black;
+        }
+    }
+}
+.annotation--media {
+    blockquote {
+        p {
+            @include h6();
+        }
+    }
+}
+.annotation__wrap {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.annotation__note {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    blockquote {
+        max-width: 320px;
+
+        p + p {
+            padding-top: $padding-m;
+        }
+    }
+
+    .annotation--text & {
+        @include respond( $break-tablet-full ) {
+            position: relative;
+            left: auto;
+            top: auto;
+            order: 2;
+            padding-top: $padding-m;
+            @include text();
+        }
+    }
+
+    .annotation--media & {
+        blockquote {
+            max-width: 400px;
+        }
+
+        @include respond( $tablet-breakpoint ) {
+            position: relative;
+            left: auto;
+            top: auto;
+            @include expb();
+        }
+    }
+}
+.annotation__text {
+    @include text();
+    @include text-content();
+
+    .annotation--text & {
+        @include respond( $break-tablet-full ) {
+            order: 1;
+        }
+    }
+}
+.annotation__media {
+    width: 100%;
+    text-align: right;
+
+    .media {
+        width: $slider-width;
+        display: inline-block;
+
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            width: 100vw;
+            margin-left: -$padding-m;
+            margin-right: -$padding-m;
+        }
+    }
+}

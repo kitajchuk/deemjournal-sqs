@@ -1,0 +1,127 @@
+.grid {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-left: $padding-1 / 2;
+    padding-right: $padding-1 / 2;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m;
+        padding-right: $padding-m;
+    }
+}
+.grid--length-2 {
+    justify-content: space-between;
+
+    .grid__item {
+        width: $tall-width-0;
+        max-width: $text-width;
+        box-sizing: content-box;
+
+        @include respond( $tablet-breakpoint ) {
+            width: 50%;
+            max-width: 50%;
+            box-sizing: border-box;
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+.grid__item {
+    padding-left: $padding-1 / 2;
+    padding-right: $padding-1 / 2;
+    width: 33.333333%;
+    @include exp2b();
+
+    @include respond( $tablet-breakpoint ) {
+        width: 50%;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.grid__info {
+    padding-top: $padding-m / 2;
+}
+.grid__title {
+    @include p();
+    @include font-family-sans-medium();
+
+    @include respond( $mobile-breakpoint ) {
+        @include p();
+        @include font-family-sans-medium();
+    }
+}
+.grid__meta {
+    padding-top: $padding-m / 2;
+    display: block;
+
+    span {
+        @include a( $black );
+    }
+}
+
+
+
+.pinned {
+    @include exp2b();
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .pinned__info {
+        padding-left: $padding-1 / 2;
+        padding-right: $padding-1 / 2;
+        width: 33.333333%;
+
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+            padding-top: $padding-m / 2;
+            order: 2;
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .pinned__image {
+        padding-left: $padding-1 / 2;
+        padding-right: $padding-1 / 2;
+        width: 66.666666%;
+
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+            order: 1;
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .grid__title {
+        @include h5();
+        padding-right: $padding-1;
+
+        @include respond( $tablet-breakpoint ) {
+            padding-right: 0;
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            @include p();
+            @include font-family-sans-medium();
+        }
+    }
+}

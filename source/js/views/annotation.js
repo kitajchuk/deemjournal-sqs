@@ -11,7 +11,7 @@ export default ( instance ) => {
                     </div>
                 ` : `
                     <div class="annotation__text">
-                        ${instance.text[ 0 ].outerHTML}
+                        ${instance.text[ 0 ].innerHTML}
                     </div>
                 `}
             </div>

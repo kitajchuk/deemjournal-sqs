@@ -16,7 +16,7 @@ class Annotation {
     constructor ( annotation, data, i ) {
         this.annotation = annotation;
         this.parent = this.annotation.closest( ".sqs-row" );
-        this.text = this.parent.find( ".col:nth-child(2) .sqs-block-content > p, .col:nth-child(2) .sqs-block-content > blockquote" );
+        this.text = this.parent.find( ".col:nth-child(2) .sqs-block-content" );
         this.media = this.parent.find( ".js-media" );
         this.prevSpace = this.parent.prev( ".sqs-block-spacer" );
         this.nextSpace = this.parent.next( ".sqs-block-spacer" );

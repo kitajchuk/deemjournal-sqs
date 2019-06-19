@@ -1,0 +1,64 @@
+.cta {
+    width: 100%;
+}
+.cta--static {
+    @include wrap();
+}
+.cta--global {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-left: $padding-1;
+    padding-bottom: $padding-1;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d( 0, 100%, 0 );
+    transition: transform $ease-menu-1 $base-duration,
+                opacity $ease-menu-1 $base-duration;
+    z-index: $z_layer_menu;
+
+    .is-cta-offscreen & {
+        opacity: 1;
+        transform: translate3d( 0, 0, 0 );
+        pointer-events: auto;
+    }
+
+    .is-cta-offscreen.is-cta-collider & {
+        opacity: 0;
+        transform: translate3d( 0, 100%, 0 );
+        pointer-events: none;
+    }
+
+    .is-menu-open & {
+        opacity: 0;
+        transform: translate3d( 0, 100%, 0 );
+        pointer-events: none;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m;
+        padding-bottom: $padding-m;
+    }
+
+    ._button {
+        color: $white;
+    }
+    ._button:before {
+        background-color: $black;
+    }
+}
+.cta__wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.cta__text {
+    padding-left: $padding-m;
+
+    p {
+        @include h6();
+        color: $black;
+    }
+}

@@ -1,0 +1,94 @@
+/******************************************************************************
+ * Cover specific
+*******************************************************************************/
+
+// 2 Column cover layouts...
+.sqs-layout > .sqs-row > .col > .sqs-row:first-child {
+    justify-content: space-between;
+    @include wrap();
+    @include p1-cols();
+
+    .sqs-block-image {
+        .sqs-block-content {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .media {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .sqs-block-html {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
+
+            > h1, > h2, > h3 {
+                @include sqs-h123();
+
+                &:before {
+                    display: none;
+                }
+
+                @include respond( $mobile-breakpoint ) {
+                    padding-top: 0;
+                }
+            }
+
+            blockquote {
+                p {
+                    color: $black;
+                    @include h6();
+                }
+
+                p + p {
+                    padding-top: $padding-m;
+                }
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                padding-top: 0;
+            }
+        }
+    }
+
+    .sqs-block-audio {
+        .sqs-block-content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer + .sqs-row + .sqs-block-spacer .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html + .sqs-block-spacer + .sqs-block-audio + .sqs-block-spacer .sqs-block-content,
+.story--about .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--contact .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content,
+.story--stockists .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html + .sqs-block-spacer .sqs-block-content {
+    padding-top: 0;
+}
+.story--about .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
+.story--contact .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
+.story--stockists .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child .sqs-block-content,
+.story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child .sqs-block-content {
+    padding-bottom: 0;
+    padding-top: $story-padding;
+}
+.sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
+.sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
+    h1, h2, h3 {
+        @include sqs-h123();
+
+        &:before {
+            display: none;
+        }
+    }
+}

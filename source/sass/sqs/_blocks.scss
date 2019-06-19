@@ -1,0 +1,200 @@
+/******************************************************************************
+ * SQS Blocks
+*******************************************************************************/
+.sqs-block-horizontalrule {
+    @include exp-imp();
+
+    .sqs-block-content {
+        @include wrap();
+        @include exp();
+    }
+
+    hr {
+        background-color: $grey;
+        height: 1px;
+    }
+}
+.sqs-block-spacer {
+    .sqs-block-content {
+        height: 0 !important;
+        @include exp();
+    }
+
+    &.spacer-text .sqs-block-content {
+        padding-bottom: 0;
+    }
+}
+.sqs-block-newsletter {
+    .sqs-block-content {
+        @include wrap();
+    }
+}
+.sqs-block-tagcloud {
+    .sqs-block-content {
+        @include wrap();
+
+        a {
+            @include nbsp();
+
+            span {
+                @include a( $black );
+            }
+        }
+    }
+}
+.sqs-block-summary-v2 {
+    .sqs-block-content {
+        .story--homepage & {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+.sqs-block-product {
+    .sqs-block-content {}
+}
+.sqs-block-audio {
+    .sqs-block-content {
+        @include wrap();
+    }
+}
+.sqs-block-gallery {
+    .sqs-block-content {
+        .slider + blockquote {
+            @include wrap();
+
+            p {
+                @include m();
+                width: 100%;
+                max-width: $text-width;
+            }
+        }
+    }
+}
+.sqs-block-image {
+    .media {
+        @include wrap();
+        text-align: right;
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .media__cap {
+            @include respond( $mobile-breakpoint ) {
+                @include wrap();
+            }
+        }
+
+        .media__wrap {
+            @include media();
+        }
+    }
+
+    .media--tall {
+        @include respond( $mobile-breakpoint ) {
+            @include wrap();
+        }
+
+        .media__cap {
+            @include respond( $mobile-breakpoint ) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .media__wrap {
+            @include media-tall();
+        }
+    }
+
+    .media--card {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .media--stretch {
+        .media__wrap {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+
+    .sqs-block-content {
+        h1 {
+            @include h3();
+            @include sqs-body-hflip();
+
+            @include respond( $break-tablet-medium ) {
+                @include h4();
+            }
+
+            @include respond( $break-tablet-small ) {
+                @include h5();
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                @include h3();
+            }
+        }
+
+        h2 {
+            @include h4();
+            @include sqs-body-hflip();
+
+            @include respond( $break-tablet-medium ) {
+                @include h5();
+            }
+
+            @include respond( $break-tablet-small ) {
+                @include p();
+                @include font-family-sans-medium();
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                @include h4();
+            }
+        }
+
+        h3 {
+            @include h5();
+            @include sqs-body-hflip();
+
+            @include respond( $break-tablet-medium ) {
+                @include p();
+                @include font-family-sans-medium();
+            }
+
+            @include respond( $break-tablet-small ) {
+                @include h6();
+                @include font-family-sans-semibold();
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                @include h5();
+            }
+        }
+    }
+}
+.sqs-block-video {
+    .sqs-block-content {
+        @include wrap();
+        text-align: right;
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .media__wrap {
+        @include media();
+    }
+}
+.sqs-block-html {
+    .sqs-block-content {
+        @include wrap();
+        @include text-content();
+    }
+}
