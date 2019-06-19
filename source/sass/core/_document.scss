@@ -12,6 +12,10 @@ html {
     &.is-menu-open {
         overflow: hidden;
     }
+
+    &.is-scrolling {
+        pointer-events: none;
+    }
 }
 body {
     // OpenType features

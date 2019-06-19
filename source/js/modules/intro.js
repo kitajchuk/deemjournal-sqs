@@ -1,6 +1,5 @@
 import * as core from "../core";
 import router from "../router";
-// import Controller from "properjs-controller";
 
 
 /**
@@ -18,7 +17,7 @@ const intro = {
 
     teardown () {
         this.element.removeClass( "is-active" );
-        core.emitter.fire( "app--intro-teardown" );
+        core.emitter.fire( "app--intro" );
 
         if ( router.state.now.view !== core.config.homepage ) {
             core.dom.html.removeClass( "is-site-intro" );

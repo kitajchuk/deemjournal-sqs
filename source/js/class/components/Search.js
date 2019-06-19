@@ -5,8 +5,6 @@ import viewSearchTags from "../../views/search-tags";
 import viewSearchResults from "../../views/search-results";
 import Store from "../../core/Store";
 import debounce from "properjs-debounce";
-import ResizeController from "properjs-resizecontroller";
-// import AnimateController from "../controllers/AnimateController";
 import ImageController from "../controllers/ImageController";
 
 
@@ -76,10 +74,9 @@ class Search {
             }
         });
 
-        this.resizer = new ResizeController();
-        this.resizer.on( "resize", () => {
-            this.doResize();
-        });
+        this.__appResize = this.doResize.bind( this );
+
+        core.emitter.on( "app--resize", this.__appResize );
     }
 
 
@@ -147,10 +144,7 @@ class Search {
         this.imageController = new ImageController( this.display.find( core.config.lazyImageSelector ) );
         this.imageController.on( "preloaded", () => {
             this.display.find( ".js-search-grid" ).addClass( "is-active" );
-            // this.animController.start();
         });
-        // this.imageController.$preload.closest( core.config.lazyAnimSelector ).removeClass( "js-lazy-anim" );
-        // this.animController = new AnimateController( this.display );
     }
 
 
@@ -282,13 +276,7 @@ class Search {
 
 
     destroy () {
-        if ( this.resizer ) {
-            this.resizer.destroy();
-        }
-
-        // if ( this.animController ) {
-        //     this.animController.destroy();
-        // }
+        core.emitter.off( "app--resize", this.__appResize );
 
         if ( this.imageController ) {
             this.imageController.destroy();

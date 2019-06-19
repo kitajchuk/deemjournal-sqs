@@ -343,7 +343,7 @@
         > p:not( .p--boldline ) + p {
             @include expt();
         }
-        > p.p--boldline + p[data-rte-preserve-empty] {
+        > p + p[data-rte-preserve-empty] {
             padding-top: $expander-m / 2;
         }
 

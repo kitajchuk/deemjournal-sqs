@@ -1,8 +1,6 @@
 import * as core from "../core";
 import $ from "properjs-hobo";
 import { TweenLite, Power3 } from "gsap/TweenMax";
-import ResizeController from "properjs-resizecontroller";
-import ScrollController from "properjs-scrollcontroller";
 import Search from "../class/components/Search";
 
 
@@ -32,8 +30,6 @@ const navi = {
         this.filters = this.menu.find( ".js-search-filters" );
         this.main = core.dom.main;
         this.header = core.dom.body.find( ".js-header" );
-        this.resizer = new ResizeController();
-        this.scroller = new ScrollController();
         this.searchComponent = new Search( this.search, this.search.data() );
         this.bind();
         this.onResize();
@@ -69,9 +65,9 @@ const navi = {
             }
         });
 
-        this.resizer.on( "resize", this.onResize.bind( this ) );
-        this.scroller.on( "scrollup", this.onScrollUp.bind( this ) );
-        this.scroller.on( "scrolldown", this.onScrollDown.bind( this ) );
+        core.emitter.on( "app--resize", this.onResize.bind( this ) );
+        core.emitter.on( "app--scrollup", this.onScrollUp.bind( this ) );
+        core.emitter.on( "app--scrolldown", this.onScrollDown.bind( this ) );
     },
 
 
@@ -82,26 +78,17 @@ const navi = {
     },
 
 
-    onScrollUp () {
-        core.dom.html.removeClass( "is-scroll-down" ).addClass( "is-scroll-up" );
-        this.handleScroll();
+    onScrollUp ( scrollY ) {
+        this.handleScroll( scrollY );
     },
 
 
-    onScrollDown () {
-        const scrollY = this.scroller.getScrollY();
-
-        if ( scrollY > 0 ) {
-            core.dom.html.removeClass( "is-scroll-up" ).addClass( "is-scroll-down" );
-            this.handleScroll();
-        }
+    onScrollDown ( scrollY ) {
+        this.handleScroll( scrollY );
     },
 
 
-    handleScroll () {
-        const scrollY = this.scroller.getScrollY();
-        // const rect = this.header[ 0 ].getBoundingClientRect();
-
+    handleScroll ( scrollY ) {
         if ( scrollY > 0 ) {
             core.dom.html.addClass( "is-header-small" );
 

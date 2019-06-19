@@ -1,7 +1,5 @@
 import * as core from "../../core";
-// import $ from "properjs-hobo";
 import audioView from "../../views/audio";
-import ScrollController from "properjs-scrollcontroller";
 
 
 /**
@@ -43,30 +41,34 @@ class Audio {
     }
 
 
-    bind () {
-        this.scroller = new ScrollController();
-        this.scroller.on( "scroll", () => {
-            const bounds = this.element[ 0 ].getBoundingClientRect();
+    doScroll () {
+        const bounds = this.element[ 0 ].getBoundingClientRect();
 
-            if ( bounds.bottom < 0 ) {
-                this.element.addClass( "is-audio-offscreen" );
+        if ( bounds.bottom < 0 ) {
+            this.element.addClass( "is-audio-offscreen" );
+
+        } else {
+            this.element.removeClass( "is-audio-offscreen" );
+        }
+
+        if ( this.dropout.length ) {
+            const collider = this.dropout[ 0 ].getBoundingClientRect();
+            const globalBounds = this.global[ 0 ].getBoundingClientRect();
+
+            if ( collider.y < globalBounds.y ) {
+                this.element.addClass( "is-audio-collider" );
 
             } else {
-                this.element.removeClass( "is-audio-offscreen" );
+                this.element.removeClass( "is-audio-collider" );
             }
+        }
+    }
 
-            if ( this.dropout.length ) {
-                const collider = this.dropout[ 0 ].getBoundingClientRect();
-                const globalBounds = this.global[ 0 ].getBoundingClientRect();
 
-                if ( collider.y < globalBounds.y ) {
-                    this.element.addClass( "is-audio-collider" );
+    bind () {
+        this.__appScroll = this.doScroll.bind( this );
 
-                } else {
-                    this.element.removeClass( "is-audio-collider" );
-                }
-            }
-        });
+        core.emitter.on( "app--scroll", this.__appScroll );
 
         this.audioPlayback.on( "click", () => {
             this.togglePP();
@@ -131,9 +133,7 @@ class Audio {
 
 
     destroy () {
-        if ( this.scroller ) {
-            this.scroller.destroy();
-        }
+        core.emitter.off( "app--scroll", this.__appScroll );
     }
 }
 

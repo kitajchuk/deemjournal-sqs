@@ -17,7 +17,7 @@ let _instance = null;
 class Metrics {
     constructor () {
         if ( !_instance ) {
-            core.emitter.on( "app--metrics-pageview", this.pushTrack.bind( this ) );
+            core.emitter.on( "app--tracker", this.pushTrack.bind( this ) );
 
             core.log( "Metrics initialized" );
 

@@ -1,7 +1,5 @@
 import * as core from "../../core";
-// import $ from "properjs-hobo";
 import ctaView from "../../views/cta";
-import ScrollController from "properjs-scrollcontroller";
 
 
 /**
@@ -25,30 +23,34 @@ class CTA {
     }
 
 
-    bind () {
-        this.scroller = new ScrollController();
-        this.scroller.on( "scroll", () => {
-            const bounds = this.parent[ 0 ].getBoundingClientRect();
+    doScroll () {
+        const bounds = this.parent[ 0 ].getBoundingClientRect();
 
-            if ( bounds.bottom < 0 ) {
-                this.parent.addClass( "is-cta-offscreen" );
+        if ( bounds.bottom < 0 ) {
+            this.parent.addClass( "is-cta-offscreen" );
+
+        } else {
+            this.parent.removeClass( "is-cta-offscreen" );
+        }
+
+        if ( this.dropout.length ) {
+            const collider = this.dropout[ 0 ].getBoundingClientRect();
+            const ctaBounds = this.cta[ 0 ].getBoundingClientRect();
+
+            if ( collider.y < ctaBounds.y ) {
+                this.parent.addClass( "is-cta-collider" );
 
             } else {
-                this.parent.removeClass( "is-cta-offscreen" );
+                this.parent.removeClass( "is-cta-collider" );
             }
+        }
+    }
 
-            if ( this.dropout.length ) {
-                const collider = this.dropout[ 0 ].getBoundingClientRect();
-                const ctaBounds = this.cta[ 0 ].getBoundingClientRect();
 
-                if ( collider.y < ctaBounds.y ) {
-                    this.parent.addClass( "is-cta-collider" );
+    bind () {
+        this.__appScroll = this.doScroll.bind( this );
 
-                } else {
-                    this.parent.removeClass( "is-cta-collider" );
-                }
-            }
-        });
+        core.emitter.on( "app--scroll", this.__appScroll );
     }
 
 
@@ -58,7 +60,9 @@ class CTA {
     }
 
 
-    destroy () {}
+    destroy () {
+        core.emitter.off( "app--scroll", this.__appScroll );
+    }
 }
 
 

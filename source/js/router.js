@@ -1,5 +1,4 @@
 import $ from "properjs-hobo";
-import Controller from "properjs-controller";
 import PageController from "properjs-pagecontroller";
 import Controllers from "./class/Controllers";
 import * as core from "./core";
@@ -25,7 +24,6 @@ const router = {
      */
     init () {
         this.element = core.dom.body.find( ".js-router" ).detach();
-        this.blit = new Controller();
         this.animDuration = 500;
         this.controllers = new Controllers({
             el: core.dom.main,
@@ -34,7 +32,7 @@ const router = {
             }
         });
 
-        core.emitter.on( "app--intro-teardown", () => {
+        core.emitter.on( "app--intro", () => {
             // Nothing?``
         });
 
@@ -222,7 +220,7 @@ const router = {
         core.dom.main[ 0 ].innerHTML = this.doc.html;
         this.topper();
         this.controllers.exec();
-        core.emitter.fire( "app--metrics-pageview", this.doc );
+        core.emitter.fire( "app--tracker", this.doc );
     },
 
 

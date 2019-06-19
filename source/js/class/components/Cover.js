@@ -1,6 +1,4 @@
 import * as core from "../../core";
-// import router from "../../router";
-import ScrollController from "properjs-scrollcontroller";
 
 
 
@@ -43,16 +41,15 @@ class Cover {
             this.element.removeClass( "is-focus" );
         });
 
-        this.scroller = new ScrollController();
-        this.scroller.on( "scroll", () => {
-            this.scrollHandler();
-        });
+        this.__appScroll = this.doScroll.bind( this );
 
-        this.scrollHandler();
+        core.emitter.on( "app--scroll", this.__appScroll );
+
+        this.doScroll();
     }
 
 
-    scrollHandler () {
+    doScroll () {
         const coverBounds = this.element[ 0 ].getBoundingClientRect();
         const headerBounds = this.header[ 0 ].getBoundingClientRect();
 
@@ -66,8 +63,8 @@ class Cover {
 
 
     destroy () {
+        core.emitter.off( "app--scroll", this.__appScroll );
         this.style.remove();
-        this.scroller.destroy();
         core.dom.html.removeClass( `is-coverpage is-coverpage--collider is-coverpage--${this.data.id}` );
     }
 }

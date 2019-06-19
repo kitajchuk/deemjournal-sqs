@@ -3,10 +3,11 @@ require( "../sass/screen.scss" );
 
 
 // Load the JS
-// import $ from "properjs-hobo";
-import router from "./router";
-import * as core from "./core";
+import ResizeController from "properjs-resizecontroller";
+import ScrollController from "properjs-scrollcontroller";
 import Metrics from "./class/services/Metrics";
+import * as core from "./core";
+import router from "./router";
 import intro from "./modules/intro";
 import navi from "./modules/navi";
 
@@ -25,30 +26,60 @@ class App {
         this.intro = intro;
         this.navi = navi;
         this.router = router;
+        this.resizer = new ResizeController();
+        this.scroller = new ScrollController();
+        this.scrollBounce = 300;
+        this.scrollTimeout = null;
 
         this.init();
     }
 
 
-    /**
-     *
-     * @public
-     * @instance
-     * @method init
-     * @memberof App
-     * @description Initialize application modules.
-     *
-     */
     init () {
         this.core.detect.init();
         this.intro.init();
         this.navi.init();
         this.router.init();
         this.router.load().then(() => {
+            this.bind();
             this.intro.teardown();
 
         }).catch(( error ) => {
             this.core.log( "warn", error );
+        });
+    }
+
+
+    bind () {
+        this.resizer.on( "resize", () => {
+            core.emitter.fire( "app--resize" );
+        });
+
+        this.scroller.on( "scroll", () => {
+            core.emitter.fire( "app--scroll", this.scroller.getScrollY() );
+
+            core.dom.html.addClass( "is-scrolling" );
+
+            clearTimeout( this.scrollTimeout );
+
+            this.scrollTimeout = setTimeout(() => {
+                core.dom.html.removeClass( "is-scrolling" );
+
+            }, this.scrollBounce );
+        });
+
+        this.scroller.on( "scrollup", () => {
+            core.dom.html.removeClass( "is-scroll-down" ).addClass( "is-scroll-up" );
+            core.emitter.fire( "app--scrollup", this.scroller.getScrollY() );
+        });
+
+        this.scroller.on( "scrolldown", () => {
+            const scrollY = this.scroller.getScrollY();
+
+            if ( scrollY > 0 ) {
+                core.dom.html.removeClass( "is-scroll-up" ).addClass( "is-scroll-down" );
+                core.emitter.fire( "app--scrolldown", this.scroller.getScrollY() );
+            }
         });
     }
 }

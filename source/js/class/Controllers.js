@@ -2,8 +2,6 @@ import * as core from "../core";
 import debounce from "properjs-debounce";
 import BaseController from "./controllers/BaseController";
 import ImageController from "./controllers/ImageController";
-import ResizeController from "properjs-resizecontroller";
-// import AnimateController from "./controllers/AnimateController";
 import Newsletter from "./components/Newsletter";
 import Search from "./components/Search";
 import Video from "./components/Video";
@@ -88,40 +86,36 @@ class Controllers {
 
         this.init();
 
-        // this.animController = new AnimateController( this.element );
-
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
             if ( this.callback ) {
                 this.callback();
             }
-
-            // this.animController.start();
         });
 
-        this.resizeController = new ResizeController();
-        this.resizeController.on( "resize", debounce(() => {
+        this.__appResize = debounce(() => {
             this.images.removeAttr( core.config.imageLoaderAttr );
             this.imageController.destroy();
             this.imageController = new ImageController( this.images );
 
-        }, this.resizeBounce ));
+        }, this.resizeBounce );
+
+        core.emitter.on( "app--resize", this.__appResize );
+    }
+
+
+    doResize () {
+
     }
 
 
     destroy () {
+        core.emitter.off( "app--resize", this.__appResize );
+
         if ( this.imageController ) {
             this.imageController.destroy();
         }
-
-        if ( this.resizeController ) {
-            this.resizeController.destroy();
-        }
-
-        // if ( this.animController ) {
-        //     this.animController.destroy();
-        // }
 
         this.kill();
     }
