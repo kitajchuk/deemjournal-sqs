@@ -1,8 +1,8 @@
 /******************************************************************************
  * Config
 *******************************************************************************/
-@import "config/variables";
-@import "config/mixins";
+@import "config/vars";
+@import "config/func";
 
 
 
@@ -19,24 +19,25 @@
 /******************************************************************************
  * Modules
 *******************************************************************************/
-@import "modules/main";
-@import "modules/header";
-@import "modules/navi";
-@import "modules/meni";
-@import "modules/media";
-@import "modules/screens";
-@import "modules/intro";
-@import "modules/svg";
-@import "modules/loading";
-@import "modules/story";
-@import "modules/cover";
+@import "modules/annotation";
 @import "modules/commerce";
-@import "modules/newsletter";
+@import "modules/cover";
+@import "modules/cta";
 @import "modules/forms";
 @import "modules/grid";
-@import "modules/annotation";
-@import "modules/cta";
+@import "modules/header";
+@import "modules/intro";
+@import "modules/loading";
+@import "modules/main";
+@import "modules/media";
+@import "modules/meni";
+@import "modules/navi";
+@import "modules/newsletter";
+@import "modules/screens";
+@import "modules/search";
 @import "modules/slider";
+@import "modules/story";
+@import "modules/svg";
 @import "modules/tagcloud";
 
 
@@ -44,10 +45,10 @@
 /******************************************************************************
  * Squarespace layout-engine mods here
 *******************************************************************************/
-@import "sqs/layout";
 @import "sqs/blocks";
 @import "sqs/commerce";
 @import "sqs/covers";
+@import "sqs/layout";
 @import "sqs/overrides";
 
 
