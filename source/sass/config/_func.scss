@@ -423,10 +423,23 @@
     > ul > li,
     > ol > li {
         @include p();
-        @include nbsp();
+        position: relative;
+
+        &:before {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            content: "";
+            width: 6px;
+            height: 6px;
+            background-color: $black;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
 
         > p {
-            display: inline-block;;
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 

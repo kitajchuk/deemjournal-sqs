@@ -55,7 +55,11 @@
             }
             .cta--global ._button:before,
             ._audio__global ._audio__controls:before,
-            .sqs-block-horizontalrule hr {
+            .sqs-block-horizontalrule hr,
+            .sqs-block-html .sqs-block-content >ul > li:before,
+            .sqs-block-html .sqs-block-content > ol > li:before,
+            .annotation__text > ul > li:before,
+            .annotation__text > ol > li:before {
                 background-color: {@uiColor};
             }
         {.end}
