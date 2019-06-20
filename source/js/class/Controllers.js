@@ -105,11 +105,6 @@ class Controllers {
     }
 
 
-    doResize () {
-
-    }
-
-
     destroy () {
         core.emitter.off( "app--resize", this.__appResize );
 

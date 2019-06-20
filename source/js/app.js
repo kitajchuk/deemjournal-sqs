@@ -81,6 +81,14 @@ class App {
                 core.emitter.fire( "app--scrolldown", this.scroller.getScrollY() );
             }
         });
+
+        window.Y.Global.on( "tweak:change", () => {
+            window.location.reload();
+        });
+
+        window.Y.Global.on( "tweak:reset", () => {
+            window.location.reload();
+        });
     }
 }
 
