@@ -21,15 +21,9 @@ class Stack {
 
     doScroll () {
         const bounds = this.element[ 0 ].getBoundingClientRect();
-        const bottom = bounds.y + bounds.height;
         const windowHalf = window.innerHeight / 2;
-        const windowThird = window.innerHeight / 3;
 
-        if ( bottom <= windowThird ) {
-            this.element.removeClass( "is-stack-active" );
-            core.dom.html.removeClass( `is-stack is-stack--${this.element[ 0 ].id}` );
-
-        } else if ( bounds.y <= windowHalf ) {
+        if ( bounds.y <= windowHalf ) {
             this.element.addClass( "is-stack-active" );
             core.dom.html.addClass( `is-stack is-stack--${this.element[ 0 ].id}` );
 

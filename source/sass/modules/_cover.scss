@@ -57,3 +57,20 @@
         @include font-family-sans-medium-italic();
     }
 }
+.cover__icon {
+    @include wrap();
+    @include expb();
+    position: absolute;
+    top: 100%;
+    transform: translate3d( 0, -100%, 0 );
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    ._svg {
+        fill: $white;
+        transform: rotate( 90deg );
+    }
+}

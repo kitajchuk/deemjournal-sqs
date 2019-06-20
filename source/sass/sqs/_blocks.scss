@@ -1,6 +1,32 @@
 /******************************************************************************
  * SQS Blocks
 *******************************************************************************/
+#deem--footer {
+    color: $white;
+
+    .annotation blockquote p {
+        color: $white;
+    }
+
+    .annotation__text a {
+        color: $white;
+        border-bottom: 1px solid $white;
+    }
+
+    .inp {
+        color: $white;
+        border-bottom: 1px solid $white;
+        @include placeholder( $white );
+
+        &.is-invalid {
+            color: $red;
+        }
+    }
+
+    ._svg {
+        fill: $white;
+    }
+}
 .sqs-block-horizontalrule {
     @include exp-imp();
 

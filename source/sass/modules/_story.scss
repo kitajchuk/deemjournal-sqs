@@ -1,4 +1,4 @@
-.story {
+.story:not( .story--homepage ) {
     padding-bottom: $story-padding;
 }
 .story:not( .story--homepage ) {

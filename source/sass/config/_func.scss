@@ -487,7 +487,9 @@
             @include h5();
         }
 
-        .story--detail & {
+        .story--detail &,
+        .story--contact &,
+        .story--stockists & {
             @include text();
         }
 

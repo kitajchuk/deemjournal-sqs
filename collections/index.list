@@ -12,3 +12,6 @@
         {.end}
     {.end}
 {.end}
+{.if collection.homepage}
+    <squarespace:block-field id="deem--footer" columns="12" />
+{.end}
