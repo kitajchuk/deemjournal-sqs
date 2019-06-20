@@ -70,5 +70,6 @@
     span {
         @include a( $black );
         border-bottom-width: $header-underline;
+        @include font-family-sans-medium-italic();
     }
 }

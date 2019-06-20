@@ -453,6 +453,11 @@
 
         > a {
             border-bottom-width: $header-underline;
+            @include font-family-sans-medium-italic();
+        }
+
+        > em {
+            @include font-family-sans-medium-italic();
         }
     }
 
@@ -466,6 +471,11 @@
 
         > a {
             border-bottom-width: $header-underline;
+            @include font-family-sans-medium-italic();
+        }
+
+        > em {
+            @include font-family-sans-medium-italic();
         }
     }
 
@@ -479,6 +489,11 @@
 
         > a {
             border-bottom-width: $header-underline;
+            @include font-family-sans-medium-italic();
+        }
+
+        > em {
+            @include font-family-sans-medium-italic();
         }
     }
 
