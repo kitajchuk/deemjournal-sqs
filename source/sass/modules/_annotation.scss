@@ -64,6 +64,16 @@
     @include text();
     @include text-content();
 
+    > p,
+    > ol,
+    > ul,
+    > p + blockquote,
+    > h3 + blockquote {
+        left: auto;
+        margin-left: auto;
+        display: block;
+    }
+
     .annotation--text & {
         @include respond( $break-tablet-full ) {
             order: 1;

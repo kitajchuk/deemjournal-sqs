@@ -689,11 +689,11 @@
     position: relative;
     left: 50%;
 
-    @include respond( $text-breakpoint ) {
-        left: auto;
-        margin-left: auto;
-        display: block;
-    }
+    // @include respond( $text-breakpoint ) {
+    //     left: auto;
+    //     margin-left: auto;
+    //     display: block;
+    // }
 
     @include respond( $break-laptop-full ) {
         max-width: $text-width - 200px;
