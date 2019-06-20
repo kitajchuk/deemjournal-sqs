@@ -412,7 +412,8 @@
     > p,
     > ol,
     > ul,
-    > p + blockquote {
+    > p + blockquote,
+    > h3 + blockquote {
         @include text();
     }
 
@@ -480,7 +481,9 @@
     }
 
     > h3 {
-        .story--detail & {
+        .story--detail &,
+        .story--contact &,
+        .story--stockists & {
             @include h5();
         }
 
@@ -526,7 +529,8 @@
         @include expt();
     }
 
-    > p + p[data-rte-preserve-empty] {
+    > p + p[data-rte-preserve-empty],
+    > h3 + p[data-rte-preserve-empty] {
         padding-top: $expander-m / 2;
     }
 
@@ -536,9 +540,6 @@
             display: none;
         }
     }
-
-    > ul li > p,
-    > ol li > p {}
 
     a {
         @include a( $black );
