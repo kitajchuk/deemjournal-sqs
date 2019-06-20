@@ -6,10 +6,6 @@
 }
 .stories {
     @include intro-content();
-
-    .grid {
-        justify-content: space-between;
-    }
 }
 
 

@@ -91,7 +91,7 @@
     .pinned__info {
         padding-left: $padding-1 / 2;
         padding-right: $padding-1 / 2;
-        width: 33.333333%;
+        width: 50%;
 
         @include respond( $tablet-breakpoint ) {
             width: 100%;
@@ -108,14 +108,14 @@
     .pinned__image {
         padding-left: $padding-1 / 2;
         padding-right: $padding-1 / 2;
-        width: 66.666666%;
+        width: 50%;
 
-        @include respond( $tablet-breakpoint ) {
+        @include respond( $break-tablet-small ) {
             width: 100%;
             order: 1;
         }
 
-        @include respond( $mobile-breakpoint ) {
+        @include respond( $break-tablet-small ) {
             padding-left: 0;
             padding-right: 0;
         }
