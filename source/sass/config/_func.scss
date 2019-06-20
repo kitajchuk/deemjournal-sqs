@@ -487,7 +487,10 @@
             @include h5();
         }
 
-        @include text();
+        .story--detail & {
+            @include text();
+        }
+
         @include sqs-body-hflip();
 
         > a {
