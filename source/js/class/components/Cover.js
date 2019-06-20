@@ -15,7 +15,6 @@ class Cover {
     constructor ( element, data ) {
         this.element = element;
         this.data = data;
-        this.cta = this.element.find( ".js-cover-cta" );
         this.header = core.dom.body.find( ".js-header" );
         this.style = this.element.find( ".js-colorway-style" );
         this.image = this.element.find( ".js-lazy-cover-image" );
@@ -34,13 +33,6 @@ class Cover {
 
 
     bind () {
-        this.cta.on( "mouseenter", () => {
-            this.element.addClass( "is-focus" );
-
-        }).on( "mouseleave", () => {
-            this.element.removeClass( "is-focus" );
-        });
-
         this.__appScroll = this.doScroll.bind( this );
 
         core.emitter.on( "app--scroll", this.__appScroll );

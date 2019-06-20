@@ -23,27 +23,11 @@
     position: relative;
     z-index: 1;
     transform: translate3d( -50%, 0, 0 );
-    transition: filter 250ms linear, opacity $base-duration ease;
+    transition: opacity $base-duration ease;
     opacity: 0;
 
     .is-loaded & {
         opacity: 1;
-    }
-
-    .cover--blur & {
-        filter: blur( 50px );
-    }
-
-    .cover--crisp & {
-        filter: blur( 0px );
-    }
-
-    .cover--blur.is-focus & {
-        filter: blur( 0px );
-    }
-
-    .cover--crisp.is-focus & {
-        filter: blur( 50px );
     }
 }
 .cover__hover {

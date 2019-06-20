@@ -12,7 +12,7 @@
     <div class="cover__image -cover js-lazy-cover-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}"></div>
     <div class="cover__hover">
         <a class="cover__title" href="{@url}">
-            <h2>{title} <span class="js-cover-cta">{.if customContent.ctaTextValue}{customContent.ctaTextValue}{.or}View story{.end}</span></h2>
+            <h2>{title} <span>{.if customContent.ctaTextValue}{customContent.ctaTextValue}{.or}View story{.end}</span></h2>
         </a>
     </div>
     <style class="js-colorway-style">
