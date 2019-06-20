@@ -32,14 +32,6 @@
 .sqs-block-tagcloud {
     .sqs-block-content {
         @include wrap();
-
-        a {
-            @include nbsp();
-
-            span {
-                @include a( $black );
-            }
-        }
     }
 }
 .sqs-block-summary-v2 {
