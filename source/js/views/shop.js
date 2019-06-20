@@ -14,7 +14,7 @@ export default ( instance ) => {
                         <img class="grid__image image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
                         <div class="grid__info">
                             <div class="grid__title">
-                                ${item.title}, <span>$${item.structuredContent.variants[ 0 ].priceMoney.value}</span>
+                                ${item.title}, <span>$${item.structuredContent.variants[ 0 ].priceMoney.value.split( "." )[ 0 ]}</span>
                             </div>
                         </div>
                     </a>
