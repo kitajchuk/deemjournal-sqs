@@ -1,5 +1,5 @@
 import * as core from "../../core";
-import $ from "properjs-hobo";
+// import $ from "properjs-hobo";
 import issueView from "../../views/issue";
 import Stack from "./Stack";
 
@@ -18,10 +18,9 @@ class Issue {
         this.script = this.element.find( "script" ).detach();
         this.blockJson = JSON.parse( this.script[ 0 ].textContent );
 
-        this.fetchProduct().then(( productJson ) => {
-            this.productJson = productJson;
-            this.init();
-        });
+        console.log( this );
+
+        this.init();
     }
 
 
@@ -29,25 +28,6 @@ class Issue {
         this.element[ 0 ].innerHTML = issueView( this );
         this.stack = new Stack( this.element.find( ".js-stack" ) );
         core.util.loadImages( this.element.find( core.config.lazyImageSelector ), core.util.noop );
-    }
-
-
-    fetchProduct () {
-        return new Promise(( resolve, reject ) => {
-            $.ajax({
-                url: this.blockJson.product.fullUrl,
-                method: "GET",
-                dataType: "json",
-                data: {
-                    format: "json"
-                }
-            }).then(( response ) => {
-                resolve( response );
-
-            }).catch(( error ) => {
-                reject( error );
-            });
-        });
     }
 
 

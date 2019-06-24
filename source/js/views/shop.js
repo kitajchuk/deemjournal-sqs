@@ -25,15 +25,15 @@ export default ( instance ) => {
     };
     const getStackView = () => {
         return `${items.map(( item ) => {
-            const isIssue = (item.tags[ 0 ] === "Issue");
-
             return `
                 <div class="stack">
                     <div class="stack__wrap">
-                        <img class="stack__image image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
+                        <img class="stack__image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
                         <div class="stack__info">
-                            <h4>${item.excerpt || item.title}</h4>
-                            <a class="h6" href="${item.fullUrl}">${isIssue ? `View Issue` : `Learn More`}</a>
+                            <h4 class="issue__title">${item.title}</h4>
+                            <div class="issue__desc">
+                                <a class="issue__button _button" href="${item.fullUrl}">${item.structuredContent.customAddButtonText}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,6 +71,26 @@ export default ( instance ) => {
                     </div>
                 </div>
             </div>
-        ` : ``}
+        ` : `
+            <div class="stack stack--sub js-stack" id="sub">
+                <style class="js-stack-style">
+                    html.is-stack--sub {
+                        background-color: ${window.Y.Squarespace.Template.getTweakValue( "subModuleColor" )};
+                    }
+                    .is-stack--sub .navi__a {
+                        color: #fff;
+                    }
+                    .is-stack--sub .navi__a.is-active,
+                    .is-stack--sub.is-hoverable .navi__a:hover {
+                        border-bottom-color: #fff;
+                    }
+                    .is-stack--sub ._svg--list,
+                    .is-stack--sub ._svg--logo {
+                        fill: #fff;
+                    }
+                </style>
+                <div class="stack__wrap"></div>
+            </div>
+        `}
     `;
 };
