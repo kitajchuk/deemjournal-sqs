@@ -65,8 +65,9 @@ export default ( instance ) => {
                 <div class="stack__wrap">
                     <img class="stack__image js-lazy-image" data-img-src="${subItem.assetUrl}" data-variants="${subItem.systemDataVariants}" data-original-size="${subItem.originalSize}" />
                     <div class="stack__info">
-                        <h4>${subItem.title}</h4>
-                        <a class="h6" href="${subItem.fullUrl}">${subItem.excerpt}</a>
+                        <h4 class="issue__title">${subItem.title}</h4>
+                        <h6 class="issue__desc">${subItem.excerpt}</h6>
+                        <a class="issue__button _button _button--lit" href="${subItem.fullUrl}">${subItem.structuredContent.customAddButtonText}</a>
                     </div>
                 </div>
             </div>

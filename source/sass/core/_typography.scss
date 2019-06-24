@@ -57,7 +57,7 @@ h4, .h4, h4 > p {
 h5, .h5 {
     @include h5();
 }
-h6, .h6 {
+h6, .h6, h6 p {
     @include h6();
 
     // > a {

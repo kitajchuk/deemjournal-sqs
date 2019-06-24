@@ -75,12 +75,6 @@
     max-width: $text-width;
     width: sqs-calc( "100% - 670px" );
 
-    h4 {
-        .shop & {
-            margin-bottom: $padding-m;
-        }
-    }
-
     .h6 {
         display: inline-block;
     }
@@ -300,6 +294,6 @@
     z-index: 1;
 }
 .issue__desc {
-    padding-top: $padding-1;
-    padding-bottom: $padding-1;
+    padding-top: $expander-m / 2;
+    padding-bottom: $expander-m;
 }
