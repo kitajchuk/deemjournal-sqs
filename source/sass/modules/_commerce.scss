@@ -43,12 +43,6 @@
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
-    transition: opacity $base-duration ease;
-    opacity: 0;
-
-    .is-stack-active & {
-        opacity: 1;
-    }
 }
 
 .stack__image {

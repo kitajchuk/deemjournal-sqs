@@ -13,6 +13,7 @@ import Slider from "./components/Slider";
 import Commerce from "./components/Commerce";
 import Issue from "./components/Issue";
 import Cover from "./components/Cover";
+import PuppetMaster from "./components/PuppetMaster";
 
 
 /**
@@ -70,6 +71,7 @@ class Controllers {
     exec () {
         this.controllers = [];
 
+        this.push( "puppetmaster", this.element.find( ".js-puppet-master" ), BaseController, PuppetMaster );
         this.push( "cover", this.element.find( ".js-cover" ), BaseController, Cover );
         this.push( "issue", this.element.find( ".js-issue" ), BaseController, Issue );
         this.push( "newsletter", this.element.find( ".js-newsletter" ), BaseController, Newsletter );

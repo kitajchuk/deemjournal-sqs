@@ -1,5 +1,5 @@
-<article class="story story--{collection.urlId} js-story">
-    <div class="story__blocks">
+<article class="story story--{collection.urlId} js-story {.if collection.homepage}js-puppet-master{.end}">
+    <div class="story__blocks {.if collection.homepage}js-scene{.end}">
         {squarespace.main-content}
     </div>
 </article>

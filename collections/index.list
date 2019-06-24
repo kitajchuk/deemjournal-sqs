@@ -1,3 +1,4 @@
+{.var @isHomepage collection.homepage}
 {.section collection}
     {.repeated section collections}
         {.if items}
@@ -8,10 +9,15 @@
             {.end}
         {.end}
         {.if mainContent}
-            {mainContent}
+            <div class="story__page-content {.if @isHomepage}js-puppet-content{.end}">
+                {.if @isHomepage}<div class="fixture js-puppet js-puppet-fixture" data-wipe="1" data-speed="2"></div>{.end}
+                {mainContent}
+            </div>
         {.end}
     {.end}
 {.end}
 {.if collection.homepage}
-    <squarespace:block-field id="deem--footer" columns="12" />
+    <div class="story__footer {.if @isHomepage}js-puppet-footer{.end}">
+        <squarespace:block-field id="deem--footer" columns="12" />
+    </div>
 {.end}

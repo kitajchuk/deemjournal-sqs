@@ -37,12 +37,8 @@
         <squarespace:navigation navigationId="menu" template="menu" />
         <div class="router js-router" style="display:none;" data-revision="{squarespace.template-revision}" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
             {# Dev Menu #}
-                {.equal? collection.urlId "typography"}
-                    {@|apply page-typography.block}
-                {.or equal? collection.urlId "system-blocks"}
+                {.equal? collection.urlId "system-blocks"}
                     {@|apply page-system-blocks.block}
-                {.or equal? collection.urlId "iconography"}
-                    {@|apply page-iconography.block}
                 {.or equal? collection.urlId "dev-cart"}
                     {@|apply page-dev-cart.block}
             {# Main Nav #}

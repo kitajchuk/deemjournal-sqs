@@ -29,6 +29,7 @@ class Issue {
         this.element[ 0 ].innerHTML = issueView( this );
         this.stack = new Stack( this.element.find( ".js-stack" ) );
         core.util.loadImages( this.element.find( core.config.lazyImageSelector ), core.util.noop );
+        core.emitter.fire( "app--puppet", this.element[ 0 ] );
     }
 
 

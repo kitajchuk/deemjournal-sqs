@@ -4,6 +4,10 @@
 .story:not( .story--homepage ) {
     @include intro-content();
 }
+.story__footer {
+    position: relative;
+    z-index: 3;
+}
 .stories {
     @include intro-content();
 }

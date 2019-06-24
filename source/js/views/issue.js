@@ -9,8 +9,10 @@ export default ( instance ) => {
     const color = window.Y.Squarespace.Template.getTweakValue( "issueModuleColor" );
 
     return `
-        <div class="stack stack--sub js-stack" id="${item.id}">
+        <div class="stack stack--sub js-stack js-puppet" id="${item.id}" data-fix="1" data-speed="5">
             <style class="js-stack-style">
+                html.is-stack--${item.id} .fixture,
+                html.is-stack--${item.id} .header,
                 html.is-stack--${item.id} {
                     background-color: ${color};
                 }

@@ -2,19 +2,12 @@
     width: 100vw;
     position: relative;
     z-index: 1;
+    background-color: $black;
 
     & + .sqs-layout {
         position: relative;
         z-index: 2;
     }
-}
-.cover__color {
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: $black;
 }
 .cover__image {
     left: 50%;
@@ -36,6 +29,7 @@
     width: 100vw;
     height: 100vh;
     position: absolute;
+    z-index: 2;
 }
 .cover__title {
     @include wrap();
@@ -72,5 +66,23 @@
     ._svg {
         fill: $white;
         transform: rotate( 90deg );
+    }
+}
+
+
+
+.fixture {
+    background-color: $bgcolor;
+    position: fixed;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 300vh;
+    z-index: 2;
+    transition: background-color $base-duration $ease;
+
+    & + .sqs-layout {
+        position: relative;
+        z-index: 3;
     }
 }

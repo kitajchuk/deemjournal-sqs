@@ -213,36 +213,6 @@ const loadImages = function ( images, handler ) {
 
 /**
  *
- * @description Get the applied transition duration from CSS
- * @method getElementDuration
- * @param {object} el The DOMElement
- * @param {string} key The duration type to get eg `transition` or `animation`
- * @memberof util
- * @returns {number}
- *
- */
-const getElementDuration = function ( el, key ) {
-    let ret = 0;
-    let duration = null;
-    let isSeconds = false;
-    let multiplyBy = 1000;
-
-    key = key || "transition";
-
-    if ( el ) {
-        duration = getComputedStyle( el )[ detect.getPrefixed( `${key}-duration` ) ];
-        isSeconds = duration.indexOf( "ms" ) === -1;
-        multiplyBy = isSeconds ? 1000 : 1;
-
-        ret = parseFloat( duration ) * multiplyBy;
-    }
-
-    return ret;
-};
-
-
-/**
- *
  * @description All true all the time
  * @method noop
  * @memberof util
@@ -272,33 +242,6 @@ const getOriginalDims = function ( original ) {
         width: parseInt( dims[ 0 ], 10 ),
         height: parseInt( dims[ 1 ], 10 )
     };
-};
-
-
-/**
- *
- * @description Randomize array element order in-place.
- * Using Fisher-Yates shuffle algorithm.
- * @method shuffle
- * @param {object} arr The array to shuffle
- * @memberof core.util
- * @returns {array}
- *
- */
-const shuffle = function ( arr ) {
-    let i = arr.length - 1;
-    let j = 0;
-    let temp = arr[ i ];
-
-    for ( i; i > 0; i-- ) {
-        j = Math.floor( Math.random() * (i + 1) );
-        temp = arr[ i ];
-
-        arr[ i ] = arr[ j ];
-        arr[ j ] = temp;
-    }
-
-    return arr;
 };
 
 
@@ -337,6 +280,46 @@ const rectsCollide = ( rect1, rect2 ) => {
 };
 
 
+/**
+ *
+ * Get the applied transform values from CSS
+ * @method getTransformValues
+ * @param {object} el The DOMElement
+ * @memberof util
+ * @returns {object}
+ *
+ */
+const getTransformValues = function ( el ) {
+    if ( !el ) {
+        return null;
+    }
+
+    const transform = window.getComputedStyle( el )[ detect.getPrefixed( "transform" ) ];
+    const values = transform.replace( /matrix|3d|\(|\)|\s/g, "" ).split( "," );
+    const ret = {};
+
+    // No Transform
+    if ( values[ 0 ] === "none" ) {
+        ret.x = 0;
+        ret.y = 0;
+        ret.z = 0;
+
+    // Matrix 3D
+    } else if ( values.length === 16 ) {
+        ret.x = parseFloat( values[ 12 ] );
+        ret.y = parseFloat( values[ 13 ] );
+        ret.z = parseFloat( values[ 14 ] );
+
+    } else {
+        ret.x = parseFloat( values[ 4 ] );
+        ret.y = parseFloat( values[ 5 ] );
+        ret.z = 0;
+    }
+
+    return ret;
+};
+
+
 
 /******************************************************************************
  * Export
@@ -344,7 +327,6 @@ const rectsCollide = ( rect1, rect2 ) => {
 export {
     px,
     noop,
-    shuffle,
     loadImages,
     formatTime,
     translate3d,
@@ -352,5 +334,5 @@ export {
     isElementLoadable,
     isElementVisible,
     getElementsInView,
-    getElementDuration
+    getTransformValues
 };
