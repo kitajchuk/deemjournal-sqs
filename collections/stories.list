@@ -20,9 +20,6 @@
                     {.var @clickUrl fullUrl}
                     {.var @clickId id}
                     <div class="pinned grid__pinned">
-                        <a class="pinned__info" href="{fullUrl}" data-item-id="{id}">
-                            <div class="grid__title" data-content-field="title">{title}{.if customContent.ctaTextValue}, <span>{customContent.ctaTextValue}</span>{.end}</div>
-                        </a>
                         {.section customContent.pinnedImage}
                             <a class="pinned__image" href="{@clickUrl}" data-item-id="{@clickId}">
                                 <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
@@ -32,6 +29,9 @@
                                 <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                             </a>
                         {.end}
+                        <a class="pinned__info" href="{fullUrl}" data-item-id="{id}">
+                            <div class="grid__title" data-content-field="title">{title}{.if customContent.ctaTextValue}, <span>{customContent.ctaTextValue}</span>{.end}</div>
+                        </a>
                     </div>
                 {.end}
             </div>
