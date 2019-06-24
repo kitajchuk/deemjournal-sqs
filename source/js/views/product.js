@@ -17,7 +17,7 @@ export default ( instance ) => {
         <div class="p1 ${isOutOfStock ? `is-out-of-stock` : ``}">
             <div class="text-col">
                 <div class="p1__title">
-                    <h4>${item.isSubscribable ? item.title : (item.excerpt || item.title)}</h4>
+                    <h4>${item.title}</h4>
                 </div>
                 <div class="p1__button sqs-row">
                     <div class="_button js-button_" data-block-json="">${item.structuredContent.customAddButtonText}</div>

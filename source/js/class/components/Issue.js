@@ -18,8 +18,6 @@ class Issue {
         this.script = this.element.find( "script" ).detach();
         this.blockJson = JSON.parse( this.script[ 0 ].textContent );
 
-        console.log( this );
-
         this.init();
     }
 
