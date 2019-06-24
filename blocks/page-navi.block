@@ -1,5 +1,8 @@
 <article class="story story--{collection.urlId} js-story">
     <div class="story__blocks">
         {squarespace.main-content}
+        {.equal? collection.urlId "about"}
+            <squarespace:block-field id="deem--footer" columns="12" />
+        {.end}
     </div>
 </article>

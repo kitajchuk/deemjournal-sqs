@@ -1,4 +1,6 @@
-.story:not( .story--homepage ) {
+.story--detail,
+.story--contact,
+.story--stockists {
     padding-bottom: $story-padding;
 }
 .story:not( .story--homepage ) {

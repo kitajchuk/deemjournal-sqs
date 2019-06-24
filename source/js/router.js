@@ -158,7 +158,7 @@ const router = {
         this.state[ time ] = {
             raw: data && data || null,
             uid: data && data.request.params.uid || null,
-            view: data && data.request.params.view || core.config.homepage,
+            view: data ? data.request.params.view || core.config.homepage : null,
             cat: data && data.request.query.category || null,
             tag: data && data.request.query.tag || null
         };

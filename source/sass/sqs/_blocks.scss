@@ -2,29 +2,40 @@
  * SQS Blocks
 *******************************************************************************/
 #deem--footer {
-    color: $white;
+    padding-bottom: $story-padding / 2;
 
-    .annotation blockquote p {
-        color: $white;
-    }
-
-    .annotation__text a {
-        color: $white;
-        border-bottom: 1px solid $white;
-    }
-
-    .inp {
-        color: $white;
-        border-bottom: 1px solid $white;
-        @include placeholder( $white );
-
-        &.is-invalid {
-            color: $red;
+    .annotation__text {
+        a {
+            border-bottom-color: transparent;
         }
     }
+}
+.is-shop-page,
+.is-home-page {
+    #deem--footer {
+        color: $white;
 
-    ._svg {
-        fill: $white;
+        .annotation blockquote p {
+            color: $white;
+        }
+
+        .annotation__text a {
+            color: $white;
+        }
+
+        .inp {
+            color: $white;
+            border-bottom: 1px solid $white;
+            @include placeholder( $white );
+
+            &.is-invalid {
+                color: $red;
+            }
+        }
+
+        ._svg {
+            fill: $white;
+        }
     }
 }
 .sqs-block-horizontalrule {
