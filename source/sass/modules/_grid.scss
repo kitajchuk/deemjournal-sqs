@@ -54,11 +54,11 @@
 
     > span {
         @include font-family-sans-medium-italic();
-        border-bottom: 1px solid $black;
+        @include a( $black );
 
         .meni__query &,
         .tagcloud-query & {
-            border-bottom-color: $white;
+            @include a( $white );
         }
     }
 

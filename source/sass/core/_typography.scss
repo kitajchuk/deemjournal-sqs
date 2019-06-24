@@ -60,9 +60,9 @@ h5, .h5 {
 h6, .h6 {
     @include h6();
 
-    > a {
-        border-bottom: 1px solid $black;
-    }
+    // > a {
+    //     border-bottom: 1px solid $black;
+    // }
 }
 
 
