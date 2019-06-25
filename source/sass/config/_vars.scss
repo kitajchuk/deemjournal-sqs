@@ -26,7 +26,7 @@ $grey: #777878;
 $yellow: #FCE28E;
 $red: #ef4b4b;
 $grey-rule: #d8d8d8;
-$bgcolor: #FBF8F3;
+$bgcolor: $white;
 
 
 /******************************************************************************
@@ -45,7 +45,7 @@ $expander-m: 40px;
  * Sizes
 *******************************************************************************/
 $text-width: 1000px;
-$menu-width-0: $text-width;
+$menu-width-0: 800px;
 $menu-width-1: 720px;
 $menu-width-2: 480px;
 $media-width-0: 1600px;
@@ -63,7 +63,7 @@ $slider-width: 62.5vw;
 $slider-height: 41.40625vw;
 $story-padding: 11.71875vw;
 $input-height: 75px;
-$header-underline: 0.234375vw;
+$header-underline: 3px;
 $pinned-text-width: 900px;
 $pinned-media-width: 1130px;
 

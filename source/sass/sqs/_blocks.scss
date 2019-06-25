@@ -9,6 +9,20 @@
             border-bottom-color: transparent;
         }
     }
+
+    .annotation--text .annotation__note {
+        @include respond( $break-tablet-full ) {
+            order: 1;
+            padding-top: 0;
+            padding-bottom: $padding-m;
+        }
+    }
+
+    .annotation--text .annotation__text {
+        @include respond( $break-tablet-full ) {
+            order: 2;
+        }
+    }
 }
 .is-shop-page,
 .is-home-page {

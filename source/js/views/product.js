@@ -1,6 +1,11 @@
+import * as core from "../core";
+
+
+
 export default ( instance ) => {
     const item = instance.data.item;
     const isOutOfStock = (item.structuredContent.variants[ 0 ].qtyInStock === 0);
+    const isActivateLiveShop = core.dom.html.is( ".activate-live-shop" );
     const getAttributes = () => {
         const attrs = [];
 
@@ -13,6 +18,8 @@ export default ( instance ) => {
         return attrs.join( "" );
     };
 
+    console.log( isActivateLiveShop );
+
     return `
         <div class="p1 ${isOutOfStock ? `is-out-of-stock` : ``}">
             <div class="text-col">
@@ -20,17 +27,19 @@ export default ( instance ) => {
                     <h4>${item.title}</h4>
                 </div>
                 <div class="p1__button sqs-row">
-                    <div class="_button js-button_" data-block-json="">${item.structuredContent.customAddButtonText}</div>
+                    ${isActivateLiveShop ? `<div class="_button js-button_" data-block-json="">${item.structuredContent.customAddButtonText}</div>` : `<div class="_button js-button_" style="pointer-events:none;" data-block-json="">Coming soon</div>`}
                     <div class="sqs-block-content">
-                        <p class="h6">$${item.structuredContent.variants[ 0 ].priceMoney.value}</p>
+                        ${isActivateLiveShop ? `<p class="h6">$${item.structuredContent.variants[ 0 ].priceMoney.value}</p>` : `<p></p>`}
                     </div>
                 </div>
-                <div class="p1__shipping">
-                    <h6>Free standard <a href="#" target="_blank">domestic shipping</a></h6>
-                </div>
-                <div class="p1__attributes">
-                    ${getAttributes()}
-                </div>
+                ${isActivateLiveShop ? `
+                    <div class="p1__shipping">
+                        <h6>Free standard <a href="#" target="_blank">domestic shipping</a></h6>
+                    </div>
+                    <div class="p1__attributes">
+                        ${getAttributes()}
+                    </div>
+                ` : ``}
             </div>
             <div class="image-col">
                 <div class="media js-media">

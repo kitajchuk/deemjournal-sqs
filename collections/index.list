@@ -1,3 +1,4 @@
+{.var @homepage collection.homepage}
 {.section collection}
     {.repeated section collections}
         {.if items}
@@ -12,6 +13,6 @@
         {.end}
     {.end}
 {.end}
-{.if collection.homepage}
+{.if @homepage}
     <squarespace:block-field id="deem--footer" columns="12" />
 {.end}

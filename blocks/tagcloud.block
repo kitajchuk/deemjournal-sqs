@@ -17,8 +17,13 @@
     </div>
     <div class="tagcloud-query__results results js-tagcloud-results -exp">
         <div class="results__loading js-tagcloud-loader">
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <div class="lds-ellipsis"><div></div><div></div></div>
         </div>
         <div class="results__content js-tagcloud-display"></div>
     </div>
 </div>
+<style class="js-sqs-config-style">
+    .squarespace-config .body-block .tagcloud-query {
+        display: none;
+    }
+</style>

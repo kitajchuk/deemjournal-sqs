@@ -37,7 +37,11 @@ class Stack {
     bind () {
         this.__appScroll = this.doScroll.bind( this );
 
-        core.emitter.on( "app--scroll", this.__appScroll );
+        // Async this so we don't get hiccups on page transitions...
+        setTimeout(() => {
+            core.emitter.on( "app--scroll", this.__appScroll );
+
+        }, 1000 );
     }
 
 

@@ -14,7 +14,7 @@
         <a class="cover__title" href="{@url}">
             <h3>{title} <span>{.if customContent.ctaTextValue}{customContent.ctaTextValue}{.or}View story{.end}</span></h3>
         </a>
-        <div class="cover__icon">
+        <div class="cover__icon" style="display:none;">
             {@|apply svg-right.block}
         </div>
     </div>

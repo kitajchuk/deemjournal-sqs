@@ -3,7 +3,6 @@
 }
 .tagcloud__link {
     border-bottom: 0;
-    @include nbsp();
 
     span {
         @include a( $black );
