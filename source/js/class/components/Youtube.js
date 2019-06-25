@@ -6,6 +6,10 @@ import Controller from "properjs-controller";
 
 
 
+let _isYoutubeLoading = false;
+
+
+
 /**
  *
  * @public
@@ -51,8 +55,8 @@ class Youtube {
     play () {
         this.buffer.go(() => {
             if ( this.youtubePlayer && this.youtubePlayer.playVideo ) {
-                this.youtubePlayer.playVideo();
                 this.buffer.stop();
+                this.youtubePlayer.playVideo();
             }
         });
     }
@@ -60,6 +64,16 @@ class Youtube {
 
     pause () {
         this.youtubePlayer.pauseVideo();
+    }
+
+
+    bufferOnReady () {
+        this.buffer.go(() => {
+            if ( window.YT && !_isYoutubeLoading ) {
+                this.buffer.stop();
+                this.youtubeOnReady();
+            }
+        });
     }
 
 
@@ -116,14 +130,19 @@ class Youtube {
 
 
     youtubeLoad () {
-        if ( !window.YT ) {
+        if ( !window.YT && !_isYoutubeLoading ) {
+            _isYoutubeLoading = true;
             window.onYouTubeIframeAPIReady = () => {
+                _isYoutubeLoading = false;
                 delete window.onYouTubeIframeAPIReady;
 
                 this.youtubeOnReady();
             };
 
             loadJS( "https://www.youtube.com/iframe_api" );
+
+        } else if ( _isYoutubeLoading ) {
+            this.bufferOnReady();
 
         } else {
             this.youtubeOnReady();
