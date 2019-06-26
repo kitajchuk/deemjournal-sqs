@@ -83,6 +83,7 @@
 .sqs-block-tagcloud {
     .sqs-block-content {
         @include wrap();
+        @include wrapm();
     }
 }
 .sqs-block-summary-v2 {
@@ -238,6 +239,7 @@
 .sqs-block-html {
     .sqs-block-content {
         @include wrap();
+        @include wrapm();
         @include text-content();
     }
 }

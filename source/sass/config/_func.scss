@@ -604,8 +604,8 @@
     padding-bottom: $expander-1;
 
     @include respond( $mobile-breakpoint ) {
-        padding-top: $expander-m;
-        padding-bottom: $expander-m;
+        padding-top: $expander-m - 10px;
+        padding-bottom: $expander-m - 10px;
     }
 }
 @mixin exp-imp() {
@@ -661,8 +661,16 @@
         @include diptych();
 
         @include respond( $tablet-breakpoint ) {
-            padding-top: $padding-m;
+            order: 2;
+            padding-top: $padding-m + 10px;
             width: 100%;
+        }
+
+        .media__cap {
+            @include respond( $tablet-breakpoint ) {
+                padding-left: $padding-m;
+                padding-right: $padding-m;
+            }
         }
     }
 
@@ -672,20 +680,23 @@
         &:first-child {
             @include wrapr();
 
-            @include respond( $mobile-breakpoint ) {
-                padding-right: 0;
+            @include respond( $tablet-breakpoint ) {
+                padding-left: $padding-m + 10px;
+                padding-right: $padding-m + 10px;
             }
         }
 
         &:last-child {
             @include wrapl();
 
-            @include respond( $mobile-breakpoint ) {
-                padding-left: 0;
+            @include respond( $tablet-breakpoint ) {
+                padding-left: $padding-m + 10px;
+                padding-right: $padding-m + 10px;
             }
         }
 
         @include respond( $tablet-breakpoint ) {
+            order: 1;
             width: 100%;
         }
     }

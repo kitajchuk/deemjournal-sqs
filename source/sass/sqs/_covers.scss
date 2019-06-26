@@ -8,6 +8,11 @@
     @include wrap();
     @include p1-cols();
 
+    @include respond( $tablet-breakpoint ) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .sqs-block-image {
         .sqs-block-content {
             padding-top: 0;
