@@ -23,7 +23,7 @@
         {squarespace-headers}
     </head>
     <body class="-fzero">
-        <header class="header js-header -wrap">
+        <header class="header js-header">
             <div class="header__logo">
                 <a href="/">
                     {@|apply svg-logo.block}

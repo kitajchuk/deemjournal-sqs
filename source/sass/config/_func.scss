@@ -564,6 +564,18 @@
         padding-right: $padding-m;
     }
 }
+@mixin wrapm() {
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m + 10px;
+        padding-right: $padding-m + 10px;
+    }
+}
+@mixin wrapgm() {
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m / 2;
+        padding-right: $padding-m / 2;
+    }
+}
 @mixin wrapr() {
     padding-right: $padding-1;
 
