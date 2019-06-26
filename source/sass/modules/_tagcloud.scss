@@ -20,6 +20,11 @@
     color: $white;
     z-index: $z_layer_intro;
 
+    @include respond( $mobile-breakpoint ) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
     &.is-active {
         pointer-events: auto;
     }
@@ -28,13 +33,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include wrap();
+    @include wrapm();
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $menu-mobile-top * 2;
+    }
 }
 .tagcloud-query__input {
     @include placeholder( $white );
     @include p();
+
+    @include respond( $mobile-breakpoint ) {
+        min-width: 0;
+        width: auto;
+        font-size: $h5-size-mobile;
+    }
+}
+.tagcloud-query__results {
+    @include exp();
 }
 .tagcloud-query__close {
     position: relative;
+
+    @include respond( $mobile-breakpoint ) {
+        position: absolute;
+        right: $padding-m + 10px;
+        top: $menu-mobile-top;
+    }
 
     ._svg {
         fill: $white;

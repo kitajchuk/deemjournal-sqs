@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="tagcloud-query js-tagcloud-query screen screen--dark">
-    <div class="tagcloud-query__label -wrap">
+    <div class="tagcloud-query__label">
         <input type="text" class="tagcloud-query__input search__input inp js-tagcloud-field" name="" placeholder="" />
         <div class="tagcloud-query__close js-tagcloud-close">
             <svg class="_svg _svg--x" x="0px" y="0px" viewBox="0 0 24 25" style="enable-background:new 0 0 24 25;">
@@ -15,9 +15,9 @@
             </svg>
         </div>
     </div>
-    <div class="tagcloud-query__results results js-tagcloud-results -exp">
+    <div class="tagcloud-query__results results js-tagcloud-results">
         <div class="results__loading js-tagcloud-loader">
-            <div class="lds-ellipsis"><div></div><div></div></div>
+            <div class="lds-ellipsis"><div></div></div>
         </div>
         <div class="results__content js-tagcloud-display"></div>
     </div>
