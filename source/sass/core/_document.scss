@@ -5,7 +5,7 @@ html {
     background-color: $bgcolor;
     color: $black;
     transition: color $base-duration $ease,
-                background-color $base-duration $ease;
+                background-color $fast-duration $ease;
 
     &.is-intro,
     &.is-tranny,

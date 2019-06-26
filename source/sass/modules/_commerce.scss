@@ -56,6 +56,16 @@
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    opacity: 0;
+    transform: translate3d( 0, 16px, 0 );
+    transition: opacity $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 ),
+                transform $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 );
+
+    &.is-wrapper-active {
+        opacity: 1;
+        transform: translate3d( 0, 0, 0 );
+        transition-delay: $base-duration;
+    }
 }
 
 .stack__image {

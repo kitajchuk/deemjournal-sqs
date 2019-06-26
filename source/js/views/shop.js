@@ -45,7 +45,7 @@ export default ( instance ) => {
     return `
         ${isGridView ? getGridView() : getStackView()}
         ${subItem ? `
-            <div class="stack stack--sub js-stack" id="${subItem.id}">
+            <div class="stack stack--sub js-stack" data-id="${subItem.id}">
                 <style class="js-stack-style">
                     html.is-stack--${subItem.id} {
                         background-color: ${window.Y.Squarespace.Template.getTweakValue( "subModuleColor" )};
@@ -62,7 +62,7 @@ export default ( instance ) => {
                         fill: #fff;
                     }
                 </style>
-                <div class="stack__wrap">
+                <div class="stack__wrap js-stack-wrap">
                     <img class="stack__image js-lazy-image" data-img-src="${subItem.assetUrl}" data-variants="${subItem.systemDataVariants}" data-original-size="${subItem.originalSize}" />
                     <div class="stack__info">
                         <h4 class="issue__title">${subItem.title}</h4>

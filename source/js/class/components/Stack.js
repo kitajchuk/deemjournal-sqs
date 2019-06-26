@@ -1,5 +1,7 @@
 import * as core from "../../core";
 
+
+
 /**
  *
  * @public
@@ -12,6 +14,8 @@ import * as core from "../../core";
 class Stack {
     constructor ( element ) {
         this.element = element;
+        this.wrapper = this.element.find( ".js-stack-wrap" );
+        this.data = this.element.data();
 
         if ( this.element.length ) {
             this.bind();
@@ -22,14 +26,17 @@ class Stack {
     doScroll () {
         const bounds = this.element[ 0 ].getBoundingClientRect();
         const windowHalf = window.innerHeight / 2;
+        // const windowThird = window.innerHeight / 3;
 
         if ( bounds.y <= windowHalf ) {
             this.element.addClass( "is-stack-active" );
-            core.dom.html.addClass( `is-stack is-stack--${this.element[ 0 ].id}` );
+            core.dom.html.addClass( `is-stack is-stack--${this.data.id}` );
+            this.wrapper.addClass( "is-wrapper-active" );
 
         } else {
             this.element.removeClass( "is-stack-active" );
-            core.dom.html.removeClass( `is-stack is-stack--${this.element[ 0 ].id}` );
+            core.dom.html.removeClass( `is-stack is-stack--${this.data.id}` );
+            this.wrapper.removeClass( "is-wrapper-active" );
         }
     }
 

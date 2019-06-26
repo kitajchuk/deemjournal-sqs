@@ -8,7 +8,7 @@ export default ( instance ) => {
     const color = window.Y.Squarespace.Template.getTweakValue( "issueModuleColor" );
 
     return `
-        <div class="stack stack--sub js-stack" id="${item.id}">
+        <div class="stack stack--sub js-stack" data-id="${item.id}" id="stack-${item.id}">
             <style class="js-stack-style">
                 html.is-stack--${item.id} {
                     background-color: ${color};
@@ -25,7 +25,7 @@ export default ( instance ) => {
                     fill: #fff;
                 }
             </style>
-            <div class="stack__wrap">
+            <div class="stack__wrap js-stack-wrap">
                 <img class="stack__image js-lazy-image" data-img-src="${image.assetUrl}" data-variants="${image.systemDataVariants}" data-original-size="${image.originalSize}" />
                 <div class="stack__info">
                     <h4 class="issue__title">${item.title}</h4>
