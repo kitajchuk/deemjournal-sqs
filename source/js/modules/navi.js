@@ -32,7 +32,6 @@ const navi = {
         this.header = core.dom.body.find( ".js-header" );
         this.searchComponent = new Search( this.search, this.search.data() );
         this.bind();
-        this.onResize();
         this.animMenuItems( 0 );
         this.animMenuSearch( 0 );
         this.animMenuClose( 0 );
@@ -65,16 +64,21 @@ const navi = {
             }
         });
 
-        core.emitter.on( "app--resize", this.onResize.bind( this ) );
+        core.emitter.on( "app--resize", this.doResize.bind( this ) );
         core.emitter.on( "app--scrollup", this.onScrollUp.bind( this ) );
         core.emitter.on( "app--scrolldown", this.onScrollDown.bind( this ) );
     },
 
 
-    onResize () {
+    doResize () {
         const rect = this.header[ 0 ].getBoundingClientRect();
+        const paddy = core.dom.main.find( ".js-paddy" );
 
         this.main[ 0 ].style.paddingTop = `${rect.height}px`;
+
+        if ( paddy.length ) {
+            paddy[ 0 ].style.paddingTop = `${rect.height}px`;
+        }
     },
 
 

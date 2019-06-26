@@ -8,6 +8,21 @@
         z-index: 2;
     }
 }
+.cover__mobile {
+    display: none;
+
+    @include respond( $mobile-breakpoint ) {
+        display: block;
+        @include wrap();
+    }
+}
+.cover__color,
+.cover__hover,
+.cover__image {
+    @include respond( $mobile-breakpoint ) {
+        display: none;
+    }
+}
 .cover__color {
     left: 0;
     top: 0;

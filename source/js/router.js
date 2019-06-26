@@ -110,6 +110,7 @@ const router = {
         core.dom.main[ 0 ].innerHTML = this.doc.html;
         this.topper();
         this.controllers.exec();
+        navi.doResize();
         setTimeout(() => {
             this._resolve();
 

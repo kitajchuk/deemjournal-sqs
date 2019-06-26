@@ -34,8 +34,10 @@ class Cover {
 
     bind () {
         this.__appScroll = this.doScroll.bind( this );
+        this.__appResize = this.doScroll.bind( this );
 
         core.emitter.on( "app--scroll", this.__appScroll );
+        core.emitter.on( "app--resize", this.__appResize );
 
         this.doScroll();
     }
@@ -45,7 +47,7 @@ class Cover {
         const coverBounds = this.element[ 0 ].getBoundingClientRect();
         const headerBounds = this.header[ 0 ].getBoundingClientRect();
 
-        if ( core.util.rectsCollide( coverBounds, headerBounds ) ) {
+        if ( core.util.rectsCollide( coverBounds, headerBounds ) && (window.innerWidth > core.config.mobileMediaHack) ) {
             core.dom.html.addClass( `is-coverpage--collider is-coverpage--${this.data.id}` );
 
         } else {
@@ -56,6 +58,7 @@ class Cover {
 
     destroy () {
         core.emitter.off( "app--scroll", this.__appScroll );
+        core.emitter.off( "app--resize", this.__appResize );
         this.style.remove();
         core.dom.html.removeClass( `is-coverpage is-coverpage--collider is-coverpage--${this.data.id}` );
     }
