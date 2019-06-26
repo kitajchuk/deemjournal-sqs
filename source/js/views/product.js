@@ -1,11 +1,12 @@
-import * as core from "../core";
+// import * as core from "../core";
+import router from "../router";
 
 
 
 export default ( instance ) => {
     const item = instance.data.item;
     const isOutOfStock = (item.structuredContent.variants[ 0 ].qtyInStock === 0);
-    const isActivateLiveShop = core.dom.html.is( ".activate-live-shop" );
+    const isActivateLiveShop = router.element.is( ".activate-live-shop" );
     const getAttributes = () => {
         const attrs = [];
 
@@ -17,8 +18,6 @@ export default ( instance ) => {
 
         return attrs.join( "" );
     };
-
-    console.log( isActivateLiveShop );
 
     return `
         <div class="p1 ${isOutOfStock ? `is-out-of-stock` : ``}">

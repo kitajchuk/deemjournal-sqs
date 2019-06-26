@@ -6,6 +6,17 @@
 .story:not( .story--homepage ) {
     @include intro-content();
 }
+.story--about,
+.story--contact,
+.story--stockists {
+    @include wrapgm();
+
+    .grid {
+        @include respond( $mobile-breakpoint ) {
+            margin: 0 -($padding-m / 2);
+        }
+    }
+}
 .stories {
     @include intro-content();
 }
