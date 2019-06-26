@@ -7,7 +7,8 @@
 {.var @bgColor customContent.colorBackground}
 {.var @uiColor customContent.colorUI}
 {.var @textColor customContent.colorText}
-<div class="cover cover--{id} js-cover" data-id="{id}">
+{.var @hCheltenhamBook customContent.hCheltenhamBook}
+<div class="cover cover--{id} js-cover {.if @hCheltenhamBook}hCheltenhamBook{.end}" data-id="{id}">
     <div class="cover__color"></div>
     <div class="cover__image -cover js-lazy-cover-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}"></div>
     <div class="cover__hover">

@@ -66,10 +66,20 @@
         opacity: 1;
     }
 
-    span {
-        @include a( $black );
-        border-bottom-width: $header-underline;
-        @include font-family-sans-medium-italic();
+    h3 {
+        .hCheltenhamBook & {
+            @include font-family-serif-bold();
+        }
+
+        span {
+            @include a( $black );
+            border-bottom-width: $header-underline;
+            @include font-family-sans-medium-italic();
+
+            .hCheltenhamBook & {
+                @include font-family-serif-bold-italic();
+            }
+        }
     }
 }
 .cover__icon {

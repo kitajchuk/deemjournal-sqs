@@ -50,6 +50,10 @@
     font-family: $font-serif-book;
     @include font-normal();
 }
+@mixin font-family-serif-bold-italic() {
+    font-family: $font-serif-book-italic;
+    @include font-normal();
+}
 
 
 /******************************************************************************
