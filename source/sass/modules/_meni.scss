@@ -44,9 +44,9 @@
     }
 
     @include respond( $mobile-breakpoint ) {
-        padding-right: $padding-m;
-        padding-top: $expander-m;
-        padding-bottom: $expander-m;
+        padding-right: $padding-m + 10px;
+        padding-top: $menu-mobile-top;
+        padding-bottom: 0;
     }
 }
 .meni__fill {
@@ -72,7 +72,7 @@
         }
 
         @include respond( $mobile-breakpoint ) {
-            transform: translate3d( 0, 0, 0 );
+            transform: translate3d( sqs-calc( "100% - #{$menu-width-3}" ), 0, 0 );
         }
     }
 
@@ -95,6 +95,11 @@
     overflow-y: auto;
     @include exp();
 
+    @include respond( $mobile-breakpoint ) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
     .is-menu-search & {
         pointer-events: auto;
     }
@@ -112,6 +117,7 @@
         @include respond( $mobile-breakpoint ) {
             min-width: 0;
             width: auto;
+            font-size: $h5-size-mobile;
         }
     }
 
@@ -123,11 +129,7 @@
         }
     }
 
-    .search {
-        @include respond( $mobile-breakpoint ) {
-            @include expt();
-        }
-    }
+    .search {}
 }
 .meni__a {
     position: relative;
@@ -135,6 +137,10 @@
     transition: color $base-duration $ease;
     line-height: 1;
     padding: 12px 0;
+
+    @include respond( $mobile-breakpoint ) {
+        font-size: $h5-size-mobile;
+    }
 
     .is-hoverable &:hover {
         color: $grey;
@@ -154,6 +160,10 @@
     @include h6();
     padding: 10px 0;
     line-height: 1;
+
+    @include respond( $mobile-breakpoint ) {
+        font-size: $m-size-mobile + 2px;
+    }
 }
 .meni__icons,
 .meni__menu,
@@ -196,6 +206,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $padding-m + 10px;
+    }
 
     .meni__li {}
 

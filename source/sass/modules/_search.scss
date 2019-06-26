@@ -3,6 +3,12 @@
 *******************************************************************************/
 .search {
     @include wrap();
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $menu-mobile-top * 2;
+        padding-left: $padding-m + 10px;
+        padding-right: $padding-m + 10px;
+    }
 }
 .search--block {
     display: none;
@@ -15,10 +21,6 @@
     &.is-active {
         opacity: 1;
     }
-
-    @include respond( $mobile-breakpoint ) {
-        display: none;
-    }
 }
 .results {
     .results__loading {
@@ -26,6 +28,10 @@
         opacity: 0;
         transition: opacity $base-duration $ease;
         height: 0;
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: $padding-m + 10px;
+        }
 
         &.is-active {
             opacity: 1;
@@ -48,23 +54,37 @@
             transform: translate3d( 0, 0, 0 );
         }
     }
+
+    .grid__item > p {
+        @include wrapgm();
+    }
 }
 .filters {
     @include wrap();
     @include expt();
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m + 10px;
+    }
 
     .is-tagged &,
     .is-keytext & {
         display: none;
     }
 }
-.tags {}
+.tags {
+    .h6 {
+        @include respond( $mobile-breakpoint ) {
+            font-size: $m-size-mobile + 2px;
+        }
+    }
+}
 .tags__label {
     color: $grey;
-    padding-bottom: $padding-m;
+    padding-bottom: $padding-m * 2;
 }
 .tags__tag {
-    line-height: 1.65;
+    line-height: 38 / 18;
 
     span {
         display: inline-block;
