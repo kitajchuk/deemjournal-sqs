@@ -14,10 +14,6 @@
         width: 23.4375vw;
         min-width: 140px;
     }
-
-    // .is-coverpage--collider & {
-    //     fill: $white;
-    // }
 }
 ._svg--play {
     @include icon-play-size();
@@ -61,14 +57,15 @@
 ._svg--list {
     width: 30px;
     height: 23px;
-
-    // .is-coverpage--collider & {
-    //     fill: $white;
-    // }
 }
 ._svg--search {
     width: 30px;
     height: 30px;
+
+    @include respond( $mobile-breakpoint ) {
+        width: 28px;
+        height: 28px;
+    }
 
     .meni & {
         fill: $white;

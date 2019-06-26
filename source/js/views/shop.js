@@ -26,7 +26,7 @@ export default ( instance ) => {
     const getStackView = () => {
         return `${items.map(( item ) => {
             return `
-                <div class="stack">
+                <div class="stack stack--one">
                     <div class="stack__wrap">
                         <img class="stack__image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
                         <div class="stack__info">

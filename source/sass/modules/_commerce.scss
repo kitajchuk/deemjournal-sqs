@@ -30,6 +30,16 @@
         }
     }
 
+    &.stack--one {
+        .stack__wrap {
+            padding-top: $expander-1 * 2;
+
+            @include respond( $break-tablet-small ) {
+                padding-top: 0;
+            }
+        }
+    }
+
     & + .stack:not( .stack--sub ) {
         .stack__wrap {
             border-top: 2px solid $grey-rule;
