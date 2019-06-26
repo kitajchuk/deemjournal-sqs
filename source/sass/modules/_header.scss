@@ -40,6 +40,11 @@
     .is-header-small & {
         padding-top: $expander-m;
         padding-bottom: $expander-m;
+
+        @include respond( $mobile-breakpoint ) {
+            padding-top: $padding-m + 10px;
+            padding-bottom: $padding-m + 10px;
+        }
     }
 
     .is-stack &,
