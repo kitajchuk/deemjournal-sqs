@@ -72,7 +72,7 @@ export default ( instance ) => {
                 </div>
             </div>
         ` : `
-            <div class="stack stack--sub js-stack" id="sub">
+            <div class="stack stack--sub js-stack" data-id="sub">
                 <style class="js-stack-style">
                     html.is-stack--sub {
                         background-color: ${window.Y.Squarespace.Template.getTweakValue( "subModuleColor" )};
@@ -89,7 +89,7 @@ export default ( instance ) => {
                         fill: #fff;
                     }
                 </style>
-                <div class="stack__wrap"></div>
+                <div class="stack__wrap js-stack-wrap"></div>
             </div>
         `}
     `;
