@@ -11,6 +11,10 @@
 .cover__mobile {
     display: none;
 
+    .grid__item {
+        padding-bottom: 0;
+    }
+
     @include respond( $mobile-breakpoint ) {
         display: block;
         @include wrap();

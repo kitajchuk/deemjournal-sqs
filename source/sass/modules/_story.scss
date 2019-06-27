@@ -16,6 +16,11 @@
         }
     }
 }
+.story--homepage {
+    .sqs-block-spacer + .sqs-block-spacer {
+        display: none;
+    }
+}
 .stories {
     @include intro-content();
 }

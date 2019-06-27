@@ -15,7 +15,6 @@ class Stack {
     constructor ( element ) {
         this.element = element;
         this.wrapper = this.element.find( ".js-stack-wrap" );
-        this.footer = core.dom.body.find( "#deem--footer" );
         this.data = this.element.data();
 
         if ( this.element.length ) {
@@ -26,7 +25,6 @@ class Stack {
 
     doScroll () {
         const bounds = this.element[ 0 ].getBoundingClientRect();
-        const fBounds = this.footer[ 0 ].getBoundingClientRect();
         const windowHalf = window.innerHeight / 2;
 
         if ( bounds.y <= windowHalf ) {
@@ -38,13 +36,6 @@ class Stack {
             this.element.removeClass( "is-stack-active" );
             core.dom.html.removeClass( `is-stack is-stack--${this.data.id}` );
             this.wrapper.removeClass( "is-wrapper-active" );
-        }
-
-        if ( fBounds.y <= windowHalf ) {
-            this.footer.addClass( "is-footer-active" );
-
-        } else {
-            this.footer.removeClass( "is-footer-active" );
         }
     }
 

@@ -140,6 +140,7 @@
 
     @include respond( $mobile-breakpoint ) {
         font-size: $h5-size-mobile;
+        padding: 10px 0;
     }
 
     .is-hoverable &:hover {
@@ -207,14 +208,18 @@
     align-items: center;
     justify-content: flex-end;
 
-    @include respond( $mobile-breakpoint ) {
-        padding-top: $padding-m + 10px;
-    }
+    // @include respond( $mobile-breakpoint ) {
+    //     padding-top: $padding-m + 10px;
+    // }
 
     .meni__li {}
 
     .meni__li--instagram {
         padding-top: $padding-m;
+
+        @include respond( $mobile-breakpoint ) {
+            padding-top: $padding-m + 10px;
+        }
     }
 }
 .meni__footer {
