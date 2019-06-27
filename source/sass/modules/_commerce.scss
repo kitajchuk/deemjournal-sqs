@@ -15,31 +15,6 @@
 .stack {
     @include wrap();
 
-    &.stack--sub {
-        color: $white;
-
-        .stack__info {
-            .h6 p {
-                @include a( $white );
-            }
-        }
-
-        .stack__wrap {
-            padding-top: $story-padding;
-            padding-bottom: $story-padding;
-        }
-    }
-
-    &.stack--one {
-        .stack__wrap {
-            padding-top: $expander-1 * 2;
-
-            @include respond( $break-tablet-small ) {
-                padding-top: 0;
-            }
-        }
-    }
-
     & + .stack:not( .stack--sub ) {
         .stack__wrap {
             border-top: 2px solid $grey-rule;
@@ -50,22 +25,45 @@
         }
     }
 }
+.stack--one {
+    .stack__wrap {
+        padding-top: $expander-1 * 2;
+
+        @include respond( $break-tablet-small ) {
+            padding-top: 0;
+        }
+    }
+}
+.stack--sub {
+    color: $white;
+
+    .stack__info {
+        .h6 p {
+            @include a( $white );
+        }
+    }
+
+    .stack__wrap {
+        padding-top: $story-padding;
+        padding-bottom: $story-padding;
+        opacity: 0;
+        transform: translate3d( 0, 16px, 0 );
+        transition: opacity $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 ),
+                    transform $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 );
+
+        &.is-wrapper-active {
+            opacity: 1;
+            transform: translate3d( 0, 0, 0 );
+            transition-delay: $base-duration;
+        }
+    }
+}
 .stack__wrap {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
-    opacity: 0;
-    transform: translate3d( 0, 16px, 0 );
-    transition: opacity $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 ),
-                transform $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 );
-
-    &.is-wrapper-active {
-        opacity: 1;
-        transform: translate3d( 0, 0, 0 );
-        transition-delay: $base-duration;
-    }
 }
 
 .stack__image {
