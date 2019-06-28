@@ -133,8 +133,8 @@
     @include p1-cols();
 
     .p1 {
-        @include exp();
         @include wrap();
+        padding-top: $expander-1 * 2;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;

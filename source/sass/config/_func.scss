@@ -449,6 +449,7 @@
     }
 
     > h1 {
+        .story--shop &,
         .story--detail & {
             @include h3();
             @include nbsp();
@@ -467,6 +468,7 @@
     }
 
     > h2 {
+        .story--shop &,
         .story--detail & {
             @include h4();
             @include nbsp();
@@ -485,12 +487,14 @@
     }
 
     > h3 {
+        .story--shop &,
         .story--detail &,
         .story--contact &,
         .story--stockists & {
             @include h5();
         }
 
+        .story--shop &,
         .story--detail &,
         .story--contact &,
         .story--stockists & {
