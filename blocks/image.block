@@ -1,7 +1,7 @@
 {.equal? info.designLayout "card"}
     <div class="_card _card--{info.imagePosition} js-card_">
         <div class="_card__title">
-            <h3>{info.subtitle|safe}</h3>
+            <h1>{info.subtitle|safe}</h1>
         </div>
         <div class="_card__media">
             <div class="media media--card js-media">

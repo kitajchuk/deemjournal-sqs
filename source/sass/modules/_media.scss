@@ -299,14 +299,10 @@
     @include diptych();
     width: sqs-calc( "100% - #{$tall-width-0}" );
 
-    h1, h3, h3 {
-        @include nbsp();
-    }
-
     &:first-child {
         @include wrapr();
 
-        @include respond( $mobile-breakpoint ) {
+        @include respond( $tablet-breakpoint ) {
             padding-right: 0;
         }
     }
@@ -314,20 +310,20 @@
     &:last-child {
         @include wrapl();
 
-        @include respond( $mobile-breakpoint ) {
+        @include respond( $tablet-breakpoint ) {
             padding-left: 0;
         }
     }
 
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $tablet-breakpoint ) {
         width: 100%;
-        padding-bottom: $padding-m;
+        @include exp2b();
     }
 }
 ._card__media {
     @include diptych();
 
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $tablet-breakpoint ) {
         width: 100%;
     }
 }

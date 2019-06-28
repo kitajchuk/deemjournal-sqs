@@ -75,6 +75,12 @@ $pinned-media-width: 1130px;
 
 /******************************************************************************
  * Typography
+ *
+ * Story details offset the type scale as such:
+ *
+ * h1 renders as h3
+ * h2 renders as h4
+ * h3 renders as h5
 *******************************************************************************/
 $h1-size-mobile: 52px;
 $h1-size-variable: 2.815vw;
@@ -142,10 +148,10 @@ $break-mobile-medium: 480px;
 $break-mobile-small: 320px;
 
 // App usage
-$mobile-breakpoint: $break-mobile-full;
-$tablet-breakpoint: $break-tablet-medium;
-$laptop-breakpoint: $break-laptop-medium;
-$desktop-breakpoint: $break-desktop-full;
+$mobile-breakpoint: $break-mobile-full;   // 640
+$tablet-breakpoint: $break-tablet-medium; // 1024
+$laptop-breakpoint: $break-laptop-medium; // 1440
+$desktop-breakpoint: $break-desktop-full; // 2560
 $text-breakpoint: 2170px;
 
 

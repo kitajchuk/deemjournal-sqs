@@ -170,55 +170,21 @@
             @include h3();
             @include sqs-body-hflip();
 
-            @include respond( $break-tablet-medium ) {
-                @include h4();
-            }
-
-            @include respond( $break-tablet-small ) {
-                @include h5();
-            }
-
-            @include respond( $mobile-breakpoint ) {
-                @include h3();
-            }
-        }
-
-        h2 {
-            @include h4();
-            @include sqs-body-hflip();
-
-            @include respond( $break-tablet-medium ) {
-                @include h5();
-            }
-
-            @include respond( $break-tablet-small ) {
-                @include p();
-                @include font-family-sans-medium();
-            }
-
-            @include respond( $mobile-breakpoint ) {
+            // Reduce to <h4> for laptop
+            @include respond( $laptop-breakpoint ) {
                 @include h4();
             }
         }
 
-        h3 {
-            @include h5();
-            @include sqs-body-hflip();
-
-            @include respond( $break-tablet-medium ) {
-                @include p();
-                @include font-family-sans-medium();
-            }
-
-            @include respond( $break-tablet-small ) {
-                @include h6();
-                @include font-family-sans-semibold();
-            }
-
-            @include respond( $mobile-breakpoint ) {
-                @include h5();
-            }
-        }
+        // h2 {
+        //     @include h4();
+        //     @include sqs-body-hflip();
+        // }
+        //
+        // h3 {
+        //     @include h5();
+        //     @include sqs-body-hflip();
+        // }
     }
 }
 .sqs-block-video {
