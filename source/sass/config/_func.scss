@@ -670,6 +670,16 @@
             width: 100%;
         }
 
+        .media--tall {
+            .media__wrap {
+                @include respond( $tablet-breakpoint ) {
+                    max-width: 100%;
+                    padding-left: $padding-m;
+                    padding-right: $padding-m;
+                }
+            }
+        }
+
         .media__cap {
             @include respond( $tablet-breakpoint ) {
                 padding-left: $padding-m;
@@ -682,7 +692,7 @@
         width: sqs-calc( "100% - #{$tall-width-0}" );
 
         &:first-child {
-            @include wrapr();
+            padding-right: $padding-3;
 
             @include respond( $tablet-breakpoint ) {
                 padding-left: $padding-m + 10px;
@@ -691,7 +701,7 @@
         }
 
         &:last-child {
-            @include wrapl();
+            padding-left: $padding-3;
 
             @include respond( $tablet-breakpoint ) {
                 padding-left: $padding-m + 10px;

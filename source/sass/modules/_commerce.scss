@@ -139,6 +139,11 @@
         justify-content: space-between;
         flex-wrap: wrap;
         align-items: center;
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 
     .p1__shipping {

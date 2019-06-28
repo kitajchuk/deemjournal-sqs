@@ -86,6 +86,10 @@
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-row:first-child > .col .sqs-block-spacer:first-child .sqs-block-content {
     padding-bottom: 0;
     padding-top: $story-padding;
+
+    @include respond( $break-laptop-full ) {
+        padding-top: $expander-1;
+    }
 }
 .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
 .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
