@@ -54,7 +54,7 @@
         &.is-wrapper-active {
             opacity: 1;
             transform: translate3d( 0, 0, 0 );
-            transition-delay: $base-duration;
+            transition-delay: $fast-duration;
         }
     }
 }
