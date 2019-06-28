@@ -29,6 +29,17 @@
     #deem--footer {
         color: $white;
 
+        // Standalone complex
+        min-height: 100vh;
+        display: flex;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        > .sqs-row {
+            width: 100% !important;
+        }
+
         .annotation blockquote p {
             color: $white;
         }

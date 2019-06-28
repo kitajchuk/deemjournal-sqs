@@ -18,7 +18,9 @@
 }
 .story--homepage {
     .sqs-block-spacer + .sqs-block-spacer {
-        display: none;
+        @include respond( $mobile-breakpoint ) {
+            display: none;
+        }
     }
 }
 .stories {
