@@ -1,23 +1,27 @@
+// Load modules
+const fs = require( "fs" );
 const path = require( "path" );
-const root = path.resolve( __dirname );
-const source = path.join( root, "source" );
-const nodeModules = "node_modules";
 const webpack = require( "webpack" );
 const autoprefixer = require( "autoprefixer" );
-const execSync = require( "child_process" ).execSync;
 const WebpackOnBuildPlugin = require( "on-build-webpack" );
 const request = require( "request" );
 const lager = require( "properjs-lager" );
 const open = require( "open" );
-const local = "http://localhost:9000";
+const config = require( "./boxen.config" );
+
+
+
+// Define after config loads
+const root = path.resolve( __dirname );
+const source = path.join( root, "source" );
+const nodeModules = "node_modules";
 const plugins = [
     new webpack.LoaderOptionsPlugin({
         options: {
-            postcss: [autoprefixer( { browsers: ["last 2 versions"] } )]
+            postcss: [autoprefixer( { browsers: [config.postcss.browsers] } )]
         }
     })
 ];
-let isOpen = false;
 
 
 
@@ -26,17 +30,13 @@ module.exports = ( env ) => {
     if ( env.sandbox ) {
         plugins.push(new WebpackOnBuildPlugin(() => {
             // First build opens localhost for you
-            if ( !isOpen ) {
-                isOpen = true;
-                open( `${local}` );
+            if ( config.open ) {
+                config.open = false;
+                open( `${config.localUrl}` );
 
             // Subsequent builds trigger SQS reloads
             } else {
-                request({
-                    url: `${local}/local-api/reload/trigger`,
-                    method: "GET"
-
-                }, () => lager.server( "local-api reload trigger..." ) );
+                request( { url: config.reloadUrl }, () => lager.server( "sqs local-api reload trigger" ) );
             }
         }));
     }
@@ -57,9 +57,7 @@ module.exports = ( env ) => {
         },
 
 
-        entry: {
-            "app": path.resolve( __dirname, "source/js/app.js" )
-        },
+        entry: config.webpack.entry,
 
 
         output: {
@@ -70,8 +68,8 @@ module.exports = ( env ) => {
 
         module: {
             rules: [
-                { test: /source\/js\/.*\.js$/, exclude: /node_modules/, use: ["eslint-loader"], enforce: "pre" },
-                { test: /source\/js\/.*\.js$/, exclude: /node_modules/, use: [{ loader: "babel-loader", options: { presets: ["env"] } }] },
+                { test: /source\/js\/.*\.js$/, exclude: /node_modules|\.config\.js/, use: ["eslint-loader"], enforce: "pre" },
+                { test: /source\/js\/.*\.js$/, exclude: /node_modules|\.config\.js/, use: [{ loader: "babel-loader", options: { presets: ["env"] } }] },
                 { test: /(hobo|hobo.build)\.js$/, use: ["expose-loader?hobo"] },
                 { test: /\.(sass|scss)$/, exclude: /node_modules/, use: ["file-loader?name=../styles/[name].css", "postcss-loader", "sass-loader"] },
                 { test: /svg-.*\.block$|\.svg$/, exclude: /node_modules/, use: ["svg-inline-loader"] }
