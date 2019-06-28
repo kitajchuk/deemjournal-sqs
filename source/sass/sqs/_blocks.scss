@@ -4,11 +4,11 @@
 #deem--footer {
     padding-bottom: $story-padding / 2;
 
-    .annotation__text {
-        a {
-            border-bottom-color: transparent;
-        }
-    }
+    // .annotation__text {
+    //     a {
+    //         border-bottom-color: transparent;
+    //     }
+    // }
 
     .annotation--text .annotation__note {
         @include respond( $break-tablet-full ) {
@@ -45,7 +45,11 @@
         }
 
         .annotation__text a {
-            color: $white;
+            @include a( $white );
+
+            .is-hoverable &:hover {
+                border-bottom-color: transparent;
+            }
         }
 
         .inp {
@@ -60,6 +64,14 @@
 
         ._svg {
             fill: $white;
+        }
+    }
+}
+.is-home-page.is-hoverable,
+.is-shop-page.is-hoverable {
+    #deem--footer {
+        .annotation__text a:hover {
+            border-bottom-color: transparent;
         }
     }
 }
