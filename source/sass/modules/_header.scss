@@ -20,8 +20,8 @@
                 background-color $base-duration $ease;
 
     @include respond( $mobile-breakpoint ) {
-        padding-top: $expander-m * 2;
-        padding-bottom: $expander-m + 10px;
+        padding-top: $expander-1 - 10px;
+        padding-bottom: $padding-m + 10px;
     }
 
     .is-site-intro & {
