@@ -2,6 +2,7 @@ import * as core from "../core";
 import $ from "properjs-hobo";
 import { TweenLite, Power3 } from "gsap/TweenMax";
 import Search from "../class/components/Search";
+import Hammer from "hammerjs";
 
 
 /**
@@ -51,22 +52,28 @@ const navi = {
             this.closeSearch();
         });
 
-        core.dom.doc.on( "click", ( e ) => {
-            const target = $( e.target );
-
-            if ( this.isOpen && !this.isSearch ) {
-                if ( !target.is( ".js-navi-meni" ) && !target.is( ".js-meni-a" ) && !target.is( ".js-meni-search" ) && !target.is( ".js-meni-ext" ) && !target.is( ".js-meni-close" ) ) {
-                    this.closeMenu();
-                }
-
-            } else {
-                // console.log( "do nothing" );
-            }
-        });
+        this.swipe = new Hammer( this.menu[ 0 ], core.util.getDefaultHammerOptions() );
+        this.swipe.on( "tap", this.onTap.bind( this ) );
+        this.swipe.on( "swipe", this.onSwipe.bind( this ) );
 
         core.emitter.on( "app--resize", this.doResize.bind( this ) );
         core.emitter.on( "app--scrollup", this.onScrollUp.bind( this ) );
         core.emitter.on( "app--scrolldown", this.onScrollDown.bind( this ) );
+    },
+
+
+    handleHamEvent ( e ) {
+        e.srcEvent.preventDefault();
+        e.srcEvent.stopPropagation();
+        e.srcEvent.stopImmediatePropagation();
+
+        const target = $( e.target );
+
+        if ( this.isOpen && !this.isSearch ) {
+            if ( !target.is( ".js-navi-meni" ) && !target.is( ".js-meni-a" ) && !target.is( ".js-meni-search" ) && !target.is( ".js-meni-ext" ) && !target.is( ".js-meni-close" ) ) {
+                this.closeMenu();
+            }
+        }
     },
 
 
@@ -78,6 +85,18 @@ const navi = {
 
         if ( paddy.length ) {
             paddy[ 0 ].style.paddingTop = `${rect.height}px`;
+        }
+    },
+
+
+    onTap ( e ) {
+        this.handleHamEvent( e );
+    },
+
+
+    onSwipe ( e ) {
+        if ( e.direction === Hammer.DIRECTION_RIGHT ) {
+            this.handleHamEvent( e );
         }
     },
 

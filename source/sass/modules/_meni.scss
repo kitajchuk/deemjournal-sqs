@@ -9,6 +9,10 @@
     pointer-events: none;
     display: none;
 
+    .is-menu-open & {
+        pointer-events: auto;
+    }
+
     .m {
         color: $white;
 
@@ -22,7 +26,6 @@
     }
 }
 .meni__main {
-    pointer-events: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -34,10 +37,6 @@
     align-items: normal;
     transition: transform $ease-menu-0 $base-duration;
     text-align: right;
-
-    .is-menu-open & {
-        pointer-events: auto;
-    }
 
     .is-menu-search & {
         pointer-events: none;
@@ -207,10 +206,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    // @include respond( $mobile-breakpoint ) {
-    //     padding-top: $padding-m + 10px;
-    // }
 
     .meni__li {}
 

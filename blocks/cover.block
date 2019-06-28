@@ -21,7 +21,7 @@
     </div>
     <div class="cover__mobile js-paddy">
         <div class="grid__item">
-            <a class="grid__link grid__anim" href="{fullUrl}">
+            <a class="grid__link grid__anim" href="{@url}">
                 {.section customContent.mobileImage}
                     <img class="grid__image image js-lazy-cover-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                 {.or}

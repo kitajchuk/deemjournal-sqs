@@ -1,6 +1,19 @@
 .main {
     transition: opacity $base-duration $ease;
 
+    &:after {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: $z_layer_header;
+
+        .is-menu-open & {
+            content: "";
+        }
+    }
+
     .is-menu-open & {
         pointer-events: none;
     }
