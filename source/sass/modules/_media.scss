@@ -60,10 +60,10 @@
 
     ._audio__pp {
         .has-audio-played & {
-            padding: 0 $padding-m;
+            padding: 0 37px;
 
             @include respond( $laptop-breakpoint ) {
-                padding: 0 ($padding-m / 2);
+                padding: 0 $padding-m;
             }
         }
     }
