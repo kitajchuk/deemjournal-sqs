@@ -221,6 +221,7 @@ const router = {
         core.dom.main[ 0 ].innerHTML = this.doc.html;
         this.topper();
         this.controllers.exec();
+        navi.doResize();
         core.emitter.fire( "app--tracker", this.doc );
     },
 
