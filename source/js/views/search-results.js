@@ -4,7 +4,7 @@ import * as core from "../core";
 
 export default ( json ) => {
     const story = core.dom.main.find( ".js-story" );
-    const items = json.items.filter(( item ) => {
+    const items = json.items ? json.items.filter(( item ) => {
         let ret = true;
 
         if ( story.length ) {
@@ -12,7 +12,8 @@ export default ( json ) => {
         }
 
         return ret;
-    });
+
+    }) : [];
 
     return items.length ? `<div class="grid js-search-grid">${items.map(( item ) => {
         return `
