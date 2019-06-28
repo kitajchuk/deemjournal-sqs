@@ -2,7 +2,7 @@
  * Cover specific
 *******************************************************************************/
 
-// 2 Column cover layouts...
+// 2 Column cover layouts... Row must be first-child row of the stack
 .sqs-layout > .sqs-row > .col > .sqs-row:first-child {
     justify-content: space-between;
     @include wrap();

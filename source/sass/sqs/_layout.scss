@@ -30,3 +30,22 @@
 .sqs-row:after {
     display: none;
 }
+
+
+
+// Two Column reset
+.sqs-layout > .sqs-row > .col > .sqs-row:not( :first-child ) > .col {
+    @include respond( $mobile-breakpoint ) {
+        width: 100%;
+    }
+
+    .sqs-block-image .media--tall {
+        @include respond( $mobile-breakpoint ) {
+            padding-left: $padding-m / 2;
+            padding-right: $padding-m / 2;
+        }
+    }
+}
+.sqs-layout > .sqs-row > .col > .sqs-row:not( :first-child ) > .col:nth-child( 1 ) > .sqs-block-html > .sqs-block-content {
+    @include text-content-reset();
+}

@@ -412,6 +412,16 @@
         display: none;
     }
 }
+@mixin text-content-reset() {
+    > p,
+    > ol,
+    > ul,
+    > h3,
+    > p + blockquote,
+    > h3 + blockquote {
+        left: auto;
+    }
+}
 @mixin text-content() {
     > p,
     > ol,
