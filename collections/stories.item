@@ -32,12 +32,15 @@
             ._audio__ellapsed.h6,
             .cta__text p,
             .annotation blockquote p,
+            .sqs-block-html .sqs-block-content a,
             .sqs-block-tagcloud .sqs-block-content a span,
             .sqs-layout > .sqs-row > .col > .sqs-row:first-child .sqs-block-html .sqs-block-content blockquote p {
                 color: {@uiColor};
             }
             .navi__a.is-active,
             .is-hoverable .navi__a:hover,
+            .sqs-block-html .sqs-block-content a,
+            .sqs-block-html .sqs-block-content a:hover,
             .is-hoverable .navi__a.is-active:hover,
             .sqs-block-tagcloud .sqs-block-content a span {
                 border-bottom-color: {@uiColor};
