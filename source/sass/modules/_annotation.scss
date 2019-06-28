@@ -28,6 +28,10 @@
     top: 0;
     width: 100%;
 
+    a {
+        @include a( $black );
+    }
+
     blockquote {
         max-width: 320px;
 
