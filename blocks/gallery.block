@@ -50,7 +50,8 @@
                 }
             {.end}
         </style>
-    {.or equal? @length 3}
+    {# Any length greater than 2, so 3+ #}
+    {.or}
         <div class="grid">
             {.repeated section items}
                 <div class="grid__item">
