@@ -84,11 +84,11 @@ class Controllers {
         this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );
         this.push( "annotation", this.element.find( ".sqs-layout > .sqs-row > .col > .sqs-row > .col:nth-child(1) > .sqs-block-html:nth-child(1) > .sqs-block-content > blockquote:nth-child(1)" ), BaseController, Annotation );
 
-        this.init();
-
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
+            this.init();
+
             if ( this.callback ) {
                 this.callback();
             }

@@ -10,6 +10,7 @@
 import $ from "properjs-hobo";
 import ImageLoader from "properjs-imageloader";
 import dom from "./dom";
+import env from "./env";
 import config from "./config";
 import detect from "./detect";
 
@@ -129,6 +130,49 @@ const getElementsInView = function ( $nodes ) {
 };
 
 
+const preDetermineImageAspect = ( image, data ) => {
+    const dims = getOriginalDims( data.originalSize );
+    const ratio = dims.height / dims.width * 100;
+
+    if ( ratio > 100 ) {
+        image.addClass( "image--tall" ).closest( ".js-media" ).addClass( "media--tall" );
+
+    } else if ( ratio >= 75 ) {
+        image.addClass( "image--box" );
+
+    } else {
+        image.addClass( "image--wide" );
+    }
+
+    image[ 0 ].style.paddingBottom = `${ratio}%`;
+
+    if ( env.isDev() ) {
+        image[ 0 ].style.backgroundColor = `black`;
+    }
+};
+
+
+const preDetermineImageVariant = ( image, data ) => {
+    const vars = data.variants.split( "," ).map(( vnt ) => {
+        return parseInt( vnt, 10 );
+    });
+    const source = data.imgSrc.replace( /\?(.*)$/, "" );
+    const width = (image[ 0 ].clientWidth || image[ 0 ].parentNode.clientWidth || window.innerWidth);
+    let variant = getClosestValue( vars, width );
+
+    // If the pixel density is higher, use a larger image
+    if ( window.devicePixelRatio > 1 ) {
+        // Splice off the variant that was matched
+        vars.splice( vars.indexOf( variant ), 1 );
+
+        // Apply the new, larger variant as the format
+        variant = getClosestValue( vars, variant );
+    }
+
+    image.attr( config.lazyImageAttr, `${source}?format=${variant}w` );
+};
+
+
 /**
  *
  * @description Fresh query to lazyload images on page
@@ -140,11 +184,6 @@ const getElementsInView = function ( $nodes ) {
  *
  */
 const loadImages = function ( images, handler ) {
-    const rQuery = /\?(.*)$/;
-    const map = function ( vnt ) {
-        return parseInt( vnt, 10 );
-    };
-
     // Normalize the handler
     handler = (handler || isElementLoadable);
 
@@ -155,51 +194,16 @@ const loadImages = function ( images, handler ) {
         const image = images.eq( i );
         const data = image.data();
 
-        // Normalize for mobile media asset
-        if ( data.mobile && window.innerWidth <= config.mobileMediaHack && detect.isDevice() ) {
-            data.imgSrc = data.mobile.assetUrl;
-            data.originalSize = data.mobile.originalSize;
-            data.variants = data.mobile.systemDataVariants;
-        }
-
-        // Get the right size image from Squarespace
-        // http://developers.squarespace.com/using-the-imageloader/
-        // Depending on the original upload size, we have these variants
-        // {original, 1500w, 1000w, 750w, 500w, 300w, 100w}
-        const width = (image[ 0 ].clientWidth || image[ 0 ].parentNode.clientWidth || window.innerWidth);
-        const source = data.imgSrc.replace( rQuery, "" );
-
-        // Pre-process portrait vs landscape using originalSize
+        // aspect
         if ( data.originalSize ) {
-            const dims = getOriginalDims( data.originalSize );
-            const ratio = (dims.height / dims.width) * 100;
-
-            if ( ratio > 100 ) {
-                image.addClass( "image--tall" );
-                image.closest( ".js-media" ).addClass( "media--tall" );
-
-            } else if ( ratio >= 75 ) {
-                image.addClass( "image--box" );
-
-            } else {
-                image.addClass( "image--wide" );
-            }
+            preDetermineImageAspect( image, data );
         }
 
+        // Source width from image, parent or Window
+        // http://developers.squarespace.com/using-the-imageloader/
+        // {original/2500w, 1500w, 1000w, 750w, 500w, 300w, 100w}
         if ( data.variants ) {
-            const vars = data.variants.split( "," ).map( map );
-            let variant = getClosestValue( vars, width );
-
-            // If the pixel density is higher, use a larger image ?
-            if ( window.devicePixelRatio > 1 ) {
-                // Splice off the variant that was matched
-                vars.splice( vars.indexOf( variant ), 1 );
-
-                // Apply the new, larger variant as the format
-                variant = getClosestValue( vars, variant );
-            }
-
-            image.attr( config.lazyImageAttr, `${source}?format=${variant}w` );
+            preDetermineImageVariant( image, data );
         }
     });
 
@@ -207,6 +211,9 @@ const loadImages = function ( images, handler ) {
         elements: images,
         property: config.lazyImageAttr,
         executor: handler
+
+    }).on( "load", ( el ) => {
+        el.style.paddingBottom = `0`;
     });
 };
 
