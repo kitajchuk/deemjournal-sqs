@@ -22,10 +22,10 @@ export default ( instance ) => {
                 </button>
             </div>
             <div class="newsletter__loading">
-                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                <div class="lds-ellipsis"><div></div></div>
             </div>
             <div class="newsletter__success">
-                ${blockJson.form.parsedSubmissionMessage.html}
+                <p>${blockJson.form.parsedSubmissionMessage.html}</p>
             </div>
         </div>
     `;

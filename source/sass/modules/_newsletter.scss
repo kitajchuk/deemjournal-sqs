@@ -15,9 +15,9 @@
 }
 .newsletter__loading {
     display: none;
-    height: $input-height;
     align-items: center;
     justify-content: flex-start;
+    height: $input-height;
 
     .is-sending & {
         display: flex;
@@ -26,9 +26,9 @@
 .newsletter__form {}
 .newsletter__success {
     display: none;
-    height: $input-height;
     align-items: center;
     justify-content: flex-start;
+    height: $input-height;
 
     .is-success & {
         display: flex;

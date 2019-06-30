@@ -10,6 +10,7 @@
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
+  .newsletter.is-sending &,
   .results__loading.is-active & {
       animation: lds-ellipsis 0.6s infinite;
   }
