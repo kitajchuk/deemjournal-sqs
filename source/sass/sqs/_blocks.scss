@@ -41,16 +41,9 @@
             color: $white;
         }
 
-        .annotation__note {
-            display: none;
-        }
-
+        .annotation__note a,
         .annotation__text a {
             @include a( $white );
-
-            .is-hoverable &:hover {
-                border-bottom-color: transparent;
-            }
         }
 
         .inp {
@@ -71,6 +64,7 @@
 .is-home-page.is-hoverable,
 .is-shop-page.is-hoverable {
     #deem--footer {
+        .annotation__note a:hover,
         .annotation__text a:hover {
             border-bottom-color: transparent;
         }
