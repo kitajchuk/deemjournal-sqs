@@ -13,6 +13,7 @@
 
 
 .stack {
+    position: relative;
     @include wrap();
 
     & + .stack:not( .stack--sub ) {
@@ -46,16 +47,21 @@
     .stack__wrap {
         padding-top: $story-padding;
         padding-bottom: $story-padding;
-        opacity: 0;
-        transform: translate3d( 0, 16px, 0 );
-        transition: opacity $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 ),
-                    transform $base-duration cubic-bezier( 0.645, 0.045, 0.355, 1 );
+        @include tween-basic();
+    }
+}
+.stack__fixer {
+    background-color: $black;
+    position: fixed;
+    left: 0;
+    top: 100vh;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
 
-        &.is-wrapper-active {
-            opacity: 1;
-            transform: translate3d( 0, 0, 0 );
-            transition-delay: $fast-duration;
-        }
+    @include respond( $mobile-breakpoint ) {
+        display: none;
     }
 }
 .stack__wrap {
@@ -64,6 +70,8 @@
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .stack__image {
@@ -318,7 +326,11 @@
 
 
 
-.issue {}
+.issue {
+    @include respond( $mobile-breakpoint ) {
+        background-color: $black;
+    }
+}
 .issue__title {}
 .issue__button {
     z-index: 1;

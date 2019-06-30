@@ -22,6 +22,11 @@
             display: none;
         }
     }
+
+    .story__blocks > .sqs-layout {
+        position: relative;
+        z-index: 2;
+    }
 }
 .stories {
     @include intro-content();

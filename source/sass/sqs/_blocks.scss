@@ -4,12 +4,6 @@
 #deem--footer {
     padding-bottom: $story-padding / 2;
 
-    // .annotation__text {
-    //     a {
-    //         border-bottom-color: transparent;
-    //     }
-    // }
-
     .annotation--text .annotation__note {
         @include respond( $break-tablet-full ) {
             order: 1;
@@ -27,7 +21,10 @@
 .is-home-page,
 .is-shop-page {
     #deem--footer {
+        background-color: $black;
         color: $white;
+        position: relative;
+        z-index: 2;
 
         // Standalone complex
         min-height: 100vh;
@@ -42,6 +39,10 @@
 
         .annotation blockquote p {
             color: $white;
+        }
+
+        .annotation__note {
+            display: none;
         }
 
         .annotation__text a {

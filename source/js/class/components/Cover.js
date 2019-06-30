@@ -1,4 +1,5 @@
 import * as core from "../../core";
+import { TweenLite, Power3 } from "gsap/TweenMax";
 
 
 
@@ -18,6 +19,12 @@ class Cover {
         this.header = core.dom.body.find( ".js-header" );
         this.style = this.element.find( ".js-colorway-style" );
         this.image = this.element.find( ".js-lazy-cover-image" );
+        this.fixer = this.element.find( ".js-cover-fixer" );
+        this.hover = this.element.find( ".js-cover-hover" );
+        this.parent = this.element.parent();
+        this.mission = this.parent.find( ".js-cover + .sqs-layout .sqs-block-html" );
+        this.summary = this.parent.find( ".js-cover + .sqs-layout + .sqs-layout .sqs-block-summary-v2" );
+        this.tween = {};
         this.init();
         this.bind();
     }
@@ -46,6 +53,8 @@ class Cover {
     doScroll () {
         const coverBounds = this.element[ 0 ].getBoundingClientRect();
         const headerBounds = this.header[ 0 ].getBoundingClientRect();
+        const windowThird = window.innerHeight / 3;
+        const windowCheck = window.innerHeight - windowThird;
 
         if ( core.util.rectsCollide( coverBounds, headerBounds ) && (window.innerWidth > core.config.mobileMediaHack) ) {
             core.dom.html.addClass( `is-coverpage--collider is-coverpage--${this.data.id}` );
@@ -53,10 +62,85 @@ class Cover {
         } else {
             core.dom.html.removeClass( `is-coverpage--collider is-coverpage--${this.data.id}` );
         }
+
+        if ( this.fixer.length && core.util.isElementVisible( this.element[ 0 ] ) ) {
+            this.tweenFixer( coverBounds );
+
+        } else {
+            this.tweenFixer({
+                y: 0
+            });
+        }
+
+        if ( this.hover.length && core.util.isElementVisible( this.element[ 0 ] ) ) {
+            this.tweenHover( coverBounds );
+
+        } else {
+            this.tweenHover({
+                y: 0
+            });
+        }
+
+        if ( this.mission.length ) {
+            const missionBounds = this.mission[ 0 ].getBoundingClientRect();
+
+            if ( missionBounds.y <= windowCheck ) {
+                this.mission.addClass( "is-active" );
+            }
+        }
+
+        if ( this.summary.length ) {
+            const summaryBounds = this.summary[ 0 ].getBoundingClientRect();
+
+            if ( summaryBounds.y <= windowCheck ) {
+                this.summary.addClass( "is-active" );
+            }
+        }
+    }
+
+
+    tweenFixer ( bounds ) {
+        if ( this.tween.fixer ) {
+            this.tween.fixer.kill();
+        }
+
+        const speed = 1.25;
+        const duration = (50 / 1000); // ms to sec
+        const position = bounds.y * speed;
+
+        this.tween.fixer = new TweenLite.to( this.fixer[ 0 ], duration, {
+            y: Math.max( -window.innerHeight, position ),
+            ease: Power3.ease
+        });
+    }
+
+
+    tweenHover ( bounds ) {
+        if ( this.tween.hover ) {
+            this.tween.hover.kill();
+        }
+
+        const speed = 0.25;
+        const duration = (50 / 1000); // ms to sec
+        const position = bounds.y * speed;
+
+        this.tween.hover = new TweenLite.to( this.hover[ 0 ], duration, {
+            y: Math.max( -window.innerHeight, position ),
+            opacity: 1 - Math.max( 0, Math.abs( (bounds.y / 1000) * 2 ) ),
+            ease: Power3.ease
+        });
     }
 
 
     destroy () {
+        if ( this.tween.fixer ) {
+            this.tween.fixer.kill();
+        }
+
+        if ( this.tween.hover ) {
+            this.tween.hover.kill();
+        }
+
         core.emitter.off( "app--scroll", this.__appScroll );
         core.emitter.off( "app--resize", this.__appResize );
         this.style.remove();
