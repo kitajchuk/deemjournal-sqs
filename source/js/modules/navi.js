@@ -62,15 +62,19 @@ const navi = {
     },
 
 
-    handleHamEvent ( e ) {
-        e.srcEvent.preventDefault();
-        e.srcEvent.stopPropagation();
-        e.srcEvent.stopImmediatePropagation();
+    isNonInteractionTap ( target ) {
+        return (!target.is( ".js-navi-meni" ) && !target.is( ".js-meni-a" ) && !target.is( ".js-meni-search" ) && !target.is( ".js-meni-ext" ) && !target.is( ".js-meni-close" ));
+    },
 
+
+    handleHamEvent ( e ) {
         const target = $( e.target );
 
         if ( this.isOpen && !this.isSearch ) {
-            if ( !target.is( ".js-navi-meni" ) && !target.is( ".js-meni-a" ) && !target.is( ".js-meni-search" ) && !target.is( ".js-meni-ext" ) && !target.is( ".js-meni-close" ) ) {
+            if ( this.isNonInteractionTap( target ) ) {
+                e.srcEvent.preventDefault();
+                e.srcEvent.stopPropagation();
+                e.srcEvent.stopImmediatePropagation();
                 this.closeMenu();
             }
         }
