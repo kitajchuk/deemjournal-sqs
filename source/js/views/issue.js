@@ -10,12 +10,7 @@ export default ( instance ) => {
     return `
         <div class="stack stack--sub js-stack" data-id="${item.id}" id="stack-${item.id}">
             <style class="js-stack-style">
-                #stack-${item.id} {
-                    @media only screen and ( max-width: 640px ) {
-                        background-color: ${color};
-                    }
-                }
-                #stack-${item.id} .stack__fixer {
+                html.is-stack--${item.id} {
                     background-color: ${color};
                 }
                 .is-stack--${item.id} .navi__a {
@@ -30,7 +25,6 @@ export default ( instance ) => {
                     fill: #fff;
                 }
             </style>
-            <div class="stack__fixer js-stack-fixer"></div>
             <div class="stack__wrap js-stack-wrap">
                 <img class="stack__image js-lazy-image" data-img-src="${image.assetUrl}" data-variants="${image.systemDataVariants}" data-original-size="${image.originalSize}" />
                 <div class="stack__info">
