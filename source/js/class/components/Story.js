@@ -1,6 +1,7 @@
 import * as core from "../../core";
 import $ from "properjs-hobo";
 import viewSearchResults from "../../views/search-results";
+import viewTags from "../../views/tags";
 import ImageController from "../controllers/ImageController";
 
 
@@ -125,6 +126,10 @@ class Story {
         this.tagcloudLoader = this.tagcloudQuery.find( ".js-tagcloud-loader" );
         this.tagcloudDisplay = this.tagcloudQuery.find( ".js-tagcloud-display" );
         this.tagcloudClose = this.tagcloudQuery.find( ".js-tagcloud-close" );
+
+        this.tags = this.data.tags.split( "," );
+        this.tagcloud[ 0 ].innerHTML = viewTags( this );
+
         this.tagcloud.on( "click", ".js-tagcloud-link", ( e ) => {
             const target = $( e.target );
             const elem = target.is( ".js-tagcloud-link" ) ? target : target.parent();

@@ -1,10 +1,10 @@
 <div class="tagcloud js-tagcloud">
-    <div class="tagcloud__label h6">Tags:</div>
+    <!-- <div class="tagcloud__label h6">Tags:</div>
     <div class="tagcloud__list h6">
         {.repeated section items}
             <a class="tagcloud__link js-tagcloud-link" href="#" data-tag="{name}"><span>{name}</span></a><br />
         {.end}
-    </div>
+    </div> -->
 </div>
 <div class="tagcloud-query js-tagcloud-query screen screen--dark">
     <div class="tagcloud-query__label">
