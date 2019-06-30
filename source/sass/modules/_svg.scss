@@ -8,6 +8,11 @@
     width: 5.46875vw;
     min-width: 120px;
 
+    @include respond( $mobile-breakpoint ) {
+        width: 110px;
+        height: 36px;
+    }
+
     .intro & {
         fill: $white;
         max-width: 600px;

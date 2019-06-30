@@ -88,6 +88,8 @@
     }
 }
 .sqs-block-spacer {
+    pointer-events: none;
+
     .sqs-block-content {
         height: 0 !important;
         @include exp();

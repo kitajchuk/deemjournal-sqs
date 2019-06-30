@@ -228,6 +228,7 @@ const router = {
 
     changePageIn ( /*data*/ ) {
         setTimeout(() => {
+            navi.doResize();
             core.dom.html.removeClass( "is-tranny" );
 
         }, this.animDuration );
