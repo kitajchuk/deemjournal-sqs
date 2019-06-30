@@ -3,6 +3,10 @@
         {squarespace.main-content}
         {.equal? collection.urlId "about"}
             <squarespace:block-field id="deem--footer" columns="12" />
+        {.or equal? collection.urlId "contact"}
+            <squarespace:block-field id="deem--footer" columns="12" />
+        {.or equal? collection.urlId "stockists"}
+            <squarespace:block-field id="deem--footer" columns="12" />
         {.end}
     </div>
 </article>
