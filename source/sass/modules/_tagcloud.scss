@@ -34,7 +34,6 @@
     justify-content: space-between;
     align-items: center;
     @include wrap();
-    @include wrapm();
 
     @include respond( $mobile-breakpoint ) {
         padding-top: $menu-mobile-top * 2;
