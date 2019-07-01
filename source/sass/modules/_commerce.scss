@@ -326,11 +326,7 @@
 
 
 
-.issue {
-    @include respond( $mobile-breakpoint ) {
-        background-color: $black;
-    }
-}
+.issue {}
 .issue__title {}
 .issue__button {
     z-index: 1;
