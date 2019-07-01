@@ -1,19 +1,10 @@
-import * as core from "../core";
+// import * as core from "../core";
 
 
 
 export default ( json ) => {
-    const story = core.dom.main.find( ".js-story" );
-    const items = json.items ? json.items.filter(( item ) => {
-        let ret = true;
-
-        if ( story.length ) {
-            ret = (story.data().itemId !== item.id);
-        }
-
-        return ret;
-
-    }) : [];
+    // const story = core.dom.main.find( ".js-story" );
+    const items = json.items || [];
 
     return items.length ? `<div class="grid js-search-grid">${items.map(( item ) => {
         return `
