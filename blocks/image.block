@@ -1,7 +1,7 @@
 {.equal? info.designLayout "card"}
     <div class="_card _card--{info.imagePosition} js-card_">
         <div class="_card__title">
-            <h1>{info.subtitle|safe}</h1>
+            <h1>{info.subtitle}</h1>
         </div>
         <div class="_card__media">
             <div class="media media--card js-media">
@@ -18,7 +18,7 @@
             {.equal? info.layout "caption-hidden"}{.or}
                 {.if info.description}
                     <div class="media__cap">
-                        <div class="m">{info.description|safe}</div>
+                        <div class="m">{info.description}</div>
                     </div>
                 {.end}
             {.end}

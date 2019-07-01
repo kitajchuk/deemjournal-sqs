@@ -474,7 +474,7 @@
         }
     }
 
-    > h1 {
+    > h1, h1 p {
         .story--shop &,
         .story--detail & {
             @include h3();
@@ -493,7 +493,7 @@
         }
     }
 
-    > h2 {
+    > h2, h2 p {
         .story--shop &,
         .story--detail & {
             @include h4();
@@ -512,7 +512,7 @@
         }
     }
 
-    > h3 {
+    > h3, h3 p {
         .story--shop &,
         .story--detail &,
         .story--contact &,
