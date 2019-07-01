@@ -1,5 +1,5 @@
 import * as core from "../core";
-import debounce from "properjs-debounce";
+// import debounce from "properjs-debounce";
 import BaseController from "./controllers/BaseController";
 import ImageController from "./controllers/ImageController";
 import Newsletter from "./components/Newsletter";
@@ -94,19 +94,19 @@ class Controllers {
             }
         });
 
-        this.__appResize = debounce(() => {
-            this.images.removeAttr( core.config.imageLoaderAttr );
-            this.imageController.destroy();
-            this.imageController = new ImageController( this.images );
-
-        }, this.resizeBounce );
-
-        core.emitter.on( "app--resize", this.__appResize );
+        // this.__appResize = debounce(() => {
+        //     this.images.removeAttr( core.config.imageLoaderAttr );
+        //     this.imageController.destroy();
+        //     this.imageController = new ImageController( this.images );
+        //
+        // }, this.resizeBounce );
+        //
+        // core.emitter.on( "app--resize", this.__appResize );
     }
 
 
     destroy () {
-        core.emitter.off( "app--resize", this.__appResize );
+        // core.emitter.off( "app--resize", this.__appResize );
 
         if ( this.imageController ) {
             this.imageController.destroy();
