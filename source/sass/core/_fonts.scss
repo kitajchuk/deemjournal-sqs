@@ -30,6 +30,20 @@
     font-stretch: normal;
 }
 @font-face {
+    font-family: $font-sans-semibold;
+    src: url( "/assets/fonts/#{$font-sans-semibold}.woff" ) format( "woff" ),
+         url( "/assets/fonts/#{$font-sans-semibold}.woff2" ) format( "woff2" );
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: $font-sans-semibold-italic;
+    src: url( "/assets/fonts/#{$font-sans-semibold-italic}.woff" ) format( "woff" ),
+         url( "/assets/fonts/#{$font-sans-semibold-italic}.woff2" ) format( "woff2" );
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
     font-family: $font-serif-light;
     src: url( "/assets/fonts/#{$font-serif-light}.woff" ) format( "woff" ),
          url( "/assets/fonts/#{$font-serif-light}.woff2" ) format( "woff2" );
