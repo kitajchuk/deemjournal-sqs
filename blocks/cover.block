@@ -13,7 +13,7 @@
     <div class="cover__image -cover js-lazy-cover-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}"></div>
     <div class="cover__hover js-cover-hover">
         <a class="cover__title" href="{@url}">
-            <h3>{title} <span>{.if customContent.ctaTextValue}{customContent.ctaTextValue}{.or}View story{.end}</span></h3>
+            <h3>{title}{.if customContent.ctaTextValue}, <span>{customContent.ctaTextValue}{.or}View story</span>{.end}</h3>
         </a>
         <div class="cover__icon" style="display:none;">
             {@|apply svg-right.block}

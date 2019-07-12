@@ -94,10 +94,34 @@
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
 .story--detail .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
     h1, h2, h3 {
-        @include sqs-h123();
-
         &:before {
             display: none;
         }
+    }
+}
+.story--detail.h1RoobertMedium .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
+.story--detail.h1RoobertMedium .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
+    h1, h2, h3 {
+        @include h1();
+    }
+}
+.story--detail.h1CheltenhamBook .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
+.story--detail.h1CheltenhamBook .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
+    h1, h2, h3 {
+        @include h1();
+        @include font-family-serif-bold();
+    }
+}
+.story--detail.h2RoobertMedium .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
+.story--detail.h2RoobertMedium .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
+    h1, h2, h3 {
+        @include h2();
+    }
+}
+.story--detail.h2CheltenhamBook .sqs-layout > .sqs-row > .col > .sqs-block-spacer:first-child + .sqs-block-html,
+.story--detail.h2CheltenhamBook .sqs-layout > .sqs-row > .col > .sqs-block-image:first-child + .sqs-block-spacer + .sqs-block-html {
+    h1, h2, h3 {
+        @include h2();
+        @include font-family-serif-bold();
     }
 }
