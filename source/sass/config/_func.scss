@@ -777,11 +777,11 @@
 }
 @mixin media-tall() {
     display: inline-block;
-    max-width: $text-width;
+    max-width: $tall-width-1;
     width: 100%;
 
     @include respond( $break-laptop-full ) {
-        max-width: $text-width - 200px;
+        max-width: $tall-width-1 - 200px;
     }
 }
 @mixin diptych() {
