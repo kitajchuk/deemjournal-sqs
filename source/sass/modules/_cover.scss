@@ -1,3 +1,6 @@
+$cover-breakpoint: 812px;
+
+
 .cover {
     height: 100vh;
     width: 100vw;
@@ -5,7 +8,7 @@
     z-index: 1;
     overflow: hidden;
 
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $cover-breakpoint ) {
         height: auto;
     }
 
@@ -24,7 +27,7 @@
     z-index: 2;
     pointer-events: none;
 
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $cover-breakpoint ) {
         display: none;
     }
 }
@@ -32,10 +35,44 @@
     display: none;
 
     .grid__item {
-        padding-bottom: 0;
+        padding: 0;
+        width: 100%;
     }
 
-    @include respond( $mobile-breakpoint ) {
+    .grid__link {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        @include respond( $mobile-breakpoint ) {
+            display: block;
+        }
+
+        .grid__image {
+            width: 50%;
+            display: inline-block;
+
+            @include respond( $mobile-breakpoint ) {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .grid__info {
+            width: 50%;
+            display: inline-block;
+            padding-left: $padding-1;
+            padding-top: $padding-1;
+
+            @include respond( $mobile-breakpoint ) {
+                width: 100%;
+                display: block;
+                padding-left: $padding-m / 2;
+            }
+        }
+    }
+
+    @include respond( $cover-breakpoint ) {
         display: block;
         @include wrap();
     }
@@ -43,7 +80,7 @@
 .cover__color,
 .cover__hover,
 .cover__image {
-    @include respond( $mobile-breakpoint ) {
+    @include respond( $cover-breakpoint ) {
         display: none;
     }
 }

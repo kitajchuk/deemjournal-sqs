@@ -25,6 +25,7 @@ class Cover {
         this.mission = this.parent.find( ".js-cover + .sqs-layout .sqs-block-html" );
         this.summary = this.parent.find( ".js-cover + .sqs-layout + .sqs-layout .sqs-block-summary-v2" );
         this.tween = {};
+        this.mobileMediaHack = 812;
         this.init();
         this.bind();
     }
@@ -56,7 +57,7 @@ class Cover {
         const windowThird = window.innerHeight / 3;
         const windowCheck = window.innerHeight - windowThird;
 
-        if ( core.util.rectsCollide( coverBounds, headerBounds ) && (window.innerWidth > core.config.mobileMediaHack) ) {
+        if ( core.util.rectsCollide( coverBounds, headerBounds ) && (window.innerWidth > this.mobileMediaHack) ) {
             core.dom.html.addClass( `is-coverpage--collider is-coverpage--${this.data.id}` );
 
         } else {
