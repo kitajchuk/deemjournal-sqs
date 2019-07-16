@@ -46,6 +46,6 @@
         }
     }
 }
-.sqs-layout > .sqs-row > .col > .sqs-row:not( :first-child ) > .col:nth-child( 1 ) > .sqs-block-html > .sqs-block-content {
+.sqs-layout > .sqs-row > .col > .sqs-row:not( :first-child ) > .col > .sqs-block-html > .sqs-block-content {
     @include text-content-reset();
 }
