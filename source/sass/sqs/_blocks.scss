@@ -18,62 +18,6 @@
         }
     }
 }
-.is-home-page,
-.is-shop-page {
-    #deem--footer {
-        background-color: $black;
-        color: $white;
-        position: relative;
-        z-index: 2;
-
-        // Standalone complex
-        min-height: 100vh;
-        display: flex;
-        width: 100%;
-        align-items: flex-end;
-        justify-content: flex-end;
-
-        > .sqs-row {
-            width: 100% !important;
-        }
-
-        .newsletter__success {
-            color: $white;
-        }
-
-        .annotation blockquote p {
-            color: $white;
-        }
-
-        .annotation__note a,
-        .annotation__text a {
-            @include a( $white );
-        }
-
-        .inp {
-            color: $white;
-            border-bottom: 1px solid $white;
-            @include placeholder( $white );
-
-            &.is-invalid {
-                color: $red;
-            }
-        }
-
-        ._svg {
-            fill: $white;
-        }
-    }
-}
-.is-home-page.is-hoverable,
-.is-shop-page.is-hoverable {
-    #deem--footer {
-        .annotation__note a:hover,
-        .annotation__text a:hover {
-            border-bottom-color: transparent;
-        }
-    }
-}
 .sqs-block-horizontalrule {
     @include exp-imp();
 

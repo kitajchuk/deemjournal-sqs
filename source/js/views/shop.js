@@ -46,22 +46,6 @@ export default ( instance ) => {
         ${isGridView ? getGridView() : getStackView()}
         ${subItem ? `
             <div class="stack stack--sub js-stack" data-id="${subItem.id}">
-                <style class="js-stack-style">
-                    html.is-stack--${subItem.id} {
-                        background-color: ${window.Y.Squarespace.Template.getTweakValue( "subModuleColor" )};
-                    }
-                    .is-stack--${subItem.id} .navi__a {
-                        color: #fff;
-                    }
-                    .is-stack--${subItem.id} .navi__a.is-active,
-                    .is-stack--${subItem.id}.is-hoverable .navi__a:hover {
-                        border-bottom-color: #fff;
-                    }
-                    .is-stack--${subItem.id} ._svg--list,
-                    .is-stack--${subItem.id} ._svg--logo {
-                        fill: #fff;
-                    }
-                </style>
                 <div class="stack__wrap js-stack-wrap">
                     <img class="stack__image js-lazy-image" data-img-src="${subItem.assetUrl}" data-variants="${subItem.systemDataVariants}" data-original-size="${subItem.originalSize}" />
                     <div class="stack__info">
@@ -73,22 +57,6 @@ export default ( instance ) => {
             </div>
         ` : `
             <div class="stack stack--sub js-stack" data-id="sub">
-                <style class="js-stack-style">
-                    html.is-stack--sub {
-                        background-color: ${window.Y.Squarespace.Template.getTweakValue( "subModuleColor" )};
-                    }
-                    .is-stack--sub .navi__a {
-                        color: #fff;
-                    }
-                    .is-stack--sub .navi__a.is-active,
-                    .is-stack--sub.is-hoverable .navi__a:hover {
-                        border-bottom-color: #fff;
-                    }
-                    .is-stack--sub ._svg--list,
-                    .is-stack--sub ._svg--logo {
-                        fill: #fff;
-                    }
-                </style>
                 <div class="stack__wrap js-stack-wrap"></div>
             </div>
         `}

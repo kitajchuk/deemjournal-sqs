@@ -36,14 +36,6 @@
     }
 }
 .stack--sub {
-    color: $white;
-
-    .stack__info {
-        .h6 p {
-            @include a( $white );
-        }
-    }
-
     .stack__wrap {
         padding-top: $story-padding;
         padding-bottom: $story-padding;
