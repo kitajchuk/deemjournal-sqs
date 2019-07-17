@@ -296,7 +296,6 @@
     }
 }
 ._card__title {
-    @include diptych();
     width: sqs-calc( "100% - #{$tall-width-0}" );
 
     &:first-child {
