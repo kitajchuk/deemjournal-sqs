@@ -32,9 +32,6 @@ export default ( instance ) => {
                     </div>
                 </div>
                 ${isActivateLiveShop ? `
-                    <div class="p1__shipping">
-                        <h6>Free standard <a href="#" target="_blank">domestic shipping</a></h6>
-                    </div>
                     <div class="p1__attributes">
                         ${getAttributes()}
                     </div>
