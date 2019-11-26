@@ -137,9 +137,9 @@ const router = {
         doc = $( doc );
         virtual = doc.find( ".js-router" );
 
-        // Parse outside of DOM ( SQS config stuff for block overrides )
-        virtual.find( ".js-sqs-config-style" ).remove();
-        virtual.find( ".js-sqs-config-image" ).remove();
+        // Parse in the virtual DOM ( SQS config stuff for block overrides )
+        this.parseConfig( virtual );
+        this.parseLayout( virtual );
 
         return {
             doc: doc,
@@ -147,6 +147,27 @@ const router = {
             html: virtual[ 0 ].innerHTML,
             data: virtual.data()
         };
+    },
+
+
+    parseConfig ( virtual ) {
+        virtual.find( ".js-sqs-config-style" ).remove();
+        virtual.find( ".js-sqs-config-image" ).remove();
+    },
+
+
+    parseLayout ( virtual ) {
+        const article = virtual.find( "article[data-item-id]" );
+
+        if ( article.length ) {
+            const stack = article.find( ".sqs-layout > .row > .sqs-col-12" );
+            const wrong = article.find( ".sqs-layout > .row > .sqs-col-6" ).parent();
+
+            if ( wrong.length && stack.length ) {
+                wrong.detach();
+                stack.prepend( wrong );
+            }
+        }
     },
 
 

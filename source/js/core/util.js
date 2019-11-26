@@ -10,7 +10,7 @@
 import $ from "properjs-hobo";
 import ImageLoader from "properjs-imageloader";
 import dom from "./dom";
-import env from "./env";
+// import env from "./env";
 import config from "./config";
 import detect from "./detect";
 
@@ -146,9 +146,9 @@ const preDetermineImageAspect = ( image, data ) => {
 
     image[ 0 ].style.paddingBottom = `${ratio}%`;
 
-    if ( env.isDev() ) {
-        image[ 0 ].style.backgroundColor = `black`;
-    }
+    // if ( env.isDev() ) {
+    //     image[ 0 ].style.backgroundColor = `black`;
+    // }
 };
 
 
