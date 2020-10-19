@@ -161,7 +161,7 @@ const navi = {
             setTimeout(() => {
                 resolve();
 
-            }, 1 );
+            }, 100 );
         });
     },
 
@@ -170,7 +170,7 @@ const navi = {
         setTimeout(() => {
             this.menu[ 0 ].style.display = "none";
 
-        }, 1 );
+        }, 100 );
     },
 
 
