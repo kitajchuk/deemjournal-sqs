@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@squarespace/core": "^1.1.0",
-    "gsap": "^2.0.1"
+    "gsap": "^3.6.0"
   },
   "devDependencies": {
     "@squarespace/toolbelt": "^0.8.4",
